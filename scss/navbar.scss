@@ -14,13 +14,11 @@
   width: 100%;
 
   $height: 50px;
-  $padding_top: 0.5 * $height;
-  $padding_bottom: 0.5 * $height;
 
   padding: {
 
-    top: $padding_top;
-    bottom: $padding_bottom;
+    top: 0.5 * $height;
+    bottom: 0.5 * $height;
   }
 
   a + a {
