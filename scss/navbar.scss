@@ -4,8 +4,9 @@
 
 #navigation-bar {
 
-  background-color: lightgrey;
-  text-align: center;
+  $bg_color: #0c2d4a;
+  $underline_width: 5px;
+  $underline_color: #007FDC;
 
   position: fixed;
   left: 0;
@@ -13,16 +14,32 @@
 
   width: 100%;
 
-  $height: 50px;
+  background-color: $bg_color;
 
-  padding: {
+  text-align: center;
 
-    top: 0.5 * $height;
-    bottom: 0.5 * $height;
-  }
+  a {
 
-  a + a {
+    display: inline-block;
+    padding: {
 
-    margin-left: 10px;
+      top: 15px;
+      bottom: 5px;
+    }
+    border-bottom: $underline_width solid $bg_color;
+
+    font-family: 'Open Sans', sans-serif;
+    color: white;
+
+    cursor: pointer;
+
+    & + a {
+
+      margin-left: 50px;
+    }
+    &:hover {
+
+      border-bottom: $underline_width solid $underline_color;
+    }
   }
 }
