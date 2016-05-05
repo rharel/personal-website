@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block title %}About{% endblock %}
+
+{% block head %}
+{{ super() }}
+{% endblock %}
+
+{% block content %}
+
+<h1>About</h1>
+<img src="{{ url_for('static', filename='img/about/portrait_256x256.jpg') }}" class="circular">
+
+{% endblock %}

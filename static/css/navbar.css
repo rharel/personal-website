@@ -1,0 +1,27 @@
+/**
+ * Main navigation bar.
+ */
+#navigation-bar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  background-color: #0c2d4a;
+  text-align: center; }
+  #navigation-bar a {
+    display: inline-block;
+    padding-top: 15px;
+    padding-bottom: 5px;
+    border-bottom: 5px solid #0c2d4a;
+    font-family: 'Open Sans', sans-serif;
+    color: white;
+    cursor: pointer; }
+    #navigation-bar a + a {
+      margin-left: 50px; }
+    #navigation-bar a:hover {
+      border-bottom: 5px solid #007FDC; }
+
+#content {
+  margin-top: 50px; }
+
+/*# sourceMappingURL=navbar.css.map */
