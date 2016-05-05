@@ -3,3 +3,9 @@
 
 # virtualenv
 venv/
+
+# Thumbnails
+Thumbs.db
+
+# Sass
+*.css.map
