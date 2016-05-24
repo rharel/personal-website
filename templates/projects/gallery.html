@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block title %}Projects{% endblock %}
+{% block head %}
+
+    {{ super() }}
+
+    <link rel="stylesheet" type="text/css"
+          href="{{ url_for('static', filename='projects/css/gallery.css') }}">
+
+{% endblock %}
+{% block content %}
+
+    <h1>PROJECTS</h1>
+
+    <div class="project-list">
+
+        {% include "projects/game-of-life/info.html" %}
+        {% include "projects/higher-order-bezier/info.html" %}
+    </div>
+
+
+{% endblock %}
+{% block lastUpdateStamp %} May, 2016 {% endblock %}

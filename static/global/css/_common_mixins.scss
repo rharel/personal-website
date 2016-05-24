@@ -1,0 +1,41 @@
+//
+// Common mixins used throughout the website.
+//
+
+
+@mixin media-XS {
+
+  @media (max-width: 480px) {
+
+    @content;
+  }
+}
+@mixin media-S {
+
+  @media (max-width: 640px) {
+
+    @content;
+  }
+}
+@mixin media-M {
+
+  @media (max-width: 768px) {
+
+    @content;
+  }
+}
+@mixin media-L {
+
+  @media (min-width: 1024px) {
+
+    @content;
+  }
+}
+
+@mixin border-radius($radius) {
+
+  -webkit-border-radius: $radius;
+     -moz-border-radius: $radius;
+      -ms-border-radius: $radius;
+          border-radius: $radius;
+}

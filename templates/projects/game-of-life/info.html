@@ -1,0 +1,27 @@
+{% extends "projects/info_base.html" %}
+
+{% from "common/macros.html" import wikilink %}
+
+{% block projectTitle %}Game of Life{% endblock %}
+{% block projectBriefTitle %}Game of Life{% endblock %}
+{% block projectURL %}/projects/game-of-life{% endblock %}
+{% block projectThumbnail %}
+
+    <img class="project-thumbnail"
+         src="{{ url_for('static', filename='projects/game-of-life/img/glider_5x5.svg') }}">
+
+{% endblock %}
+{% block projectSummary %}
+
+    Conway's {{ wikilink('Game of Life', 'Conway\'s Game of Life') }}
+    is a {{ wikilink('cellular automaton') }} where cells live on an infinite grid and can assume
+    one of two states: dead or alive. Simple rules govern the evolution of the population
+    and yet give rise to surprisingly complex patterns!
+
+{% endblock %}
+{% block projectTags %}
+
+    <span class="tag-js">Javascript</span>
+    <span class="tag-cellular-automata">Cellular Automata</span>
+
+{% endblock %}

@@ -1,0 +1,24 @@
+//
+// Breadcrumbs style rules.
+//
+
+
+#breadcrumbs {
+
+  margin-top: 20px;
+}
+
+.breadcrumb {
+
+  white-space: nowrap;
+}
+
+#breadcrumb-last {
+
+  @extend .breadcrumb;
+  font-weight: bold;
+}
+
+.breadcrumb-delimiter {
+
+}

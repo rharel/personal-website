@@ -1,0 +1,39 @@
+<a class="project-info-container"
+   href="{% block projectURL %}/unknown{% endblock %}">
+    <table class="project-info">
+        <tr>
+            <td class="project-thumbnail-td">
+                {% block projectThumbnail %}
+
+                    <img class="project-thumbnail"
+                         src="{{ url_for('static', filename='global/img/placeholder_100x100.svg') }}">
+
+                {% endblock %}
+                <span class="project-brief-title">
+
+                    {% block projectBriefTitle %}{% endblock %}
+
+                </span>
+            </td>
+            <td class="project-description-td">
+                <div class="project-description">
+                    <span class="project-title">
+
+                        {% block projectTitle %}{% endblock %}
+
+                    </span>
+                    <div class="project-tags">
+
+                        {% block projectTags %}{% endblock %}
+
+                    </div>
+                    <p class="project-summary">
+
+                        {% block projectSummary %}{% endblock %}
+
+                    </p>
+                </div>
+            </td>
+        </tr>
+    </table>
+</a>

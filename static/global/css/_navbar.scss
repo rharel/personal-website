@@ -1,0 +1,53 @@
+//
+// Main navigation bar.
+//
+
+
+@import 'common_colors';
+@import 'common_mixins';
+
+#navigation-bar {
+
+  $underline_width: 5px;
+  $underline_color: $blue_2;
+
+  width: 100%;
+
+  background-color: $blue_3;
+  text-align: center;
+
+  a {
+
+    display: inline-block;
+
+    border-bottom: $underline_width solid $blue_3;
+    padding: {
+
+      top: 15px;
+      bottom: 5px;
+    }
+
+    color: white;
+    cursor: pointer;
+    text-decoration: none;
+
+    & + a {
+
+      margin-left: 50px;
+    }
+    &:hover {
+
+      border-bottom: $underline_width solid $blue_1;
+    }
+
+    @include media-XS() {
+
+      display: block;
+
+      & + a {
+
+        margin-left: 0;
+      }
+    }
+  }
+}

@@ -1,14 +1,46 @@
 {% extends "base.html" %}
 
+{% from "common/macros.html" import wikilink %}
+
 {% block title %}About{% endblock %}
-
 {% block head %}
-{{ super() }}
-{% endblock %}
 
+    {{ super() }}
+
+    <link rel="stylesheet" type="text/css"
+          href="{{ url_for('static', filename='about/css/about.css') }}">
+
+{% endblock %}
 {% block content %}
 
-<h1>About</h1>
-<img src="{{ url_for('static', filename='img/about/portrait_256x256.jpg') }}" class="circular">
+    <h1>ABOUT</h1>
 
+    <div id="portrait-container">
+        <img id="portrait" class="circular"
+             src="{{ url_for('static', filename='about/img/portrait_256px.jpg') }}">
+    </div>
+
+    <p>
+        I'm a computer scientist with interests overlapping fields such as psychology,
+        sociology, artificial intelligence, and human-machine interactions.
+    </p>
+    <p>
+        I received a bachelor's of computer science & engineering from the
+        <a href="http://www.tudelft.nl/en/" target="_blank">Delft University of Technology</a> in 2014,
+        and am currently in the process of rounding up my master's of game and media technology at
+        <a href="http://www.uu.nl/en" target="_blank">Utrecht University</a> in the Netherlands. My thesis' work
+        is about modeling {{ wikilink('turn-taking') }} in multi-party conversation. I'm expected to graduate
+        in the summer of 2016.
+    </p>
+    <p>
+        When studying any new concept or technology, I like to test and improve my knowledge by developing
+        a related toy-application of the material. I use this website to host and document a multitude
+        of such <a href="projects/">side-projects</a> I've made over the years.
+    </p>
+    <p>
+        Don't hesitate to <a href="contact">get in touch</a>! <br><br>
+        Best, <br>
+        Raoul
+    </p>
 {% endblock %}
+{% block lastUpdateStamp %} May, 2016 {% endblock %}

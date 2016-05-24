@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block title %}Oops!{% endblock %}
+{% block head %}
+
+    {{ super() }}
+
+    <link rel="stylesheet" type="text/css"
+          href="{{ url_for('static', filename='global/css/error.css') }}">
+
+{% endblock %}
+{% block content %}
+
+    <div id="error-container">
+        <div id="error">
+            Error {% block errorCode %}{% endblock %}
+        </div>
+        <div id="message">
+            {% block errorMessage %}{% endblock %}
+        </div>
+    </div>
+
+{% endblock %}
+  {% block lastUpdateStamp %} May, 2016 {% endblock %}

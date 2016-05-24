@@ -1,0 +1,27 @@
+//
+// Rules for /about
+//
+
+
+@import '../../global/css/common_mixins';
+
+#portrait-container {
+
+  width: 33%;
+  max-width: 200px;
+  float: right;
+  text-align: center;
+
+  @include media-XS() {
+
+    width: 100%;
+    max-width: none;
+    float: none;
+  }
+}
+
+#portrait {
+
+  width: 100%;
+  max-width: 150px;
+}

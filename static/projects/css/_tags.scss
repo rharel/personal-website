@@ -1,0 +1,39 @@
+//
+// Project tag collection.
+//
+
+
+@import "../../global/css/common_colors";
+@import "../../global/css/common_mixins";
+
+.tag {
+
+  padding: {
+
+    left: 4px;
+    right: 4px;
+  }
+  border: 1px solid $grey_3;
+  @include border-radius(5px);
+
+  font-size: 9pt;
+  white-space: nowrap;
+}
+
+.tag-js {
+
+  @extend .tag;
+  background-color: #FDDA3E;
+}
+
+.tag-cellular-automata {
+
+  @extend .tag;
+  background-color: $grey_2;
+}
+
+.tag-graphics {
+
+  @extend .tag;
+  background-color: #a4d3ff;
+}

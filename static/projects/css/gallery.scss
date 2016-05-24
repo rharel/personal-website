@@ -1,0 +1,123 @@
+//
+// Rules for /projects/
+//
+
+
+@import '../../global/css/common_colors';
+@import '../../global/css/common_mixins';
+@import 'tags';
+
+.project-list {
+
+  text-align: center;
+}
+.project-info-container {
+
+  display: block;
+
+  border: 1px solid $grey_3;
+  padding: 10px;
+
+  @include border-radius(10px);
+  background-color: $grey_2;
+  color: black;
+  text-align: left;
+
+  & + .project-info-container {
+
+    margin-top: 10px;
+  }
+
+  &:hover {
+
+    background-color: $grey_3;
+  }
+
+  @include media-XS() {
+
+    //display: inline-block;
+  }
+}
+.project-info {
+
+  border-collapse: collapse;
+  border: 1px solid $grey_3;
+  width: 100%;
+
+  background-color: $grey_1;
+}
+
+.project-thumbnail-td {
+
+  border: 0;
+  width: 120px;
+  padding: 0;
+  background-color: $blue_1;
+  text-align: center;
+
+  @include media-XS() {
+
+    padding: 10px;
+  }
+}
+.project-thumbnail {
+
+  display: block;
+
+  margin: {
+
+    left: auto;
+    right: auto;
+  }
+  border: 1px solid black;
+  width: 100px;
+}
+
+.project-description-td {
+
+  border: 0;
+  padding-left: 10px;
+
+  @include media-XS() {
+
+    display: none;
+  }
+}
+.project-description {
+
+}
+
+.project-title {
+
+  display: block;
+  margin: {
+
+    top: 15px;
+    bottom: 5px;
+  }
+
+  font-size: 16pt;
+  font-weight: bold;
+}
+.project-brief-title {
+
+  display: none;
+
+  margin-top: 5px;
+  font-size: 12pt;
+
+  @include media-XS() {
+
+    display: block;
+  }
+}
+.project-summary {
+
+  margin: {
+
+    top: 15px;
+    bottom: 15px;
+    right: 10px;
+  }
+  font-size: 10pt;
+}

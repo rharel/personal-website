@@ -1,0 +1,25 @@
+{% macro lifelink(label, article='') -%}
+
+    {% if not article %}
+        {% set article = label %}
+    {% endif %}
+
+    {% set url = 'http://www.conwaylife.com/wiki/' + article.replace(' ', '_') %}
+    <a href="{{ url  }}" target="_blank">{{ label }}</a>
+
+{%- endmacro %}
+
+{% macro animated_canvas(id, width, height) %}
+
+    <div class="animation-container">
+        <canvas id="{{ id }}" class="fig3-animated-canvas"
+                width="{{ width }}" height="{{ height }}">
+        </canvas>
+        <div class="overlay" onclick="Gol.toggle_animation('{{ id }}')">
+            <div class="play-button">
+                <div class="play-symbol"></div>
+            </div>
+        </div>
+    </div>
+
+{% endmacro %}

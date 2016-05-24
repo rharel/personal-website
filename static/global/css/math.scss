@@ -1,0 +1,32 @@
+//
+// Math related rules.
+//
+
+
+@font-face {
+
+  font-family: 'Computer Modern';
+  src: url('../font/cmunss.otf');
+}
+
+.math {
+
+  font-family: 'Computer Modern', sans-serif;
+  white-space: nowrap;
+}
+
+div, .math {
+
+  text-align: center;
+}
+
+.equation-group {
+
+  text-align: left;
+}
+.equation {
+
+  text-align: left;
+  white-space: nowrap;
+  overflow-x: auto;
+}

@@ -1,0 +1,74 @@
+//
+// Figures and captions
+//
+
+
+@import '../../global/css/common_colors';
+@import '../../global/css/common_mixins';
+
+.figure {
+
+  margin: {
+
+    top: 15px;
+    bottom: 15px;
+  }
+  padding: 20px;
+  background-color: $blue_1;
+  text-align: center;
+  @include border-radius(10px);
+
+  img, canvas {
+
+    border: 1px solid $grey_4;
+  }
+
+  @include media-XS() {
+
+    padding: {
+
+      top: 20px;
+      bottom: 20px;
+      left: 5px;
+      right: 5px;
+    }
+  }
+}
+.figure-id {
+
+  font-weight: bold;
+}
+
+.caption-container {
+
+  margin-top: 10px;
+  text-align: left;
+}
+.caption {
+
+  font-size: 11pt;
+}
+
+.subfigure-row {
+
+  margin: {
+
+    top: 10px;
+  }
+}
+.subfigure {
+
+  display: inline-block;
+  margin: {
+
+    top: 10px;
+    bottom: 10px;
+    left: auto;
+    right: auto;
+  }
+}
+.subfigure-caption {
+
+  text-align: center;
+  font-size: 10pt;
+}

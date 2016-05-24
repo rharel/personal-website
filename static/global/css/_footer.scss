@@ -1,0 +1,19 @@
+//
+// Page footer.
+//
+
+
+@import 'common_colors';
+
+#footer {
+
+  width: 100%;
+  padding: {
+
+    top: 10px;
+    bottom: 10px;
+  }
+
+  text-align: center;
+  color: $grey_4;
+}
