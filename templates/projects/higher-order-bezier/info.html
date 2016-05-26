@@ -1,0 +1,26 @@
+{% extends "projects/info_base.html" %}
+
+{% from "common/macros.html" import wikilink %}
+
+{% block projectTitle %}Higher-order Bezier{% endblock %}
+{% block projectBriefTitle %}Higher-order Bezier{% endblock %}
+{% block projectURL %}/projects/higher-order-bezier{% endblock %}
+{% block projectThumbnail %}
+
+    <img class="project-thumbnail"
+         src="{{ url_for('static', filename='projects/higher-order-bezier/img/c_curve.svg') }}">
+
+{% endblock %}
+{% block projectSummary %}
+
+    {{ wikilink('Bezier curves') }} are everywhere. Their simple definition and flexibility makes
+    them oftentimes quite useful for countless applications. Higher-order curves
+    are used seldom. But you know what? They make for beautiful art!
+
+{% endblock %}
+{% block projectTags %}
+
+    <span class="tag-js">Javascript</span>
+    <span class="tag-graphics">Graphics</span>
+
+{% endblock %}

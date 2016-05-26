@@ -15,18 +15,18 @@
   white-space: nowrap;
 }
 
-div, .math {
-
-  text-align: center;
-}
-
-.equation-group {
+div + .math {
 
   text-align: left;
 }
-.equation {
+
+.expression-group {
 
   text-align: left;
+  line-height: 2em;
+}
+.expression {
+
   white-space: nowrap;
   overflow-x: auto;
 }

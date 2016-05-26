@@ -1,0 +1,227 @@
+{% extends "projects/index_base.html" %}
+
+{% set cd = 'projects/higher-order-bezier/' %}
+
+{% from "common/macros.html" import wikilink, githublink, caption %}
+{% from "projects/higher-order-bezier/macros.html" import animated_curve %}
+
+{% block title %}Higher-order Bezier{% endblock %}
+{% block head %}
+
+    {{ super() }}
+
+    <link rel="stylesheet" type="text/css"
+          href="{{ url_for('static', filename='3rd/prism/prism.css') }}">
+    <script type="text/javascript"
+            src="{{ url_for('static', filename='3rd/prism/prism.js') }}"></script>
+
+    <link rel="stylesheet" type="text/css"
+          href="{{ url_for('static', filename='global/css/math.css') }}">
+    <link rel="stylesheet" type="text/css"
+          href="{{ url_for('static', filename='projects/css/animation_clip.css') }}">
+
+    <link rel="stylesheet" type="text/css"
+          href="{{ url_for('static', filename=cd + 'css/showcase.css') }}">
+    <script type="text/javascript"
+            src="{{ url_for('static', filename=cd + 'js/bezier.js') }}"></script>
+    <script type="text/javascript"
+            src="{{ url_for('static', filename=cd + 'js/CanvasView.js') }}"></script>
+    <script type="text/javascript"
+            src="{{ url_for('static', filename=cd + 'js/Animation.js') }}"></script>
+    <script type="text/javascript"
+            src="{{ url_for('static', filename=cd + 'js/animation_control.js') }}"></script>
+    <script type="text/javascript"
+            src="{{ url_for('static', filename=cd + 'js/showcase.js') }}"></script>
+    <script type="text/javascript"
+            src="{{ url_for('static', filename=cd + 'js/figure_1.js') }}"></script>
+    <script type="text/javascript"
+            src="{{ url_for('static', filename=cd + 'js/figure_2.js') }}"></script>
+{% endblock %}
+{% block projectSummary %}
+
+    <p>
+        {{ wikilink('Bezier curves', 'Bezier curve') }} see widespread use across a multitude of applications
+        in computer graphics, data-interpolation and others. For the vast majority of these, curves of the second or
+        third order are sufficient. Higher-order curves remain neglected since they become harder to control
+        by the designer and become increasingly expensive to compute.
+    </p>
+    <p>
+        However, one application in which both of these factors aren't a concern is {{ wikilink('string art') }}.
+        That's right, programmatically defined Bezier curves can be used to generate beautiful images - and that
+        is what I wanted to try out.
+    </p>
+
+{% endblock %}
+{% block tableOfContents %}
+
+    <h2>Table of Contents</h2>
+
+    <ul>
+        <li><a href="#section-showcase">Showcase</a></li>
+        <li><a href="#section-what-are-bezier-curves">What are Bezier curves?</a></li>
+        <li><a href="#section-implementation">Implementation</a></li>
+        <li><a href="#section-source-code">Source code</a></li>
+        <li><a href="#section-see-also">See also</a></li>
+    </ul>
+
+{% endblock %}
+{% block content %}
+
+    {{ super() }}
+
+    <a id="section-showcase"></a>
+    <h2>Showcase</h2>
+
+    <div class="showcase-container">
+        <canvas id="showcase-canvas-0" class="showcase-canvas" width="250" height="250"></canvas>
+        <canvas id="showcase-canvas-1" class="showcase-canvas" width="250" height="250"></canvas>
+        <canvas id="showcase-canvas-2" class="showcase-canvas" width="250" height="250"></canvas>
+    </div>
+
+    <a id="section-what-are-bezier-curves"></a>
+    <h2>What are Bezier curves?</h2>
+
+    <p>
+        Bezier curves are a {{ wikilink('parametric curve') }} defined by a sequence of <b>control points</b>:
+    </p>
+    <div class="math">
+
+        P = (P<sub>0</sub>, P<sub>1</sub>, &#8230; P<sub>n</sub>)
+
+    </div>
+    <p>
+        The function <b><span class="math">B(P, t)</span></b> that traces the curve can be defined recursively:
+    </p>
+    <div class="math">
+        <div class="expression-group">
+
+            <div class="expression">
+
+                t &#8712; [0, 1] <br>
+
+            </div>
+            <div class="expression">
+
+                B((P<sub>0</sub>), t) = P<sub>0</sub>
+
+            </div>
+            <div class="expression">
+
+                B((P<sub>0</sub>, P<sub>1</sub>, &#8230; P<sub>n</sub>), t) =
+                    (1 - t)B((P<sub>0</sub>, P<sub>1</sub>, &#8230; P<sub>n-1</sub>), t) +
+                    tB((P<sub>1</sub>, P<sub>2</sub>, &#8230; P<sub>n</sub>), t)
+
+            </div>
+        </div>
+    </div>
+    <p>
+        The recursive nature of the definition can be visualized by drawing each layer of the recursion.
+        Check out the visualization of the first three orders of Bezier curves below:
+    </p>
+    <div class="figure">
+        <div class="subfigure-row">
+            <div class="subfigure">
+                {{ animated_curve('fig1-linear', 150, 100) }}
+                <div class="subfigure-caption">
+                    Linear
+                </div>
+            </div>
+            <div class="subfigure">
+                {{ animated_curve('fig1-quadratic', 150, 100) }}
+                <div class="subfigure-caption">
+                    Quadratic
+                </div>
+            </div>
+            <div class="subfigure">
+                {{ animated_curve('fig1-cubic', 150, 100) }}
+                <div class="subfigure-caption">
+                    Cubic
+                </div>
+            </div>
+        </div>
+        {{ caption('Figure 1',
+                   'The construction of first, second,
+                    and third orders of the Bezier curve visualized.') }}
+    </div>
+    <p>
+        With even more control points and an adequate coloring, these visualizations can become
+        quite mesmerizing. For example take the rather simple curve in figure 2.1, extend the pattern to
+        a higher degree of control points and viola! A brilliant piece of art!
+    </p>
+    <div class="figure">
+        {{ animated_curve('fig2-twister-high', 250, 250) }}
+        {{ caption('Figure 2',
+                   'Visualization of a higher-order (12 control points) curve.') }}
+    </div>
+
+    <a id="section-implementation"></a>
+    <h2>Implementation</h2>
+
+    <p>
+        We trace the curve by evaluating it at intervals of fixed length <span class="math">&#8467;</span>
+        in <span class="math">t</span>, in order to obtain a sequence
+        of points <span class="math">C</span> that approximates its shape:
+    </p>
+    <div class="math">
+        <div class="expression-group">
+            <div class="expression">
+                &#8467; = 1 / n
+            </div>
+            <div class="expression">
+                C = (C<sub>0</sub>, C<sub>1</sub>, &#8230; C<sub>n</sub>)
+            </div>
+            <div class="expression">
+                C<sub>i</sub> = B(P, i&#8467;)
+            </div>
+        </div>
+    </div>
+    <p>
+        We use the ordered sequence <span class="math">C</span> to draw a line strip (connected line segments
+        between subsequent elements) that converges towards the true shape of the curve as <span class="math">&#8467;</span> approaches
+        zero.
+    </p>
+    <p>
+        We evaluate <span class="math">B(P, t)</span> for some value of <span class="math">t</span>
+        using the following algorithm:
+    </p>
+    <pre><code class="language-javascript">function B(P, t) {
+//    A = P
+//    while |A| > 1 {
+//        A_new = ()
+//        For i in [1, |A|) {
+//            A_new[i-1] = t * A[i] + (1 - t) * A[i-1]
+//        }
+//        A = A_new
+//    }
+//    return A[0]
+};
+</code></pre>
+    <p>
+        At the end of each iteration, we have generated a new sequence <span class="math">A<sub>new</sub></span>
+        with length one less than that of the sequence from the previous iteration:
+        <span class="math">|A<sub>new</sub>| = |A| - 1</span>
+    </p>
+    <p>
+        Within <span class="math">n</span> iterations, the algorithm terminates with a single-item
+        sequence containing the evaluated position of the curve at time <span class="math">t</span>.
+    </p>
+    <a id="section-source-code"></a>
+    <h2>Source code</h2>
+
+    <p>
+        You can view the source code and documentation on {{ githublink('GitHub', 'rharel', 'js-bezier') }}.
+        Additional code used to display the animations on this page can be found in the
+        {{ githublink('GitHub Pages branch', 'rharel', 'js-bezier', 'gh-pages') }} of the repository.
+    </p>
+
+    <a id="section-see-also"></a>
+    <h2>See also</h2>
+
+    <ul>
+        <li>{{ wikilink('Spline function') }}</li>
+        <li>{{ wikilink('Hermite curve') }}</li>
+        <li>{{ wikilink('De Casteljau\'s algorithm') }}</li>
+    </ul>
+
+{% endblock %}
+{% block lastUpdateStamp %} May, 2016 {% endblock %}

@@ -1,0 +1,14 @@
+{% macro animated_curve(id, width, height) %}
+
+    <div class="animation-container">
+        <canvas id="{{ id }}"
+                width="{{ width }}" height="{{ height }}">
+        </canvas>
+        <div class="overlay" onclick="Bezier.toggle_animation('{{ id }}')">
+            <div class="play-button">
+                <div class="play-symbol"></div>
+            </div>
+        </div>
+    </div>
+
+{% endmacro %}
