@@ -42,7 +42,7 @@
                 view: null,
                 precision: 1,
                 colors: ['red', 'green', 'blue'],
-                animation: new Bezier.Animation(20, 499, 0.005)
+                animation: new Bezier.Animation(20, 99, 0.01)
             }
         };
 
