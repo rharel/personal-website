@@ -1,0 +1,11 @@
+#breadcrumbs {
+  margin-top: 20px;
+  text-align: left; }
+
+.breadcrumb, #breadcrumb-last {
+  white-space: nowrap; }
+
+#breadcrumb-last {
+  font-weight: bold; }
+
+/*# sourceMappingURL=breadcrumbs.css.map */

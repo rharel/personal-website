@@ -8,7 +8,6 @@ venv/
 Thumbs.db
 
 # Sass
-*.css
 *.css.map
 
 # Don't ignore third-parties

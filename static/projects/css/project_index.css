@@ -1,0 +1,50 @@
+.figure {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  padding: 20px;
+  background-color: #c2dfff;
+  text-align: center;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  border-radius: 10px; }
+  .figure img, .figure canvas {
+    border: 1px solid #3F3F3F; }
+  @media (max-width: 480px) {
+    .figure {
+      padding-top: 20px;
+      padding-bottom: 20px;
+      padding-left: 5px;
+      padding-right: 5px; } }
+
+.figure-id {
+  font-weight: bold; }
+
+.caption-container {
+  margin-top: 10px;
+  text-align: left; }
+
+.caption {
+  font-size: 11pt; }
+
+.subfigure-row {
+  margin-top: 10px; }
+
+.subfigure {
+  display: inline-block;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: auto;
+  margin-right: auto; }
+
+.subfigure-caption {
+  text-align: center;
+  font-size: 10pt; }
+
+.long-code-snippet {
+  max-height: 400px; }
+
+#project-buttons-container {
+  text-align: right; }
+
+/*# sourceMappingURL=project_index.css.map */

@@ -1,0 +1,16 @@
+#portrait-container {
+  width: 33%;
+  max-width: 200px;
+  float: right;
+  text-align: center; }
+  @media (max-width: 480px) {
+    #portrait-container {
+      width: 100%;
+      max-width: none;
+      float: none; } }
+
+#portrait {
+  width: 100%;
+  max-width: 150px; }
+
+/*# sourceMappingURL=about.css.map */

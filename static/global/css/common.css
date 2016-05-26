@@ -1,0 +1,42 @@
+h1 {
+  border-bottom: 4px double #DBDBDB;
+  color: #316899; }
+
+h2 {
+  color: #316899; }
+
+h3 {
+  font-size: inherit; }
+
+img {
+  background-color: white; }
+
+canvas {
+  display: block;
+  border: 1px solid black; }
+
+small {
+  font-size: 8pt; }
+
+a {
+  text-decoration: none; }
+
+.text-left {
+  text-align: left; }
+
+.text-right {
+  text-align: right; }
+
+.text-center {
+  text-align: center; }
+
+.nowrap {
+  white-space: nowrap; }
+
+.circular {
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  border-radius: 50%; }
+
+/*# sourceMappingURL=common.css.map */

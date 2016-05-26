@@ -1,0 +1,43 @@
+.animation-container {
+  display: inline-block;
+  position: relative; }
+
+.overlay {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
+  cursor: pointer; }
+
+.play-button {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  width: 50px;
+  height: 50px;
+  background-color: #0c2d4a;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  border-radius: 50%;
+  box-shadow: 3px 3px 5px 0 black; }
+
+.play-symbol {
+  position: absolute;
+  left: 8px;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  border-top: 11.88px solid transparent;
+  border-left: 18px solid #45D1FF;
+  border-bottom: 11.88px solid transparent;
+  width: 0;
+  height: 0; }
+
+/*# sourceMappingURL=animation_clip.css.map */

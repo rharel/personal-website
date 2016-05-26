@@ -1,0 +1,19 @@
+@font-face {
+  font-family: 'Computer Modern';
+  src: url("../font/cmunss.otf"); }
+.math {
+  font-family: 'Computer Modern', sans-serif;
+  white-space: nowrap; }
+
+div + .math {
+  text-align: left; }
+
+.expression-group {
+  text-align: left;
+  line-height: 2em; }
+
+.expression {
+  white-space: nowrap;
+  overflow-x: auto; }
+
+/*# sourceMappingURL=math.css.map */
