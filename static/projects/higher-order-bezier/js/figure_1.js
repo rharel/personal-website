@@ -50,7 +50,7 @@
             view: null,
             precision: 0.1,
             colors: ['#FFAAAA', '#50AA50', '#8080FF', 'black'],
-            animation: new Bezier.Animation(20, 99, 0.01)
+            animation: new Bezier.Animation(20, 49, 0.02)
         }
     };
     
