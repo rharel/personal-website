@@ -39,4 +39,12 @@ a {
   -ms-border-radius: 50%;
   border-radius: 50%; }
 
+.notice-info {
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  border-radius: 10px;
+  padding: 10px;
+  background-color: #c2dfff; }
+
 /*# sourceMappingURL=common.css.map */
