@@ -1,0 +1,42 @@
+//
+// Contact page.
+//
+
+
+@import "../../global/css/common_colors";
+@import "../../global/css/common_mixins";
+
+.contact-options-container {
+
+  margin-top: 50px;
+  text-align: center;
+}
+
+.contact-option {
+
+  display: inline-block;
+  color: black;
+
+  & + & {
+
+    margin-left: 50px;
+  }
+  img {
+
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10px;
+    width: 128px;
+  }
+  @include media-XS() {
+
+    display: block;
+
+    & + & {
+
+      margin-left: 0;
+      margin-top: 20px;
+    }
+  }
+}

@@ -5,7 +5,7 @@
   font-family: 'Computer Modern', sans-serif;
   white-space: nowrap; }
 
-div + .math {
+div.math {
   text-align: left; }
 
 .expression-group {
