@@ -1,4 +1,4 @@
-.tag, .tag-js, .tag-cellular-automata, .tag-graphics {
+.tag, .tag-cellular-automata {
   padding-left: 4px;
   padding-right: 4px;
   border: 1px solid #9F9F9F;
@@ -12,8 +12,14 @@
 .tag-js {
   background-color: #FDDA3E; }
 
+.tag-webgl {
+  background-color: #FF8C8C; }
+
 .tag-cellular-automata {
   background-color: #DBDBDB; }
+
+.tag-computational-geometry {
+  background-color: #a4bfff; }
 
 .tag-graphics {
   background-color: #a4d3ff; }

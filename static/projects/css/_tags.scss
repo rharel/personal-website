@@ -20,20 +20,29 @@
   white-space: nowrap;
 }
 
+// Technologies
+
 .tag-js {
 
-  @extend .tag;
   background-color: #FDDA3E;
 }
+.tag-webgl {
+
+  background-color: #FF8C8C;
+}
+
+// Topics
 
 .tag-cellular-automata {
 
   @extend .tag;
   background-color: $grey_2;
 }
+.tag-computational-geometry {
 
+  background-color: #a4bfff;
+}
 .tag-graphics {
 
-  @extend .tag;
   background-color: #a4d3ff;
 }
