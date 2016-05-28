@@ -10,5 +10,8 @@ Thumbs.db
 # Sass
 *.css.map
 
+# Compressed font packages
+static/global/font/*.gz
+
 # Don't ignore third-parties
 !static/3rd/
