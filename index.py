@@ -18,6 +18,11 @@ def page_not_found(error):
     return render_template('error/500.html'), 500
 
 
+@app.route('/<filename>')
+def root(filename):
+    return redirect(url_for('static', filename='root/' + filename))
+
+
 @app.route('/')
 def index():
     return redirect(url_for('about'))
