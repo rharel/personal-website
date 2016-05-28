@@ -67,5 +67,6 @@ a {
 
   @include border-radius(10px);
   padding: 10px;
-  background-color: $blue_1;
+  background-color: $purple_1;
+  color: $purple_2;
 }
