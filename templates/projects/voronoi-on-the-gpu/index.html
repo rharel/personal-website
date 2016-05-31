@@ -1,0 +1,324 @@
+{% extends "projects/index_base.html" %}
+
+{% set cd = 'projects/voronoi-on-the-gpu/' %}
+
+{% from "common/macros.html" import wikilink, githublink, caption %}
+
+{% block title %}Voronoi on the GPU{% endblock %}
+{% block head %}
+
+    {{ super() }}
+
+{#    <link rel="stylesheet" type="text/css"#}
+{#          href="{{ url_for('static', filename='3rd/prism/prism.css') }}">#}
+    <script type="text/javascript"
+            src="{{ url_for('static', filename='3rd/three/three.min.js') }}"></script>
+
+    <link rel="stylesheet" type="text/css"
+          href="{{ url_for('static', filename='global/css/math.css') }}">
+{#    <link rel="stylesheet" type="text/css"#}
+{#          href="{{ url_for('static', filename='projects/css/animation_clip.css') }}">#}
+
+{#    <link rel="stylesheet" type="text/css"#}
+{#          href="{{ url_for('static', filename=cd + 'css/showcase.css') }}">#}
+    <script type="text/javascript"
+            src="{{ url_for('static', filename=cd + 'js/voronoi.min.js') }}"></script>
+{#    <script type="text/javascript"#}
+{#            src="{{ url_for('static', filename=cd + 'js/CanvasView.js') }}"></script>#}
+{#    <script type="text/javascript"#}
+{#            src="{{ url_for('static', filename=cd + 'js/Animation.js') }}"></script>#}
+{#    <script type="text/javascript"#}
+{#            src="{{ url_for('static', filename=cd + 'js/animation_control.js') }}"></script>#}
+{#    <script type="text/javascript"#}
+{#            src="{{ url_for('static', filename=cd + 'js/showcase.js') }}"></script>#}
+    <script type="text/javascript"
+            src="{{ url_for('static', filename=cd + 'js/figure_1.js') }}"></script>
+{#    <script type="text/javascript"#}
+{#            src="{{ url_for('static', filename=cd + 'js/figure_2.js') }}"></script>#}
+{% endblock %}
+{% block projectSummary %}
+    <p>
+        <b>{{ wikilink('Voronoi diagrams', 'Voronoi diagram') }}</b> are an essential concept in
+        {{ wikilink('computational geometry') }}. Therefore, being able to compute them quickly and robustly is
+        important. Improvements in computation performance come in two flavors: theoretical and practical.
+    </p>
+    <p>
+        In this project we focus on the practical aspect. Instead of implementing an algorithm
+        (such as {{ wikilink('Fortune\'s', 'Fortune\'s algorithm') }}) for the CPU,
+        we exploit the massive parallel-processing power of the GPU to plot complex Voronoi diagrams
+        blazingly fast.
+    </p>
+    <p>
+        The method used is an implementation of the ideas presented in
+        <a href="https://files.ifi.uzh.ch/vmml/SummerSeminars2010/PaperWriting/papers/p277-hoff.pdf"
+           target="_blank">
+            this paper
+        </a>
+        by Hoff et al. Which describes how to represent diagram sites as meshes such that when rendered
+        result in a Voronoi plot.
+    </p>
+{% endblock %}
+{% block tableOfContents %}
+
+    <h2>Table of Contents</h2>
+
+    <ul>
+        <li>
+            <a href="#section-what-are-voronoi-diagrams">What are Voronoi diagrams?</a>
+            <ul>
+                <li><a href="#section-general-definition">General definition</a></li>
+                <li><a href="#section-common-case">Common case</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="#section-method">Method</a>
+            <ul>
+                <li><a href="#section-distance-geometries">Distance geometries</a></li>
+                <li><a href="#section-rendering-the-scene">Rendering the scene</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="#section-implementation">Implementation</a>
+            <ul>
+                <li><a href="#section-from-geometry-to-mesh">From geometry to mesh</a></li>
+                <li><a href="#section-mesh-precision">Mesh precision</a></li>
+                <li><a href="#section-mesh-size">Mesh size</a></li>
+            </ul>
+        </li>
+        <li><a href="#section-source-code">Source code</a></li>
+        <li><a href="#section-see-also">See also</a></li>
+    </ul>
+
+{% endblock %}
+{% block content %}
+
+    {{ super() }}
+
+    <a id="section-what-are-voronoi-diagrams"></a>
+    <h2>What are Voronoi diagrams?</h2>
+
+    <a id="section-general-definition"></a>
+    <h3>General definition</h3>
+    <p>
+        A Voronoi diagram is a <b>partition</b> of space into <b>regions</b> - also called <b>cells</b> -
+        where all points in a cell have the shortest distance to a predefined <b>site</b> - a subset of points in the space.
+        The distance between two points in space is supplied by means of a <b>distance function</b>.
+    </p>
+    <a id="section-common-case"></a>
+    <h3>Common case</h3>
+    <p>
+        One of the simpler cases of Voronoi diagrams (and the one we target in this project)
+        is that where the space is the two-dimensional {{ wikilink('Euclidean plane') }}.
+        Sites are often defined to be points, line segments, polygons, or curves.
+        The distance function usually used is the {{ wikilink('Euclidean distance') }},
+        though {{ wikilink('alternatives', 'Manhattan distance') }} are available depending on the application.
+    </p>
+    <div class="figure">
+
+        <div class="subfigure-row">
+            <div class="subfigure">
+                <canvas id="fig1-random-point-diagram" width="300" height="300"></canvas>
+            </div>
+        </div>
+        {{ caption('Figure 1 (interactive)',
+                   'A simple Voronoi diagram for point-sites in the plane.
+                    Each cell corresponds to the subset of the plane bearing the shortest distance to
+                    a distinct point-site. Cells are assigned distinct colors. Tap to generate a
+                    new random arrangement.') }}
+    </div>
+    <a id="section-method"></a>
+    <h2>Method</h2>
+
+    <a id="section-distance-geometries"></a>
+    <h3>Distance geometries</h3>
+    <p>
+        We will now show how so-called <b>distance meshes</b> can be used in order to plot a Voronoi
+        diagram, which is what enables us to bypass the drawback of sequential and/or incremental
+        approaches and exploit the parallel-processing powers of the GPU.
+    </p>
+    <p>
+        First of all, let's introduce the concept of <b>distance geometries</b>: Imagine the Euclidean plane
+        our sites lie in is the xy-plane in three-dimensional space. We have <b><span class="math">n</span></b>
+        sites given:
+    </p>
+    <div class="math">
+        <div class="expression">
+            S = (s<sub>0</sub>, s<sub>1</sub>, &#8230; s<sub>n</sub>)
+        </div>
+    </div>
+    <p>
+        A <b>distance geometry</b> <b><span class="math">DG(s)</span></b>
+        for a site <b><span class="math">s<sub>i</sub></span></b> is the
+        result of mapping each two-dimensional position <span class="math">(x, y)</span> on the xy-plane 
+        to the three-dimensional one at <span class="math">(x, y, -D((x, y), s<sub>i</sub>))</span>, where
+        <b><span class="math">D(p, s)</span></b> is the Euclidean distance function between a
+        point and a site. More formally:
+    </p>
+    <div class="math">
+        <div class="expression">
+            DG(s) = {(x, y, -D((x, y), s)) | x &#8712; &#8477;, y &#8712; &#8477;}
+        </div>
+    </div>
+    <p>
+        To facilitate an understanding of this concept, please refer to the figure below for schematics
+        of the shapes of distance geometries for point- and segment-sites.
+    </p>
+    <div class="figure">
+
+        {{ caption('Figure 2',
+                   'Illustrations of the shape of distance geometries for various site types.
+                    Sites are in blue, coordinate axes in black, and the geometry is colored based
+                    on the value of the distance function: from low (yellow) to high (red).') }}
+
+        <div class="subfigure-row">
+            <div class="subfigure">
+                <div class="subfigure-row">
+                    <div class="subfigure">
+                        <img src="{{ url_for('static', filename=cd + 'img/point_site_dg_top.svg') }}"
+                             width="150" height="150">
+                        <div class="subfigure-caption">
+                            Top view
+                        </div>
+                    </div>
+                    <div class="subfigure">
+                        <img src="{{ url_for('static', filename=cd + 'img/point_site_dg_side.svg') }}"
+                             width="150" height="150">
+                        <div class="subfigure-caption">
+                            Side view
+                        </div>
+                    </div>
+                </div>
+                <div class="subfigure-caption">
+                    {{ caption('2.1',
+                               'The distance geometry for a point-site is a cone with its tip
+                                aligned with the site\'s position. It has unit slope and
+                                its base located at z = negative infinity.') }}
+                </div>
+            </div>
+            <div class="subfigure">
+                <div class="subfigure-row">
+                    <div class="subfigure">
+                        <img src="{{ url_for('static', filename=cd + 'img/segment_site_dg_top.svg') }}"
+                             width="150" height="150">
+                        <div class="subfigure-caption">
+                            Top view
+                        </div>
+                    </div>
+                    <div class="subfigure">
+                        <img src="{{ url_for('static', filename=cd + 'img/segment_site_dg_side_long.svg') }}"
+                             width="150" height="150">
+                        <div class="subfigure-caption">
+                            Side view (long)
+                        </div>
+                    </div>
+                    <div class="subfigure">
+                        <img src="{{ url_for('static', filename=cd + 'img/segment_site_dg_side_short.svg') }}"
+                             width="150" height="150">
+                        <div class="subfigure-caption">
+                            Side view (short)
+                        </div>
+                    </div>
+                </div>
+                <div class="subfigure-caption">
+                    {{ caption('2.2',
+                               'The distance geometry for a segment-site is two-part:
+                                the segment itself forms the top of a tent-like shape, while each
+                                endpoint is the top of a cone similar to the one at 2.1 -
+                                only cut in half.') }}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <a id="section-rendering-the-scene"></a>
+    <h3>Rendering the scene</h3>
+    <p>
+        Now, for the key part: Attach distance geometries to each site, and assign a distinct
+        color to each site's geometry. Next, render the scene with
+        {{ wikilink('orthogonal projection', 'Projection_(linear_algebra)#Orthogonal_projection') }} from above.
+        Observe that the color at each point in the resulting image will
+        correspond to that of the geometry with the highest z-value at that position in the scene.
+        This is equivalent to the color of the nearest site!
+    </p>
+    <div class="figure">
+        <div class="subfigure-row">
+            <div class="subfigure-row">
+                <div class="subfigure">
+                    <img src="{{ url_for('static', filename=cd + 'img/two_point_sites_dg_top.svg') }}"
+                         width="150" height="150">
+                    <div class="subfigure-caption">
+                        Top view (Voronoi)
+                    </div>
+                </div>
+                <div class="subfigure">
+                    <img src="{{ url_for('static', filename=cd + 'img/two_point_sites_dg_side.svg') }}"
+                         width="150" height="150">
+                    <div class="subfigure-caption">
+                        Side view
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        {{ caption('Figure 3',
+                   'Rendering two distance geometries for two point sites from above results in a
+                    Voronoi plot.') }}
+    </div>
+    <p>
+        There you have it. The resulting rendering is a Voronoi plot, where each pixel's color corresponds
+        to the color assigned to the nearest site!
+    </p>
+
+    <a id="section-implementation"></a>
+    <h2>Implementation</h2>
+
+    <a id="section-from-geometry-to-mesh"></a>
+    <h3>From geometry to mesh</h3>
+    <p>
+        It's time to make the transition from geometries to meshes:
+        We cannot instruct the GPU to render an infinite cone, but what we can do is instruct it to
+        render triangles arranged in the shape of a cone.
+    </p>
+    <p>
+        Converting our distance geometry descriptions to triangle meshes is rather simple, but there
+        are two dangers we need to be mindful of: precision and size.
+    </p>
+
+    <a id="section-mesh-precision"></a>
+    <h3>Mesh precision</h3>
+    <p>
+        A cone made of four triangles is vastly different than that made of a few dozen. The amount of triangles
+        we use when arranging distance meshes reflects how well they approximate the geometries
+        they are modeled after. The more triangles, the closer our Voronoi diagram will approximate its
+        true form. However, use too many triangles and performance will suffers (for diagrams with many sites).
+        The key is to strike a fine balance between the level of detail desired and the complexity of the diagram.
+    </p>
+
+    <a id="section-mesh-size"></a>
+    <h3>Mesh size</h3>
+    <p>
+        Another concern is the size of our meshes. That is, how far should we extend them? The answer is:
+        the minimum distance so that they are still visible in our rendering's viewport. Imagine our
+        diagram contains a single point site at its center. The correct rendering for such a diagram is
+        simpley the viewport filled uniformally with the site's color.
+        However, if we extend the geometry too little, our rendering will consist of a circle in the middle,
+        and the default background color anywhere else.
+    </p>
+
+    <a id="section-source-code"></a>
+    <h2>Source code</h2>
+
+    <p>
+        You can view the source code and documentation on {{ githublink('GitHub', 'rharel', 'webgl-dm-voronoi') }}.
+    </p>
+
+    <a id="section-see-also"></a>
+    <h2>See also</h2>
+
+    <ul>
+        <li>{{ wikilink('Higher-order voronoi diagrams', 'Voronoi_diagram#Higher-order_Voronoi_diagrams') }}.</li>
+        <li>{{ wikilink('Fortune\'s algorithm') }}: Generate a Voronoi diagram explicitly.</li>
+    </ul>
+
+{% endblock %}
+{% block lastUpdateStamp %} May, 2016 {% endblock %}

@@ -1,0 +1,28 @@
+{% extends "projects/info_base.html" %}
+
+{% from "common/macros.html" import wikilink %}
+
+{% block projectTitle %}Voronoi on the GPU{% endblock %}
+{% block projectBriefTitle %}Voronoi on the GPU{% endblock %}
+{% block projectURL %}/projects/voronoi-on-the-gpu{% endblock %}
+{% block projectThumbnail %}
+
+    <img class="project-thumbnail"
+         src="{{ url_for('static', filename='projects/voronoi-on-the-gpu/img/triangular_diagram.svg') }}">
+
+{% endblock %}
+{% block projectSummary %}
+
+    {{ wikilink('Voronoi diagrams') }} are a fundamental concept with broad applications spanning multiple
+    disciplines. Usually, they are computed explicitly, but there is an interesting alternative:
+    Exploiting graphics hardware to convert a three-dimensional scene into a two-dimensional diagram.
+
+{% endblock %}
+{% block projectTags %}
+
+    <span class="tag tag-js">Javascript</span>
+    <span class="tag tag-webgl">WebGL</span>
+    <span class="tag tag-computational-geometry">Computational Geometry</span>
+    <span class="tag tag-graphics">Graphics</span>
+
+{% endblock %}
