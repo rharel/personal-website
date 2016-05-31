@@ -9,32 +9,15 @@
 
     {{ super() }}
 
-{#    <link rel="stylesheet" type="text/css"#}
-{#          href="{{ url_for('static', filename='3rd/prism/prism.css') }}">#}
     <script type="text/javascript"
             src="{{ url_for('static', filename='3rd/three/three.min.js') }}"></script>
 
     <link rel="stylesheet" type="text/css"
           href="{{ url_for('static', filename='global/css/math.css') }}">
-{#    <link rel="stylesheet" type="text/css"#}
-{#          href="{{ url_for('static', filename='projects/css/animation_clip.css') }}">#}
-
-{#    <link rel="stylesheet" type="text/css"#}
-{#          href="{{ url_for('static', filename=cd + 'css/showcase.css') }}">#}
     <script type="text/javascript"
             src="{{ url_for('static', filename=cd + 'js/voronoi.min.js') }}"></script>
-{#    <script type="text/javascript"#}
-{#            src="{{ url_for('static', filename=cd + 'js/CanvasView.js') }}"></script>#}
-{#    <script type="text/javascript"#}
-{#            src="{{ url_for('static', filename=cd + 'js/Animation.js') }}"></script>#}
-{#    <script type="text/javascript"#}
-{#            src="{{ url_for('static', filename=cd + 'js/animation_control.js') }}"></script>#}
-{#    <script type="text/javascript"#}
-{#            src="{{ url_for('static', filename=cd + 'js/showcase.js') }}"></script>#}
     <script type="text/javascript"
             src="{{ url_for('static', filename=cd + 'js/figure_1.js') }}"></script>
-{#    <script type="text/javascript"#}
-{#            src="{{ url_for('static', filename=cd + 'js/figure_2.js') }}"></script>#}
 {% endblock %}
 {% block projectSummary %}
     <p>
