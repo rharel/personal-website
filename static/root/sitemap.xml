@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd"
+        xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+   <url>
+      <loc>http://rharel.com/</loc>
+      <lastmod>2016-06-07</lastmod>
+      <changefreq>monthly</changefreq>
+   </url>
+   <url>
+      <loc>http://rharel.com/about</loc>
+      <lastmod>2016-06-07</lastmod>
+      <changefreq>monthly</changefreq>
+   </url>
+   <url>
+      <loc>http://rharel.com/projects/</loc>
+      <lastmod>2016-06-07</lastmod>
+      <changefreq>weekly</changefreq>
+   </url>
+   <url>
+      <loc>http://rharel.com/contact</loc>
+      <lastmod>2016-06-07</lastmod>
+      <changefreq>monthly</changefreq>
+   </url>
+</urlset>
