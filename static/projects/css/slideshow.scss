@@ -1,0 +1,40 @@
+//
+// Image slideshow with possible control buttons
+// for 'previous' and 'next'
+//
+
+
+@import '../../global/css/common_colors';
+@import '../../global/css/common_mixins';
+
+.slideshow-container {
+
+  img {
+
+    width: 300px;
+  }
+}
+
+.slideshow-control-button {
+
+  border: 1px solid $grey_3;
+  padding: {
+
+    left: 5px;
+    right: 5px;
+  }
+  font-size: 11pt;
+  background-color: $grey_1;
+  color: $grey_4;
+  cursor: pointer;
+  @include border-radius(2px);
+  @include unselectable;
+}
+.slideshow-control-previous {
+
+  float: left;
+}
+.slideshow-control-next {
+
+  float: right;
+}

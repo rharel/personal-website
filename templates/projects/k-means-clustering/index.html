@@ -1,0 +1,151 @@
+{% extends "projects/index_base.html" %}
+
+{% set cd = 'projects/k-means-clustering/' %}
+
+{% from "common/macros.html" import wikilink, githublink, caption, slideshow %}
+
+{% block title %}k-Means Clustering{% endblock %}
+{% block head %}
+
+    {{ super() }}
+
+{#    <link rel="stylesheet" type="text/css"#}
+{#          href="{{ url_for('static', filename='3rd/prism/prism.css') }}">#}
+
+    <link rel="stylesheet" type="text/css"
+          href="{{ url_for('static', filename='global/css/math.css') }}">
+
+    <link rel="stylesheet" type="text/css"
+          href="{{ url_for('static', filename='projects/css/slideshow.css') }}">
+    <script type="text/javascript"
+            src="{{ url_for('static', filename='projects/js/slideshow.js') }}"></script>
+
+{% endblock %}
+{% block projectSummary %}
+
+    <p>
+        During my time working on a {{ wikilink('computer vision') }} related course, we were developing
+        an application capable of reconstructing three dimensional {{ wikilink('voxel') }} clouds of
+        people through video. At one point, we were interested in finding out to which person an
+        individual voxel belongs.
+    </p>
+    <p>
+        The solution was two-fold: First, make an educated initial guess of the assignment for
+        each voxel. Second, look at the initial configuration and reach a stable
+        {{ wikilink('clustering', 'cluster analysis') }} from there.
+    </p>
+    <p>
+        This project is about one very popular algorithm to achieve that final assignment, it is
+        called the {{ wikilink('k-means clustering') }} algorithm.
+    </p>
+
+{% endblock %}
+{% block tableOfContents %}
+
+    <h2>Table of Contents</h2>
+
+    <ul>
+        <li><a href="#section-about-clustering">About clustering</a></li>
+        <li><a href="#section-k-means">k-Means</a></li>
+        <li><a href="#section-implementation">Implementation</a></li>
+        <li><a href="#section-source-code">Source code</a></li>
+        <li><a href="#section-see-also">See also</a></li>
+    </ul>
+
+{% endblock %}
+{% block content %}
+
+    {{ super() }}
+
+    <a id="section-about-clustering"></a>
+    <h2>About clustering</h2>
+
+    <p>
+        The ultimate objective of clustering methods is to divide a set of observations among a fixed
+        amount of categories. More formally, an <b>observation</b> is a {{ wikilink('feature vector') }}
+        in <span class="math">d</span> dimensions, and each observation from the set needs to be labeled
+        under one of <span class="math">k</span> labels.
+    </p>
+
+    <a id="section-k-means"></a>
+    <h2>k-Means</h2>
+
+    <p>
+        The k-means algorithm is one of if not the most popular method of achieving such labeling.
+        it is very simple:
+    </p>
+    <ol>
+        <li>
+            <b>Initialize</b> with a guess of a mean feature vector for each cluster (category)
+            - this is your best guess as to what a typical observation of that category looks
+            like.
+        </li>
+        <li>
+            <b>Assign</b> each observation to the cluster whose mean it is closest to.
+        </li>
+        <li>
+            <b>Update</b> the means by taking the average of all observations assigned to each
+            cluster and computing the new mean value for each.
+        </li>
+        <li>
+            <b>Repeat</b> steps 2 and 3 until there is no more change in assignments.
+        </li>
+    </ol>
+    <p>
+        You can see the algorithm progression in the example below:
+    </p>
+
+    <div class="figure">
+
+        <div class="subfigure-row">
+            <div class="subfigure">
+                {{ slideshow('kmeans-demo',
+                             url_for('static', filename=cd + 'img/demo_small1.png') + ';' +
+                             url_for('static', filename=cd + 'img/demo_small2.png') + ';' +
+                             url_for('static', filename=cd + 'img/demo_small3.png') + ';' +
+                             url_for('static', filename=cd + 'img/demo_small4.png') + ';' +
+                             url_for('static', filename=cd + 'img/demo_small5.png') + ';' +
+                             url_for('static', filename=cd + 'img/demo_small6.png') + ';' +
+                             url_for('static', filename=cd + 'img/demo_small7.png') + ';' +
+                             url_for('static', filename=cd + 'img/demo_small8.png')) }}
+            </div>
+        </div>
+        {{ caption('Figure 1',
+                   'Progression of k-means on some randomly generated data.
+                    The larger discs represent cluster means.') }}
+    </div>
+
+    <a id="section-implementation"></a>
+    <h2>Implementation</h2>
+
+    <p>
+        The algorithm was implemented as a C++ header-only library. The library makes extensive use
+        of <a href="http://en.cppreference.com/w/cpp/language/function_template" target="_blank">templates</a>
+        in order to achieve better performance for large datasets.
+    </p>
+    <p>
+        We also include several methods for guessing the initial means, as well as alternative distance-measures
+        (although the {{ wikilink('Euclidean distance') }} is the most commonly used, sometimes
+        {{ wikilink('others', 'Manhattan distance') }} are preferred - depending on the application.
+    </p>
+
+    <a id="section-source-code"></a>
+    <h2>Source code</h2>
+
+    <p>
+        You can view the source code and documentation on {{ githublink('GitHub', 'rharel', 'cpp-k-means-clustering') }}.
+        The python scripts used to generate the plots on this page are under the
+        {{ githublink('demo', 'rharel', 'cpp-k-means-clustering', 'master/demo/scripts') }} directory
+        of the repository.
+    </p>
+
+    <a id="section-see-also"></a>
+    <h2>See also</h2>
+
+    <ul>
+        <li>{{ wikilink('Cluster analysis') }}: for more clustering methods.</li>
+        <li>{{ wikilink('Statistical classification') }}: for other data classification methods.</li>
+    </ul>
+
+{% endblock %}
+{% block lastUpdateStamp %} June, 2016 {% endblock %}

@@ -22,9 +22,17 @@
 
 // Technologies
 
+.tag-cpp {
+
+  background-color: #a9eaff;
+}
 .tag-js {
 
   background-color: #FDDA3E;
+}
+.tag-python {
+
+  background-color: #b9ffc5;
 }
 .tag-webgl {
 
@@ -35,12 +43,15 @@
 
 .tag-cellular-automata {
 
-  @extend .tag;
   background-color: $grey_2;
 }
 .tag-computational-geometry {
 
   background-color: #a4bfff;
+}
+.tag-data-analysis {
+
+  background-color: #e8d6ff
 }
 .tag-graphics {
 

@@ -1,0 +1,28 @@
+.slideshow-container img {
+  width: 300px; }
+
+.slideshow-control-button {
+  border: 1px solid #9F9F9F;
+  padding-left: 5px;
+  padding-right: 5px;
+  font-size: 11pt;
+  background-color: #F0F0F0;
+  color: #3F3F3F;
+  cursor: pointer;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  -ms-border-radius: 2px;
+  border-radius: 2px;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none; }
+
+.slideshow-control-previous {
+  float: left; }
+
+.slideshow-control-next {
+  float: right; }
+
+/*# sourceMappingURL=slideshow.css.map */
