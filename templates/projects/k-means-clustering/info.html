@@ -1,0 +1,27 @@
+{% extends "projects/info_base.html" %}
+
+{% from "common/macros.html" import wikilink %}
+
+{% block projectTitle %}k-Means Clustering{% endblock %}
+{% block projectBriefTitle %}k-Means Clustering{% endblock %}
+{% block projectURL %}/projects/k-means-clustering{% endblock %}
+{% block projectThumbnail %}
+
+    <img class="project-thumbnail"
+         src="{{ url_for('static', filename='projects/k-means-clustering/img/three_clusters.png') }}">
+
+{% endblock %}
+{% block projectSummary %}
+
+    The {{ wikilink('k-means clustering') }} algorithm is widely used tool in
+    {{ wikilink('data mining') }}. It is used to classify observed datapoints into distinct
+    categories and to find out the characteristic features - the means - of those categories.
+
+{% endblock %}
+{% block projectTags %}
+
+    <span class="tag tag-cpp">C++</span>
+    <span class="tag tag-python">Python</span>
+    <span class="tag tag-data-analysis">Data Analysis</span>
+
+{% endblock %}

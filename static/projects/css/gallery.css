@@ -1,4 +1,4 @@
-.tag, .tag-cellular-automata {
+.tag {
   padding-left: 4px;
   padding-right: 4px;
   border: 1px solid #9F9F9F;
@@ -9,8 +9,14 @@
   font-size: 9pt;
   white-space: nowrap; }
 
+.tag-cpp {
+  background-color: #a9eaff; }
+
 .tag-js {
   background-color: #FDDA3E; }
+
+.tag-python {
+  background-color: #b9ffc5; }
 
 .tag-webgl {
   background-color: #FF8C8C; }
@@ -20,6 +26,9 @@
 
 .tag-computational-geometry {
   background-color: #a4bfff; }
+
+.tag-data-analysis {
+  background-color: #e8d6ff; }
 
 .tag-graphics {
   background-color: #a4d3ff; }
