@@ -4,24 +4,52 @@
         xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd"
         xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
-   <url>
+    <url>
       <loc>http://rharel.com/</loc>
       <lastmod>2016-06-07</lastmod>
       <changefreq>monthly</changefreq>
-   </url>
-   <url>
+    </url>
+    <url>
       <loc>http://rharel.com/about</loc>
       <lastmod>2016-06-07</lastmod>
       <changefreq>monthly</changefreq>
-   </url>
-   <url>
+    </url>
+    <url>
       <loc>http://rharel.com/projects/</loc>
-      <lastmod>2016-06-07</lastmod>
+      <lastmod>2016-06-23</lastmod>
       <changefreq>weekly</changefreq>
-   </url>
-   <url>
+    </url>
+    <url>
       <loc>http://rharel.com/contact</loc>
       <lastmod>2016-06-07</lastmod>
       <changefreq>monthly</changefreq>
-   </url>
+    </url>
+
+    <!-- projects -->
+
+    <url>
+      <loc>http://rharel.com/projects/game-of-life</loc>
+      <lastmod>2016-06-07</lastmod>
+      <changefreq>yearly</changefreq>
+    </url>
+    <url>
+      <loc>http://rharel.com/projects/higher-order-bezier</loc>
+      <lastmod>2016-06-07</lastmod>
+      <changefreq>yearly</changefreq>
+    </url>
+    <url>
+      <loc>http://rharel.com/projects/k-means-clustering</loc>
+      <lastmod>2016-06-16</lastmod>
+      <changefreq>yearly</changefreq>
+    </url>
+    <url>
+      <loc>http://rharel.com/projects/ray-tracer</loc>
+      <lastmod>2016-06-23</lastmod>
+      <changefreq>yearly</changefreq>
+    </url>
+    <url>
+      <loc>http://rharel.com/projects/voronoi-on-the-gpu</loc>
+      <lastmod>2016-06-07</lastmod>
+      <changefreq>yearly</changefreq>
+    </url>
 </urlset>
