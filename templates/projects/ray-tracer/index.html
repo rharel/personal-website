@@ -1,0 +1,103 @@
+{% extends "projects/index_base.html" %}
+
+{% set cd = 'projects/ray-tracer/' %}
+
+{% from "common/macros.html" import wikilink, githublink, caption %}
+
+{% block title %}Ray Tracer{% endblock %}
+{% block head %}
+
+    {{ super() }}
+
+    <link rel="stylesheet" type="text/css"
+          href="{{ url_for('static', filename=cd + 'css/showcase.css') }}">
+
+{% endblock %}
+{% block projectSummary %}
+
+    <b>{{ wikilink('Ray tracing', 'Ray_tracing_(graphics)') }}</b> is an image-synthesis method based on the principle of
+    simulating light rays bouncing around - just as they do in reality. I first came in contact with
+    ray tracing and {{ wikilink('global illumination') }} during an advanced {{ wikilink('computer graphics') }}
+    course. As part of the practical assignments we were required to program our own physically-based
+    ray tracer. What started out as an assignment turned into quite a big project. Over time, with numerous
+    rewrites and additions, my pet ray-tracing library has now become one of my favorite projects to
+    work on.
+
+{% endblock %}
+{% block tableOfContents %}
+
+    <h2>Table of Contents</h2>
+
+    <ul>
+        <li><a href="#section-showcase">Showcase</a></li>
+        <li><a href="#section-ray-tracing-basics">Raytracing basics</a></li>
+        <li><a href="#section-path-tracing">Path Tracing</a></li>
+        <li><a href="#section-source-code">Source code</a></li>
+        <li><a href="#section-see-also">See also</a></li>
+    </ul>
+
+{% endblock %}
+{% block content %}
+
+    {{ super() }}
+
+    <a id="section-showcase"></a>
+    <h2>Showcase</h2>
+
+    <div class="showcase-container">
+        <img src="{{ url_for('static', filename=cd + 'img/mirror_hemisphere_512px.png') }}" />
+        <img src="{{ url_for('static', filename=cd + 'img/three_lambertian_spheres_day_512px.png') }}" />
+    </div>
+
+    <a id="section-ray-tracing-basics"></a>
+    <h2>Ray tracing basics</h2>
+
+    Ray tracing is all about simulating real ligth transport. First, a light ray leaves a light source,
+    such as a lamp. At this point, the ray is charged with certain energy across different wavelengths.
+    Upon collision with an object, energy across certain wavelengths may
+    be absorbed, scattered, reflected, refracted or some combination of these. This spawns countless new,
+    secondary light rays and the process repeats. Eventually, some rays reach the viewer's eye,
+    where they are sensed and translated into an image. If we could simulate and track the journey
+    such a ray made from light source to eye we could compute its color, simply by accounting for all
+    objects it hit along the way, and subtracting the energy they absorb from the original emitted by
+    the light source.
+
+    <a id="section-path-tracing"></a>
+    <h2>Path tracing</h2>
+
+    {{ wikilink('Path tracing') }} is a ray tracing method that performs the light ray simulation backwards:
+    i.e. rather than starting at the light source and ending at the virtual camera, we start at the camera
+    (or more precisely, on the camera's image plane) and trace the ray's journey backwards until we
+    hit a light source. Of course, the detailed procedure is not as straightforward as that, but it is
+    too large to discuss here, especially when the internet is filled with far better resources than I
+    regarding path tracing or ray tracing in general.
+
+    <a id="section-source-code"></a>
+    <h2>Source code</h2>
+
+    <p>
+        You can view the source code and documentation on {{ githublink('GitHub', 'rharel', 'cpp-raytracer') }}.
+        Some simple scene configurations are available under the
+        {{ githublink('demo', 'rharel', 'cpp-raytracer', 'master/demo/config') }} directory
+        of the repository.
+    </p>
+
+    <a id="section-see-also"></a>
+    <h2>See also</h2>
+
+    <ul>
+        <li>{{ wikilink('Global illumination') }} for models of physically-based rendering.</li>
+        <li>{{ wikilink('Supersampling') }} for information on anti-aliasing methods.</li>
+        <li>
+            {{ wikilink('Bidirectional path tracing', 'Path_tracing#Bidirectional_path_tracing') }}
+            is a more advanced raytracing method combining
+            paths from both the eye as well as the light sources themselves.
+        </li>
+        <li>
+            {{ wikilink('BRDF') }}: for more on modeling materials using bidirectional reflectance
+            distribution functions.
+        </li>
+    </ul>
+
+{% endblock %}
+{% block lastUpdateStamp %} June, 2016 {% endblock %}

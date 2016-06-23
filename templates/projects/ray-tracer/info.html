@@ -1,0 +1,27 @@
+{% extends "projects/info_base.html" %}
+
+{% from "common/macros.html" import wikilink %}
+
+{% block projectTitle %}Ray Tracer{% endblock %}
+{% block projectBriefTitle %}Ray Tracer{% endblock %}
+{% block projectURL %}/projects/ray-tracer{% endblock %}
+{% block projectThumbnail %}
+
+    <img class="project-thumbnail"
+         src="{{ url_for('static', filename='projects/ray-tracer/img/mirror_hemisphere_100px.png') }}">
+
+{% endblock %}
+{% block projectSummary %}
+
+    {{ wikilink('Ray tracing') }} is an
+    {{ wikilink('image-synthesis', 'Rendering_(computer_graphics)') }} method.
+    It simulates the way light rays travel from light sources, bounce around the scene, and
+    finally reach the eye. It is computationally expensive but yields highly-realistic images.
+
+{% endblock %}
+{% block projectTags %}
+
+    <span class="tag tag-cpp">C++</span>
+    <span class="tag tag-graphics">Graphics</span>
+
+{% endblock %}

@@ -1,0 +1,9 @@
+.showcase-container {
+  text-align: center; }
+  .showcase-container img {
+    display: inline-block;
+    width: 250px;
+    height: 250px;
+    border: 1px solid black; }
+
+/*# sourceMappingURL=showcase.css.map */
