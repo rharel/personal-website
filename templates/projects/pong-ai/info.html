@@ -1,0 +1,27 @@
+{% extends "projects/info_base.html" %}
+
+{% from "common/macros.html" import wikilink %}
+
+{% block projectTitle %}Artificial Intelligence for Pong{% endblock %}
+{% block projectBriefTitle %}AI for Pong{% endblock %}
+{% block projectURL %}/projects/pong-ai{% endblock %}
+{% block projectThumbnail %}
+
+    <img class="project-thumbnail"
+         src="{{ url_for('static', filename='projects/pong-ai/img/game_in_progress.svg') }}">
+
+{% endblock %}
+{% block projectSummary %}
+
+    {{ wikilink('Pong') }} is a classic arcade videogame from the 70's. At the time of this
+    project's making, it has been a long while since I've done work related to either Java or
+    {{ wikilink('artificial intelligence') }} in general. Getting back on track
+    with an old classic such as pong proved to be the refresher course I needed.
+
+{% endblock %}
+{% block projectTags %}
+
+    <span class="tag tag-java">Java</span>
+    <span class="tag tag-ai">Artificial Intelligence</span>
+
+{% endblock %}
