@@ -7,31 +7,39 @@
   -ms-border-radius: 5px;
   border-radius: 5px;
   font-size: 9pt;
-  white-space: nowrap; }
+  white-space: nowrap;
+  color: white;
+  text-shadow: black 0 0 2px; }
 
 .tag-cpp {
-  background-color: #a9eaff; }
+  background-color: #2f9ec6; }
+
+.tag-java {
+  background-color: #DA4E36; }
 
 .tag-js {
-  background-color: #FDDA3E; }
+  background-color: #d76a00; }
 
 .tag-python {
-  background-color: #b9ffc5; }
+  background-color: #16932b; }
 
 .tag-webgl {
-  background-color: #FF8C8C; }
+  background-color: #CC4B4B; }
+
+.tag-ai {
+  background-color: #2D5B8F; }
 
 .tag-cellular-automata {
-  background-color: #DBDBDB; }
+  background-color: #7B7B7B; }
 
 .tag-computational-geometry {
-  background-color: #a4bfff; }
+  background-color: #598aff; }
 
 .tag-data-analysis {
-  background-color: #e8d6ff; }
+  background-color: #7a34d5; }
 
 .tag-graphics {
-  background-color: #a4d3ff; }
+  background-color: #51abff; }
 
 .project-list {
   text-align: center; }
