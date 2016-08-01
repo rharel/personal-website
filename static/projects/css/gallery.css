@@ -100,7 +100,7 @@
 .project-brief-title {
   display: none;
   margin-top: 5px;
-  font-size: 12pt; }
+  font-size: 13pt; }
   @media (max-width: 480px) {
     .project-brief-title {
       display: block; } }
@@ -109,6 +109,6 @@
   margin-top: 15px;
   margin-bottom: 15px;
   margin-right: 10px;
-  font-size: 10pt; }
+  font-size: 13pt; }
 
 /*# sourceMappingURL=gallery.css.map */
