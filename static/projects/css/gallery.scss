@@ -7,6 +7,11 @@
 @import '../../global/css/common_mixins';
 @import 'tags';
 
+#navigation-button-projects {
+
+  border-bottom: 5px solid $blue_2;
+}
+
 .project-list {
 
   text-align: center;
@@ -31,6 +36,7 @@
   &:hover {
 
     background-color: $grey_3;
+    text-decoration: none;
   }
 
   @include media-XS() {

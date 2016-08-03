@@ -6,6 +6,11 @@
 @import "../../global/css/common_colors";
 @import "../../global/css/common_mixins";
 
+#navigation-button-contact {
+
+  border-bottom: 5px solid $blue_2;
+}
+
 .contact-options-container {
 
   margin-top: 50px;

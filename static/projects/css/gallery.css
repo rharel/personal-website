@@ -41,6 +41,9 @@
 .tag-graphics {
   background-color: #51abff; }
 
+#navigation-button-projects {
+  border-bottom: 5px solid #316899; }
+
 .project-list {
   text-align: center; }
 
@@ -58,7 +61,8 @@
   .project-info-container + .project-info-container {
     margin-top: 10px; }
   .project-info-container:hover {
-    background-color: #9F9F9F; }
+    background-color: #9F9F9F;
+    text-decoration: none; }
 
 .project-info {
   border-collapse: collapse;
