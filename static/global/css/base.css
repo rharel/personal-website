@@ -2,41 +2,42 @@ body {
   margin: 0;
   font-family: 'Open Sans', sans-serif;
   font-size: 13pt;
-  background-color: #DBDBDB; }
-  @media (max-width: 480px) {
-    body {
-      font-size: 15pt; } }
+  color: #282828;
+  background-color: #FAFAFD; }
 
 #navigation-bar {
   width: 100%;
-  background-color: #0c2d4a;
   text-align: center; }
-  #navigation-bar a {
-    display: inline-block;
-    border-bottom: 5px solid #0c2d4a;
-    padding-top: 15px;
-    padding-bottom: 5px;
-    color: white;
-    cursor: pointer;
+
+.navigation-button-container {
+  display: inline-block; }
+  .navigation-button-container + .navigation-button-container {
+    margin-left: 50px; }
+  @media (max-width: 480px) {
+    .navigation-button-container + .navigation-button-container {
+      margin-left: 25px; } }
+
+.navigation-button {
+  display: inline-block;
+  border-bottom: 5px solid transparent;
+  padding-top: 15px;
+  padding-bottom: 5px;
+  color: inherit;
+  cursor: pointer;
+  text-decoration: none; }
+  .navigation-button:hover {
+    border-bottom: 5px solid #C2DFFF;
     text-decoration: none; }
-    #navigation-bar a + a {
-      margin-left: 50px; }
-    #navigation-bar a:hover {
-      border-bottom: 5px solid #c2dfff; }
-    @media (max-width: 480px) {
-      #navigation-bar a {
-        display: block; }
-        #navigation-bar a + a {
-          margin-left: 0; } }
 
 #content-container {
-  padding-top: 25px;
-  padding-bottom: 100px;
-  background-color: white; }
+  padding-top: 15px;
+  padding-bottom: 100px; }
 
 #content {
   margin-left: auto;
   margin-right: auto;
+  border-top: 5px double #DBDBDB;
+  padding-top: 25px;
   width: 80%;
   max-width: 900px;
   text-align: left; }
@@ -48,6 +49,7 @@ body {
   width: 100%;
   padding-top: 10px;
   padding-bottom: 10px;
+  font-size: 8pt;
   text-align: center;
   color: #3F3F3F; }
 

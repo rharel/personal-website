@@ -37,7 +37,13 @@ small {
 
 a {
 
+  color: $blue_4;
   text-decoration: none;
+
+  &:hover {
+
+    text-decoration: underline;
+  }
 }
 
 .text-left {

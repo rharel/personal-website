@@ -13,12 +13,8 @@ body {
   font-family: 'Open Sans', sans-serif;
   font-size: 13pt;
 
-  background-color: $grey_2;
-
-  @include media-XS() {
-
-    font-size: 15pt;
-  }
+  color: $black;
+  background-color: $white;
 }
 
 @import 'navbar';

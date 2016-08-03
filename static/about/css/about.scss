@@ -4,11 +4,17 @@
 
 
 @import '../../global/css/common_mixins';
+@import '../../global/css/common_colors';
+
+#navigation-button-about {
+
+  border-bottom: 5px solid $blue_2;
+}
 
 #portrait-container {
 
   width: 33%;
-  max-width: 200px;
+  max-width: 256px;
   float: right;
   text-align: center;
 
@@ -23,5 +29,5 @@
 #portrait {
 
   width: 100%;
-  max-width: 150px;
+  max-width: 200px;
 }

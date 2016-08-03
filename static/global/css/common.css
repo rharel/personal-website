@@ -19,7 +19,10 @@ small {
   font-size: 8pt; }
 
 a {
+  color: #0066FF;
   text-decoration: none; }
+  a:hover {
+    text-decoration: underline; }
 
 .text-left {
   text-align: left; }
@@ -45,7 +48,7 @@ a {
   -ms-border-radius: 10px;
   border-radius: 10px;
   padding: 10px;
-  background-color: #e3d2ff;
-  color: #2b003f; }
+  background-color: #E3D2FF;
+  color: #2B003F; }
 
 /*# sourceMappingURL=common.css.map */

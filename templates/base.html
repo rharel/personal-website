@@ -55,15 +55,36 @@
     </head>
     <body>
         <div id="navigation-bar">
-            <a href="/about">ABOUT</a>
-            <a href="/projects/">PROJECTS</a>
-            <a href="/contact">CONTACT</a>
+            <div class="navigation-button-container">
+                <a class="navigation-button"
+                   id="navigation-button-about"
+                   href="/about">
+
+                    ABOUT
+                </a>
+            </div>
+            <div class="navigation-button-container">
+                <a class="navigation-button"
+                   id="navigation-button-projects"
+                   href="/projects/">
+
+                    PROJECTS
+                </a>
+            </div>
+            <div class="navigation-button-container">
+                <a class="navigation-button"
+                   id="navigation-bar-contact"
+                   href="/contact">
+
+                    CONTACT
+                </a>
+            </div>
         </div>
         <div id="content-container">
             <div id="content">{% block content %}{% endblock %}</div>
         </div>
         <div id="footer">
-            <small>Last updated in {%  block lastUpdateStamp %}{% endblock %}</small>
+            Last updated in {%  block lastUpdateStamp %}{% endblock %}
         </div>
     </body>
 </html>

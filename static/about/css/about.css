@@ -1,6 +1,9 @@
+#navigation-button-about {
+  border-bottom: 5px solid #316899; }
+
 #portrait-container {
   width: 33%;
-  max-width: 200px;
+  max-width: 256px;
   float: right;
   text-align: center; }
   @media (max-width: 480px) {
@@ -11,6 +14,6 @@
 
 #portrait {
   width: 100%;
-  max-width: 150px; }
+  max-width: 200px; }
 
 /*# sourceMappingURL=about.css.map */

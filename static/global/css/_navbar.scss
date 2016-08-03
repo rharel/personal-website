@@ -8,46 +8,45 @@
 
 #navigation-bar {
 
-  $underline_width: 5px;
-  $underline_color: $blue_2;
-
   width: 100%;
 
-  background-color: $blue_3;
   text-align: center;
+}
+.navigation-button-container {
 
-  a {
+  display: inline-block;
 
-    display: inline-block;
+  & + .navigation-button-container {
 
-    border-bottom: $underline_width solid $blue_3;
-    padding: {
+    margin-left: 50px;
+  }
 
-      top: 15px;
-      bottom: 5px;
+  @include media-XS() {
+
+    & + .navigation-button-container {
+
+      margin-left: 25px;
     }
+  }
+}
+.navigation-button {
 
-    color: white;
-    cursor: pointer;
+  display: inline-block;
+
+  border-bottom: 5px solid transparent;
+  padding: {
+
+    top: 15px;
+    bottom: 5px;
+  }
+
+  color: inherit;
+  cursor: pointer;
+  text-decoration: none;
+
+  &:hover {
+
+    border-bottom: 5px solid $blue_1;
     text-decoration: none;
-
-    & + a {
-
-      margin-left: 50px;
-    }
-    &:hover {
-
-      border-bottom: $underline_width solid $blue_1;
-    }
-
-    @include media-XS() {
-
-      display: block;
-
-      & + a {
-
-        margin-left: 0;
-      }
-    }
   }
 }
