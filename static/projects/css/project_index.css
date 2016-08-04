@@ -21,13 +21,15 @@
   font-weight: bold; }
 
 .caption-container {
-  margin-top: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-bottom: 10px;
   text-align: left; }
 
 .caption {
   font-size: 11pt; }
 
-.subfigure-row {
+.subfigure-container {
   margin-top: 10px; }
 
 .subfigure {
@@ -37,12 +39,12 @@
   margin-left: auto;
   margin-right: auto; }
 
-.subfigure-caption {
+.figure-subtitle {
   text-align: center;
   font-size: 10pt; }
 
 .long-code-snippet {
-  max-height: 400px; }
+  max-height: 350px; }
 
 #navigation-button-projects {
   border-bottom: 5px solid #316899; }
