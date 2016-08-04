@@ -12,13 +12,15 @@
 {% endblock %}
 {% block projectSummary %}
 
-    <b>{{ wikilink('Pong') }}</b> was the first sports-based arcade videogame. Basically, it is
-    a virtual version of {{ wikilink('table tennis') }}. At the time of making this project, I
-    had gone through a long period of time without touching neither Java (the programming language),
-    nor the subject of {{ wikilink('artificial intelligence') }}. I felt like I neglected both of these topics
-    long enough and that it was time to come up with a small project that will serve as practice.
-    I thought making a game-engine for pong - plus an artificial player to play against - would be just
-    the kind of exercise I was looking for!
+    <p>
+        <b>{{ wikilink('Pong') }}</b> was the first sports-based arcade videogame. Basically, it is
+        a virtual version of {{ wikilink('table tennis') }}. At the time of this project's conception, I
+        had gone through a long period of time without touching neither Java,
+        nor the subject of {{ wikilink('artificial intelligence') }}. I felt like I neglected both of these
+        long enough and that it was time to come up with a small project that will serve as practice.
+        Making a game-engine for Pong - plus a challenging artificial player to play against - is just
+        the kind of exercise I was looking for!
+    </p>
 
 {% endblock %}
 {% block tableOfContents %}
@@ -26,9 +28,14 @@
     <h2>Table of Contents</h2>
     <ul>
         <li><a href="#section-game-rules">Game rules</a></li>
-        <li><a href="#section-the-naive-approach">The naive approach</a></li>
-        <li><a href="#section-predicting-the-balls-position">Predicting the ball's position</a></li>
-        <li><a href="#section-engaging-the-opponent">Engaging the opponent</a></li>
+        <li>
+            <a href="#section-designing-an-artificial-opponent">Designing an artificial opponent</a>
+            <ul>
+                <li><a href="#section-the-naive-approach">The naive approach</a></li>
+                <li><a href="#section-predicting-the-balls-position">Predicting the ball's position</a></li>
+                <li><a href="#section-engaging-the-opponent">Engaging the opponent</a></li>
+            </ul>
+        </li>
         <li><a href="#section-source-code">Source code</a></li>
         <li><a href="#section-see-also">See also</a></li>
     </ul>
@@ -48,6 +55,15 @@
         and bounces around upon contact with either paddles or walls. Each player's objective is to
         not let the ball touch its goal, since that constitutes a loss.
     </p>
+
+    <div class="figure">
+
+        {{ caption('Figure 1',
+                   'Schematic of the table.') }}
+        <img src="{{ url_for('static', filename=cd + 'img/table_schematic.svg') }}"
+             width="300" height="300">
+    </div>
+
     <p>
         In all further discussion we will assume the players take the bottom/top sides of the table as
         their goals. Players can move their paddles left and right at constant top-speed.
@@ -70,11 +86,37 @@
         </li>
     </ol>
 
-    <a id="section-the-naive-approach"></a>
-    <h2>The naive approach</h2>
+    <div class="figure">
+
+        {{ caption('Figure 2',
+                   'Ball bounce angle relative to distance from paddle center.') }}
+
+        <div class="subfigure-container">
+            <div class="subfigure">
+                <img src="{{ url_for('static', filename=cd + 'img/ball_middle_bounce_schematic.svg') }}"
+                    width="300" height="150">
+            </div>
+            <div class="subfigure">
+                <img src="{{ url_for('static', filename=cd + 'img/ball_edge_bounce_schematic.svg') }}"
+                    width="300" height="150">
+            </div>
+        </div>
+    </div>
+
+    <a id="section-designing-an-artificial-opponent"></a>
+    <h2>Designing an artificial opponent</h2>
 
     <p>
-        The most elementary attempt at a virtual pong player is a passive one. That is, a player
+        The making of the game-engine itself was not very eventful or exciting. The making of the
+        AI, on the other hand, was a lot of fun. We started with a very simple game-plan, and iteratively
+        identified its deficiencies and worked to amend them up to the point where the AI felt challenging enough.
+    </p>
+
+    <a id="section-the-naive-approach"></a>
+    <h3>The naive approach</h3>
+
+    <p>
+        The most elementary attempt at a virtual Pong player is a passive one. That is, a player
         that only cares for not losing - never mind winning. As such a player, our first thought in this
         direction might be that in order not to lose, we must always be there when the ball approaches
         our goal so we may block it. A simplistic approach to this problem would be simply tracking
@@ -82,12 +124,13 @@
     </p>
     <div class="figure">
 
+        {{ caption('Figure 3',
+                   'Human player (bottom) vs. a passive ball-tracking AI (top). The AI simply moves its
+                    paddle towards the ball\'s position at all times.') }}
+
         <video preload="auto" autoplay="autoplay" loop="loop" width=300>
             <source src="http://i.imgur.com/IgDoiXm.mp4" type="video/mp4">
         </video>
-        {{ caption('Figure 1',
-                   'Human player (bottom) vs. a passive ball-tracking AI (top). The AI simply moves its
-                    paddle towards the ball\'s position at all times.') }}
     </div>
     <p>
         Unfortunately, as you can see above, this approach assumes that we can move our paddle at
@@ -96,12 +139,12 @@
     </p>
 
     <a id="section-predicting-the-balls-position"></a>
-    <h2>Predicting the ball's position</h2>
+    <h3>Predicting the ball's position</h3>
 
     <p>
         Our naive strategy to the passive player problem acted as though the ball was about to hit our
-        goal any moment for now, even when is is obviously not the case - such as when the ball is
-        still a long ways away and moving in a direction that is not purely vertical.
+        goal at any moment, even when this is obviously not the case: For example, when the ball is
+        still a long ways away and moving in a direction that is more horizontal than vertical.
     </p>
     <p>
         To remedy this, we take advantage of the fact that the rules that govern the ball's movement
@@ -112,48 +155,55 @@
     </p>
     <div class="figure">
 
+        {{ caption('Figure 4',
+                   'Human player (bottom) vs. a future-predicting AI (top). The AI predicts the
+                    position of the ball the next time it hits the goal and aims to be there first.') }}
+
         <video preload="auto" autoplay="autoplay" loop="loop" width=300>
             <source src="http://i.imgur.com/wmvKjiy.mp4" type="video/mp4">
         </video>
-        {{ caption('Figure 2',
-                   'Human player (bottom) vs. a future-predicting AI (top). The AI predicts the
-                    position of the ball the next time it hits the goal and aims to be there first.') }}
     </div>
     <p>
         Already, this approach is a big improvement on our first attempt. However, as can be seen
-        above, it can be easily manipulated. The problem lies in the fact that the AI always serves
-        the ball back with its paddle's center, which sends the ball directly downwards. A smart opponent
-        will use this predictability to manipulate the AI into a corner, and then serve wide -
+        above, it is still easily exploited. The problem lies in the fact that the AI always serves
+        the ball back with its paddle's center, which sends the ball in a purely vertical direction.
+        A smart opponent will use this predictability to manipulate the AI into a corner, and then serve wide -
         where even though the AI correctly predicts the ball's position at its goal, it is too far
         away to block it in time.
     </p>
 
     <a id="section-engaging-the-opponent"></a>
-    <h2>Engaging the opponent</h2>
+    <h3>Engaging the opponent</h3>
 
     <p>
         Clearly the passive approach is not working. A purely passive AI is too predictable and therefore
-        too easily manipulated. So if we are not always to serve with our paddle's center, how should we
-        serve instead? What would a smart player do? The answer is: always serve so that the ball
+        too easily manipulated. A big part of this predictability stems from the fact it currently
+        serves with its paddle's center, which sends the ball in a trajectory that is very easy for
+        a human adversary to follow.
+    </p>
+    <p>
+        So if we are not always to serve with our paddle's center, how should we
+        serve instead? What would a smart player do? An attractive answer is this: always serve so that the ball
         lands as further away as possible from the opponent's paddle position. To do this, we again
         make use of the deterministic nature of the simulation and compute the offset from our own
         paddle's center that will send the ball in the opposite direction of our opponent:
     </p>
     <div class="figure">
 
-        <video preload="auto" autoplay="autoplay" loop="loop" width=300>
-            <source src="http://imgur.com/rIbl6kI.mp4" type="video/mp4">
-        </video>
-        {{ caption('Figure 3',
+        {{ caption('Figure 5',
                    'Human player (bottom) vs. an aggressive AI (top). The AI predicts the position
                     of the ball the next time it approaches the player and aims to position itself
                     such that the ball will bounce off its paddle as further away from the
                     opposing player as possible.') }}
+
+        <video preload="auto" autoplay="autoplay" loop="loop" width=300>
+            <source src="http://imgur.com/rIbl6kI.mp4" type="video/mp4">
+        </video>
     </div>
     <p>
         Much better! Playing against this AI is already quite challenging, and although the AI can still
         technically be exploited, such exploits requires quite the gameplay skill. All in all, we have
-        achieved our objective of making a reasonably challenging artificial opponent for pong.
+        achieved our objective of making a reasonably challenging artificial opponent for Pong.
     </p>
 
     <a id="section-source-code"></a>
