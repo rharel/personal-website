@@ -4,7 +4,7 @@
         {% set article = label %}
     {% endif %}
 
-    {% set url = 'https://en.wikipedia.org/wiki/' + article.replace(' ', '_') %}
+    {% set url = 'https://en.wikipedia.org/wiki/' + article.replace(' ', '_').capitalize() %}
     <a href="{{ url  }}" target="_blank">{{ label }}</a>
 
 {%- endmacro %}
