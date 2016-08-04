@@ -37,15 +37,23 @@
 {% block projectSummary %}
 
     <p>
-        Some years ago, as part of the BA study program, I attended a course all about languages and automata.
-        There, I was exposed to {{ wikilink('automata theory') }} and various types of state-machines along with it.
-        I had really enjoyed that course - but it was only about two years later that I was reminded of it, when I stumbled upon
+        As part of the BSc study program, I attended a course all about
+        {{ wikilink('languages', 'formal language') }} and automata.
+        There, I was exposed to {{ wikilink('automata theory') }} and various types of
+        {{ wikilink('state-machines', 'finite state machine') }} along with it.
+        I had really enjoyed that course, but it was only about two years later that I was reminded of it, when I stumbled upon
         {{ youtubelink('this video', 'C2vgICfQawE') }} showing massively complex simulations in the
-        {{ wikilink('Game of Life') }}. See, during the course we never got to cover cellular automata
-        explicitly, and what I saw in the video has re-ignited my interest for the subject.
+        {{ wikilink('Game of Life') }}.
     </p>
     <p>
-        So, I started reading about {{ wikilink('cellular automata') }} and the Game of Life
+        See, I find the subject of
+        {{ wikilink('cellular automata', 'cellular automaton') }}
+        very appealing however we never got to cover it explicitly during the course, unfortunately.
+        Coming across that video and seeing the mesmerizing patterns the Game of Life is capable of
+        producing has re-ignited my interest for the subject.
+    </p>
+    <p>
+        And so, I started reading about {{ wikilink('cellular automata') }} and the Game of Life
         in particular. Simple simulations were available for view in animated form as gifs, however in order to
         view more complex ones one was required to download a desktop application. I wanted a compromise:
         A simple implementation of the Game of Life for the browser.
@@ -57,7 +65,7 @@
     <h2>Table of Contents</h2>
 
     <ul>
-        <li><a href="#section-what-is-life">What is Life?</a></li>
+        <li><a href="#section-introduction">Introduction</a></li>
         <li>
             <a href="#section-implementation">Implementation</a>
             <ul>
@@ -74,12 +82,12 @@
 
     {{ super() }}
 
-    <a id="section-what-is-life"></a>
-    <h2>What is Life?</h2>
+    <a id="section-introduction"></a>
+    <h2>Introduction</h2>
 
     <p>
         The <b>{{ wikilink('Game of Life') }}</b> (or in short, <b>Life</b>) is a
-        {{ wikilink ('cellular automaton') }} model developed by {{ wikilink('John Horton Conway') }}.
+        {{ wikilink ('cellular automaton') }} model developed by mathematician {{ wikilink('John Horton Conway') }}.
     </p>
     <p>
         Within Life, the universe consists of an infinite-planar-regular grid, where each cell can
@@ -88,9 +96,9 @@
 
     <div class="figure">
 
+        {{ caption('Figure 1', 'Five living cells (black) in a 5x5 grid.') }}
         <img src="{{ url_for('static', filename=cd + 'img/glider_5x5.svg') }}"
              width="150" height="150">
-        {{ caption('Figure 1', 'Five living cells (black) in a 5x5 grid.') }}
     </div>
 
     <p>
@@ -98,34 +106,35 @@
         generation to the next adheres to the following <b>rules</b>:
     </p>
     <ol>
-        <li><b>Death by isolation:</b> Living cells with &lt 2 live neighbours die.</li>
-        <li><b>Death by overcrowding:</b> Living cells with &gt 3 live neighbours die.</li>
-        <li><b>Birth by reproduction:</b> Dead cells with exactly 3 live neighbours become alive.</li>
+        <li>Death by isolation: Living cells with <b>less than two</b> live neighbours die.</li>
+        <li>Death by overcrowding: Living cells with <b>more than three</b> live neighbours die.</li>
+        <li>Birth by reproduction: Dead cells with <b>exactly three</b> live neighbours become alive.</li>
     </ol>
     <p>
+        In all other cases, the cell retains its state from the previous generation.
         Use the following interactive widget to better grasp these rules:
     </p>
 
     <div class="figure">
-        <div class="subfigure-row">
+        {{ caption('Figure 2 (interactive)',
+                   'Current and next generations. Click on the cells in
+                    the current generation\'s grid to toggle their state and observe the
+                    corresponding changes in the next generation to come.') }}
+
+        <div class="subfigure-container">
             <div class="subfigure">
                 <canvas id="fig2-canvas-current"
                         width="150" height="150">
                 </canvas>
-                <div class="subfigure-caption">Current</div>
+                <div class="figure-subtitle">Current</div>
             </div>
             <div class="subfigure">
                 <canvas id="fig2-canvas-next"
                         width="150" height="150">
                 </canvas>
-                <div class="subfigure-caption">Next</div>
+                <div class="figure-subtitle">Next</div>
             </div>
         </div>
-
-        {{ caption('Figure 2 (interactive)',
-                   'Current and next generations. Click on the cells in
-                    the current generation\'s grid to toggle their state and observe the
-                    corresponding changes in the next generation to come.') }}
     </div>
 
     <p>
@@ -137,142 +146,138 @@
 
     <div class="figure">
 
-        {{ caption('Figure 3',
-                   'A selection of representative patterns from the most prominent categories.
-                    Patterns are categorized based on their behavior.') }}
-
         <!-- still lifes -->
-        <div class="subfigure-row">
+        <div class="subfigure-container">
+            <div class="caption">
+
+                {{ caption('3.1',
+                           'Still lifes are patterns that remain constant throughout
+                            the simulation.') }}
+            </div>
+
             <div class="subfigure">
                 <img src="{{ url_for('static', filename=cd + 'img/block_4x4.svg') }}"
                      width="150" height="150">
-                <div class="subfigure-caption">
+                <div class="figure-subtitle">
                     {{ lifelink('Block') }}
                 </div>
             </div>
             <div class="subfigure">
                 <img src="{{ url_for('static', filename=cd + 'img/beehive_6x5.svg') }}"
                      width="150" height="125">
-                <div class="subfigure-caption">
+                <div class="figure-subtitle">
                     {{ lifelink('Beehive') }}
                 </div>
             </div>
             <div class="subfigure">
                 <img src="{{ url_for('static', filename=cd + 'img/loaf_6x6.svg') }}"
                      width="150" height="150">
-                <div class="subfigure-caption">
+                <div class="figure-subtitle">
                     {{ lifelink('Loaf') }}
                 </div>
             </div>
-
-            <div class="subfigure-caption">
-
-                {{ caption('3.1',
-                           'Still lifes are patterns that remain constant throughout
-                            the simulation.') }}
-            </div>
         </div>
         <!-- spaceships -->
-        <div class="subfigure-row">
-                <div class="subfigure">
-                    {{ animated_canvas('fig3-glider', 150, 150) }}
-                    <div class="subfigure-caption">
-                        {{ lifelink('Glider') }}
-                    </div>
-                </div>
-                <div class="subfigure">
-                    {{ animated_canvas('fig3-lightweight-spaceship', 279, 150) }}
-                    <div class="subfigure-caption">
-                        {{ lifelink('Lightweight Spaceship', 'Lightweight_spaceship') }}
-                    </div>
-                </div>
-                <div class="subfigure">
-                    {{ animated_canvas('fig3-heavyweight-spaceship', 250, 150) }}
-                    <div class="subfigure-caption">
-                        {{ lifelink('Heavyweight Spaceship', 'Heavyweight_spaceship') }}
-                    </div>
-                </div>
-
-                <div class="subfigure-caption">
+        <div class="subfigure-container">
+            <div class="caption">
 
                     {{ caption('3.2',
                                'Spaceships reproduce themselves at an offset
                                 from their initial position after a fixed number of generations.') }}
                 </div>
+
+            <div class="subfigure">
+                    {{ animated_canvas('fig3-glider', 150, 150) }}
+                    <div class="figure-subtitle">
+                        {{ lifelink('Glider') }}
+                    </div>
+                </div>
+            <div class="subfigure">
+                {{ animated_canvas('fig3-lightweight-spaceship', 279, 150) }}
+                <div class="figure-subtitle">
+                    {{ lifelink('Lightweight Spaceship', 'Lightweight_spaceship') }}
+                </div>
             </div>
+            <div class="subfigure">
+                    {{ animated_canvas('fig3-heavyweight-spaceship', 250, 150) }}
+                    <div class="figure-subtitle">
+                        {{ lifelink('Heavyweight Spaceship', 'Heavyweight_spaceship') }}
+                    </div>
+                </div>
+        </div>
         <!-- oscillators -->
-        <div class="subfigure-row">
-                <div class="subfigure">
-                    {{ animated_canvas('fig3-blinker', 150, 150) }}
-                    <div class="subfigure-caption">
-                        {{ lifelink('Blinker') }}
-                    </div>
-                </div>
-                <div class="subfigure">
-                    {{ animated_canvas('fig3-pulsar', 150, 150) }}
-                    <div class="subfigure-caption">
-                        {{ lifelink('Pulsar') }}
-                    </div>
-                </div>
-                <div class="subfigure">
-                    {{ animated_canvas('fig3-queen-bee-shuttle', 300, 113) }}
-                    <div class="subfigure-caption">
-                        {{ lifelink('Queen Bee Shuttle', 'Queen_bee_shuttle') }}
-                    </div>
-                </div>
+        <div class="subfigure-container">
+            <div class="caption">
 
-                <div class="subfigure-caption">
+                {{ caption('3.3',
+                           'Oscillators repeat themselves after a fixed number of generations.') }}
+            </div>
 
-                    {{ caption('3.3',
-                               'Oscillators repeat themselves after a fixed number of generations.') }}
+            <div class="subfigure">
+                {{ animated_canvas('fig3-blinker', 150, 150) }}
+                <div class="figure-subtitle">
+                    {{ lifelink('Blinker') }}
                 </div>
             </div>
+            <div class="subfigure">
+                {{ animated_canvas('fig3-pulsar', 150, 150) }}
+                <div class="figure-subtitle">
+                    {{ lifelink('Pulsar') }}
+                </div>
+            </div>
+            <div class="subfigure">
+                {{ animated_canvas('fig3-queen-bee-shuttle', 300, 113) }}
+                <div class="figure-subtitle">
+                    {{ lifelink('Queen Bee Shuttle', 'Queen_bee_shuttle') }}
+                </div>
+            </div>
+        </div>
         <!-- guns -->
-        <div class="subfigure-row">
-                <div class="subfigure">
-                    {{ animated_canvas('fig3-gosper-glider-gun', 300, 174) }}
-                    <div class="subfigure-caption">
-                        {{ lifelink('Gosper Glider Gun', 'Gosper_glider_gun') }}
-                    </div>
-                </div>
+        <div class="subfigure-container">
+            <div class="caption">
 
-                <div class="subfigure-caption">
+                {{ caption('3.4',
+                           'Guns emit spaceships.') }}
+            </div>
 
-                    {{ caption('3.4',
-                               'Guns emit spaceships.') }}
+            <div class="subfigure">
+                {{ animated_canvas('fig3-gosper-glider-gun', 300, 174) }}
+                <div class="figure-subtitle">
+                    {{ lifelink('Gosper Glider Gun', 'Gosper_glider_gun') }}
                 </div>
             </div>
+        </div>
         <!-- puffers -->
-        <div class="subfigure-row">
-                <div class="subfigure">
-                    {{ animated_canvas('fig3-blinker-puffer-1', 239, 150) }}
-                    <div class="subfigure-caption">
-                        {{ lifelink('Blinker Puffer 1', 'Blinker_puffer_1') }}
-                    </div>
-                </div>
+        <div class="subfigure-container">
+            <div class="caption">
 
-                <div class="subfigure-caption">
+                {{ caption('3.5',
+                           'Puffers are spaceships that leave residual debris behind them as
+                            they move.') }}
+            </div>
 
-                    {{ caption('3.5',
-                               'Puffers are spaceships that leave residual debris behind them as
-                                they move.') }}
+            <div class="subfigure">
+                {{ animated_canvas('fig3-blinker-puffer-1', 239, 150) }}
+                <div class="figure-subtitle">
+                    {{ lifelink('Blinker Puffer 1', 'Blinker_puffer_1') }}
                 </div>
             </div>
+        </div>
         <!-- methuselahs -->
-        <div class="subfigure-row">
-                <div class="subfigure">
-                    {{ animated_canvas('fig3-r-pentomino', 300, 188) }}
-                    <div class="subfigure-caption">
-                        {{ lifelink('R-pentomino') }}
-                    </div>
-                </div>
+        <div class="subfigure-container">
+            <div class="caption">
 
-                <div class="subfigure-caption">
+                {{ caption('3.6',
+                           'Methuselahs are patterns that take a long time to stabilize.') }}
+            </div>
 
-                    {{ caption('3.6',
-                               'Methuselahs are patterns that take a long time to stabilize.') }}
+            <div class="subfigure">
+                {{ animated_canvas('fig3-r-pentomino', 300, 188) }}
+                <div class="figure-subtitle">
+                    {{ lifelink('R-pentomino') }}
                 </div>
             </div>
+        </div>
     </div>
 
     <a id="section-implementation"></a>
@@ -316,13 +321,13 @@
         Technically, the Life grid spans into infinity. However, for our purposes we are content with a grid of fixed
         width and height. Now, perhaps the most intuitive representation of the grid would be a two-dimensional array of boolean
         values, indicating whether each cell is dead or alive. Unfortunately, this approach hardly makes efficient use of memory and
-        neglects to take advantage of the fact that in the vast majority of scenarios - like in the zombie-apocalypse - the number
+        neglects to take advantage of the fact that in the vast majority of scenarios - much like the zombie-apocalypse - the number
         of the dead far exceeds that of the living.
     </p>
     <p>
         A different approach (and the one which we use) keeps track of only the cells which are live. We identify each
         cell by its coordinates <span class="math">(x, y)</span>, and store them in a set. Now, Javascript does not officially
-        have a built-in Set data-structure (at least not before the
+        have a built-in <code class="language-javascript">Set</code> data-structure (at least not before the
         <a href="http://www.ecma-international.org/ecma-262/6.0/#sec-set-objects" target="_blank">2015 specification</a>),
         but we can easily mimic set-like behavior using <code class="language-javascript">Object</code>, like so:
     </p>
@@ -377,7 +382,7 @@ HashSet.prototype = {
     <h3>Computing the next generation</h3>
 
     <p>
-        The state of a cell in the next generation depends its current state and the state of its neighbours,
+        The state of a cell in the next generation depends on its current state and the state of its neighbours,
         or more specifically: the number if its live neighbours. This calls for us to keep track
         of the number of living neighbours of each cell.
     </p>
@@ -394,7 +399,7 @@ HashSet.prototype = {
     </p>
     <p>
         Observe that when a cell's neighbourhood doesn't change, its own state won't change either.
-        This observation encourages us to only bother evolving cells whose neighbourhood recently changed.
+        This observation encourages us to only bother evolving cells whose neighbourhood had recently changed.
     </p>
     <p>
         Again, we attach this task to cell addition and removal. That is, whenever a cell spawns or dies,
