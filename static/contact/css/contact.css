@@ -15,7 +15,8 @@
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 10px;
-    width: 128px; }
+    width: 128px;
+    background-color: inherit; }
   @media (max-width: 480px) {
     .contact-option {
       display: block; }
