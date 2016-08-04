@@ -1,6 +1,7 @@
 h1 {
-  border-bottom: 4px double #DBDBDB;
   color: #316899; }
+  h1:first-child {
+    margin-top: 0; }
 
 h2 {
   color: #316899; }
