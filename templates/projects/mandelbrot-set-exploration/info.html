@@ -2,26 +2,32 @@
 
 {% from "common/macros.html" import wikilink %}
 
-{% block projectTitle %}Mandelbrot Set Exploration in Real Time{% endblock %}
-{% block projectBriefTitle %}Mandelbrot Exploration{% endblock %}
-{% block projectURL %}/projects/mandelbrot-exploration{% endblock %}
+{% block projectTitle %}Mandelbrot Set Exploration{% endblock %}
+{% block projectBriefTitle %}Mandelbrot Set Exploration{% endblock %}
+{% block projectURL %}/projects/mandelbrot-set-exploration{% endblock %}
 {% block projectThumbnail %}
 
     <img class="project-thumbnail"
-         src="{{ url_for('static', filename='projects/game-of-life/img/glider_5x5.svg') }}">
+         src="{{ url_for('static', filename='projects/mandelbrot-set-exploration/img/overview_256px.png') }}">
 
 {% endblock %}
 {% block projectSummary %}
 
-    Conway's {{ wikilink('Game of Life', 'Conway\'s Game of Life') }}
-    is a {{ wikilink('cellular automaton') }} where cells live on an infinite grid and can assume
-    one of two states: dead or alive. Simple rules govern the evolution of the population
-    and yet give rise to surprisingly complex patterns!
+    The {{ wikilink('Mandelbrot set') }} is a
+    {{ wikilink('mathematical set', 'set (mathematics)') }} that is also a
+    {{ wikilink('fractal') }}. Fractals are sets that are
+    {{ wikilink('self-similar', 'self-similarity') }} in their structure.
+    In order to visualize this, the
+    {{ wikilink('complex plane') }} (in which the Mandelbrot set is embedded)
+    can be colored based on how close a
+    point is to being included in the Mandelbrot set. Images generated in this manner reveal
+    the complexity and beauty of the fractal patterns hidden within.
 
 {% endblock %}
 {% block projectTags %}
 
     <span class="tag tag-cpp">C++</span>
+    <span class="tag tag-opengl">OpenGL</span>
     <span class="tag tag-graphics">Graphics</span>
 
 {% endblock %}

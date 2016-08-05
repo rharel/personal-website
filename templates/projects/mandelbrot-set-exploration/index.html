@@ -1,21 +1,36 @@
 {% extends "projects/index_base.html" %}
 
-{% set cd = 'projects/mandelbrot-exploration/' %}
+{% set cd = 'projects/mandelbrot-set-exploration/' %}
 
 {% from "common/macros.html" import wikilink, youtubelink, githublink, caption %}
 
-{% block title %}Mandelbrot Set Exploration in Real Time{% endblock %}
+{% block title %}Mandelbrot Set Exploration{% endblock %}
 {% block head %}
 
     {{ super() }}
 
+    <script src='https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_SVG'></script>
+
+{#    <link rel="stylesheet" type="text/css"#}
+{#          href="{{ url_for('static', filename='global/css/math.css') }}">#}
+
     <link rel="stylesheet" type="text/css"
-          href="{{ url_for('static', filename='global/css/math.css') }}">
+          href="{{ url_for('static', filename=cd + 'css/showcase.css') }}">
 
 {% endblock %}
 {% block projectSummary %}
 
-    {{ lipsum(2) }}
+    <p>
+        As an avid fan of {{ wikilink('abstract art') }}, {{ wikilink('fractals', 'fractal') }} make for an
+        excellent basis for the making of intricate images that even though they are packed with detail
+        and vague complexion, contain recognizable, aesthetically-pleasing patterns.
+    </p>
+    <p>
+        Perhaps the most well known fractal is the <b>{{ wikilink('Mandelbrot set') }}</b>.
+        The generation of a high-resolution rendering of its form is painfully slow to compute
+        when forced to do so sequentially. But when utilizing the parallel processing power of
+        modern graphical processors, it becomes possible to render and navigate through it in real-time.
+    </p>
 
 {% endblock %}
 {% block tableOfContents %}
@@ -23,6 +38,10 @@
     <h2>Table of Contents</h2>
 
     <ul>
+        <li><a href="#section-showcase">Showcase</a></li>
+        <li><a href="#section-introduction">Introduction</a></li>
+        <li><a href="#section-system-design">System design</a></li>
+        <li><a href="#section-implementation">Implementation</a></li>
         <li><a href="#section-source-code">Source code</a></li>
         <li><a href="#section-see-also">See also</a></li>
     </ul>
@@ -32,6 +51,117 @@
 
     {{ super() }}
 
+    <a id="section-showcase"></a>
+    <h2>Showcase</h2>
+
+    <div class="showcase-container">
+        <img src="{{ url_for('static', filename=cd + '/img/showcase_1_512px.png') }}"
+             width="256" height="256" />
+        <img src="{{ url_for('static', filename=cd + '/img/showcase_2_512px.png') }}"
+             width="256" height="256" />
+        <img src="{{ url_for('static', filename=cd + '/img/showcase_3_512px.png') }}"
+             width="256" height="256" />
+    </div>
+    <p>
+        View the the full album in high-resolution
+        <a href="http://imgur.com/a/9KTTB" target="_blank">here</a>.
+    </p>
+
+    <a id="section-introduction"></a>
+    <h2>Introduction</h2>
+
+    <p>
+        The Mandelbrot set is a {{ wikilink('mathematical set', 'set (mathematics)') }}
+        defined on the {{ wikilink('complex plane') }}. Given the function:
+    </p>
+    <div class="math">
+        $$ f_c: \mathbb{C} \rightarrow \mathbb{C} $$
+        $$ f_c(z) = z^2 + c $$
+    </div>
+    <p>
+        where \(c \in \mathbb{C}\) is an independently chosen parameter, and the following
+        sequence:
+    </p>
+    <div class="math">
+        $$ V_c := (0, f_c(0), f_c(f_c(0)), \ldots) $$
+    </div>
+    <p>
+        where \(f_c\) is repeatedly {{ wikilink('composed', 'function composition') }}
+        with itself. If we denote the \(i\)th item in \(V_c\)
+        as \(V_c^i\), then the Mandelbrot set can be expressed as:
+    </p>
+    <div class="math">
+        $$ M := \{c \in \mathbb{C} \vert |V_c^i| \le 2 \text{ for all } i \ge 0\} $$
+    </div>
+
+    <p>
+        From the definition we can see that the Mandelbrot set is
+        {{ wikilink('compact', 'compact space') }}, i.e.
+        contained within a closed region. In our case, this region is the complex circle of radius
+        two.
+    </p>
+    <div class="figure">
+
+        {{ caption('Figure 1',
+                   'Complete view of the Mandelbrot set.') }}
+
+        <img src="{{ url_for('static', filename=cd + '/img/overview_512px.png') }}"
+             width="300" height="300" />
+    </div>
+
+    <a id="section-system-design"></a>
+    <h2>System design</h2>
+
+    <p>
+        The rendering pipeline of our application looks like this: First, the user the defines the rectangular
+        portion of the set he/she wishes to render by means of moving virtual camera. The position of the camera
+        determines the position of the viewport and the zoom-value determines its size.
+    </p>
+    <p>
+        Once the viewport is determined, we begin the rendering process by computing the complex number
+        \(c\) that is associated with each pixel in the image, given the current viewport properties and
+        the target resolution of the output. Next, we compute \(V_c\) until we either reach a value
+        \(V_c^i\) that does not belong to \(M\), or we reach a user-supplied threshold
+        of performed iterations \(i_{max}\) that we won't compute beyond.
+    </p>
+    <p>
+        At this point, with each pixel \(p\) we have associated a number \(i_p\) that indicates
+        how many iterations it took before we reached a value for which we had to
+        stop the computation of \(V_c\). Now we will color each pixel based on this number.
+    </p>
+    <p>
+        There are several ways for us to map \(i_p\) to a color. The simplest is to simply map it
+        onto an index in a predefined list of colors, and take the color at that index as our chosen
+        one.
+        For example, the palette used to color the images in the
+        <a href="#section-showcase">showcase</a> is visible below:
+    </p>
+    <div class="figure">
+
+        {{ caption('Figure 2',
+                   'Example of a color-palette.') }}
+
+        <img src="{{ url_for('static', filename=cd + '/img/colormap_dusk.svg') }}",
+             width="250" />
+    </div>
+
+    <a id="section-implementation"></a>
+    <h2>Implementation</h2>
+
+    <p>
+        We implemented our application using C++ and OpenGL. The entire computation
+        is performed on the GPU via {{ wikilink('shaders', 'shader') }}, and the result looks
+        like this:
+    </p>
+    <div class="figure">
+
+        {{ caption('Figure 3',
+                   'Zooming into the Mandelbrot set.') }}
+
+        <video preload="auto" autoplay="autoplay" loop="loop" width="300" onclick="this.play();">
+            <source src="http://i.imgur.com/LnAUadQ.mp4" type="video/mp4">
+        </video>
+    </div>
     <a id="section-source-code"></a>
     <h2>Source code</h2>
 
@@ -44,6 +174,18 @@
     <h2>See also</h2>
 
     <ul>
+        <li>
+            Other interesting fractals:
+            {{ wikilink('Julia set') }},
+            {{ wikilink('fractal flames') }},
+            {{ wikilink('Menger sponge') }}.
+        </li>
+        <li>
+            Free fractal software:
+            <a href="http://www.apophysis.org/" target="_blank">Apophysis</a>,
+            <a href="http://matek.hu/xaos/doku.php" target="_blank">XaoS</a>,
+            <a href="https://sourceforge.net/projects/mandelbulber/" target="_blank">Mandelbulber</a>.
+        </li>
     </ul>
 
 {% endblock %}
