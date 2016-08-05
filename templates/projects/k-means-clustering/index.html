@@ -68,8 +68,8 @@
     <h2>k-Means</h2>
 
     <p>
-        The k-means algorithm is one of if not the most popular method of achieving such labeling.
-        it is very simple:
+        The k-means algorithm is one of if not the most popular method of achieving such a labeling.
+        It is simple:
     </p>
     <ol>
         <li>
@@ -94,6 +94,10 @@
 
     <div class="figure">
 
+        {{ caption('Figure 1',
+                   'Progression of k-means on some randomly generated data.
+                    The larger discs represent cluster means.') }}
+
         <div class="subfigure-container">
             <div class="subfigure">
                 {{ slideshow('kmeans-demo',
@@ -107,9 +111,6 @@
                              url_for('static', filename=cd + 'img/demo_small8.png')) }}
             </div>
         </div>
-        {{ caption('Figure 1',
-                   'Progression of k-means on some randomly generated data.
-                    The larger discs represent cluster means.') }}
     </div>
 
     <a id="section-implementation"></a>
@@ -123,7 +124,7 @@
     <p>
         We also include several methods for guessing the initial means, as well as alternative distance-measures
         (although the {{ wikilink('Euclidean distance') }} is the most commonly used, sometimes
-        {{ wikilink('others', 'Manhattan distance') }} are preferred - depending on the application.
+        {{ wikilink('others', 'Manhattan distance') }} are preferred - depending on the application).
     </p>
 
     <a id="section-source-code"></a>
@@ -140,8 +141,8 @@
     <h2>See also</h2>
 
     <ul>
-        <li>{{ wikilink('Cluster analysis') }}: for more clustering methods.</li>
-        <li>{{ wikilink('Statistical classification') }}: for other data classification methods.</li>
+        <li>{{ wikilink('Cluster analysis') }} for more clustering methods.</li>
+        <li>{{ wikilink('Statistical classification') }} for other data classification methods.</li>
     </ul>
 
 {% endblock %}
