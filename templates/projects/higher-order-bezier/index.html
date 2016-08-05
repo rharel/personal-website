@@ -15,8 +15,7 @@
     <script type="text/javascript"
             src="{{ url_for('static', filename='3rd/prism/prism.js') }}"></script>
 
-    <link rel="stylesheet" type="text/css"
-          href="{{ url_for('static', filename='global/css/math.css') }}">
+    <script src='https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_SVG'></script>
     <link rel="stylesheet" type="text/css"
           href="{{ url_for('static', filename='projects/css/animation_clip.css') }}">
 
@@ -86,34 +85,19 @@
         Bezier curves are a type of {{ wikilink('parametric curve') }} defined by a sequence of <b>control points</b>:
     </p>
     <div class="math">
-        <div class="expression">
-            P = (p<sub>0</sub>, p<sub>1</sub>, &#8230; p<sub>n</sub>)
-        </div>
+        $$ P := (p_0, p_1, \ldots p_n) $$
     </div>
     <p>
-        The function <b><span class="math">B(P, t)</span></b> that traces the curve can be defined recursively:
+        The function \(B(P, t)\) that traces the curve can be defined recursively:
     </p>
     <div class="math">
-        <div class="expression-group">
 
-            <div class="expression">
+        $$ t \in [0, 1] $$
+        $$ B((p_0), t) = p_0 $$
+        $$ B((p_0, p_1, \ldots p_n), t) =
+                (1 - t)B((p_0, p_1, \ldots p_{n-1}), t) +
+                tB((p_1, p_2, \ldots p_n), t) $$
 
-                t &#8712; [0, 1] <br>
-
-            </div>
-            <div class="expression">
-
-                B((p<sub>0</sub>), t) = p<sub>0</sub>
-
-            </div>
-            <div class="expression">
-
-                B((p<sub>0</sub>, p<sub>1</sub>, &#8230; p<sub>n</sub>), t) =
-                    (1 - t)B((p<sub>0</sub>, p<sub>1</sub>, &#8230; p<sub>n-1</sub>), t) +
-                    tB((p<sub>1</sub>, p<sub>2</sub>, &#8230; p<sub>n</sub>), t)
-
-            </div>
-        </div>
     </div>
     <p>
         The recursive nature of the definition can be visualized by drawing each layer of the recursion.
@@ -164,30 +148,22 @@
     <h2>Implementation</h2>
 
     <p>
-        We trace the curve by evaluating it at intervals of fixed length <b><span class="math">&#8467;</span></b>
-        in <b><span class="math">t</span></b>, in order to obtain a sequence
-        of points <b><span class="math">C</span></b> that approximates its shape:
+        We trace the curve by evaluating it at intervals of fixed length \(\ell\)
+        in \(t\), in order to obtain a sequence
+        of points \(C\) that approximates its shape:
     </p>
     <div class="math">
-        <div class="expression-group">
-            <div class="expression">
-                &#8467; = 1 / n
-            </div>
-            <div class="expression">
-                C = (c<sub>0</sub>, c<sub>1</sub>, &#8230; c<sub>n</sub>)
-            </div>
-            <div class="expression">
-                c<sub>i</sub> = B(P, i&#8467;)
-            </div>
-        </div>
+        $$ \ell = 1 / n $$
+        $$ C := (c_0, c_1, \ldots c_n) $$
+        $$ c_i = B(P, i\ell) $$
     </div>
     <p>
-        We use the ordered sequence <span class="math">C</span> to draw a line strip (connected line segments
-        between subsequent elements) that converges towards the true shape of the curve as <span class="math">&#8467;</span> approaches
-        zero.
+        We use the ordered sequence \(C\) to draw a line strip (connected line segments
+        between subsequent elements) that converges towards the true shape of the curve
+        as \(\ell\) approaches zero.
     </p>
     <p>
-        We evaluate <span class="math">B(P, t)</span> for some value of <span class="math">t</span>
+        We evaluate \(B(P, t)\) for some value of \(t\)
         using the following algorithm:
     </p>
     <pre><code class="language-javascript">function B(P, t) {
@@ -203,12 +179,12 @@
 };
 </code></pre>
     <p>
-        At the end of each iteration, we have generated a new sequence <span class="math">A<sub>new</sub></span>
+        At the end of each iteration, we have generated a new sequence \(A_{new}\)
         with length one less than that of the sequence from the previous iteration:
-        <span class="math">|A<sub>new</sub>| = |A| - 1</span>
+        \(|A_{new}| = |A| - 1\)
     </p>
     <p>
-        Within <span class="math">|P|</span> iterations, the algorithm terminates with a single-item
+        Within \(|P|\) iterations, the algorithm terminates with a single-item
         sequence containing the evaluated position of the curve at time <span class="math">t</span>.
     </p>
     <a id="section-source-code"></a>
