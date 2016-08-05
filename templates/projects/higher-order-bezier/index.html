@@ -43,12 +43,13 @@
         <b>{{ wikilink('Bezier curves', 'Bezier curve') }}</b> see widespread use across a multitude of applications
         in computer graphics, data-interpolation and others. For the vast majority of these, curves of the second or
         third order are sufficient. Higher-order curves remain neglected since they become harder to control
-        by the designer and become increasingly expensive to compute.
+        and become increasingly expensive to compute.
     </p>
     <p>
-        However, one application in which both of these factors aren't a concern is {{ wikilink('string art') }}.
-        That's right, programmatically defined Bezier curves can be used to generate beautiful images - and that
-        is what I wanted to try out.
+        However, one application in which both of these factors aren't a concern is {{ wikilink('string art') }} -
+        where programmatically defined Bezier curves can be used to generate beautiful images.
+        As a fan of {{ wikilink('abstract art') }}, I was naturally drawn to the subject and wanted to see
+        what sort of images could be generated in this fashion.
     </p>
 
 {% endblock %}
@@ -82,7 +83,7 @@
     <h2>What are Bezier curves?</h2>
 
     <p>
-        Bezier curves are a {{ wikilink('parametric curve') }} defined by a sequence of <b>control points</b>:
+        Bezier curves are a type of {{ wikilink('parametric curve') }} defined by a sequence of <b>control points</b>:
     </p>
     <div class="math">
         <div class="expression">
@@ -119,29 +120,31 @@
         Check out the visualization of the first three orders of Bezier curves below:
     </p>
     <div class="figure">
+
+        {{ caption('Figure 1',
+                   'The construction of first, second,
+                    and third orders of the Bezier curve visualized.') }}
+
         <div class="subfigure-container">
             <div class="subfigure">
-                {{ animated_curve('fig1-linear', 150, 100) }}
+                {{ animated_curve('fig1-linear', 200, 150) }}
                 <div class="figure-subtitle">
                     Linear
                 </div>
             </div>
             <div class="subfigure">
-                {{ animated_curve('fig1-quadratic', 150, 100) }}
+                {{ animated_curve('fig1-quadratic', 200, 150) }}
                 <div class="figure-subtitle">
                     Quadratic
                 </div>
             </div>
             <div class="subfigure">
-                {{ animated_curve('fig1-cubic', 150, 100) }}
+                {{ animated_curve('fig1-cubic', 200, 150) }}
                 <div class="figure-subtitle">
                     Cubic
                 </div>
             </div>
         </div>
-        {{ caption('Figure 1',
-                   'The construction of first, second,
-                    and third orders of the Bezier curve visualized.') }}
     </div>
     <p>
         With even more control points and an adequate coloring, these visualizations can become
@@ -150,9 +153,11 @@
         viola! A brilliant piece of art!
     </p>
     <div class="figure">
-        {{ animated_curve('fig2-twister-high', 250, 250) }}
+
         {{ caption('Figure 2',
                    'Visualization of a higher-order (12 control points) curve.') }}
+
+        {{ animated_curve('fig2-twister-high', 250, 250) }}
     </div>
 
     <a id="section-implementation"></a>
@@ -203,7 +208,7 @@
         <span class="math">|A<sub>new</sub>| = |A| - 1</span>
     </p>
     <p>
-        Within <span class="math">n</span> iterations, the algorithm terminates with a single-item
+        Within <span class="math">|P|</span> iterations, the algorithm terminates with a single-item
         sequence containing the evaluated position of the curve at time <span class="math">t</span>.
     </p>
     <a id="section-source-code"></a>

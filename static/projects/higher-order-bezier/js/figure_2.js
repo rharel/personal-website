@@ -36,12 +36,12 @@
 
             'fig2-twister-high': {
 
-                points: twister(0.5, 0.5, 0.25, 12),
+                points: twister(0.5, 0.5, 0.375, 12),
                 canvas: null,
                 curve: null,
                 view: null,
                 precision: 1,
-                colors: ['red', 'green', 'blue'],
+                colors: ['violet', 'indigo', 'blue', 'green', 'yellow', 'orange', 'red'],
                 animation: new Bezier.Animation(20, 99, 0.01)
             }
         };
