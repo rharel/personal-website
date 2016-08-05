@@ -22,8 +22,9 @@
 {% endblock %}
 {% block projectSummary %}
     <p>
-        <b>{{ wikilink('Voronoi diagrams', 'Voronoi diagram') }}</b> are an essential concept in
-        {{ wikilink('computational geometry') }}. Therefore, being able to compute them quickly and robustly is
+        <b>{{ wikilink('Voronoi diagrams', 'Voronoi diagram') }}</b> are a fundamental concept in
+        {{ wikilink('computational geometry') }}, and have their place in countless applications.
+        Therefore, being able to compute them quickly and robustly is
         important. Improvements in computation performance come in two flavors: theoretical and practical.
     </p>
     <p>
@@ -38,7 +39,7 @@
            target="_blank">
             this paper
         </a>
-        by Hoff et al. Which describes how to represent diagram sites as meshes such that when rendered
+        by Hoff et al. Which describes how to represent diagram sites as meshes, such that when rendered
         result in a Voronoi plot.
     </p>
 {% endblock %}
@@ -71,6 +72,7 @@
         </li>
         <li><a href="#section-source-code">Source code</a></li>
         <li><a href="#section-see-also">See also</a></li>
+        <li><a href="#section-references">References</a></li>
     </ul>
 
 {% endblock %}
@@ -84,8 +86,10 @@
     <a id="section-general-definition"></a>
     <h3>General definition</h3>
     <p>
-        A Voronoi diagram is a <b>partition</b> of space into <b>regions</b> - also called <b>cells</b> -
-        where all points in a cell have the shortest distance to a predefined <b>site</b> - a subset of points in the space.
+        A Voronoi diagram is a <b>partition</b> of space into <b>regions</b> - also called <b>cells</b>.
+        The partition is with respect to a set of <b>sites</b>, where a site is a subset of points in space.
+        The relation between a cell and the set of sites is this: All points in a cell are closer to one particular
+        site more than to any other in the set.
         The distance between two points in space is supplied by means of a <b>distance function</b>.
     </p>
     <a id="section-common-case"></a>
@@ -97,19 +101,21 @@
         The distance function usually used is the {{ wikilink('Euclidean distance') }},
         though {{ wikilink('alternatives', 'Manhattan distance') }} are available depending on the application.
     </p>
+
     <div class="figure">
+
+        {{ caption('Figure 1 (interactive)',
+                   'A simple Voronoi diagram for point-sites in the plane.
+                    Each cell corresponds to the subset of the plane bearing the shortest distance to
+                    a distinct site. Tap to generate a new random arrangement.') }}
 
         <div class="subfigure-container">
             <div class="subfigure">
                 <canvas id="fig1-random-point-diagram" width="300" height="300"></canvas>
             </div>
         </div>
-        {{ caption('Figure 1 (interactive)',
-                   'A simple Voronoi diagram for point-sites in the plane.
-                    Each cell corresponds to the subset of the plane bearing the shortest distance to
-                    a distinct point-site. Cells are assigned distinct colors. Tap to generate a
-                    new random arrangement.') }}
     </div>
+
     <a id="section-method"></a>
     <h2>Method</h2>
 
@@ -140,7 +146,7 @@
     </p>
     <div class="math">
         <div class="expression">
-            DG(s) = {(x, y, -D((x, y), s)) | x &#8712; &#8477;, y &#8712; &#8477;}
+            DG(s) = {(x, y, -D((x, y), s)) | x &#8712; R, y &#8712; R}
         </div>
     </div>
     <p>
@@ -156,6 +162,12 @@
 
         <div class="subfigure-container">
             <div class="subfigure">
+
+                {{ caption('2.1',
+                           'The distance geometry for a point-site is a cone with its tip
+                            aligned with the site\'s position. It has unit slope and
+                            its base located at z = negative infinity.') }}
+
                 <div class="subfigure-container">
                     <div class="subfigure">
                         <img src="{{ url_for('static', filename=cd + 'img/point_site_dg_top.svg') }}"
@@ -172,14 +184,15 @@
                         </div>
                     </div>
                 </div>
-                <div class="figure-subtitle">
-                    {{ caption('2.1',
-                               'The distance geometry for a point-site is a cone with its tip
-                                aligned with the site\'s position. It has unit slope and
-                                its base located at z = negative infinity.') }}
-                </div>
             </div>
             <div class="subfigure">
+
+                {{ caption('2.2',
+                           'The distance geometry for a segment-site is two-part:
+                            the segment itself forms the top of a tent-like shape, while each
+                            endpoint is the top of a cone similar to the one at 2.1 -
+                            only cut in half.') }}
+
                 <div class="subfigure-container">
                     <div class="subfigure">
                         <img src="{{ url_for('static', filename=cd + 'img/segment_site_dg_top.svg') }}"
@@ -203,13 +216,6 @@
                         </div>
                     </div>
                 </div>
-                <div class="figure-subtitle">
-                    {{ caption('2.2',
-                               'The distance geometry for a segment-site is two-part:
-                                the segment itself forms the top of a tent-like shape, while each
-                                endpoint is the top of a cone similar to the one at 2.1 -
-                                only cut in half.') }}
-                </div>
             </div>
         </div>
     </div>
@@ -225,6 +231,11 @@
         This is equivalent to the color of the nearest site!
     </p>
     <div class="figure">
+
+        {{ caption('Figure 3',
+                   'Rendering two distance geometries for two point sites from above results in a
+                    Voronoi plot.') }}
+
         <div class="subfigure-container">
             <div class="subfigure-container">
                 <div class="subfigure">
@@ -243,10 +254,6 @@
                 </div>
             </div>
         </div>
-
-        {{ caption('Figure 3',
-                   'Rendering two distance geometries for two point sites from above results in a
-                    Voronoi plot.') }}
     </div>
     <p>
         There you have it. The resulting rendering is a Voronoi plot, where each pixel's color corresponds
@@ -274,7 +281,7 @@
         A cone made of four triangles is vastly different than that made of a few dozen. The amount of triangles
         we use when arranging distance meshes reflects how well they approximate the geometries
         they are modeled after. The more triangles, the closer our Voronoi diagram will approximate its
-        true form. However, use too many triangles and performance will suffers (for diagrams with many sites).
+        true form. However, use too many triangles and performance will suffer (for diagrams with many sites).
         The key is to strike a fine balance between the level of detail desired and the complexity of the diagram.
     </p>
 
@@ -303,6 +310,22 @@
         <li>{{ wikilink('Higher-order voronoi diagrams', 'Voronoi_diagram#Higher-order_Voronoi_diagrams') }}.</li>
         <li>{{ wikilink('Fortune\'s algorithm') }}: Generate a Voronoi diagram explicitly.</li>
     </ul>
+
+    <a id="section-references"></a>
+    <h2>References</h2>
+
+    <ol>
+        <li>
+            Hoff III, Kenneth E., et al.
+            <a href="https://files.ifi.uzh.ch/vmml/SummerSeminars2010/PaperWriting/papers/p277-hoff.pdf"
+               target="_blank">
+
+                Fast Computation of Generalized Voronoi Diagrams Using Graphics Hardware.
+            </a>
+            Proceedings of the 26th annual conference on Computer graphics and interactive techniques.
+            ACM Press/Addison-Wesley Publishing Co., 1999.
+        </li>
+    </ol>
 
 {% endblock %}
 {% block lastUpdateStamp %} May, 2016 {% endblock %}
