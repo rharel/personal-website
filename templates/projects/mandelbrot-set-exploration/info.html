@@ -1,0 +1,27 @@
+{% extends "projects/info_base.html" %}
+
+{% from "common/macros.html" import wikilink %}
+
+{% block projectTitle %}Mandelbrot Set Exploration in Real Time{% endblock %}
+{% block projectBriefTitle %}Mandelbrot Exploration{% endblock %}
+{% block projectURL %}/projects/mandelbrot-exploration{% endblock %}
+{% block projectThumbnail %}
+
+    <img class="project-thumbnail"
+         src="{{ url_for('static', filename='projects/game-of-life/img/glider_5x5.svg') }}">
+
+{% endblock %}
+{% block projectSummary %}
+
+    Conway's {{ wikilink('Game of Life', 'Conway\'s Game of Life') }}
+    is a {{ wikilink('cellular automaton') }} where cells live on an infinite grid and can assume
+    one of two states: dead or alive. Simple rules govern the evolution of the population
+    and yet give rise to surprisingly complex patterns!
+
+{% endblock %}
+{% block projectTags %}
+
+    <span class="tag tag-cpp">C++</span>
+    <span class="tag tag-graphics">Graphics</span>
+
+{% endblock %}

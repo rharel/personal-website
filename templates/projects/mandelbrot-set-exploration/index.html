@@ -1,0 +1,50 @@
+{% extends "projects/index_base.html" %}
+
+{% set cd = 'projects/mandelbrot-exploration/' %}
+
+{% from "common/macros.html" import wikilink, youtubelink, githublink, caption %}
+
+{% block title %}Mandelbrot Set Exploration in Real Time{% endblock %}
+{% block head %}
+
+    {{ super() }}
+
+    <link rel="stylesheet" type="text/css"
+          href="{{ url_for('static', filename='global/css/math.css') }}">
+
+{% endblock %}
+{% block projectSummary %}
+
+    {{ lipsum(2) }}
+
+{% endblock %}
+{% block tableOfContents %}
+
+    <h2>Table of Contents</h2>
+
+    <ul>
+        <li><a href="#section-source-code">Source code</a></li>
+        <li><a href="#section-see-also">See also</a></li>
+    </ul>
+
+{% endblock %}
+{% block content %}
+
+    {{ super() }}
+
+    <a id="section-source-code"></a>
+    <h2>Source code</h2>
+
+    <p>
+        You can view the source code and documentation of the main module on
+        {{ githublink('GitHub', 'rharel', 'cpp-mandelbrot') }}.
+    </p>
+
+    <a id="section-see-also"></a>
+    <h2>See also</h2>
+
+    <ul>
+    </ul>
+
+{% endblock %}
+{% block lastUpdateStamp %} May, 2016 {% endblock %}
