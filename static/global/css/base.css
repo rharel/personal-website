@@ -39,7 +39,7 @@ body {
   border-top: 5px double #DBDBDB;
   padding-top: 25px;
   width: 80%;
-  max-width: 900px;
+  max-width: 800px;
   text-align: left; }
   @media (max-width: 480px) {
     #content {
