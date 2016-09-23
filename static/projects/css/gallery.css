@@ -65,7 +65,7 @@
   .project-info-container + .project-info-container {
     margin-top: 10px; }
   .project-info-container:hover {
-    background-color: #9F9F9F;
+    box-shadow: 5px 5px 5px #a7a7a7;
     text-decoration: none; }
 
 .project-info {
