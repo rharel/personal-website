@@ -59,14 +59,9 @@
 .project-info-container {
   display: block;
   border: 1px solid #9F9F9F;
-  padding: 10px;
-  -webkit-border-radius: 10px;
-  -moz-border-radius: 10px;
-  -ms-border-radius: 10px;
-  border-radius: 10px;
-  background-color: #DBDBDB;
-  color: black;
-  text-align: left; }
+  color: #393939;
+  text-align: left;
+  box-shadow: 5px 5px 5px #e7e7e7; }
   .project-info-container + .project-info-container {
     margin-top: 10px; }
   .project-info-container:hover {
@@ -75,9 +70,8 @@
 
 .project-info {
   border-collapse: collapse;
-  border: 1px solid #9F9F9F;
   width: 100%;
-  background-color: #F0F0F0; }
+  background-color: white; }
 
 .project-thumbnail-td {
   border: 0;

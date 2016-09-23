@@ -21,12 +21,11 @@
   display: block;
 
   border: 1px solid $grey_3;
-  padding: 10px;
 
-  @include border-radius(10px);
-  background-color: $grey_2;
-  color: black;
+  color: #393939;
   text-align: left;
+
+  box-shadow: 5px 5px 5px #e7e7e7;
 
   & + .project-info-container {
 
@@ -38,19 +37,13 @@
     background-color: $grey_3;
     text-decoration: none;
   }
-
-  @include media-XS() {
-
-    //display: inline-block;
-  }
 }
 .project-info {
 
   border-collapse: collapse;
-  border: 1px solid $grey_3;
   width: 100%;
 
-  background-color: $grey_1;
+  background-color: white;
 }
 
 .project-thumbnail-td {
