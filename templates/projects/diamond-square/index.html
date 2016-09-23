@@ -1,0 +1,54 @@
+{% extends "projects/index_base.html" %}
+
+{% set cd = 'projects/diamond-square/' %}
+
+{% from "common/macros.html" import wikilink, githublink, caption %}
+
+{% block title %}Diamond-Square{% endblock %}
+{% block head %}
+
+    {{ super() }}
+
+{% endblock %}
+{% block projectSummary %}
+
+    {{ lipsum(2) }}
+
+{% endblock %}
+{% block tableOfContents %}
+
+    <h2>Table of Contents</h2>
+
+    <ul>
+        <li><a href="#section-source-code">Source code</a></li>
+        <li><a href="#section-see-also">See also</a></li>
+    </ul>
+
+{% endblock %}
+{% block content %}
+
+    {{ super() }}
+
+    <a id="section-source-code"></a>
+    <h2>Source code</h2>
+
+    <p>
+        You can view the source code and documentation on {{ githublink('GitHub', 'rharel', 'cpp-diamond-square') }}.
+        Some more samples of generated height maps available under the
+        {{ githublink('demo/img', 'rharel', 'cpp-diamond-square', 'master/demo/img') }} directory
+        of the repository.
+    </p>
+
+    <a id="section-see-also"></a>
+    <h2>See also</h2>
+
+    <ul>
+        <li>
+            <a href="https://plus.maths.org/content/modelling-nature-fractals">
+                Fractal-based landscapes.
+            </a>
+        </li>
+    </ul>
+
+{% endblock %}
+{% block lastUpdateStamp %} September, 2016 {% endblock %}

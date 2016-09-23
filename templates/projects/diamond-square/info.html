@@ -1,0 +1,26 @@
+{% extends "projects/info_base.html" %}
+
+{% from "common/macros.html" import wikilink %}
+
+{% block projectTitle %}Diamond-Square Terrain{% endblock %}
+{% block projectBriefTitle %}Diamond-Square Terrain{% endblock %}
+{% block projectURL %}/projects/diamond-square{% endblock %}
+{% block projectThumbnail %}
+
+    <img class="project-thumbnail"
+         src="{{ url_for('static', filename='projects/diamond-square/img/rendered_terrain_128px.png') }}">
+
+{% endblock %}
+{% block projectSummary %}
+
+    The {{ wikilink('Diamond-Square algorithm') }} is a
+    {{ wikilink('heightmap') }} generation procedure for the synthesis of realistic-looking digital
+    terrain.
+
+{% endblock %}
+{% block projectTags %}
+
+    <span class="tag tag-cpp">C++</span>
+    <span class="tag tag-procedural-content-generation">Procedural Content Generation</span>
+
+{% endblock %}
