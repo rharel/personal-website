@@ -22,7 +22,11 @@
 
     border: 1px solid $grey_4;
   }
+  .transparent-img {
 
+    background-color: transparent;
+    border: none;
+  }
   @include media-XS() {
 
     padding: {
