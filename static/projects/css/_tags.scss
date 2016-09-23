@@ -13,66 +13,73 @@
     left: 4px;
     right: 4px;
   }
-  border: 1px solid $grey_3;
+  border: {
+
+    right: 1px solid $grey_3;
+    top: 1px solid $grey_3;
+    bottom: 5px solid $grey_3;
+    left: 1px solid $grey_3;
+  }
+
   @include border-radius(5px);
 
   font-size: 9pt;
   white-space: nowrap;
 
-  color: white;
-  text-shadow: black 0 0 2px;
+  color: #2F2F2F;
+  background-color: white;
 }
 
 // Technologies
 
 .tag-cpp {
 
-  background-color: #2f9ec6;
+  border-bottom-color: #2f9ec6;
 }
 .tag-java {
 
-  background-color: #DA4E36;
+  border-bottom-color: #DA4E36;
 }
 .tag-js {
 
-  background-color: #d76a00;
+  border-bottom-color: #d76a00;
 }
 .tag-python {
 
-  background-color: #16932b;
+  border-bottom-color: #16932b;
 }
 .tag-webgl {
 
-  background-color: #CC4B4B;
+  border-bottom-color: #CC4B4B;
 }
 .tag-opengl {
 
-  background-color: #CC4B4B;
+  border-bottom-color: #CC4B4B;
 }
 
 // Topics
 
 .tag-ai {
 
-  background-color: #2D5B8F;
+  border-bottom-color: #2D5B8F;
 }
 .tag-cellular-automata {
 
-  background-color: #7B7B7B;
+  border-bottom-color: #7B7B7B;
 }
 .tag-computational-geometry {
 
-  background-color: #598aff;
+  border-bottom-color: #598aff;
 }
 .tag-data-analysis {
 
-  background-color: #7a34d5
+  border-bottom-color: #7a34d5
 }
 .tag-graphics {
 
-  background-color: #51abff;
+  border-bottom-color: #51abff;
 }
 .tag-procedural-content-generation {
 
-  background-color: #ec5d28;
+  border-bottom-color: #ec5d28;
 }
