@@ -135,6 +135,13 @@
         <img src="{{ url_for('static', filename=cd + '/img/rendered_terrain_512px.png') }}"
              width="300" height="300">
     </div>
+    <p>
+        One last note: The way in which the random offsets \(r_{xy}\) are chosen for each vertex
+        \((x, y)\) is important. In order to achieve smooth-looking terrain, it is necessary for
+        the variance of the distribution from which they are drawn to be reduced after each iteration
+        of the algorithm. This means that offsets drawn in earlier iterations will determine the
+        global shape of the terrain, while values drawn later will determine its local details.
+    </p>
 
     <a id="section-source-code"></a>
     <h2>Source code</h2>
