@@ -20,7 +20,7 @@
 .tag-java {
   border-bottom-color: #DA4E36; }
 
-.tag-js {
+.tag-js, .tag-ts {
   border-bottom-color: #d76a00; }
 
 .tag-python {
@@ -117,5 +117,3 @@
   margin-bottom: 15px;
   margin-right: 10px;
   font-size: 13pt; }
-
-/*# sourceMappingURL=gallery.css.map */
