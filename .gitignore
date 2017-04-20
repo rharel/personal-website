@@ -1,8 +1,17 @@
 # Editor
 .idea/
 
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
 # virtualenv
 venv/
+
+# Flask stuff:
+instance/
+.webassets-cache
 
 # Thumbnails
 Thumbs.db
