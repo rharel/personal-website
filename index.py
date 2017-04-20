@@ -20,7 +20,7 @@ def page_not_found(error):
 
 @app.route('/<filename>')
 def root(filename):
-    return redirect(url_for('static', filename='root/' + filename))
+    return redirect(url_for('static', filename='root' + filename))
 
 
 @app.route('/')
