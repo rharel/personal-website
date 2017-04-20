@@ -1,3 +1,9 @@
+{% macro projectlink(label, project) -%}
+
+    <a href="{{ url_for('.show_project', name=project) }}" target="_blank">{{ label }}</a>
+
+{%- endmacro %}
+
 {% macro wikilink(label, article='') -%}
 
     {% if not article %}
@@ -5,14 +11,14 @@
     {% endif %}
 
     {% set url = 'https://en.wikipedia.org/wiki/' + article.replace(' ', '_').capitalize() %}
-    <a href="{{ url  }}" target="_blank">{{ label }}</a>
+    <a href="{{ url }}" target="_blank">{{ label }}</a>
 
 {%- endmacro %}
 
 {% macro youtubelink(label, video) -%}
 
     {% set url = 'https://www.youtube.com/watch?v=' + video %}
-    <a href="{{ url  }}" target="_blank">{{ label }}</a>
+    <a href="{{ url }}" target="_blank">{{ label }}</a>
 
 {%- endmacro %}
 
