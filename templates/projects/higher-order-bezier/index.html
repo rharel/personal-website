@@ -2,7 +2,7 @@
 
 {% set cd = 'projects/higher-order-bezier/' %}
 
-{% from "common/macros.html" import wikilink, githublink, caption %}
+{% from "common/macros.html" import projectlink, wikilink, githublink, caption %}
 {% from "projects/higher-order-bezier/macros.html" import animated_curve %}
 
 {% block title %}Higher-order Bezier{% endblock %}
@@ -207,6 +207,7 @@
     <h2>See also</h2>
 
     <ul>
+        <li>Related project: {{ projectlink('Curve compressor', 'curve-compressor') }}</li>
         <li>{{ wikilink('Spline function') }}</li>
         <li>{{ wikilink('Hermite curve') }}</li>
         <li>{{ wikilink('De Casteljau\'s algorithm') }}</li>
