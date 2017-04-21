@@ -1,6 +1,6 @@
 {% macro projectlink(label, project) -%}
 
-    <a href="{{ url_for('.show_project', name=project) }}" target="_blank">{{ label }}</a>
+    <a href="{{ url_for('.show_project', name=project) }}">{{ label }}</a>
 
 {%- endmacro %}
 
