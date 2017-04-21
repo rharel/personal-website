@@ -6,16 +6,55 @@ body {
   background-color: #FAFAFD; }
 
 #navigation-bar {
-  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  width: 80%;
+  min-height: 35px;
   text-align: center; }
+  @media (max-width: 480px) {
+    #navigation-bar {
+      text-align: left; } }
+
+#menu-button-input {
+  display: none; }
+
+#menu-button-label {
+  display: none;
+  float: right;
+  cursor: pointer; }
+  @media (max-width: 480px) {
+    #menu-button-label {
+      display: block; } }
+
+#menu-button-image {
+  width: 35px;
+  height: 35px;
+  background-color: transparent; }
+
+#navigation-bar-buttons {
+  display: block; }
+  @media (max-width: 480px) {
+    #navigation-bar-buttons {
+      display: none; } }
+
+@media (max-width: 480px) {
+  #menu-button-input:checked + #menu-button-label + #navigation-bar-buttons {
+    display: block; } }
 
 .navigation-button-container {
   display: inline-block; }
   .navigation-button-container + .navigation-button-container {
     margin-left: 50px; }
-  @media (max-width: 480px) {
+  @media (max-width: 640px) {
     .navigation-button-container + .navigation-button-container {
       margin-left: 25px; } }
+  @media (max-width: 480px) {
+    .navigation-button-container {
+      display: block; }
+      .navigation-button-container + .navigation-button-container {
+        margin-left: 0; } }
 
 .navigation-button {
   display: inline-block;
@@ -28,9 +67,11 @@ body {
   .navigation-button:hover {
     border-bottom: 5px solid #C2DFFF;
     text-decoration: none; }
+  @media (max-width: 480px) {
+    .navigation-button {
+      border-bottom: 5px solid #C2DFFF; } }
 
 #content-container {
-  padding-top: 15px;
   padding-bottom: 100px; }
 
 #content {
@@ -52,5 +93,3 @@ body {
   font-size: 8pt;
   text-align: center;
   color: #3F3F3F; }
-
-/*# sourceMappingURL=base.css.map */
