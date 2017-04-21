@@ -1,0 +1,28 @@
+{% extends "projects/info_base.html" %}
+
+{% from "common/macros.html" import wikilink %}
+
+{% block projectTitle %}Curve Compression{% endblock %}
+{% block projectBriefTitle %}Curve Compression{% endblock %}
+{% block projectURL %}/projects/curve-compressor{% endblock %}
+{% block projectThumbnail %}
+
+    <img class="project-thumbnail"
+         src="{{ url_for('static', filename='projects/curve-compressor/img/curve_and_vertices_256px.svg') }}">
+
+{% endblock %}
+{% block projectSummary %}
+
+    {{ wikilink('Curves', 'Curve') }} must often frsit be expressed as a sequence
+    of sampled position {{ wikilink('vertices', 'Vertex (Computer Graphics)') }} before they
+    can be rendered. However, naive ways of sampling general curves often result in vertex-sequences
+    that are far larger than necessary. For certain curves, it is possible to trim the original sequence
+    by a significant amount without having the viewer notice a difference.
+
+{% endblock %}
+{% block projectTags %}
+
+    <span class="tag tag-ts">TypeScript</span>
+    <span class="tag tag-graphics">Graphics</span>
+
+{% endblock %}
