@@ -1,0 +1,94 @@
+{% extends "projects/index_base.html" %}
+
+{% set cd = 'projects/new-tab-tweaker/' %}
+
+{% from "common/macros.html" import githublink, caption %}
+
+{% block title %}New Tab Tweaker{% endblock %}
+{% block head %}
+
+    {{ super() }}
+
+    <link rel="stylesheet" type="text/css"
+          href="{{ url_for('static', filename=cd + 'css/showcase.css') }}">
+
+{% endblock %}
+{% block projectSummary %}
+
+    <p>
+        Recently, I came to the ironic realization that I encounter Firefox's bland-and-boring
+        'New Tab' page far more often that I do the wonderful wallpaper I carefully chose to decorate
+        my Desktop with. So naturally, I headed over to Mozilla's
+        <a href="https://addons.mozilla.org/en-US/firefox/" target="_blank">add-on repository</a>
+        in search of an add-on that would allow me to decorate the New Tab page witsh a customized background image.
+    </p>
+    <p>
+        Alas, existing add-ons were either bloated with additional functionality
+        that I didn't intend to use or based on
+        legacy technology that
+        <a href="https://blog.mozilla.org/addons/2015/08/21/the-future-of-developing-firefox-add-ons/"
+           target="_blank">
+            will be phased out
+        </a>
+        of Firefox in the very near future. So, I set out to develop my own add-on for the job, and took it as an
+        opportunity to dive in and familiarize myself with up-and-coming
+        <a href="https://developer.mozilla.org/en-US/Add-ons/WebExtensions/What_are_WebExtensions"
+           target="_blank">
+            WebExtension technology</a>.
+    </p>
+
+{% endblock %}
+{% block tableOfContents %}
+
+    <h2>Table of Contents</h2>
+
+    <ul>
+        <li><a href="#section-screenshots">Screenshots</a></li>
+        <li><a href="#section-source-code">Source code</a></li>
+        <li><a href="#section-see-also">See also</a></li>
+    </ul>
+
+{% endblock %}
+{% block content %}
+
+    {{ super() }}
+
+    <a id="section-screenshots"></a>
+    <h2>Screenshots</h2>
+
+    <div class="showcase-container">
+        <a href="{{ url_for('static', filename=cd + 'img/screenshot/new_tab_custom_page_options.png') }}"
+           target="_blank">
+            <img src="{{ url_for('static', filename=cd + 'img/screenshot/new_tab_custom_page_options.png') }}"
+                 width="512" />
+        </a>
+        <a href="{{ url_for('static', filename=cd + 'img/screenshot/new_tab_redirection_options.png') }}"
+           target="_blank">
+            <img src="{{ url_for('static', filename=cd + 'img/screenshot/new_tab_redirection_options.png') }}"
+                 width="512" />
+        </a>
+    </div>
+
+    <a id="section-source-code"></a>
+    <h2>Source code</h2>
+
+    <p>
+        You can view the source code and documentation of the WebExtension on
+        {{ githublink('GitHub', 'rharel', 'webext-new-tab-tweaker') }}.
+    </p>
+
+    <a id="section-see-also"></a>
+    <h2>See also</h2>
+
+    <ul>
+        <li>
+            The add-on's page at
+            <a href="https://addons.mozilla.org/en-US/firefox/addon/new-tab-tweaker/",
+               target="_blank">
+                addons.mozilla.org
+            </a>
+        </li>
+    </ul>
+
+{% endblock %}
+{% block lastUpdateStamp %} May, 2017 {% endblock %}

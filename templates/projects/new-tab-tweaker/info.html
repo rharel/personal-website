@@ -1,0 +1,27 @@
+{% extends "projects/info_base.html" %}
+
+{% block projectTitle %}New Tab Tweaker{% endblock %}
+{% block projectBriefTitle %}New Tab Tweaker{% endblock %}
+{% block projectURL %}/projects/new-tab-tweaker{% endblock %}
+{% block projectThumbnail %}
+
+    <img class="project-thumbnail"
+         src="{{ url_for('static', filename='projects/new-tab-tweaker/img/main_icon_128px.png') }}">
+
+{% endblock %}
+{% block projectSummary %}
+
+    This is my first attempt at development of a
+    <a href="https://developer.mozilla.org/en-US/Add-ons/WebExtensions/What_are_WebExtensions"
+       target="_blank">
+        WebExtension</a>. It gives the user
+    the option to override a browser's New Tab behavior and appearance.
+
+{% endblock %}
+{% block projectTags %}
+
+    <span class="tag tag-ts">JavaScript</span>
+    <span class="tag tag-web-extensions">WebExtensions</span>
+    <span class="tag tag-ui">User Interface</span>
+
+{% endblock %}
