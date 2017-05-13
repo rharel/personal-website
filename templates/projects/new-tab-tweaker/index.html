@@ -43,6 +43,7 @@
     <h2>Table of Contents</h2>
 
     <ul>
+        <li><a href="#section-features">Features</a></li>
         <li><a href="#section-screenshots">Screenshots</a></li>
         <li><a href="#section-source-code">Source code</a></li>
         <li><a href="#section-see-also">See also</a></li>
@@ -53,18 +54,31 @@
 
     {{ super() }}
 
+    <a id="section-features"></a>
+    <h2>Features</h2>
+
+    <ul>
+        <li>Allows the user to have new tabs redirect to a specified URL.</li>
+        <li>Allows the user to decorate new tab pages with a custom background color and wallpaper image.</li>
+    </ul>
+
     <a id="section-screenshots"></a>
     <h2>Screenshots</h2>
 
     <div class="showcase-container">
+        <a href="{{ url_for('static', filename=cd + 'img/screenshot/new_tab_redirection_options.png') }}"
+           target="_blank">
+            <img src="{{ url_for('static', filename=cd + 'img/screenshot/new_tab_redirection_options.png') }}"
+                 width="512" />
+        </a>
         <a href="{{ url_for('static', filename=cd + 'img/screenshot/new_tab_custom_page_options.png') }}"
            target="_blank">
             <img src="{{ url_for('static', filename=cd + 'img/screenshot/new_tab_custom_page_options.png') }}"
                  width="512" />
         </a>
-        <a href="{{ url_for('static', filename=cd + 'img/screenshot/new_tab_redirection_options.png') }}"
+        <a href="{{ url_for('static', filename=cd + 'img/screenshot/import_wallpaper_urls_dialog.png') }}"
            target="_blank">
-            <img src="{{ url_for('static', filename=cd + 'img/screenshot/new_tab_redirection_options.png') }}"
+            <img src="{{ url_for('static', filename=cd + 'img/screenshot/import_wallpaper_urls_dialog.png') }}"
                  width="512" />
         </a>
     </div>
