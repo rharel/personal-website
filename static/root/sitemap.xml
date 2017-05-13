@@ -28,6 +28,11 @@
     <!-- projects -->
 
     <url>
+        <loc>http://rharel.com/projects/curve-compressor</loc>
+        <lastmod>2017-05-01</lastmod>
+        <changefreq>monthly</changefreq>
+    </url>
+    <url>
       <loc>http://rharel.com/projects/game-of-life</loc>
       <lastmod>2016-06-07</lastmod>
       <changefreq>monthly</changefreq>
@@ -61,6 +66,11 @@
       <loc>http://rharel.com/projects/mandelbrot-set-exploration</loc>
       <lastmod>2016-09-24</lastmod>
       <changefreq>monthly</changefreq>
+    </url>
+    <url>
+        <loc>http://rharel.com/projects/new-tab-tweaker</loc>
+        <lastmod>2017-05-01</lastmod>
+        <changefreq>monthly</changefreq>
     </url>
     <url>
       <loc>http://rharel.com/projects/diamond-square</loc>
