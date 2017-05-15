@@ -1,22 +1,3 @@
-h1 {
-  color: #316899; }
-  h1:first-child {
-    margin-top: 0; }
-
-h2 {
-  color: #316899; }
-
-h3 {
-  font-size: inherit;
-  color: #316899; }
-
-img {
-  background-color: white; }
-
-canvas {
-  display: block;
-  border: 1px solid black; }
-
 small {
   font-size: 8pt; }
 

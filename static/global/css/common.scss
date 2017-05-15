@@ -6,35 +6,6 @@
 @import 'common_colors';
 @import 'common_mixins';
 
-h1 {
-
-  color: $blue_2;
-
-  &:first-child {
-
-    margin-top: 0;
-  }
-}
-h2 {
-
-  color: $blue_2;
-}
-h3 {
-
-  font-size: inherit;
-  color: $blue_2;
-}
-
-img {
-
-  background-color: white;
-}
-canvas {
-
-  display: block;
-  border: 1px solid black;
-}
-
 small {
 
   font-size: 8pt;
