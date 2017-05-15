@@ -5,17 +5,23 @@
 {% block projectTitle %}k-Means Clustering{% endblock %}
 {% block projectBriefTitle %}k-Means Clustering{% endblock %}
 {% block projectURL %}/projects/k-means-clustering{% endblock %}
-{% block projectThumbnail %}
+{% block projectThumbnailURL %}
 
-    <img class="project-thumbnail"
-         src="{{ url_for('static', filename='projects/k-means-clustering/img/three_clusters.png') }}">
+    {{ url_for('static', filename='projects/k-means-clustering/img/three_clusters.png') }}
 
 {% endblock %}
 {% block projectSummary %}
 
     The {{ wikilink('k-means clustering') }} algorithm is widely used tool in
-    {{ wikilink('data mining') }}. It is used to classify observed datapoints into distinct
+    {{ wikilink('data mining') }}. It is used to classify observed data-points into distinct
     categories and to find out the characteristic features - the means - of those categories.
+
+{% endblock %}
+{% block projectBriefSummary %}
+
+    The {{ wikilink('k-means clustering') }} algorithm is widely used tool in
+    {{ wikilink('data mining') }} to classify observed data-points into distinct
+    categories.
 
 {% endblock %}
 {% block projectTags %}

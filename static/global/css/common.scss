@@ -10,7 +10,10 @@ h1 {
 
   color: $blue_2;
 
-  &:first-child { margin-top: 0; }
+  &:first-child {
+
+    margin-top: 0;
+  }
 }
 h2 {
 
@@ -44,37 +47,25 @@ a {
 
   &:hover {
 
+    cursor: pointer;
     text-decoration: underline;
   }
-}
 
-.text-left {
+  &.seamless-link {
 
-  text-align: left;
-}
-.text-right {
+    color: inherit;
+  }
+  &.seamless-link:hover {
 
-  text-align: right;
-}
-.text-center {
-
-  text-align: center;
-}
-
-.nowrap {
-
-  white-space: nowrap;
-}
-
-.circular {
-
-  @include border-radius(50%);
+    text-decoration: none;
+  }
 }
 
 .notice-info {
 
   @include border-radius(10px);
   padding: 10px;
+
   background-color: $purple_1;
   color: $purple_2;
 }

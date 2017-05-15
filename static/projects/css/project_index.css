@@ -49,5 +49,5 @@
 .long-code-snippet {
   max-height: 350px; }
 
-#navigation-button-projects {
+#navigation-bar-buttons > .button-container > #navigation-button-projects {
   border-bottom: 5px solid #316899; }

@@ -5,10 +5,9 @@
 {% block projectTitle %}Game of Life{% endblock %}
 {% block projectBriefTitle %}Game of Life{% endblock %}
 {% block projectURL %}/projects/game-of-life{% endblock %}
-{% block projectThumbnail %}
+{% block projectThumbnailURL %}
 
-    <img class="project-thumbnail"
-         src="{{ url_for('static', filename='projects/game-of-life/img/glider_5x5.svg') }}">
+    {{ url_for('static', filename='projects/game-of-life/img/glider_5x5.svg') }}
 
 {% endblock %}
 {% block projectSummary %}
@@ -17,6 +16,13 @@
     is a {{ wikilink('cellular automaton') }} where cells live on an infinite grid and can assume
     one of two states: dead or alive. Simple rules govern the evolution of the population
     and yet give rise to surprisingly complex patterns!
+
+{% endblock %}
+{% block projectBriefSummary %}
+
+    Conway's {{ wikilink('Game of Life', 'Conway\'s Game of Life') }}
+    is a {{ wikilink('cellular automaton') }}. Simple rules govern the evolution
+    of the population and yet give rise to surprisingly complex patterns!
 
 {% endblock %}
 {% block projectTags %}

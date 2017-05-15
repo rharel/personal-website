@@ -5,10 +5,9 @@
 {% block projectTitle %}Mandelbrot Set Exploration{% endblock %}
 {% block projectBriefTitle %}Mandelbrot Set Exploration{% endblock %}
 {% block projectURL %}/projects/mandelbrot-set-exploration{% endblock %}
-{% block projectThumbnail %}
+{% block projectThumbnailURL %}
 
-    <img class="project-thumbnail"
-         src="{{ url_for('static', filename='projects/mandelbrot-set-exploration/img/overview_256px.png') }}">
+     {{ url_for('static', filename='projects/mandelbrot-set-exploration/img/overview_256px.png') }}
 
 {% endblock %}
 {% block projectSummary %}
@@ -19,6 +18,13 @@
     {{ wikilink('complex plane') }} can be colored based on how close a
     they are to being included in the set. Images generated in this manner reveal
     the complexity and beauty of the fractal patterns hidden within the Mandelbrot set.
+
+{% endblock %}
+{% block projectBriefSummary %}
+
+    Explore the {{ wikilink('Mandelbrot set') }} &#8212;
+    a {{ wikilink('mathematical set', 'set (mathematics)') }} that is also a
+    {{ wikilink('fractal') }} &#8212; in real time.
 
 {% endblock %}
 {% block projectTags %}

@@ -11,10 +11,10 @@ body {
   margin-top: 15px;
   margin-bottom: 15px;
   width: 80%;
-  min-height: 35px;
   text-align: center; }
   @media (max-width: 480px) {
     #navigation-bar {
+      min-height: 35px;
       text-align: left; } }
 
 #menu-button-input {
@@ -24,14 +24,13 @@ body {
   display: none;
   float: right;
   cursor: pointer; }
+  #menu-button-label img {
+    width: 35px;
+    height: 35px;
+    background-color: transparent; }
   @media (max-width: 480px) {
     #menu-button-label {
       display: block; } }
-
-#menu-button-image {
-  width: 35px;
-  height: 35px;
-  background-color: transparent; }
 
 #navigation-bar-buttons {
   display: block; }
@@ -43,20 +42,20 @@ body {
   #menu-button-input:checked + #menu-button-label + #navigation-bar-buttons {
     display: block; } }
 
-.navigation-button-container {
+#navigation-bar-buttons > .button-container {
   display: inline-block; }
-  .navigation-button-container + .navigation-button-container {
+  #navigation-bar-buttons > .button-container + .button-container {
     margin-left: 50px; }
   @media (max-width: 640px) {
-    .navigation-button-container + .navigation-button-container {
+    #navigation-bar-buttons > .button-container + .button-container {
       margin-left: 25px; } }
   @media (max-width: 480px) {
-    .navigation-button-container {
+    #navigation-bar-buttons > .button-container {
       display: block; }
-      .navigation-button-container + .navigation-button-container {
+      #navigation-bar-buttons > .button-container + .button-container {
         margin-left: 0; } }
 
-.navigation-button {
+#navigation-bar-buttons > .button-container > a {
   display: inline-block;
   border-bottom: 5px solid transparent;
   padding-top: 15px;
@@ -64,15 +63,15 @@ body {
   color: inherit;
   cursor: pointer;
   text-decoration: none; }
-  .navigation-button:hover {
+  #navigation-bar-buttons > .button-container > a:hover {
     border-bottom: 5px solid #C2DFFF;
     text-decoration: none; }
   @media (max-width: 480px) {
-    .navigation-button {
+    #navigation-bar-buttons > .button-container > a {
       border-bottom: 5px solid #C2DFFF; } }
 
 #content-container {
-  padding-bottom: 100px; }
+  margin-bottom: 100px; }
 
 #content {
   margin-left: auto;

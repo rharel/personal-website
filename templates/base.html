@@ -42,36 +42,32 @@
 		  ga('herokuTracker.send', 'pageview');
 
         </script>
-        {% endblock %}
-        {% endblock %}
+        {% endblock %}  {# googleAnalytics #}
+        {% endblock %}  {# head #}
     </head>
     <body>
         <div id="navigation-bar">
             <input type="checkbox" id="menu-button-input"/>
             <label id="menu-button-label" for="menu-button-input" title="Menu">
-                <img id="menu-button-image"
-                     src="{{ url_for('static', filename='global/img/menu_icon_100px.svg') }}">
+                <img src="{{ url_for('static', filename='global/img/menu_icon_100px.svg') }}">
             </label>
             <div id="navigation-bar-buttons">
-                <div class="navigation-button-container">
-                    <a class="navigation-button"
-                       id="navigation-button-about"
+                <div class="button-container">
+                    <a id="navigation-button-about"
                        href="/about">
 
                         ABOUT
                     </a>
                 </div>
-                <div class="navigation-button-container">
-                    <a class="navigation-button"
-                       id="navigation-button-projects"
+                <div class="button-container">
+                    <a id="navigation-button-projects"
                        href="/projects/">
 
                         PROJECTS
                     </a>
                 </div>
-                <div class="navigation-button-container">
-                    <a class="navigation-button"
-                       id="navigation-button-contact"
+                <div class="button-container">
+                    <a id="navigation-button-contact"
                        href="/contact">
 
                         CONTACT

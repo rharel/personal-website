@@ -5,10 +5,9 @@
 {% block projectTitle %}Diamond-Square Terrain{% endblock %}
 {% block projectBriefTitle %}Diamond-Square Terrain{% endblock %}
 {% block projectURL %}/projects/diamond-square{% endblock %}
-{% block projectThumbnail %}
+{% block projectThumbnailURL %}
 
-    <img class="project-thumbnail"
-         src="{{ url_for('static', filename='projects/diamond-square/img/rendered_terrain_128px.png') }}">
+    {{ url_for('static', filename='projects/diamond-square/img/rendered_terrain_128px.png') }}
 
 {% endblock %}
 {% block projectSummary %}
@@ -16,6 +15,11 @@
     The {{ wikilink('Diamond-Square algorithm') }} is a
     {{ wikilink('heightmap') }} generation procedure for the synthesis of realistic-looking digital
     terrain.
+
+{% endblock %}
+{% block projectBriefSummary %}
+
+Generation of realistic-looking digital terrain with the  {{ wikilink('diamond-Square algorithm') }}.
 
 {% endblock %}
 {% block projectTags %}

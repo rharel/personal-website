@@ -11,7 +11,7 @@
   border-radius: 5px;
   font-size: 9pt;
   white-space: nowrap;
-  color: #2F2F2F;
+  color: #282828;
   background-color: white; }
 
 .tag-cpp {
@@ -21,7 +21,7 @@
   border-bottom-color: #DA4E36; }
 
 .tag-js, .tag-ts {
-  border-bottom-color: #d76a00; }
+  border-bottom-color: #f27300; }
 
 .tag-python {
   border-bottom-color: #16932b; }
@@ -39,7 +39,7 @@
   border-bottom-color: #2D5B8F; }
 
 .tag-cellular-automata {
-  border-bottom-color: #7B7B7B; }
+  border-bottom-color: #303c8f; }
 
 .tag-computational-geometry {
   border-bottom-color: #598aff; }
@@ -56,70 +56,93 @@
 .tag-ui {
   border-bottom-color: #ce3475; }
 
-#navigation-button-projects {
+#navigation-bar-buttons > .button-container > #navigation-button-projects {
   border-bottom: 5px solid #316899; }
 
-.project-list {
-  text-align: center; }
-
-.project-info-container {
-  display: block;
-  border: 1px solid #9F9F9F;
-  color: #393939;
-  text-align: left;
-  box-shadow: 5px 5px 5px #e7e7e7; }
-  .project-info-container + .project-info-container {
-    margin-top: 10px; }
-  .project-info-container:hover {
-    box-shadow: 5px 5px 5px #a7a7a7;
-    text-decoration: none; }
-
 .project-info {
-  border-collapse: collapse;
-  width: 100%;
-  background-color: white; }
+  display: flex;
+  flex-flow: row nowrap;
+  border: 1px solid #9F9F9F;
+  color: #282828;
+  background-color: white;
+  box-shadow: 5px 5px 5px #F0F0F0; }
+  .project-info + .project-info {
+    margin-top: 10px; }
+  .project-info:hover {
+    box-shadow: 5px 5px 5px #DBDBDB;
+    text-decoration: none; }
+  @media (max-width: 480px) {
+    .project-info {
+      flex-flow: column nowrap; } }
 
-.project-thumbnail-td {
-  border: 0;
+.project-info > .thumbnail {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 120px;
   width: 120px;
-  padding: 0;
-  background-color: #C2DFFF;
-  text-align: center; }
+  background-color: #C2DFFF; }
   @media (max-width: 480px) {
-    .project-thumbnail-td {
-      padding: 10px; } }
+    .project-info > .thumbnail {
+      justify-content: right;
+      width: 100%;
+      height: 40px; } }
+  .project-info > .thumbnail img {
+    border: 1px solid #282828;
+    width: 100px;
+    background-color: white; }
+    @media (max-width: 480px) {
+      .project-info > .thumbnail img {
+        margin-right: 5px;
+        width: auto;
+        height: 30px; } }
 
-.project-thumbnail {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  border: 1px solid black;
-  width: 100px; }
+.project-info > .details {
+  flex-grow: 1;
+  margin-left: 15px;
+  margin-right: 15px; }
 
-.project-description-td {
-  border: 0;
-  padding-left: 10px; }
+@media (max-width: 480px) {
+  .project-info > .details > .long {
+    display: none; } }
+
+.project-info > .details > .short {
+  display: none; }
   @media (max-width: 480px) {
-    .project-description-td {
-      display: none; } }
+    .project-info > .details > .short {
+      display: block; } }
 
-.project-title {
-  display: block;
+.project-info > .details > .title {
   margin-top: 15px;
   margin-bottom: 5px;
   font-size: 16pt;
   font-weight: bold; }
 
-.project-brief-title {
-  display: none;
-  margin-top: 5px;
-  font-size: 13pt; }
-  @media (max-width: 480px) {
-    .project-brief-title {
-      display: block; } }
+.project-info > .details > .tags {
+  margin-bottom: 5px;
+  line-height: 1.5; }
 
-.project-summary {
-  margin-top: 15px;
+.project-info > .details > .summary {
+  margin-top: 10px;
   margin-bottom: 15px;
-  margin-right: 10px;
-  font-size: 13pt; }
+  font-size: 12pt; }
+
+.project-info > .further-reading {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  min-width: 50px;
+  width: 50px;
+  padding-bottom: 6px;
+  font-size: 25pt;
+  background-color: #FAFAFD; }
+  .project-info > .further-reading:hover {
+    background-color: #C2DFFF; }
+  @media (max-width: 480px) {
+    .project-info > .further-reading {
+      justify-content: right;
+      align-items: center;
+      width: 100%;
+      height: 30px; }
+      .project-info > .further-reading span {
+        margin-right: 10px; } }

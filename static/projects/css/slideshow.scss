@@ -28,7 +28,7 @@
   color: $grey_4;
   cursor: pointer;
   @include border-radius(2px);
-  @include unselectable;
+  @include no-user-select;
 }
 .slideshow-control-previous {
 

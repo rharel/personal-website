@@ -24,25 +24,12 @@ a {
   color: #0066FF;
   text-decoration: none; }
   a:hover {
+    cursor: pointer;
     text-decoration: underline; }
-
-.text-left {
-  text-align: left; }
-
-.text-right {
-  text-align: right; }
-
-.text-center {
-  text-align: center; }
-
-.nowrap {
-  white-space: nowrap; }
-
-.circular {
-  -webkit-border-radius: 50%;
-  -moz-border-radius: 50%;
-  -ms-border-radius: 50%;
-  border-radius: 50%; }
+  a.seamless-link {
+    color: inherit; }
+  a.seamless-link:hover {
+    text-decoration: none; }
 
 .notice-info {
   -webkit-border-radius: 10px;

@@ -5,10 +5,9 @@
 {% block projectTitle %}Higher-order Bezier{% endblock %}
 {% block projectBriefTitle %}Higher-order Bezier{% endblock %}
 {% block projectURL %}/projects/higher-order-bezier{% endblock %}
-{% block projectThumbnail %}
+{% block projectThumbnailURL %}
 
-    <img class="project-thumbnail"
-         src="{{ url_for('static', filename='projects/higher-order-bezier/img/c_curve.svg') }}">
+    {{ url_for('static', filename='projects/higher-order-bezier/img/c_curve.svg') }}
 
 {% endblock %}
 {% block projectSummary %}
@@ -17,6 +16,12 @@
     them oftentimes quite useful for animation and other applications in computer graphics.
     Lower order curves are sufficient for the vast majority of cases, and although higher-order curves are
     generally too complex to be useful, they do make for beautiful art!
+
+{% endblock %}
+{% block projectBriefSummary %}
+
+    Compute and render higher-order {{ wikilink('Bezier curves') }} to make
+    beautiful {{ wikilink('string art') }}!
 
 {% endblock %}
 {% block projectTags %}

@@ -4,7 +4,7 @@
 
 
 @import 'common_colors';
-@import '_common_mixins';
+@import 'common_mixins';
 
 body {
 
@@ -13,8 +13,8 @@ body {
   font-family: 'Open Sans', sans-serif;
   font-size: 13pt;
 
-  color: $black;
-  background-color: $white;
+  color: $nearly_black;
+  background-color: $nearly_white;
 }
 
 @import 'navbar';

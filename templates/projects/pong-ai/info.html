@@ -5,10 +5,9 @@
 {% block projectTitle %}Artificial Intelligence for Pong{% endblock %}
 {% block projectBriefTitle %}AI for Pong{% endblock %}
 {% block projectURL %}/projects/pong-ai{% endblock %}
-{% block projectThumbnail %}
+{% block projectThumbnailURL %}
 
-    <img class="project-thumbnail"
-         src="{{ url_for('static', filename='projects/pong-ai/img/game_in_progress.svg') }}">
+     {{ url_for('static', filename='projects/pong-ai/img/game_in_progress.svg') }}
 
 {% endblock %}
 {% block projectSummary %}
@@ -17,6 +16,12 @@
     project's making, it has been a long while since I've done work related to either Java or
     {{ wikilink('artificial intelligence') }} in general. Getting back on track
     with an old classic such as Pong proved to be the refresher course I needed.
+
+{% endblock %}
+{% block projectBriefSummary %}
+
+    Developing a sufficiently-challenging artificial intelligence for {{ wikilink('Pong') }},
+    the classic arcade videogame from the 70's.
 
 {% endblock %}
 {% block projectTags %}

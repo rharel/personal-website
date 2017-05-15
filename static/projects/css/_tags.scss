@@ -26,7 +26,7 @@
   font-size: 9pt;
   white-space: nowrap;
 
-  color: #2F2F2F;
+  color: $nearly_black;
   background-color: white;
 }
 
@@ -42,7 +42,7 @@
 }
 .tag-js, .tag-ts {
 
-  border-bottom-color: #d76a00;
+  border-bottom-color: #f27300;
 }
 .tag-python {
 
@@ -69,7 +69,7 @@
 }
 .tag-cellular-automata {
 
-  border-bottom-color: #7B7B7B;
+  border-bottom-color: #303c8f;
 }
 .tag-computational-geometry {
 

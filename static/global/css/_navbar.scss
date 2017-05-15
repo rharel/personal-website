@@ -6,6 +6,8 @@
 @import 'common_colors';
 @import 'common_mixins';
 
+$menu_button_size: 35px;
+
 #navigation-bar {
 
   margin: {
@@ -16,11 +18,12 @@
     bottom: 15px;
   }
   width: 80%;
-  min-height: 35px;
 
   text-align: center;
 
   @include media-XS() {
+
+    min-height: $menu_button_size;
     text-align: left;
   }
 }
@@ -37,17 +40,17 @@
 
   cursor: pointer;
 
+  img {
+
+    width:  $menu_button_size;
+    height: $menu_button_size;
+
+    background-color: transparent;
+  }
   @include media-XS() {
 
     display: block;
   }
-}
-#menu-button-image {
-
-  width:  35px;
-  height: 35px;
-
-  background-color: transparent;
 }
 
 #navigation-bar-buttons {
@@ -66,19 +69,18 @@
     display: block;
   }
 }
-
-.navigation-button-container {
+#navigation-bar-buttons > .button-container {
 
   display: inline-block;
 
-  & + .navigation-button-container {
+  & + .button-container {
 
     margin-left: 50px;
   }
 
   @include media-S() {
 
-    & + .navigation-button-container {
+    & + .button-container {
 
       margin-left: 25px;
     }
@@ -87,15 +89,13 @@
 
     display: block;
 
-    & + .navigation-button-container {
+    & + .button-container {
 
       margin-left: 0;
     }
   }
 }
-
-
-.navigation-button {
+#navigation-bar-buttons > .button-container > a {
 
   display: inline-block;
 

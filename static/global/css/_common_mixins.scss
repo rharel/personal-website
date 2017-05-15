@@ -40,7 +40,7 @@
           border-radius: $radius;
 }
 
-@mixin unselectable {
+@mixin no-user-select {
 
   -webkit-touch-callout: none;
   -webkit-user-select: none;

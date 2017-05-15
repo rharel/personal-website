@@ -1,39 +1,27 @@
-<a class="project-info-container"
-   href="{% block projectURL %}/unknown{% endblock %}">
-    <table class="project-info">
-        <tr>
-            <td class="project-thumbnail-td">
-                {% block projectThumbnail %}
+<div class="project-info">
+    <div class="thumbnail">
+        <img src="{% block projectThumbnailURL %}{% endblock %}">
+    </div>
+    <div class="details">
+        <div class="long title">
+            {% block projectTitle %}{% endblock %}
+        </div>
+        <div class="short title">
+            {% block projectBriefTitle %}{% endblock %}
+        </div>
+        <div class="tags">
+            {% block projectTags %}{% endblock %}
+        </div>
+        <p class="long summary">
+            {% block projectSummary %}{% endblock %}
+        </p>
+        <p class="short summary">
+            {% block projectBriefSummary %}{% endblock %}
+        </p>
+    </div>
+    <a class="further-reading"
+       href="{% block projectURL %}{% endblock %}">
 
-                    <img class="project-thumbnail"
-                         src="{{ url_for('static', filename='global/img/placeholder_100x100.svg') }}">
-
-                {% endblock %}
-                <span class="project-brief-title">
-
-                    {% block projectBriefTitle %}{% endblock %}
-
-                </span>
-            </td>
-            <td class="project-description-td">
-                <div class="project-description">
-                    <span class="project-title">
-
-                        {% block projectTitle %}{% endblock %}
-
-                    </span>
-                    <div class="project-tags">
-
-                        {% block projectTags %}{% endblock %}
-
-                    </div>
-                    <p class="project-summary">
-
-                        {% block projectSummary %}{% endblock %}
-
-                    </p>
-                </div>
-            </td>
-        </tr>
-    </table>
-</a>
+        <span>&#187;</span>
+    </a>
+</div>

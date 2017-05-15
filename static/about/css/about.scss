@@ -6,28 +6,32 @@
 @import '../../global/css/common_mixins';
 @import '../../global/css/common_colors';
 
-#navigation-button-about {
+#navigation-bar-buttons > .button-container > #navigation-button-about {
 
   border-bottom: 5px solid $blue_2;
 }
 
 #portrait-container {
 
+  float: right;
+
   width: 33%;
   max-width: 256px;
-  float: right;
-  text-align: center;
 
+  img {
+
+    width: 100%;
+    max-width: 200px;
+
+    @include border-radius(50%);
+  }
   @include media-XS() {
+
+    float: none;
 
     width: 100%;
     max-width: none;
-    float: none;
+
+    text-align: center;
   }
-}
-
-#portrait {
-
-  width: 100%;
-  max-width: 200px;
 }

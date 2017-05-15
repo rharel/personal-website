@@ -5,10 +5,9 @@
 {% block projectTitle %}Voronoi on the GPU{% endblock %}
 {% block projectBriefTitle %}Voronoi on the GPU{% endblock %}
 {% block projectURL %}/projects/voronoi-on-the-gpu{% endblock %}
-{% block projectThumbnail %}
+{% block projectThumbnailURL %}
 
-    <img class="project-thumbnail"
-         src="{{ url_for('static', filename='projects/voronoi-on-the-gpu/img/triangular_diagram.svg') }}">
+    {{ url_for('static', filename='projects/voronoi-on-the-gpu/img/triangular_diagram.svg') }}
 
 {% endblock %}
 {% block projectSummary %}
@@ -17,6 +16,12 @@
     They are a fundamental concept in computational geometry, with broad applications spanning multiple disciplines.
     Usually, they are computed explicitly. But there is an interesting alternative:
     Exploiting graphics hardware to convert a three-dimensional scene into a two-dimensional diagram.
+
+{% endblock %}
+{% block projectBriefSummary %}
+
+    Exploiting graphics hardware to convert a three-dimensional scene into a
+    two-dimensional {{ wikilink('Voronoi diagram') }}.
 
 {% endblock %}
 {% block projectTags %}
