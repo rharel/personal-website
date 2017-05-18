@@ -10,7 +10,9 @@
         {% set article = label %}
     {% endif %}
 
-    {% set url = 'https://en.wikipedia.org/wiki/' + article.replace(' ', '_').capitalize() %}
+    {% set url = 'https://en.wikipedia.org/wiki/' +
+                  article[0].capitalize() +
+                  article[1:].replace(' ', '_') %}
     <a href="{{ url }}" target="_blank">{{ label }}</a>
 
 {%- endmacro %}
