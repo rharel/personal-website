@@ -1,3 +1,6 @@
+.long-code-snippet {
+  max-height: 350px; }
+
 .figure {
   margin-top: 15px;
   margin-bottom: 15px;
@@ -46,8 +49,8 @@
   text-align: center;
   font-size: 10pt; }
 
-.long-code-snippet {
-  max-height: 350px; }
+.math {
+  overflow-x: auto; }
 
 #navigation-bar-buttons > .button-container > #navigation-button-projects {
   border-bottom: 5px solid #316899; }
