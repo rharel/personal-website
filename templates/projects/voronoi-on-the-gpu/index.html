@@ -111,7 +111,7 @@
                     Each cell corresponds to the subset of the plane bearing the shortest distance to
                     a distinct site. Tap to generate a new random arrangement.') }}
 
-        <div class="subfigure-container">
+        <div class="subfigure-group">
             <div class="subfigure">
                 <canvas id="fig1-random-point-diagram" width="300" height="300"></canvas>
             </div>
@@ -158,7 +158,7 @@
                     Sites are in blue, coordinate axes in black, and the geometry is colored based
                     on the value of the distance function: from low (yellow) to high (red).') }}
 
-        <div class="subfigure-container">
+        <div class="subfigure-group">
             <div class="subfigure">
 
                 {{ caption('2.1',
@@ -166,18 +166,18 @@
                             aligned with the site\'s position. It has unit slope and
                             its base located at z = negative infinity.') }}
 
-                <div class="subfigure-container">
+                <div class="subfigure-group">
                     <div class="subfigure">
                         <img src="{{ url_for('static', filename=cd + 'img/point_site_dg_top.svg') }}"
                              width="150" height="150">
-                        <div class="figure-subtitle">
+                        <div class="subtitle">
                             Top view
                         </div>
                     </div>
                     <div class="subfigure">
                         <img src="{{ url_for('static', filename=cd + 'img/point_site_dg_side.svg') }}"
                              width="150" height="150">
-                        <div class="figure-subtitle">
+                        <div class="subtitle">
                             Side view
                         </div>
                     </div>
@@ -191,25 +191,25 @@
                             endpoint is the top of a cone similar to the one at 2.1 -
                             only cut in half.') }}
 
-                <div class="subfigure-container">
+                <div class="subfigure-group">
                     <div class="subfigure">
                         <img src="{{ url_for('static', filename=cd + 'img/segment_site_dg_top.svg') }}"
                              width="150" height="150">
-                        <div class="figure-subtitle">
+                        <div class="subtitle">
                             Top view
                         </div>
                     </div>
                     <div class="subfigure">
                         <img src="{{ url_for('static', filename=cd + 'img/segment_site_dg_side_long.svg') }}"
                              width="150" height="150">
-                        <div class="figure-subtitle">
+                        <div class="subtitle">
                             Side view (long)
                         </div>
                     </div>
                     <div class="subfigure">
                         <img src="{{ url_for('static', filename=cd + 'img/segment_site_dg_side_short.svg') }}"
                              width="150" height="150">
-                        <div class="figure-subtitle">
+                        <div class="subtitle">
                             Side view (short)
                         </div>
                     </div>
@@ -234,19 +234,19 @@
                    'Rendering two distance geometries for two point sites from above results in a
                     Voronoi plot.') }}
 
-        <div class="subfigure-container">
-            <div class="subfigure-container">
+        <div class="subfigure-group">
+            <div class="subfigure-group">
                 <div class="subfigure">
                     <img src="{{ url_for('static', filename=cd + 'img/two_point_sites_dg_top.svg') }}"
                          width="150" height="150">
-                    <div class="figure-subtitle">
+                    <div class="subtitle">
                         Top view (Voronoi)
                     </div>
                 </div>
                 <div class="subfigure">
                     <img src="{{ url_for('static', filename=cd + 'img/two_point_sites_dg_side.svg') }}"
                          width="150" height="150">
-                    <div class="figure-subtitle">
+                    <div class="subtitle">
                         Side view
                     </div>
                 </div>

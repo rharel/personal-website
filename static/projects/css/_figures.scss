@@ -13,71 +13,87 @@
     top: 15px;
     bottom: 15px;
   }
+  @include border-radius(10px);
   padding: 20px;
+
   background-color: $blue_1;
   text-align: center;
-  @include border-radius(10px);
 
-  img, canvas {
-
-    border: 1px solid $grey_4;
-  }
-  .transparent-img {
-
-    background-color: transparent;
-    border: none;
-  }
   @include media-XS() {
 
     padding: {
 
-      top: 20px;
-      bottom: 20px;
       left: 5px;
       right: 5px;
+      top: 20px;
+      bottom: 20px;
+    }
+  }
+
+  img, canvas {
+
+    border: 1px solid $grey_4;
+
+    &.transparent {
+
+      background-color: transparent;
+      border: none;
+    }
+  }
+  img, canvas, video, .animation-clip {
+
+    @include media-XS() {
+
+      max-width: 250px;
+      height: auto;
     }
   }
 }
-.figure-id {
+
+.caption {
+
+  text-align: left;
+  font-size: 11pt;
+
+  @include media-XS() {
+
+    padding: {
+
+      left: 10px;
+      right: 10px;
+    }
+  }
+
+}
+.caption > .title {
 
   font-weight: bold;
 }
+.caption + * {
 
-.caption-container {
-
-  margin: {
-
-    left: 10px;
-    right: 10px;
-    bottom: 10px;
-  }
-  text-align: left;
-}
-.caption {
-
-  font-size: 11pt;
+  margin-top: 15px;
 }
 
-.subfigure-container {
+.subfigure-group + .subfigure-group {
 
-  margin: {
-
-    top: 10px;
-  }
+  margin-top: 10px;
 }
-.subfigure {
+.subfigure-group > .subfigure {
 
   display: inline-block;
   margin: {
 
-    top: 10px;
-    bottom: 10px;
     left: auto;
     right: auto;
   }
-}
-.figure-subtitle {
 
-  text-align: center;
-  font-size: 10pt;
+  & + .subfigure {
+
+    margin-top: 10px;
+  }
+  & > .subtitle {
+
+    text-align: center;
+    font-size: 10pt;
+  }
 }

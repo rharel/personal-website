@@ -4,50 +4,55 @@
 .figure {
   margin-top: 15px;
   margin-bottom: 15px;
-  padding: 20px;
-  background-color: #C2DFFF;
-  text-align: center;
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
   -ms-border-radius: 10px;
-  border-radius: 10px; }
-  .figure img, .figure canvas {
-    border: 1px solid #3F3F3F; }
-  .figure .transparent-img {
-    background-color: transparent;
-    border: none; }
+  border-radius: 10px;
+  padding: 20px;
+  background-color: #C2DFFF;
+  text-align: center; }
   @media (max-width: 480px) {
     .figure {
-      padding-top: 20px;
-      padding-bottom: 20px;
       padding-left: 5px;
-      padding-right: 5px; } }
-
-.figure-id {
-  font-weight: bold; }
-
-.caption-container {
-  margin-left: 10px;
-  margin-right: 10px;
-  margin-bottom: 10px;
-  text-align: left; }
+      padding-right: 5px;
+      padding-top: 20px;
+      padding-bottom: 20px; } }
+  .figure img, .figure canvas {
+    border: 1px solid #3F3F3F; }
+    .figure img.transparent, .figure canvas.transparent {
+      background-color: transparent;
+      border: none; }
+  @media (max-width: 480px) {
+    .figure img, .figure canvas, .figure video, .figure .animation-clip {
+      max-width: 250px;
+      height: auto; } }
 
 .caption {
+  text-align: left;
   font-size: 11pt; }
+  @media (max-width: 480px) {
+    .caption {
+      padding-left: 10px;
+      padding-right: 10px; } }
 
-.subfigure-container {
+.caption > .title {
+  font-weight: bold; }
+
+.caption + * {
+  margin-top: 15px; }
+
+.subfigure-group + .subfigure-group {
   margin-top: 10px; }
 
-.subfigure {
+.subfigure-group > .subfigure {
   display: inline-block;
-  margin-top: 10px;
-  margin-bottom: 10px;
   margin-left: auto;
   margin-right: auto; }
-
-.figure-subtitle {
-  text-align: center;
-  font-size: 10pt; }
+  .subfigure-group > .subfigure + .subfigure {
+    margin-top: 10px; }
+  .subfigure-group > .subfigure > .subtitle {
+    text-align: center;
+    font-size: 10pt; }
 
 .math {
   overflow-x: auto; }
@@ -72,4 +77,4 @@ img {
 
 canvas {
   display: block;
-  border: 1px solid black; }
+  border: 1px solid #282828; }

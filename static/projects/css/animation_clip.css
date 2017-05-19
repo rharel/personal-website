@@ -1,8 +1,8 @@
-.animation-container {
+.animation-clip {
   display: inline-block;
   position: relative; }
 
-.overlay {
+.animation-clip > .overlay {
   position: absolute;
   left: 0;
   top: 0;
@@ -11,7 +11,7 @@
   background-color: rgba(0, 0, 0, 0.3);
   cursor: pointer; }
 
-.play-button {
+.animation-clip > .overlay > .play-button {
   position: absolute;
   left: 0;
   right: 0;
@@ -27,7 +27,7 @@
   border-radius: 50%;
   box-shadow: 3px 3px 5px 0 black; }
 
-.play-symbol {
+.play-button > .play-symbol {
   position: absolute;
   left: 8px;
   right: 0;

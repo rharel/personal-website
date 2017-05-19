@@ -1,12 +1,8 @@
-{% macro caption(id, text) -%}
+{% macro caption(title, text) -%}
 
-<div class="caption-container">
-        <span class="caption">
-
-            <span class="figure-id">{{ id }}:</span>
-            {{ text }}
-
-        </span>
+<div class="caption">
+    <span class="title">{{ title }}:</span>
+    {{ text }}
 </div>
 
 {%- endmacro %}
