@@ -11,9 +11,6 @@
     {{ super() }}
 
     <link rel="stylesheet" type="text/css"
-          href="{{ url_for('static', filename='global/css/math.css') }}">
-
-    <link rel="stylesheet" type="text/css"
           href="{{ url_for('static', filename='projects/css/slideshow.css') }}">
     <script type="text/javascript"
             src="{{ url_for('static', filename='projects/js/slideshow.js') }}"></script>
@@ -102,14 +99,14 @@
         <div class="subfigure-container">
             <div class="subfigure">
                 {{ slideshow('kmeans-demo',
-                             url_for('static', filename=cd + 'img/demo_small1.png') + ';' +
-                             url_for('static', filename=cd + 'img/demo_small2.png') + ';' +
-                             url_for('static', filename=cd + 'img/demo_small3.png') + ';' +
-                             url_for('static', filename=cd + 'img/demo_small4.png') + ';' +
-                             url_for('static', filename=cd + 'img/demo_small5.png') + ';' +
-                             url_for('static', filename=cd + 'img/demo_small6.png') + ';' +
-                             url_for('static', filename=cd + 'img/demo_small7.png') + ';' +
-                             url_for('static', filename=cd + 'img/demo_small8.png')) }}
+                    url_for('static', filename=cd + 'img/demo_small1.png') + ';' +
+                    url_for('static', filename=cd + 'img/demo_small2.png') + ';' +
+                    url_for('static', filename=cd + 'img/demo_small3.png') + ';' +
+                    url_for('static', filename=cd + 'img/demo_small4.png') + ';' +
+                    url_for('static', filename=cd + 'img/demo_small5.png') + ';' +
+                    url_for('static', filename=cd + 'img/demo_small6.png') + ';' +
+                    url_for('static', filename=cd + 'img/demo_small7.png') + ';' +
+                    url_for('static', filename=cd + 'img/demo_small8.png')) }}
             </div>
         </div>
     </div>
