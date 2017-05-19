@@ -1,3 +1,18 @@
+{% macro include_mathjax() -%}
+
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config(
+        {
+            displayAlign: "left",
+            displayIndent: "10%",
+            SVG: { linebreaks: { automatic: true } }
+        });
+    </script>
+    <script type="text/javascript" async
+            src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_SVG"></script>
+
+{%- endmacro %}
+
 {% macro projectlink(label, project) -%}
 
     <a href="{{ url_for('.show_project', name=project) }}">{{ label }}</a>

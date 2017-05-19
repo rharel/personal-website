@@ -2,14 +2,14 @@
 
 {% set cd = 'projects/diamond-square/' %}
 
-{% from "common/macros.html" import wikilink, githublink, caption %}
+{% from "common/macros.html" import include_mathjax, wikilink, githublink, caption %}
 
 {% block title %}Diamond-Square{% endblock %}
 {% block head %}
 
     {{ super() }}
 
-    <script src='https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_SVG'></script>
+    {{ include_mathjax() }}
 
 {% endblock %}
 {% block projectSummary %}

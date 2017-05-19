@@ -2,7 +2,7 @@
 
 {% set cd = 'projects/higher-order-bezier/' %}
 
-{% from "common/macros.html" import projectlink, wikilink, githublink, caption %}
+{% from "common/macros.html" import include_mathjax, projectlink, wikilink, githublink, caption %}
 {% from "projects/higher-order-bezier/macros.html" import animated_curve %}
 
 {% block title %}Higher-order Bezier{% endblock %}
@@ -15,14 +15,8 @@
     <script type="text/javascript"
             src="{{ url_for('static', filename='3rd/prism/prism.js') }}"></script>
 
-    <script type="text/x-mathjax-config">
-        MathJax.Hub.Config({
-          CommonHTML: { linebreaks: { automatic: true } },
-          "HTML-CSS": { linebreaks: { automatic: true } },
-                 SVG: { linebreaks: { automatic: true } }
-        });
-    </script>
-    <script src='https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_SVG'></script>
+    {{ include_mathjax() }}
+
     <link rel="stylesheet" type="text/css"
           href="{{ url_for('static', filename='projects/css/animation_clip.css') }}">
 

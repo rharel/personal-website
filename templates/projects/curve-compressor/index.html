@@ -2,14 +2,14 @@
 
 {% set cd = 'projects/curve-compressor/' %}
 
-{% from "common/macros.html" import projectlink, wikilink, githublink, caption %}
+{% from "common/macros.html" import include_mathjax, projectlink, wikilink, githublink, caption %}
 
 {% block title %}Curve Compressor{% endblock %}
 {% block head %}
 
     {{ super() }}
 
-    <script src='https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_SVG'></script>
+    {{ include_mathjax() }}
 
     <script type="text/javascript"
             src="{{ url_for('static', filename='projects/higher-order-bezier/js/bezier.js') }}"></script>

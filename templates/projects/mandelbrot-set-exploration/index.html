@@ -2,14 +2,14 @@
 
 {% set cd = 'projects/mandelbrot-set-exploration/' %}
 
-{% from "common/macros.html" import wikilink, youtubelink, githublink, caption %}
+{% from "common/macros.html" import include_mathjax, wikilink, youtubelink, githublink, caption %}
 
 {% block title %}Mandelbrot Set Exploration{% endblock %}
 {% block head %}
 
     {{ super() }}
 
-    <script src='https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_SVG'></script>
+    {{ include_mathjax() }}
 
     <link rel="stylesheet" type="text/css"
           href="{{ url_for('static', filename=cd + 'css/showcase.css') }}">

@@ -2,7 +2,7 @@
 
 {% set cd = 'projects/voronoi-on-the-gpu/' %}
 
-{% from "common/macros.html" import wikilink, githublink, caption %}
+{% from "common/macros.html" import include_mathjax, wikilink, githublink, caption %}
 
 {% block title %}Voronoi on the GPU{% endblock %}
 {% block head %}
@@ -12,12 +12,13 @@
     <script type="text/javascript"
             src="{{ url_for('static', filename='3rd/three/three.min.js') }}"></script>
 
-    <script src='https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_SVG'></script>
+    {{ include_mathjax() }}
 
     <script type="text/javascript"
             src="{{ url_for('static', filename=cd + 'js/voronoi.min.js') }}"></script>
     <script type="text/javascript"
             src="{{ url_for('static', filename=cd + 'js/figure_1.js') }}"></script>
+
 {% endblock %}
 {% block projectSummary %}
     <p>
