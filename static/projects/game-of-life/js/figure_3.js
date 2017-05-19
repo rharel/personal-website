@@ -1,5 +1,5 @@
 /**
- * Operates figure 2 in index.html
+ * Operates figure 3 in index.html
  *
  * @author Raoul Harel
  * @url www.rharel.com
@@ -128,40 +128,23 @@
             }
         };
 
-        var elements = document.getElementsByClassName('fig3-animated-canvas');
-        var i, element;
-        var pattern;
-        for (i = 0; i < elements.length; ++i) {
+        for (var pattern_name in patterns) {
 
-            element = elements[i];
-            pattern = _get_pattern(element.id);
+            if (!patterns.hasOwnProperty(pattern_name)) { continue; }
+
+            var element = document.getElementById('fig3-' + pattern_name);
+            var pattern = patterns[pattern_name];
 
             if (pattern !== null) {
 
                 pattern.canvas = element;
                 pattern.view = new Gol.CanvasView(pattern.canvas, view_style);
                 pattern.data = Gol.parse_rle(pattern.rle);
-                //pattern.offset.x = Math.round(0.5 * (pattern.world.width - pattern.data.width));
-                //pattern.offset.y = Math.round(0.5 * (pattern.world.height - pattern.data.height));
 
                 _reset(pattern);
             }
         }
     }
-
-    function _get_pattern(canvas_id) {
-
-        var pattern_name = canvas_id.slice(5);
-        if (patterns.hasOwnProperty(pattern_name)) {
-
-            return patterns[pattern_name];
-        }
-        else {
-
-            return null;
-        }
-    }
-
     function _reset(pattern) {
 
         pattern.world = new Gol.World(
@@ -182,7 +165,7 @@
 
     function toggle_animation(canvas_id) {
 
-        var pattern = _get_pattern(canvas_id);
+        var pattern = patterns[canvas_id.slice(5)];  // slices prefix 'fig3-'
         if (pattern === null) { return; }
 
         var overlay = pattern.canvas.nextElementSibling;

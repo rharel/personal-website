@@ -11,8 +11,8 @@
 
 {% macro animated_canvas(id, width, height) %}
 
-    <div class="animation-container">
-        <canvas id="{{ id }}" class="fig3-animated-canvas"
+    <div class="animation-clip">
+        <canvas id="{{ id }}"
                 width="{{ width }}" height="{{ height }}">
         </canvas>
         <div class="overlay" onclick="Gol.toggle_animation('{{ id }}')">
