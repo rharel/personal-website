@@ -2,7 +2,9 @@
 
 {% set cd = 'projects/curve-compressor/' %}
 
-{% from "common/macros.html" import include_mathjax, projectlink, wikilink, githublink, caption %}
+{% from "macros/figures.html" import caption %}
+{% from "macros/links.html" import projectlink, wikilink, githublink %}
+{% from "macros/math.html" import include_mathjax %}
 
 {% block title %}Curve Compressor{% endblock %}
 {% block head %}

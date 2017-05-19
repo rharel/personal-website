@@ -1,0 +1,40 @@
+{% macro caption(id, text) -%}
+
+<div class="caption-container">
+        <span class="caption">
+
+            <span class="figure-id">{{ id }}:</span>
+            {{ text }}
+
+        </span>
+</div>
+
+{%- endmacro %}
+
+{% macro slideshow(id, paths) -%}
+
+<div class="slideshow-container">
+    <div class="slideshow-placemarker">
+        <span id="{{ id + '-index' }}" class="slideshow-slide-current">0</span>
+        /
+        <span id="{{ id + '-total' }}" class="slideshow-slides-total">0</span>
+    </div>
+    <img id="{{ id }}" src="">
+    <div class="slideshow-controls">
+        <a class="slideshow-control-button slideshow-control-previous"
+           onclick="Slideshow.previous('{{ id }}');">
+
+            PREVIOUS
+        </a>
+        <a class="slideshow-control-button slideshow-control-next"
+           onclick="Slideshow.next('{{ id }}');">
+
+            NEXT
+        </a>
+    </div>
+    <script>
+		Slideshow.register('{{ id }}', '{{ paths }}');
+    </script>
+</div>
+
+{%- endmacro %}

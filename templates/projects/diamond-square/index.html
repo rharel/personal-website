@@ -2,7 +2,9 @@
 
 {% set cd = 'projects/diamond-square/' %}
 
-{% from "common/macros.html" import include_mathjax, wikilink, githublink, caption %}
+{% from "macros/figures.html" import caption %}
+{% from "macros/links.html" import wikilink, githublink %}
+{% from "macros/math.html" import include_mathjax %}
 
 {% block title %}Diamond-Square{% endblock %}
 {% block head %}
