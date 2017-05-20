@@ -19,7 +19,7 @@
         this._t = 0;
         this._world = null;
         this._view = null;
-        this._callback = null;
+        this._on_end = null;
         this._in_progress = false;
     }
 
@@ -42,7 +42,7 @@
 
             this._world = world;
             this._view = view;
-            this._callback = callback;
+            this._on_end = callback;
             this._t = 0;
 
             if (this._world instanceof Gol.World &&
@@ -65,14 +65,14 @@
 
             this._in_progress = false;
 
-            if (invoke_callback && this._callback !== null) {
+            if (invoke_callback && this._on_end !== null) {
 
-                this._callback();
+                this._on_end();
             }
 
             this._world = null;
             this._view = null;
-            this._callback = null;
+            this._on_end = null;
             this._t = 0;
         },
 

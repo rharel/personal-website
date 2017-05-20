@@ -20,7 +20,7 @@
         this._step_size = step_size;
         this._frame = 0;
         this._view = null;
-        this._callback = null;
+        this._on_end = null;
         this._in_progress = false;
     }
 
@@ -41,7 +41,7 @@
         animate: function(view, callback) {
 
             this._view = view;
-            this._callback = callback;
+            this._on_end = callback;
             this._frame = 0;
             this._view.shell.t = 0;
             this._view.outline.t = 0;
@@ -65,12 +65,12 @@
 
             this._in_progress = false;
 
-            if (invoke_callback && this._callback !== null) {
+            if (invoke_callback && this._on_end !== null) {
 
-                this._callback();
+                this._on_end();
             }
 
-            this._callback = null;
+            this._on_end = null;
             this._frame = 0;
             this._view.shell.t = 0;
             this._view.outline.t = 0;
