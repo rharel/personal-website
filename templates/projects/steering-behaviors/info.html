@@ -1,0 +1,40 @@
+{% extends "projects/info_base.html" %}
+
+{% block projectTitle %}Reynolds' Steering Behaviors{% endblock %}
+{% block projectBriefTitle %}Steering Behaviors{% endblock %}
+{% block projectURL %}/projects/steering-behaviors{% endblock %}
+{% block projectThumbnailURL %}
+
+    {{ url_for('static', filename='projects/steering-behaviors/img/two_agents.svg') }}
+
+{% endblock %}
+{% block projectSummary %}
+
+    In
+    <a href="http://www.red3d.com/cwr/papers/1999/gdc99steer.pdf"
+       target="_blank">
+        this influential paper
+    </a>
+    Reynolds introduces a set of simple, essential steering behaviors for
+    virtual agents. Extending and combining these elementary behaviors
+    with one another produces an interesting collection of navigation methods.
+
+{% endblock %}
+{% block projectBriefSummary %}
+
+    In
+    <a href="http://www.red3d.com/cwr/papers/1999/gdc99steer.pdf"
+       target="_blank">
+        this paper
+    </a>
+    Reynolds introduces a set of simple steering behaviors for
+    virtual agents. We implement some of them and see how they may be combined
+    and extended to produce interesting results.
+
+{% endblock %}
+{% block projectTags %}
+
+    <span class="tag tag-js">JavaScript</span>
+    <span class="tag tag-ai">Artificial Intelligence</span>
+
+{% endblock %}

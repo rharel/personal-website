@@ -1,0 +1,526 @@
+{% extends "projects/index_base.html" %}
+
+{% set cd = 'projects/steering-behaviors/' %}
+
+{% from "macros/figures.html" import caption %}
+{% from "macros/links.html" import githublink, wikilink %}
+{% from "macros/math.html" import include_mathjax %}
+{% from "projects/steering-behaviors/macros.html" import behavior_animation %}
+
+{% block title %}Steering Behaviors{% endblock %}
+{% block head %}
+
+    {{ super() }}
+
+    {{ include_mathjax() }}
+
+    <link rel="stylesheet" type="text/css"
+          href="{{ url_for('static', filename='projects/css/animation_clip.css') }}">
+
+    <script type="text/javascript"
+            src="{{ url_for('static', filename=cd + 'js/steering_behaviors.js') }}"></script>
+    <script type="text/javascript"
+            src="{{ url_for('static', filename=cd + 'js/Simulation.js') }}"></script>
+    <script type="text/javascript"
+            src="{{ url_for('static', filename=cd + 'js/Renderer.js') }}"></script>
+    <script type="text/javascript"
+            src="{{ url_for('static', filename='projects/js/Animation.js') }}"></script>
+    <script type="text/javascript"
+            src="{{ url_for('static', filename=cd + 'js/animation_control.js') }}"></script>
+
+{% endblock %}
+{% block projectSummary %}
+
+    <p>
+        If you happen to have even a slight interest in {{ wikilink('motion planning') }}
+        and related branches of computer science, you cannot afford to miss out on
+        <a href="http://www.red3d.com/cwr/papers/1999/gdc99steer.pdf"
+           target="_blank">
+            this paper
+        </a>
+        by {{ wikilink('Craig Reynolds', 'Craig_Reynolds_(computer_graphics)') }}
+        titled: "Steering behaviors for autonomous characters". In it, Reynolds
+        lays out a collection of elementary methods for steering virtual agents
+        and demonstrates how their extension and combination may result in
+        emergent realistic-looking behavior.
+    </p>
+    <p>
+        In this project, we implement these elementary steering behaviors and
+        use them to model a variety of agent archetypes.
+    </p>
+    <div class="notice-info">
+        <b>Note: </b> most of the time we will stick to the terminology and
+        implementation details found in the paper, but not always.
+    </div>
+
+{% endblock %}
+{% block tableOfContents %}
+
+    <h2>Table of Contents</h2>
+
+    <ul>
+        <li>
+            <a href="#section-introduction">Introduction</a>
+            <ul>
+                <li><a href="#section-vehicles">Modeling vehicles</a></li>
+                <li><a href="#section-steering">Steering behaviors</a></li>
+                <li><a href="#section-simulation">Advancing the simulation</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="#section-elementary-behaviors">Elementary behaviors</a>
+            <ul>
+                <li><a href="#section-seek">Seek/Flee</a></li>
+                <li><a href="#section-wander">Wander</a></li>
+                <li><a href="#section-pursue">Pursue/Evade</a></li>
+                <li><a href="#section-arrive">Arrive</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="#section-advanced-behaviors">Advanced behaviors</a>
+            <ul>
+                <li><a href="#section-separate">Separate</a></li>
+                <li><a href="#section-patrol">Patrol</a></li>
+                <li><a href="#section-align">Align</a></li>
+            </ul>
+        </li>
+        <li><a href="#section-conclusion">Conclusion</a></li>
+        <li><a href="#section-source-code">Source code</a></li>
+        <li><a href="#section-see-also">See also</a></li>
+        <li><a href="#section-references">References</a></li>
+    </ul>
+
+{% endblock %}
+{% block content %}
+
+    {{ super() }}
+
+    <a id="section-introduction"></a>
+    <h2>Introduction</h2>
+
+    <p>
+        We begin with a concrete definition of the virtual world we intend to
+        simulate, which consists of two aspects: (1) vehicles, and
+        (2) the logic that drives them.
+    </p>
+
+    <a id="section-vehicles"></a>
+    <h3>Modeling vehicles</h3>
+
+    <p>
+        Remaining true to Reynolds' terminology, in this context we rather refer
+        to virtual agents as <b>vehicles</b>, thereby setting aside any non-locomotion
+        related abilities they may possess as they fall outside the scope of this
+        discussion. We model vehicles operating in \(d\) dimensions
+        (where in most cases \(d \in \{2, 3\}\)) as having the following
+        properties:
+    </p>
+    <ol>
+        <li>
+            <b>Mass &#8212;</b>
+            a scalar \(m \in \mathbb{R}, m > 0\)
+        </li>
+        <li>
+            <b>Orientation &#8212;</b>
+            \(d\) basis vectors \(\{\boldsymbol{\hat{x_1}}, \boldsymbol{\hat{x_2}},
+            \ldots, \boldsymbol{\hat{x_d}}\}\) or an equivalent representation.
+        </li>
+        <li>
+            <b>Position &#8212;</b>
+            a vector \(\boldsymbol{p} \in \mathbb{R}^d\)
+        </li>
+        <li>
+            <b>Velocity &#8212;</b>
+            a vector \(\boldsymbol{v} \in \mathbb{R}^d\)
+        </li>
+        <li>
+            <b>Maximum thrust &#8212;</b>
+            a scalar \(r_{max} \in \mathbb{R}, r_{max} \ge 0\)
+        </li>
+        <li>
+            <b>Maximum speed &#8212;</b>
+            a scalar \(s_{max} \in \mathbb{R}, s_{max} \ge 0\)
+        </li>
+    </ol>
+
+    <a id="section-steering"></a>
+    <h3>Steering behaviors</h3>
+
+    <p>
+        The forces operating on a vehicle are generated by one or more <b>steering
+        behaviors</b> \(\{b_1, b_2, \ldots, b_n\}\). A steering behavior is a
+        function taking a vehicle \(h\) and a set of other behavior-specific
+        parameters \(P_i\) in order to yield a force vector \(\boldsymbol{F_i}\)
+        representing that behavior's desired change in the vehicles's velocity:
+    </p>
+    <div class="math">
+        $$ b_i(h, P_i) = \boldsymbol{F_i} $$
+    </div>
+    <p>
+        When a vehicle is steered by several behaviors, each one is associated with
+        a specified weight \(w_i \in \mathbb{R}\) representing its relative
+        contribution to the total hypothetical force \(\boldsymbol{F_h}\) to be
+        applied to the vehicle:
+    </p>
+    <div class="math">
+        $$ \overline{w_i} = \frac{w_i}{w_1 + w_2 + \cdots + w_n} $$
+        $$ \boldsymbol{F_h} = \sum\limits_{i=1}^n \overline{w_i} \boldsymbol{F_i} $$
+    </div>
+
+    <a id="section-simulation"></a>
+    <h3>Advancing the simulation</h3>
+
+    <p>
+        Provided with the force \(\boldsymbol{F_h}\) generated by the steering behaviors,
+        the simulation's time-step duration \(dt\),
+        and the vehicle's current position and
+        velocity (\(\boldsymbol{p_0}\) and \(\boldsymbol{v_0}\), respectively)
+        we are now able to compute its new position and
+        velocity (\(\boldsymbol{p_1}\) and \(\boldsymbol{v_1}\), respectively)
+        using {{ wikilink('forward Euler integration', 'Euler method') }}.
+        Begin by first truncating the hypothetical force's
+        magnitude to conform to the vehicles maximum thrust \(r_{max}\), yielding the
+        actual force \(\boldsymbol{F}\) to be applied:
+    </p>
+    <div class="math">
+        $$ \boldsymbol{\hat{x}} = \frac{\boldsymbol{x}}{\|\boldsymbol{x}\|} $$
+        $$
+            truncate(\boldsymbol{x}, \ell) =
+            \begin{cases}
+                \boldsymbol{x}, \text{if } \|\boldsymbol{x}\| \le \ell \\
+                \boldsymbol{\hat{x}} \cdot \ell, \text{if } \|\boldsymbol{x}\| > \ell \\
+            \end{cases}
+        $$
+        $$ \boldsymbol{F} = truncate(\boldsymbol{F_h}, r_{max}) $$
+    </div>
+    <p>
+        Using \(\boldsymbol{F}\), we compute the vehicle's acceleration
+        \(\boldsymbol{a}\), its hypothetical new velocity \(\boldsymbol{v_h}\), and
+        its actual new velocity \(\boldsymbol{v_1}\) as is limited by the vehicle's
+        maximum speed \(s_{max}\):
+    </p>
+    <div class="math">
+        $$ \boldsymbol{a} = \frac{\boldsymbol{F}}{m} $$
+        $$ \boldsymbol{v_h} = \boldsymbol{v_0} + \boldsymbol{a} \cdot dt $$
+        $$ \boldsymbol{v_1} = truncate(\boldsymbol{v_h}, s_{max}) $$
+    </div>
+    <p>
+        Finally, compute the vehicle's new position \(\boldsymbol{p_1}\):
+    </p>
+    <div class="math">
+        $$ \boldsymbol{p_1} = \boldsymbol{p_0} + \boldsymbol{v_1} \cdot dt $$
+    </div>
+    <p>
+        The vehicle's new orientation basis can be derived from its new heading.
+        For example, a vehicle operating in two-dimensions on the \(xz\)-plane
+        and having velocity \(v\) could be described as having the orientation basis
+        \(\{ \boldsymbol{\hat{x}}, \boldsymbol{\hat{z}} \}\),
+        where:
+    </p>
+    <div class="math">
+        $$ \boldsymbol{\hat{x}} = \boldsymbol{\hat{v}} $$
+        $$ \boldsymbol{\hat{y}} = (0, 1, 0)^T $$
+        $$ \boldsymbol{\hat{z}} = \boldsymbol{\hat{x}} \times \boldsymbol{\hat{y}} $$
+    </div>
+
+    <a id="section-elementary-behaviors"></a>
+    <h2>Elementary behaviors</h2>
+
+    In this section we go over some elementary steering behaviors, and in the
+    <a href="#section-advanced-behaviors">next section</a> we show how they can
+    be extended and combined in order to create more advanced patterns.
+
+    <a id="section-seek"></a>
+    <h3>Seek/Flee</h3>
+
+    <p>
+        The <b>Seek</b> behavior drives the vehicle towards a specified target position
+        \(\boldsymbol{p_t}\) and with a specified target speed \(s_t\).
+        To compute its output force, we begin by expressing our desired
+        velocity \(\boldsymbol{v_d}\) through:
+    </p>
+    <div class="math">
+        $$ \boldsymbol{p_d} = \boldsymbol{p_t} - \boldsymbol{p} $$
+        $$ \boldsymbol{v_d} = s_t \cdot \boldsymbol{\hat{p_d}} $$
+    </div>
+    <p>
+        Next, compute the force \(\boldsymbol{F_{seek}}\) such that when it is
+        continuously applied to a vehicle with current velocity \(\boldsymbol{v}\), will
+        yield the change in velocity \(\boldsymbol{v_d} - \boldsymbol{v}\) after
+        a time duration of \(dt\):
+    </p>
+    <div class="math">
+        $$ \boldsymbol{v_d} - \boldsymbol{v} = \boldsymbol{a} \cdot dt =
+           \frac{\boldsymbol{F_{seek}}}{m} \cdot dt $$
+        $$ \boldsymbol{F_{seek}} = \frac{m(\boldsymbol{v_d} - \boldsymbol{v})}{dt} $$
+    </div>
+    <div class="figure">
+
+        {{ caption('Figure 1', 'A vehicle driven by Seek. The target is at the center.') }}
+
+        {{ behavior_animation('seek-animation', 250, 100) }}
+    </div>
+    <p>
+        The opposite behavior to Seek is <b>Flee</b>: it drives the vehicle
+        away from the target position at a specified speed. The computation of the
+        output force generated by Flight is almost identical to the one performed
+        for Seek except that the target velocity's sign is negated, which gives:
+    </p>
+    <div class="math">
+        $$ \boldsymbol{F_{flee}} = \frac{m(-\boldsymbol{v_d} - \boldsymbol{v})}{dt} $$
+    </div>
+    <div class="figure">
+
+        {{ caption('Figure 2', 'A vehicle driven by Flee. The target is at the center.') }}
+
+        {{ behavior_animation('flight-animation', 250, 100) }}
+    </div>
+
+    <a id="section-wander"></a>
+    <h3>Wander</h3>
+
+    <p>
+        The <b>Wander</b> behavior drives the vehicle in random directions with
+        a specified target speed \(s_t\). In two dimensions, this could be achieved as follows:
+        Begin by choosing two related parameters, the vehicle's maximum turn rate
+        \(\theta > 0\), and the maximum change \(\phi > 0\) in its current turn rate.
+        Now, given the vehicle's current orientation \(\alpha\) representing the angle between the
+        vehicle's heading \(\boldsymbol{\hat{v}}\) and \((1, 0)^T\), and its current
+        turn rate \(d\alpha_0\), derive its new turn rate \(d\alpha_1\):
+    </p>
+    <div class="math">
+        $$ \Delta = \text{random uniform sample from } [-\phi, \phi] $$
+        $$ d\alpha_1 = min(\theta, max(-\theta, d\alpha_0 + \Delta)) $$
+    </div>
+    <p>
+        Using the rotation matrix \(R\) associated with \(d\alpha_1\),
+        the output force is given by:
+    </p>
+    <div class="math">
+        $$ \boldsymbol{v_d} = s_t \cdot R \boldsymbol{\hat{v}} $$
+        $$ \boldsymbol{F_{wander}} = \frac{m(\boldsymbol{v_d} - \boldsymbol{v})}{dt} $$
+    </div>
+    <div class="figure">
+
+        {{ caption('Figure 3', 'A vehicle driven by Wander,
+            with  \( theta = 0.1\pi \) and \(phi = 0.001\pi\).') }}
+
+        {{ behavior_animation('wander-animation', 250, 250) }}
+    </div>
+
+    <a id="section-pursue"></a>
+    <h3>Pursue/Evade</h3>
+
+    <p>
+        Seek and Flee both relate to a static target, but what about a dynamic one?
+        The <b>Pursue</b> and <b>Evade</b> behaviors use Seek and Flee internally,
+        but instead of the target position \(p_t\) being supplied as a constant, it is
+        given through a function \(g: \rightarrow \mathbb{R^d}\)
+        invoked during each step of the simulation.
+    </p>
+    <div class="figure">
+
+        {{ caption('Figure 4', 'Three vehicles: one driven by Wander (green),
+            one chasing it driven by Pursue (orange), and one avoiding it driven
+            by Evade (blue).') }}
+
+        {{ behavior_animation('pursue-animation', 250, 250) }}
+    </div>
+    <p>
+        If the target we are interested in pursuing/evading is another vehicle,
+        then we would be naive to define \(g\) simply as:
+    </p>
+    <div class="math">
+        $$ g: \rightarrow \boldsymbol{p} $$
+    </div>
+    <p>
+        with \(\boldsymbol{p}\) being the target's current position, as this way we will always
+        lag behind. A better approach would be to attempt to predict the target's
+        position in the future, and head there to intercept it. One way this could be
+        achieved is by defining \(g\) like so:
+    </p>
+    <div class="math">
+        $$ g_t: \rightarrow \boldsymbol{p} + \boldsymbol{v} \cdot t $$
+    </div>
+    <p>
+        where \(\boldsymbol{v}\) is the target's current velocity and \(t\) a
+        positive scalar. This formulation assumes the target's velocity would remain
+        constant for the next \(t\) duration of time, and computes the target's future
+        position based on that.
+    </p>
+    <div class="figure">
+
+        {{ caption('Figure 5', 'Naive pursuit vs. pursuit with
+            future position approximation.') }}
+
+        <div class="subfigure-group">
+            <div class="subfigure">
+                {{ behavior_animation('naive-pursuit-animation', 250, 150) }}
+                <div class="subtitle">
+                    Naive
+                </div>
+            </div>
+            <div class="subfigure">
+                {{ behavior_animation('smart-pursuit-animation', 250, 250) }}
+                <div class="subtitle">
+                    With future position approximation
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <a id="section-arrive"></a>
+    <h3>Arrive</h3>
+
+    <p>
+        You have probably noticed an uncomfortable quirk vehicles driven by Seek
+        exhibit: they do a good job of getting to the target, however they do
+        do not stop once they get there. <b>Arrive</b> is an extension of Seek
+        that handles that problem. As long as the distance between a
+        vehicle driven by Arrive and its target is greater than some specified
+        threshold \(D\), Arrive's operation is identical to Seek. However, once
+        the threshold is breached Arrive initiates a gradual break.
+    </p>
+    <p>
+        Given the regular desired speed \(s_t\), the current distance to target
+        \(d\), the breaking distance threshold
+        \(D\), and an {{ wikilink('interpolation function', 'interpolation') }}
+        \(f: [0, 1] \rightarrow [0, s_t]\), the actual target speed \(s_a\)
+        is given by:
+    </p>
+    <div class="math">
+        $$ s_a =
+            \begin{cases}
+                s_t, \text{if } d > D \\
+                f(d/D), \text{if } d \le D \\
+            \end{cases}
+        $$
+    </div>
+    <p>
+        with \(f\) being smooth and having boundary values \(f(0) = 0\) and \(f(1) = s_t\).
+    </p>
+    <div class="figure">
+
+        {{ caption('Figure 6', 'A vehicle driven by Arrive.') }}
+
+        {{ behavior_animation('arrive-animation', 250, 70) }}
+    </div>
+
+    <a id="section-advanced-behaviors"></a>
+    <h2>Advanced behaviors</h2>
+
+    In this section we give some exemplary cases where extension and/or combination
+    of the previously defined elementary steering behaviors yields desired
+    navigational patterns.
+
+    <a id="section-separate"></a>
+    <h3>Separate</h3>
+
+    <p>
+        As our first example of a neighbourhood-related behavior, we take <b>Separate</b>.
+        The goal behind Separate is to cause vehicles to ensure a minimum distance
+        between themselves and nearby 'repulsion sites'. These repulsion sites
+        could be other vehicles, or simply static obstacles in the environment, the
+        point is that through Separate they exert a repulsing force on a vehicle
+        that is too close to their sphere of influence.
+    </p>
+    <p>
+        Given the set of positions of nearby repulsion sites \(A = \{\boldsymbol{x_1},
+        \boldsymbol{x_2},\ldots, \boldsymbol{x_n}\}\),
+        Separate first computes their average \(\boldsymbol{x_{avg}}\)
+        and then makes use of Flee with \(\boldsymbol{x_{avg}}\) as target and
+        some user-specified speed \(s_t\).
+        If the repulsion set \(A\) is empty, then Separate generates a breaking force
+        instead:
+    </p>
+    <div class="math">
+        $$ \boldsymbol{F_{separate}} =
+                \begin{cases}
+                    \boldsymbol{F_{flee}} \text{, if } \|A\| > 0 \\
+                    \frac{-m}{dt}\boldsymbol{v} \text{, if } \|A\| = 0 \\
+                \end{cases}
+        $$
+    </div>
+    <div class="figure">
+
+        {{ caption('Figure 7', 'Two vehicles driven by Separate.') }}
+
+        {{ behavior_animation('separate-animation', 250, 70) }}
+    </div>
+
+    <a id="section-patrol"></a>
+    <h3>Patrol</h3>
+
+    <p>
+        <b>Patrol</b> is another behavioral archetype that is quite prevalent,
+        especially in the video-game industry. It is where a character visits
+        a predetermined sequence of checkpoints in order. Patrol is expressed
+        as successive invocations of Arrive for each checkpoint in the order
+        specified, with the possibility of endless repeat.
+    </p>
+    <div class="figure">
+
+        {{ caption('Figure 8', 'A vehicle driven by Patrol.') }}
+
+        {{ behavior_animation('patrol-animation', 250, 140) }}
+    </div>
+
+    <a id="section-align"></a>
+    <h3>Align</h3>
+
+    <p>
+        <b>Align</b> is an important behavior to have for crowd simulation.
+        Align drives a vehicle's velocity to match the average velocity of other vehicles
+        in its vicinity.
+    </p>
+    <div class="figure">
+
+        {{ caption('Figure 9', 'A vehicle driven by Align (yellow).') }}
+
+        {{ behavior_animation('align-animation', 250, 100) }}
+    </div>
+
+    <a id="section-conclusion"></a>
+    <h2>Conclusion</h2>
+
+    <p>
+        In this project we have played around with some elementary
+        (and some more advanced) steering behaviors for virtual characters.
+        There are many more interesting behaviors to be derived from the ones we
+        specified and others. The trick is finding the right combination of
+        behaviors to produce a desired result.
+    </p>
+
+    <a id="section-source-code"></a>
+    <h2>Source code</h2>
+
+    <p>
+        You can view the source code and documentation of the library on
+        {{ githublink('GitHub', 'rharel', 'js-steering-behaviors') }}.
+    </p>
+
+    <a id="section-see-also"></a>
+    <h2>See also</h2>
+
+    <ul>
+        <li>
+            More about the general problem of {{ wikilink('motion planning') }}.
+        </li>
+    </ul>
+
+    <a id="section-references"></a>
+    <h2>References</h2>
+
+    <ol>
+        <li>
+            Reynolds, Craig W.
+            <a href="http://www.red3d.com/cwr/papers/1999/gdc99steer.pdf"
+               target="_blank">
+
+                "Steering behaviors for autonomous characters"</a>.
+            <em>Game developers conference.</em> Vol. 1999. 1999.
+        </li>
+    </ol>
+
+{% endblock %}
+{% block lastUpdateStamp %} May, 2017 {% endblock %}
