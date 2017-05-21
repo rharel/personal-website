@@ -1,0 +1,127 @@
+{% extends "projects/index_base.html" %}
+
+{% set cd = 'projects/pacman-in-unity/' %}
+
+{% from "macros/figures.html" import image_collection %}
+{% from "macros/links.html" import githublink, wikilink %}
+
+{% block title %}Pacman in Unity{% endblock %}
+{% block head %}
+
+    {{ super() }}
+
+{% endblock %}
+{% block projectSummary %}
+
+    <p>
+        {{ wikilink('Unity', 'unity (game engine)') }} is a game engine that has
+        quickly become ubiquitous when it comes to development of cross-platform
+        video games. I have been wanting to get familiar with it
+        for a long time, because even through I am not particularly passionate
+        about video games, I figured it can also be easily adapted to a multitude of
+        other interactive applications, mainly as a real-time visualization tool for dynamic
+        simulations.
+    </p>
+    <p>
+        When learning a new technology, for me personally the best thing to do is
+        to practice, practice, and practice. That means taking it and doing something &#8212;
+        anything &#8212; no matter how simple or mundane.
+        And so I decided to start off with something basic but comprehensive
+        that will bring me in contact with all essential features of the Unity editor, these are:
+        its user interface, animation mechanisms, scripting, and editor extensions.
+        Eventually I settled on a simplified implementation of {{ wikilink('Pacman') }}
+        to be my goal.
+    </p>
+
+{% endblock %}
+{% block tableOfContents %}
+
+    <h2>Table of Contents</h2>
+
+    <ul>
+        <li><a href="#section-features">Features</a></li>
+        <li><a href="#section-screenshots">Screenshots</a></li>
+        <li><a href="#section-source-code">Source code</a></li>
+        <li><a href="#section-see-also">See also</a></li>
+    </ul>
+
+{% endblock %}
+{% block content %}
+
+    {{ super() }}
+
+    <a id="section-features"></a>
+    <h2>Features</h2>
+
+    <ul>
+        <li>
+            Graphical User Interface
+            <ul>
+                <li>Main, pause, and endgame menus</li>
+                <li>Animated interface elements</li>
+                <li>Scene transition animations</li>
+                <li>Dynamic {{ wikilink('HUD', 'HUD (video gaming)') }}</li>
+            </ul>
+        </li>
+        <li>
+            Gameplay
+            <ul>
+                <li>Pseudo-random ghost movement</li>
+                <li>Smart keyboard input processing</li>
+                <li>Collectible items</li>
+                <li>Character and item animations</li>
+                <li>Score management</li>
+            </ul>
+        </li>
+        <li>
+            Design
+            <ul>
+                <li>Easy maze design with waypoints and editor extensions</li>
+                <li>Game objects dynamically spawned at runtime.</li>
+            </ul>
+        </li>
+    </ul>
+
+    <a id="section-screenshots"></a>
+    <h2>Screenshots</h2>
+
+    <div class="figure">
+        {{  image_collection(
+            [
+                {"url": cd + 'img/screenshots/large/main_menu.png',
+                "thumbnail_url": cd + 'img/screenshots/small/main_menu.jpg'},
+                {"url": cd + 'img/screenshots/large/game_in_progress.png',
+                "thumbnail_url": cd + 'img/screenshots/small/game_in_progress.jpg'},
+                {"url": cd + 'img/screenshots/large/level_clear_menu.png',
+                "thumbnail_url": cd + 'img/screenshots/small/level_clear_menu.jpg'},
+                {"url": cd + 'img/screenshots/large/pause_menu.png',
+                "thumbnail_url": cd + 'img/screenshots/small/pause_menu.jpg'}
+            ],
+            width=500,
+            do_link=True)
+        }}
+    </div>
+
+    <a id="section-source-code"></a>
+    <h2>Source code</h2>
+
+    <p>
+        You can view the source code on
+        {{ githublink('GitHub', 'rharel', 'unity-pacman') }}.
+    </p>
+
+    <a id="section-see-also"></a>
+    <h2>See also</h2>
+
+    <ul>
+        <li>
+            <a href="https://unity3d.com/",
+               target="_blank">
+                Unity:
+            </a>
+            an excellent, cross-platform game engine.
+        </li>
+    </ul>
+
+{% endblock %}
+{% block lastUpdateStamp %} May, 2017 {% endblock %}
