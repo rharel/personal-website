@@ -2,7 +2,7 @@
 
 {% set cd = 'projects/ray-tracer/' %}
 
-{% from "macros/figures.html" import caption %}
+{% from "macros/figures.html" import caption, image_collection %}
 {% from "macros/links.html" import wikilink, githublink %}
 
 {% block title %}Ray Tracer{% endblock %}
@@ -50,10 +50,16 @@
     <a id="section-showcase"></a>
     <h2>Showcase</h2>
 
-    <div class="showcase-container">
-        <img src="{{ url_for('static', filename=cd + 'img/three_lambertian_spheres_day_512px.png') }}" />
-        <img src="{{ url_for('static', filename=cd + 'img/three_lambertian_spheres_day_2_512px.png') }}" />
-        <img src="{{ url_for('static', filename=cd + 'img/mirror_hemisphere_512px.png') }}" />
+    <div class="figure">
+        {{  image_collection(
+            [
+                {"url": cd + 'img/mirror_hemisphere_512px.png'},
+                {"url": cd + 'img/three_lambertian_spheres_day_512px.png'},
+                {"url": cd + 'img/three_lambertian_spheres_day_2_512px.png'}
+            ],
+            width=300,
+            do_link=True)
+        }}
     </div>
 
     <a id="section-ray-tracing-basics"></a>

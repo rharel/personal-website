@@ -2,15 +2,13 @@
 
 {% set cd = 'projects/new-tab-tweaker/' %}
 
+{% from "macros/figures.html" import image_collection %}
 {% from "macros/links.html" import githublink %}
 
 {% block title %}New Tab Tweaker{% endblock %}
 {% block head %}
 
     {{ super() }}
-
-    <link rel="stylesheet" type="text/css"
-          href="{{ url_for('static', filename=cd + 'css/showcase.css') }}">
 
 {% endblock %}
 {% block projectSummary %}
@@ -65,28 +63,18 @@
     <a id="section-screenshots"></a>
     <h2>Screenshots</h2>
 
-    <div class="showcase-container">
-        <a href="{{ url_for('static', filename=cd + 'img/screenshot/new_tab_custom_page_options.png') }}"
-           target="_blank">
-            <img src="{{ url_for('static', filename=cd + 'img/screenshot/new_tab_custom_page_options.png') }}"
-                 width="512" />
-        </a>
-        <a href="{{ url_for('static', filename=cd + 'img/screenshot/import_wallpaper_urls_dialog.png') }}"
-           target="_blank">
-            <img src="{{ url_for('static', filename=cd + 'img/screenshot/import_wallpaper_urls_dialog.png') }}"
-                 width="512" />
-        </a>
-        <br>
-        <a href="{{ url_for('static', filename=cd + 'img/screenshot/new_tab_redirection_options.png') }}"
-           target="_blank">
-            <img src="{{ url_for('static', filename=cd + 'img/screenshot/new_tab_redirection_options.png') }}"
-                 width="512" />
-        </a>
-        <a href="{{ url_for('static', filename=cd + 'img/screenshot/image_context_menu.png') }}"
-           target="_blank">
-            <img src="{{ url_for('static', filename=cd + 'img/screenshot/image_context_menu.png') }}"
-                 width="512" />
-        </a>
+    <div class="figure">
+
+        {{  image_collection(
+            [
+                {"url": cd + 'img/screenshots/new_tab_custom_page_options.png'},
+                {"url": cd + 'img/screenshots/import_wallpaper_urls_dialog.png'},
+                {"url": cd + 'img/screenshots/new_tab_redirection_options.png'},
+                {"url": cd + 'img/screenshots/image_context_menu.png'},
+            ],
+            width=500,
+            do_link=True)
+        }}
     </div>
 
     <a id="section-source-code"></a>

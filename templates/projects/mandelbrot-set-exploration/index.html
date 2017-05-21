@@ -2,7 +2,7 @@
 
 {% set cd = 'projects/mandelbrot-set-exploration/' %}
 
-{% from "macros/figures.html" import caption %}
+{% from "macros/figures.html" import caption, image_collection %}
 {% from "macros/links.html" import wikilink, youtubelink, githublink %}
 {% from "macros/math.html" import include_mathjax %}
 
@@ -12,9 +12,6 @@
     {{ super() }}
 
     {{ include_mathjax() }}
-
-    <link rel="stylesheet" type="text/css"
-          href="{{ url_for('static', filename=cd + 'css/showcase.css') }}">
 
 {% endblock %}
 {% block projectSummary %}
@@ -53,13 +50,16 @@
     <a id="section-showcase"></a>
     <h2>Showcase</h2>
 
-    <div class="showcase-container">
-        <img src="{{ url_for('static', filename=cd + '/img/showcase_1_512px.png') }}"
-             width="256" height="256" />
-        <img src="{{ url_for('static', filename=cd + '/img/showcase_2_512px.png') }}"
-             width="256" height="256" />
-        <img src="{{ url_for('static', filename=cd + '/img/showcase_3_512px.png') }}"
-             width="256" height="256" />
+    <div class="figure">
+
+        {{  image_collection(
+            [
+                {"url": cd + 'img/showcase_1_512px.png'},
+                {"url": cd + 'img/showcase_2_512px.png'},
+                {"url": cd + 'img/showcase_3_512px.png'}
+            ],
+            do_link=False)
+        }}
     </div>
     <p>
         View the the full album in high-resolution
