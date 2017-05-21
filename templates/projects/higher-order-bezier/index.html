@@ -22,8 +22,6 @@
     <link rel="stylesheet" type="text/css"
           href="{{ url_for('static', filename='projects/css/animation_clip.css') }}">
 
-    <link rel="stylesheet" type="text/css"
-          href="{{ url_for('static', filename=cd + 'css/showcase.css') }}">
     <script type="text/javascript"
             src="{{ url_for('static', filename=cd + 'js/bezier.js') }}"></script>
     <script type="text/javascript"
@@ -75,10 +73,18 @@
     <a id="section-showcase"></a>
     <h2>Showcase</h2>
 
-    <div class="showcase-container">
-        <canvas id="showcase-canvas-0" class="showcase-canvas" width="250" height="250"></canvas>
-        <canvas id="showcase-canvas-1" class="showcase-canvas" width="250" height="250"></canvas>
-        <canvas id="showcase-canvas-2" class="showcase-canvas" width="250" height="250"></canvas>
+    <div class="figure">
+        <div class="subfigure-group">
+            <div class="subfigure">
+                <canvas id="showcase-canvas-0" width="250" height="250"></canvas>
+            </div>
+            <div class="subfigure">
+                <canvas id="showcase-canvas-1" width="250" height="250"></canvas>
+            </div>
+            <div class="subfigure">
+                <canvas id="showcase-canvas-2" width="250" height="250"></canvas>
+            </div>
+        </div>
     </div>
 
     <a id="section-what-are-bezier-curves"></a>
