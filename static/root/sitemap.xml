@@ -28,6 +28,16 @@
     <!-- projects -->
 
     <url>
+        <loc>http://rharel.com/projects/pacman-in-unity</loc>
+        <lastmod>2017-05-01</lastmod>
+        <changefreq>monthly</changefreq>
+    </url>
+    <url>
+        <loc>http://rharel.com/projects/steering-behaviors</loc>
+        <lastmod>2017-05-01</lastmod>
+        <changefreq>monthly</changefreq>
+    </url>
+    <url>
         <loc>http://rharel.com/projects/curve-compressor</loc>
         <lastmod>2017-05-01</lastmod>
         <changefreq>monthly</changefreq>
