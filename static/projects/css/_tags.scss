@@ -48,21 +48,21 @@
 
   border-bottom-color: #f27300;
 }
+.tag-opengl, .tag-webgl {
+
+  border-bottom-color: #CC4B4B;
+}
 .tag-python {
 
-  border-bottom-color: #16932b;
+  border-bottom-color: #66d46d;
+}
+.tag-rust {
+
+  border-bottom-color: #dea584;
 }
 .tag-web-extensions {
 
   border-bottom-color: #31c6bf;
-}
-.tag-webgl {
-
-  border-bottom-color: #CC4B4B;
-}
-.tag-opengl {
-
-  border-bottom-color: #CC4B4B;
 }
 .tag-unity {
 
@@ -85,11 +85,15 @@
 }
 .tag-data-analysis {
 
-  border-bottom-color: #7a34d5
+  border-bottom-color: #a761fb
 }
 .tag-graphics {
 
   border-bottom-color: #51abff;
+}
+.tag-network {
+
+  border-bottom-color: #f22b00;
 }
 .tag-procedural-content-generation {
 
