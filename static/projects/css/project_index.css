@@ -18,7 +18,7 @@
       padding-top: 20px;
       padding-bottom: 20px; } }
   .figure img, .figure canvas {
-    border: 1px solid #3F3F3F; }
+    border: 0.5px solid #3F3F3F; }
     .figure img.transparent, .figure canvas.transparent {
       background-color: transparent;
       border: none; }
@@ -76,5 +76,4 @@ img {
   background-color: white; }
 
 canvas {
-  display: block;
-  border: 1px solid #282828; }
+  display: block; }

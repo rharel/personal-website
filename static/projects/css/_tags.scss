@@ -15,10 +15,10 @@
   }
   border: {
 
-    right: 1px solid $grey_3;
-    top: 1px solid $grey_3;
+    right: 0.5px solid $grey_3;
+    top: 0.5px solid $grey_3;
     bottom: 5px solid $grey_3;
-    left: 1px solid $grey_3;
+    left: 0.5px solid $grey_3;
   }
 
   @include border-radius(5px);
