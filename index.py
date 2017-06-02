@@ -1,4 +1,6 @@
 from flask import Flask, redirect, url_for, render_template
+from jinja2.exceptions import TemplateNotFound
+
 
 app = Flask(__name__)
 
@@ -37,8 +39,12 @@ def projects():
 
 @app.route('/projects/<name>')
 def show_project(name):
-    return render_template('projects/%s/index.html' % name)
-
+    try:
+        return render_template('projects/%s/index.html' % name)
+    except TemplateNotFound as error:
+        return page_not_found(error)
+    except Exception as other_exception:
+        raise other_exception
 
 @app.route('/contact')
 def contact():
