@@ -4,19 +4,21 @@ app = Flask(__name__)
 
 
 @app.errorhandler(403)
-def page_not_found(error):
+def page_access_forbidden(error):
     return render_template('error/403.html'), 403
-
 
 @app.errorhandler(404)
 def page_not_found(error):
     return render_template('error/404.html'), 404
 
-
 @app.errorhandler(500)
-def page_not_found(error):
+def internal_error(error):
     return render_template('error/500.html'), 500
 
+
+@app.route('/')
+def index():
+    return redirect(url_for('about'))
 
 @app.route('/<filename>')
 def root(filename):
@@ -25,21 +27,13 @@ def root(filename):
 
     return redirect(url_for('static', filename='root/' + filename))
 
-
-@app.route('/')
-def index():
-    return redirect(url_for('about'))
-
-
 @app.route('/about')
 def about():
     return render_template('about.html')
 
-
 @app.route('/projects/')
 def projects():
     return render_template('projects/gallery.html')
-
 
 @app.route('/projects/<name>')
 def show_project(name):
@@ -52,5 +46,4 @@ def contact():
 
 
 if __name__ == '__main__':
-
     app.run(debug=True)
