@@ -2,17 +2,23 @@
 // Error page rules.
 //
 
+
+@import 'common_mixins';
+
 #error-container {
 
   text-align: center;
-}
 
+  @include media-XS() {
+
+    text-align: left;
+  }
+}
 #error {
 
   margin-bottom: 30px;
   font-size: 36pt;
 }
-
 #message {
 
   font-size: 18pt;

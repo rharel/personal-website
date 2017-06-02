@@ -1,5 +1,8 @@
 #error-container {
   text-align: center; }
+  @media (max-width: 480px) {
+    #error-container {
+      text-align: left; } }
 
 #error {
   margin-bottom: 30px;
@@ -7,5 +10,3 @@
 
 #message {
   font-size: 18pt; }
-
-/*# sourceMappingURL=error.css.map */
