@@ -12,11 +12,17 @@ a {
   a.seamless-link:hover {
     text-decoration: none; }
 
-.notice-info {
+.notice, .notice-info, .notice-error {
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
   -ms-border-radius: 10px;
   border-radius: 10px;
-  padding: 10px;
+  padding: 10px; }
+
+.notice-info {
   background-color: #E3D2FF;
   color: #2B003F; }
+
+.notice-error {
+  background-color: #ffc0c3;
+  color: #450000; }

@@ -32,11 +32,22 @@ a {
   }
 }
 
-.notice-info {
+.notice {
 
   @include border-radius(10px);
   padding: 10px;
+}
+.notice-info {
+
+  @extend .notice;
 
   background-color: $purple_1;
   color: $purple_2;
+}
+.notice-error {
+
+  @extend .notice;
+
+  background-color: $red_1;
+  color: $red_2;
 }
