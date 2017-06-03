@@ -37,18 +37,22 @@ def about():
 def projects():
     return render_template('projects/gallery.html')
 
-@app.route('/projects/<name>')
-def show_project(name):
-    try:
-        return render_template('projects/%s/index.html' % name)
-    except TemplateNotFound as error:
-        return page_not_found(error)
-    except Exception as other_exception:
-        raise other_exception
+@app.route('/projects/<project>')
+def show_project(project):
+    return try_to_render_template('projects/%s/index.html' % project)
 
 @app.route('/contact')
 def contact():
     return render_template('contact.html')
+
+
+def try_to_render_template(url):
+    try:
+        return render_template(url)
+    except TemplateNotFound as error:
+        return page_not_found(error)
+    except Exception as other_exception:
+        raise other_exception
 
 
 if __name__ == '__main__':
