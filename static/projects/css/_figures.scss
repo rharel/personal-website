@@ -40,11 +40,19 @@
       border: none;
     }
   }
-  img, canvas, video, .animation-clip {
+  img, video, .animation-clip {
 
     @include media-XS() {
 
       max-width: 250px;
+      height: auto;
+    }
+  }
+  .animation-clip canvas {
+
+    @include media-XS() {
+
+      max-width: 249px;  // 2 * 0.5px border
       height: auto;
     }
   }
