@@ -41,6 +41,10 @@ def projects():
 def show_project(project):
     return try_to_render_template('projects/%s/index.html' % project)
 
+@app.route('/projects/<project>/<page>')
+def show_project_page(project, page):
+    return try_to_render_template('projects/%s/pages/%s.html' % (project, page))
+
 @app.route('/contact')
 def contact():
     return render_template('contact.html')

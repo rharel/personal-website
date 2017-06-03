@@ -3,6 +3,11 @@
     <a href="{{ url_for('.show_project', project=project) }}">{{ label }}</a>
 
 {%- endmacro %}
+{% macro project_page_link(label, project, page) -%}
+
+<a href="{{ url_for('.show_project_page', project=project, page=page) }}">{{ label }}</a>
+
+{%- endmacro %}
 
 {% macro wikilink(label, article='') -%}
 
