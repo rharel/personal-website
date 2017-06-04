@@ -35,8 +35,9 @@
     </div>
     <div id="showcase-figure" class="figure">
         {{ caption('Real time pitch detection (interactive)',
-           'Try whistling a tune and see its pitch displayed below.
-            Note: this demo detects note in the range C4-C6.') }}
+           'Try whistling a tune and see its pitch displayed below
+            (visible range is C4-C6).
+            Note: mobile browsers may not be able to run this demo.') }}
         <div class="pitch-detection-display">
             {{ begin_animation_clip() }}
             <canvas id="showcase-visual"
