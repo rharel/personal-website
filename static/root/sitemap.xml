@@ -28,6 +28,11 @@
     <!-- projects -->
 
     <url>
+        <loc>http://rharel.com/projects/pitch-detection</loc>
+        <lastmod>2017-06-01</lastmod>
+        <changefreq>monthly</changefreq>
+    </url>
+    <url>
         <loc>http://rharel.com/projects/download-accelerator</loc>
         <lastmod>2017-06-01</lastmod>
         <changefreq>monthly</changefreq>

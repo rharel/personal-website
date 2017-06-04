@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{% set cd = 'projects/pitch-detection/' %}
+
+{% from "macros/figures.html" import caption %}
+{% from "macros/links.html" import projectlink %}
+{% from cd + "macros.html" import begin_animation_clip, end_animation_clip %}
+
+{% block title %}Pitch Detection Showcase{% endblock %}
+{% block head %}
+
+    {{ super() }}
+
+    <link rel="stylesheet" type="text/css"
+          href="{{ url_for('static', filename='projects/css/project_index.css') }}">
+    <link rel="stylesheet" type="text/css"
+          href="{{ url_for('static', filename=cd + 'css/pitch_detection_display.css') }}">
+    <link rel="stylesheet" type="text/css"
+          href="{{ url_for('static', filename=cd + 'css/showcase.css') }}">
+
+    <script src="{{ url_for('static', filename=cd + 'js/music_note_utils.js') }}"></script>
+    <script src="{{ url_for('static', filename=cd + 'js/audio.js') }}"></script>
+    <script src="{{ url_for('static', filename=cd + 'js/visualization.js') }}"></script>
+    <script src="{{ url_for('static', filename=cd + 'js/pitch_detection.js') }}"></script>
+    <script src="{{ url_for('static', filename=cd + 'js/showcase.js') }}"></script>
+
+{% endblock %}
+{% block content %}
+
+    <h1>{{ self.title().upper() }}</h1>
+
+    <div id="showcase-error" class="notice-error">
+        It seems that your browser does not support the required functionality
+        to display this showcase :(
+    </div>
+    <div id="showcase-figure" class="figure">
+        {{ caption('Real time pitch detection (interactive)',
+           'Try whistling a tune and see its pitch displayed below.
+            Note: this demo detects note in the range C4-C6.') }}
+        <div class="pitch-detection-display">
+            {{ begin_animation_clip() }}
+            <canvas id="showcase-visual"
+                    width="500" height="150"></canvas>
+            {{ end_animation_clip() }}
+            <div id="showcase-detection-result" class="text-display">
+                <div class="current-note"></div>
+            </div>
+        </div>
+    </div>
+    <p>
+        <a href="/projects/pitch-detection#section-showcase">
+            &laquo; Back to project's page
+        </a>
+    </p>
+
+{% endblock %}
+{% block lastUpdateStamp %} June, 2017 {% endblock %}
