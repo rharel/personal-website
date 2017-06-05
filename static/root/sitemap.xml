@@ -4,23 +4,25 @@
         xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd"
         xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
+    <!-- main -->
+    
     <url>
-      <loc>http://rharel.com/</loc>
+      <loc>http://www.rharel.com/</loc>
       <lastmod>2016-06-24</lastmod>
       <changefreq>monthly</changefreq>
     </url>
     <url>
-      <loc>http://rharel.com/about</loc>
+      <loc>http://www.rharel.com/about</loc>
       <lastmod>2016-06-07</lastmod>
       <changefreq>monthly</changefreq>
     </url>
     <url>
-      <loc>http://rharel.com/projects/</loc>
-      <lastmod>2016-09-24</lastmod>
+      <loc>http://www.rharel.com/projects/</loc>
+      <lastmod>2017-06-05</lastmod>
       <changefreq>weekly</changefreq>
     </url>
     <url>
-      <loc>http://rharel.com/contact</loc>
+      <loc>http://www.rharel.com/contact</loc>
       <lastmod>2016-06-07</lastmod>
       <changefreq>monthly</changefreq>
     </url>
@@ -28,73 +30,92 @@
     <!-- projects -->
 
     <url>
-        <loc>http://rharel.com/projects/pitch-detection</loc>
+        <loc>http://www.rharel.com/projects/curve-compressor</loc>
+        <lastmod>2017-05-01</lastmod>
+        <changefreq>monthly</changefreq>
+    </url>
+
+    <url>
+        <loc>http://www.rharel.com/projects/diamond-square</loc>
+        <lastmod>2016-09-24</lastmod>
+        <changefreq>monthly</changefreq>
+    </url>
+
+    <url>
+        <loc>http://www.rharel.com/projects/download-accelerator</loc>
         <lastmod>2017-06-01</lastmod>
         <changefreq>monthly</changefreq>
     </url>
+
     <url>
-        <loc>http://rharel.com/projects/download-accelerator</loc>
-        <lastmod>2017-06-01</lastmod>
+        <loc>http://www.rharel.com/projects/game-of-life</loc>
+        <lastmod>2016-06-07</lastmod>
         <changefreq>monthly</changefreq>
     </url>
+
     <url>
-        <loc>http://rharel.com/projects/pacman-in-unity</loc>
+        <loc>http://www.rharel.com/projects/higher-order-bezier</loc>
+        <lastmod>2016-06-07</lastmod>
+        <changefreq>monthly</changefreq>
+    </url>
+
+    <url>
+        <loc>http://www.rharel.com/projects/k-means-clustering</loc>
+        <lastmod>2016-06-16</lastmod>
+        <changefreq>monthly</changefreq>
+    </url>
+
+    <url>
+        <loc>http://www.rharel.com/projects/mandelbrot-set-exploration</loc>
+        <lastmod>2016-09-24</lastmod>
+        <changefreq>monthly</changefreq>
+    </url>
+
+    <url>
+        <loc>http://www.rharel.com/projects/new-tab-tweaker</loc>
         <lastmod>2017-05-01</lastmod>
         <changefreq>monthly</changefreq>
     </url>
+
     <url>
-        <loc>http://rharel.com/projects/steering-behaviors</loc>
+        <loc>http://www.rharel.com/projects/pacman-in-unity</loc>
         <lastmod>2017-05-01</lastmod>
         <changefreq>monthly</changefreq>
     </url>
+
     <url>
-        <loc>http://rharel.com/projects/curve-compressor</loc>
-        <lastmod>2017-05-01</lastmod>
+        <loc>http://www.rharel.com/projects/pitch-detection</loc>
+        <lastmod>2017-06-04</lastmod>
         <changefreq>monthly</changefreq>
     </url>
     <url>
-      <loc>http://rharel.com/projects/game-of-life</loc>
+        <loc>http://www.rharel.com/projects/pitch-detection/showcase</loc>
+        <lastmod>2017-06-04</lastmod>
+        <changefreq>monthly</changefreq>
+    </url>
+
+    <url>
+        <loc>http://www.rharel.com/projects/pong-ai</loc>
+        <lastmod>2016-07-03</lastmod>
+        <changefreq>monthly</changefreq>
+    </url>
+
+    <url>
+        <loc>http://www.rharel.com/projects/ray-tracer</loc>
+        <lastmod>2016-06-23</lastmod>
+        <changefreq>monthly</changefreq>
+    </url>
+
+    <url>
+        <loc>http://www.rharel.com/projects/steering-behaviors</loc>
+        <lastmod>2017-05-01</lastmod>
+        <changefreq>monthly</changefreq>
+    </url>
+
+    <url>
+      <loc>http://www.rharel.com/projects/voronoi-on-the-gpu</loc>
       <lastmod>2016-06-07</lastmod>
       <changefreq>monthly</changefreq>
     </url>
-    <url>
-      <loc>http://rharel.com/projects/higher-order-bezier</loc>
-      <lastmod>2016-06-07</lastmod>
-      <changefreq>monthly</changefreq>
-    </url>
-    <url>
-      <loc>http://rharel.com/projects/k-means-clustering</loc>
-      <lastmod>2016-06-16</lastmod>
-      <changefreq>monthly</changefreq>
-    </url>
-    <url>
-      <loc>http://rharel.com/projects/pong-ai</loc>
-      <lastmod>2016-07-03</lastmod>
-      <changefreq>monthly</changefreq>
-    </url>
-    <url>
-      <loc>http://rharel.com/projects/ray-tracer</loc>
-      <lastmod>2016-06-23</lastmod>
-      <changefreq>monthly</changefreq>
-    </url>
-    <url>
-      <loc>http://rharel.com/projects/voronoi-on-the-gpu</loc>
-      <lastmod>2016-06-07</lastmod>
-      <changefreq>monthly</changefreq>
-    </url>
-    <url>
-      <loc>http://rharel.com/projects/mandelbrot-set-exploration</loc>
-      <lastmod>2016-09-24</lastmod>
-      <changefreq>monthly</changefreq>
-    </url>
-    <url>
-        <loc>http://rharel.com/projects/new-tab-tweaker</loc>
-        <lastmod>2017-05-01</lastmod>
-        <changefreq>monthly</changefreq>
-    </url>
-    <url>
-      <loc>http://rharel.com/projects/diamond-square</loc>
-      <lastmod>2016-09-24</lastmod>
-      <changefreq>monthly</changefreq>
-    </url>
+
 </urlset>
