@@ -5,24 +5,28 @@
         xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
     <!-- main -->
-    
+
     <url>
       <loc>http://www.rharel.com/</loc>
+      <priority>1.0</priority>
       <lastmod>2016-06-24</lastmod>
       <changefreq>monthly</changefreq>
     </url>
     <url>
       <loc>http://www.rharel.com/about</loc>
+      <priority>1.0</priority>
       <lastmod>2016-06-07</lastmod>
       <changefreq>monthly</changefreq>
     </url>
     <url>
       <loc>http://www.rharel.com/projects/</loc>
+      <priority>1.0</priority>
       <lastmod>2017-06-05</lastmod>
       <changefreq>weekly</changefreq>
     </url>
     <url>
       <loc>http://www.rharel.com/contact</loc>
+      <priority>1.0</priority>
       <lastmod>2016-06-07</lastmod>
       <changefreq>monthly</changefreq>
     </url>
