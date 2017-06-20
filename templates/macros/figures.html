@@ -6,13 +6,15 @@
                  width="{{ width }}" />
         {% elif "thumbnail_url" in image %}
             <a href="{{ url_for('static', filename=image['url']) }}"
-               target="_blank">
+               target="_blank"
+               title="View">
                 <img src="{{ url_for('static', filename=image['thumbnail_url']) }}"
                      width="{{ width }}" />
             </a>
         {% else %}
             <a href="{{ url_for('static', filename=image['url']) }}"
-               target="_blank">
+               target="_blank"
+               title="View">
                 <img src="{{ url_for('static', filename=image['url']) }}"
                      width="{{ width }}" />
             </a>
