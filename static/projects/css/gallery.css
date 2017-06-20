@@ -53,14 +53,17 @@
 .tag-computational-geometry {
   border-bottom-color: #598aff; }
 
+.tag-computer-networks {
+  border-bottom-color: #f22b00; }
+
 .tag-data-analysis, .tag-signal-processing {
   border-bottom-color: #a761fb; }
 
 .tag-graphics {
   border-bottom-color: #51abff; }
 
-.tag-computer-networks {
-  border-bottom-color: #f22b00; }
+.tag-physics {
+  border-bottom-color: #19bf25; }
 
 .tag-procedural-content-generation {
   border-bottom-color: #ec5d28; }
