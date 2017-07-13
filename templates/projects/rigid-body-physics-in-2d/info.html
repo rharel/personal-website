@@ -1,0 +1,37 @@
+{% extends "projects/info_base.html" %}
+
+{% from "macros/links.html" import wikilink %}
+
+{% block projectTitle %}Rigid Body Physics in Two Dimensions{% endblock %}
+{% block projectBriefTitle %}Rigid Body Physics in 2D{% endblock %}
+{% block projectURL %}/projects/rigid-body-physics-in-2d{% endblock %}
+{% block projectThumbnailURL %}
+
+    {{ url_for('static', filename='projects/rigid-body-physics-in-2d/img/particles_in_a_box_128px.png') }}
+
+{% endblock %}
+{% block projectSummary %}
+
+    This project is an exercise in code optimization. The goal is simple: build a simple physical
+    world simulation for disc-shaped {{ wikilink('rigid bodies', 'rigid body') }} and optimize it to be as time
+    efficient as possible. Among the topics covered are the following:
+    {{ wikilink('spatial partitioning', 'space partitioning') }},
+    local {{ wikilink('caching', 'cache (computing)') }},
+    {{ wikilink('garbage collection', 'garbage collection (computer science)') }} awareness,
+    and recognition of reasonable pragmatic constraints.
+
+{% endblock %}
+{% block projectBriefSummary %}
+
+    This project is an exercise in code optimization. The goal is simple: build a simple physical
+    world simulation for {{ wikilink('rigid bodies', 'rigid body') }} and strive for it to be as time
+    efficient as possible.
+
+{% endblock %}
+{% block projectTags %}
+
+    <span class="tag tag-ts">TypeScript</span>
+    <span class="tag tag-physics">Physics</span>
+    <span class="tag tag-computational-geometry">Computational Geometry</span>
+
+{% endblock %}
