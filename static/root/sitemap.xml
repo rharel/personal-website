@@ -21,7 +21,7 @@
     <url>
       <loc>http://www.rharel.com/projects/</loc>
       <priority>1.0</priority>
-      <lastmod>2017-06-05</lastmod>
+      <lastmod>2017-07-17</lastmod>
       <changefreq>weekly</changefreq>
     </url>
     <url>
@@ -107,6 +107,12 @@
     <url>
         <loc>http://www.rharel.com/projects/ray-tracer</loc>
         <lastmod>2016-06-23</lastmod>
+        <changefreq>monthly</changefreq>
+    </url>
+
+    <url>
+        <loc>http://www.rharel.com/projects/rigid-body-physics-in-2d</loc>
+        <lastmod>2017-07-17</lastmod>
         <changefreq>monthly</changefreq>
     </url>
 
