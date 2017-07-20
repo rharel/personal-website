@@ -12,20 +12,18 @@
 {% endblock %}
 {% block projectSummary %}
 
-    This project is an exercise in code optimization. The goal is simple: build a simple physical
-    world simulation for disc-shaped {{ wikilink('rigid bodies', 'rigid body') }} and optimize it to be as time
-    efficient as possible. Among the topics covered are the following:
-    {{ wikilink('spatial partitioning', 'space partitioning') }},
-    local {{ wikilink('caching', 'cache (computing)') }},
-    {{ wikilink('garbage collection', 'garbage collection (computer science)') }} awareness,
-    and recognition of reasonable pragmatic constraints.
+    This project's goal is simple: to build a bare-bones physically-based
+    simulation for disc-shaped {{ wikilink('rigid bodies', 'rigid body') }} supporting accurate
+    collision detection/resolution, and capable of simulating a
+    decently large amount of entities utilizing
+    {{ wikilink('spatial partitioning', 'space partitioning') }} methods.
 
 {% endblock %}
 {% block projectBriefSummary %}
 
-    This project is an exercise in code optimization. The goal is simple: build a simple physical
-    world simulation for {{ wikilink('rigid bodies', 'rigid body') }} and strive for it to be as time
-    efficient as possible.
+    This project's goal is simple: to build a bare-bones physically-based
+    simulation capable of accurate collision detection/resolution for a decent amount of
+    {{ wikilink('rigid bodies', 'rigid body') }}.
 
 {% endblock %}
 {% block projectTags %}
