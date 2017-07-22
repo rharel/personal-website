@@ -62,7 +62,8 @@ body {
   padding-bottom: 5px;
   color: inherit;
   cursor: pointer;
-  text-decoration: none; }
+  text-decoration: none;
+  transition: border-bottom 0.25s; }
   #navigation-bar-buttons > .button-container > a:hover {
     border-bottom: 5px solid #C2DFFF;
     text-decoration: none; }

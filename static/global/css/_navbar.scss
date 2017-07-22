@@ -110,6 +110,8 @@ $menu_button_size: 35px;
   cursor: pointer;
   text-decoration: none;
 
+  transition: border-bottom 0.25s;
+
   &:hover {
 
     border-bottom: 5px solid $blue_1;
