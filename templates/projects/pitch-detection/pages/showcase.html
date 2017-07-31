@@ -4,7 +4,6 @@
 
 {% from "macros/figures.html" import caption %}
 {% from "macros/links.html" import projectlink %}
-{% from cd + "macros.html" import begin_animation_clip, end_animation_clip %}
 
 {% block title %}Pitch Detection Showcase{% endblock %}
 {% block head %}
@@ -39,10 +38,8 @@
             (visible range is C4-C6).
             Note: mobile browsers may not be able to run this demo.') }}
         <div class="pitch-detection-display">
-            {{ begin_animation_clip() }}
             <canvas id="showcase-visual"
                     width="500" height="150"></canvas>
-            {{ end_animation_clip() }}
             <div id="showcase-detection-result" class="text-display">
                 <div class="current-note"></div>
             </div>
