@@ -1,7 +1,7 @@
 .pitch-detection-display {
   display: inline-block;
   width: 500px; }
-  @media (max-width: 480px) {
+  @media (max-width: 500px) {
     .pitch-detection-display {
       width: 250px; } }
 

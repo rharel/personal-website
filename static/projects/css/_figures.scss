@@ -10,11 +10,11 @@
 
   margin: {
 
-    top: 15px;
-    bottom: 15px;
+    top: 1.5rem;
+    bottom: 1.5rem;
   }
-  @include border-radius(10px);
-  padding: 20px;
+  @include border-radius(1rem);
+  padding: 2rem;
 
   background-color: $blue_1;
   text-align: center;
@@ -23,21 +23,22 @@
 
     padding: {
 
-      left: 5px;
-      right: 5px;
-      top: 20px;
-      bottom: 20px;
+      left: 0.5rem;
+      right: 0.5rem;
+      top: 2rem;
+      bottom: 2rem;
     }
   }
 
   img, video, canvas {
 
-    border: 0.5px solid $grey_4;
+    display: inline-block;
+    border: 0.05rem solid $grey_4;
 
     &.transparent {
 
       background-color: transparent;
-      border: 0.5px solid transparent;
+      border: 0.05rem solid transparent;
     }
     @include media-XS() {
 
@@ -50,14 +51,14 @@
 .caption {
 
   text-align: left;
-  font-size: 11pt;
+  font-size: 1.4rem;
 
   @include media-XS() {
 
     padding: {
 
-      left: 10px;
-      right: 10px;
+      left: 1rem;
+      right: 1rem;
     }
   }
 
@@ -68,12 +69,12 @@
 }
 .caption + * {
 
-  margin-top: 15px;
+  margin-top: 1.5rem;
 }
 
 .subfigure-group + .subfigure-group {
 
-  margin-top: 10px;
+  margin-top: 1rem;
 }
 .subfigure-group > .subfigure {
 
@@ -86,11 +87,11 @@
 
   & + .subfigure {
 
-    margin-top: 10px;
+    margin-top: 1rem;
   }
   & > .subtitle {
 
     text-align: center;
-    font-size: 10pt;
+    font-size: 1.4rem;
   }
 }

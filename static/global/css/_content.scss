@@ -8,7 +8,7 @@
 
 #content-container {
 
-  margin-bottom: 100px;
+  margin-bottom: 10rem;
 }
 
 #content {
@@ -18,11 +18,10 @@
     left: auto;
     right: auto;
   }
-  border-top: 5px double $grey_2;
-  padding-top: 25px;
+  border-top: 0.5rem double $grey_2;
+  padding-top: 2.5rem;
 
-  width: 80%;
-  max-width: 800px;
+  width: 67.5%;
 
   text-align: left;
 

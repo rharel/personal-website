@@ -5,30 +5,37 @@
 
 @mixin media-XS {
 
-  @media (max-width: 480px) {
+  @media (max-width: 500px) {
 
     @content;
   }
 }
 @mixin media-S {
 
-  @media (max-width: 640px) {
+  @media (min-width: 500px) and (max-width: 700px) {
 
     @content;
   }
 }
 @mixin media-M {
 
-  @media (max-width: 768px) {
+  @media (min-width: 700px) and (max-width: 1300px) {
 
     @content;
   }
 }
 @mixin media-L {
 
-  @media (min-width: 1024px) {
+  @media (min-width: 1300px) and (max-width: 1500px) {
 
     @content;
+  }
+}
+@mixin media-XL {
+
+  @media (min-width: 1500px) {
+
+    @content
   }
 }
 
@@ -42,9 +49,8 @@
 
 @mixin no-user-select {
 
-  -webkit-touch-callout: none;
   -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }

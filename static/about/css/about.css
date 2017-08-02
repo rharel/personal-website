@@ -1,5 +1,5 @@
 #navigation-bar-buttons > .button-container > #navigation-button-about {
-  border-bottom: 5px solid #316899; }
+  border-bottom: 0.5rem solid #316899; }
 
 #portrait-container {
   float: right;
@@ -7,14 +7,15 @@
   max-width: 256px; }
   #portrait-container img {
     width: 100%;
-    max-width: 200px;
     -webkit-border-radius: 50%;
     -moz-border-radius: 50%;
     -ms-border-radius: 50%;
     border-radius: 50%; }
-  @media (max-width: 480px) {
+  @media (max-width: 500px) {
     #portrait-container {
       float: none;
       width: 100%;
       max-width: none;
-      text-align: center; } }
+      text-align: center; }
+      #portrait-container img {
+        width: 75%; } }

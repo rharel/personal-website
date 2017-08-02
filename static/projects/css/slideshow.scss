@@ -11,7 +11,7 @@
 
   img {
 
-    width: 300px;
+    width: 30rem;
 
     @include media-XS() {
 
@@ -22,14 +22,14 @@
 
 .slideshow-control-button {
 
-  border: 1px solid $grey_3;
-  @include border-radius(2px);
+  border: 0.05rem solid $grey_3;
+  @include border-radius(0.2rem);
   padding: {
 
-    left: 5px;
-    right: 5px;
+    left: 0.5rem;
+    right: 0.5rem;
   }
-  font-size: 11pt;
+  font-size: 1.5rem;
   background-color: $grey_1;
   color: $grey_4;
   cursor: pointer;

@@ -6,12 +6,29 @@
 @import 'common_colors';
 @import 'common_mixins';
 
+html {
+
+  font-size: 10px;
+
+  @include media-M() {
+
+    font-size: 12.5px;
+  }
+  @include media-L() {
+
+    font-size: 15px;
+  }
+  @include media-XL() {
+
+    font-size: 20px;
+  }
+}
 body {
 
   margin: 0;
 
   font-family: 'Open Sans', sans-serif;
-  font-size: 13pt;
+  font-size: 1.5rem;
 
   color: $nearly_black;
   background-color: $nearly_white;

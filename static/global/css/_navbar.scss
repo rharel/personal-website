@@ -6,7 +6,7 @@
 @import 'common_colors';
 @import 'common_mixins';
 
-$menu_button_size: 35px;
+$menu_button_size: 3.2rem;
 
 #navigation-bar {
 
@@ -14,8 +14,8 @@ $menu_button_size: 35px;
 
     left: auto;
     right: auto;
-    top: 15px;
-    bottom: 15px;
+    top: 1.6rem;
+    bottom: 1.6rem;
   }
   width: 80%;
 
@@ -75,14 +75,14 @@ $menu_button_size: 35px;
 
   & + .button-container {
 
-    margin-left: 50px;
+    margin-left: 4.8rem;
   }
 
   @include media-S() {
 
     & + .button-container {
 
-      margin-left: 25px;
+      margin-left: 3.2rem;
     }
   }
   @include media-XS() {
@@ -99,11 +99,11 @@ $menu_button_size: 35px;
 
   display: inline-block;
 
-  border-bottom: 5px solid transparent;
+  border-bottom: 0.5rem solid transparent;
   padding: {
 
-    top: 15px;
-    bottom: 5px;
+    top: 1.5rem;
+    bottom: 0.5rem;
   }
 
   color: inherit;
@@ -114,12 +114,12 @@ $menu_button_size: 35px;
 
   &:hover {
 
-    border-bottom: 5px solid $blue_1;
+    border-bottom: 0.5rem solid $blue_1;
     text-decoration: none;
   }
 
   @include media-XS() {
 
-    border-bottom: 5px solid $blue_1;
+    border-bottom: 0.5rem solid $blue_1;
   }
 }

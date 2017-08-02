@@ -25,7 +25,7 @@
   -moz-border-radius: 50%;
   -ms-border-radius: 50%;
   border-radius: 50%;
-  box-shadow: 3px 3px 5px 0 black; }
+  box-shadow: 0.3rem 0.3rem 0.5rem black; }
 
 .play-button > .play-symbol {
   position: absolute;

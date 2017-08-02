@@ -8,7 +8,7 @@
 
 #navigation-bar-buttons > .button-container > #navigation-button-about {
 
-  border-bottom: 5px solid $blue_2;
+  border-bottom: 0.5rem solid $blue_2;
 }
 
 #portrait-container {
@@ -21,7 +21,6 @@
   img {
 
     width: 100%;
-    max-width: 200px;
 
     @include border-radius(50%);
   }
@@ -33,5 +32,10 @@
     max-width: none;
 
     text-align: center;
+
+    img {
+
+      width: 75%;
+    }
   }
 }

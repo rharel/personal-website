@@ -8,12 +8,12 @@
 
 #navigation-bar-buttons > .button-container > #navigation-button-contact {
 
-  border-bottom: 5px solid $blue_2;
+  border-bottom: 0.5rem solid $blue_2;
 }
 
 .contact-options-container {
 
-  margin-top: 50px;
+  margin-top: 5rem;
   text-align: center;
 }
 .contact-options-container > a {
@@ -23,7 +23,7 @@
 
   & + a {
 
-    margin-left: 50px;
+    margin-left: 5rem;
   }
   img {
 
@@ -33,7 +33,7 @@
 
       left: auto;
       right: auto;
-      bottom: 10px;
+      bottom: 1rem;
     }
     width: 128px;
   }
@@ -46,7 +46,7 @@
       margin: {
 
         left: 0;
-        top: 20px;
+        top: 2rem;
       }
     }
   }

@@ -1,64 +1,65 @@
 .long-code-snippet {
-  max-height: 350px; }
+  max-height: 35rem; }
 
 .figure {
-  margin-top: 15px;
-  margin-bottom: 15px;
-  -webkit-border-radius: 10px;
-  -moz-border-radius: 10px;
-  -ms-border-radius: 10px;
-  border-radius: 10px;
-  padding: 20px;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+  -webkit-border-radius: 1rem;
+  -moz-border-radius: 1rem;
+  -ms-border-radius: 1rem;
+  border-radius: 1rem;
+  padding: 2rem;
   background-color: #C2DFFF;
   text-align: center; }
-  @media (max-width: 480px) {
+  @media (max-width: 500px) {
     .figure {
-      padding-left: 5px;
-      padding-right: 5px;
-      padding-top: 20px;
-      padding-bottom: 20px; } }
+      padding-left: 0.5rem;
+      padding-right: 0.5rem;
+      padding-top: 2rem;
+      padding-bottom: 2rem; } }
   .figure img, .figure video, .figure canvas {
-    border: 0.5px solid #3F3F3F; }
+    display: inline-block;
+    border: 0.05rem solid #3F3F3F; }
     .figure img.transparent, .figure video.transparent, .figure canvas.transparent {
       background-color: transparent;
-      border: 0.5px solid transparent; }
-    @media (max-width: 480px) {
+      border: 0.05rem solid transparent; }
+    @media (max-width: 500px) {
       .figure img, .figure video, .figure canvas {
         max-width: 250px;
         height: auto; } }
 
 .caption {
   text-align: left;
-  font-size: 11pt; }
-  @media (max-width: 480px) {
+  font-size: 1.4rem; }
+  @media (max-width: 500px) {
     .caption {
-      padding-left: 10px;
-      padding-right: 10px; } }
+      padding-left: 1rem;
+      padding-right: 1rem; } }
 
 .caption > .title {
   font-weight: bold; }
 
 .caption + * {
-  margin-top: 15px; }
+  margin-top: 1.5rem; }
 
 .subfigure-group + .subfigure-group {
-  margin-top: 10px; }
+  margin-top: 1rem; }
 
 .subfigure-group > .subfigure {
   display: inline-block;
   margin-left: auto;
   margin-right: auto; }
   .subfigure-group > .subfigure + .subfigure {
-    margin-top: 10px; }
+    margin-top: 1rem; }
   .subfigure-group > .subfigure > .subtitle {
     text-align: center;
-    font-size: 10pt; }
+    font-size: 1.4rem; }
 
 .math {
   overflow-x: auto; }
 
 #navigation-bar-buttons > .button-container > #navigation-button-projects {
-  border-bottom: 5px solid #316899; }
+  border-bottom: 0.5rem solid #316899; }
 
 h1 {
   color: #316899; }

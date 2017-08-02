@@ -1,20 +1,32 @@
+html {
+  font-size: 10px; }
+  @media (min-width: 700px) and (max-width: 1300px) {
+    html {
+      font-size: 12.5px; } }
+  @media (min-width: 1300px) and (max-width: 1500px) {
+    html {
+      font-size: 15px; } }
+  @media (min-width: 1500px) {
+    html {
+      font-size: 20px; } }
+
 body {
   margin: 0;
   font-family: 'Open Sans', sans-serif;
-  font-size: 13pt;
+  font-size: 1.5rem;
   color: #282828;
   background-color: #FAFAFD; }
 
 #navigation-bar {
   margin-left: auto;
   margin-right: auto;
-  margin-top: 15px;
-  margin-bottom: 15px;
+  margin-top: 1.6rem;
+  margin-bottom: 1.6rem;
   width: 80%;
   text-align: center; }
-  @media (max-width: 480px) {
+  @media (max-width: 500px) {
     #navigation-bar {
-      min-height: 35px;
+      min-height: 3.2rem;
       text-align: left; } }
 
 #menu-button-input {
@@ -25,31 +37,31 @@ body {
   float: right;
   cursor: pointer; }
   #menu-button-label img {
-    width: 35px;
-    height: 35px;
+    width: 3.2rem;
+    height: 3.2rem;
     background-color: transparent; }
-  @media (max-width: 480px) {
+  @media (max-width: 500px) {
     #menu-button-label {
       display: block; } }
 
 #navigation-bar-buttons {
   display: block; }
-  @media (max-width: 480px) {
+  @media (max-width: 500px) {
     #navigation-bar-buttons {
       display: none; } }
 
-@media (max-width: 480px) {
+@media (max-width: 500px) {
   #menu-button-input:checked + #menu-button-label + #navigation-bar-buttons {
     display: block; } }
 
 #navigation-bar-buttons > .button-container {
   display: inline-block; }
   #navigation-bar-buttons > .button-container + .button-container {
-    margin-left: 50px; }
-  @media (max-width: 640px) {
+    margin-left: 4.8rem; }
+  @media (min-width: 500px) and (max-width: 700px) {
     #navigation-bar-buttons > .button-container + .button-container {
-      margin-left: 25px; } }
-  @media (max-width: 480px) {
+      margin-left: 3.2rem; } }
+  @media (max-width: 500px) {
     #navigation-bar-buttons > .button-container {
       display: block; }
       #navigation-bar-buttons > .button-container + .button-container {
@@ -57,39 +69,38 @@ body {
 
 #navigation-bar-buttons > .button-container > a {
   display: inline-block;
-  border-bottom: 5px solid transparent;
-  padding-top: 15px;
-  padding-bottom: 5px;
+  border-bottom: 0.5rem solid transparent;
+  padding-top: 1.5rem;
+  padding-bottom: 0.5rem;
   color: inherit;
   cursor: pointer;
   text-decoration: none;
   transition: border-bottom 0.25s; }
   #navigation-bar-buttons > .button-container > a:hover {
-    border-bottom: 5px solid #C2DFFF;
+    border-bottom: 0.5rem solid #C2DFFF;
     text-decoration: none; }
-  @media (max-width: 480px) {
+  @media (max-width: 500px) {
     #navigation-bar-buttons > .button-container > a {
-      border-bottom: 5px solid #C2DFFF; } }
+      border-bottom: 0.5rem solid #C2DFFF; } }
 
 #content-container {
-  margin-bottom: 100px; }
+  margin-bottom: 10rem; }
 
 #content {
   margin-left: auto;
   margin-right: auto;
-  border-top: 5px double #DBDBDB;
-  padding-top: 25px;
-  width: 80%;
-  max-width: 800px;
+  border-top: 0.5rem double #DBDBDB;
+  padding-top: 2.5rem;
+  width: 67.5%;
   text-align: left; }
-  @media (max-width: 480px) {
+  @media (max-width: 500px) {
     #content {
       width: 90%; } }
 
 #footer {
   width: 100%;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  font-size: 8pt;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  font-size: 1.1rem;
   text-align: center;
   color: #3F3F3F; }
