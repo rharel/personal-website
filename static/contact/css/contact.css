@@ -1,5 +1,5 @@
 #navigation-bar-buttons > .button-container > #navigation-button-contact {
-  border-bottom: 0.5rem solid #316899; }
+  border-bottom-color: #316899; }
 
 .contact-options-container {
   margin-top: 5rem;
@@ -8,17 +8,19 @@
 .contact-options-container > a {
   display: inline-block;
   color: #282828; }
-  .contact-options-container > a + a {
-    margin-left: 5rem; }
-  .contact-options-container > a img {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 1rem;
-    width: 128px; }
   @media (max-width: 500px) {
     .contact-options-container > a {
-      display: block; }
+      display: block; } }
+  .contact-options-container > a + a {
+    margin-left: 5rem; }
+    @media (max-width: 500px) {
       .contact-options-container > a + a {
         margin-left: 0;
         margin-top: 2rem; } }
+
+.contact-options-container > a > img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 1rem;
+  width: 128px; }

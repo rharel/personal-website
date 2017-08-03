@@ -1,97 +1,78 @@
-//
-// Figures and captions
-//
-
-
 @import '../../global/css/common_colors';
-@import '../../global/css/common_mixins';
+@import '../../global/css/mixins/compatibility';
+@import '../../global/css/mixins/media';
 
-.figure {
-
-  margin: {
-
-    top: 1.5rem;
-    bottom: 1.5rem;
-  }
-  @include border-radius(1rem);
-  padding: 2rem;
-
-  background-color: $blue_1;
-  text-align: center;
-
-  @include media-XS() {
-
-    padding: {
-
-      left: 0.5rem;
-      right: 0.5rem;
-      top: 2rem;
-      bottom: 2rem;
+.figure
+{
+    margin:
+    {
+        top:    1.5rem;
+        bottom: 1.5rem;
     }
-  }
 
-  img, video, canvas {
+    @include border-radius(1rem);
 
-    display: inline-block;
-    border: 0.05rem solid $grey_4;
-
-    &.transparent {
-
-      background-color: transparent;
-      border: 0.05rem solid transparent;
+    padding: 2rem;
+    @include media-XS()
+    {
+        padding:
+        {
+            left:  0.5rem;
+            right: 0.5rem;
+        }
     }
-    @include media-XS() {
-
-      max-width: 250px;
-      height: auto;
-    }
-  }
-}
-
-.caption {
-
-  text-align: left;
-  font-size: 1.4rem;
-
-  @include media-XS() {
-
-    padding: {
-
-      left: 1rem;
-      right: 1rem;
-    }
-  }
-
-}
-.caption > .title {
-
-  font-weight: bold;
-}
-.caption + * {
-
-  margin-top: 1.5rem;
-}
-
-.subfigure-group + .subfigure-group {
-
-  margin-top: 1rem;
-}
-.subfigure-group > .subfigure {
-
-  display: inline-block;
-  margin: {
-
-    left: auto;
-    right: auto;
-  }
-
-  & + .subfigure {
-
-    margin-top: 1rem;
-  }
-  & > .subtitle {
-
+    background-color: $blue_1;
     text-align: center;
+}
+.figure img, .figure video, .figure canvas
+{
+    display: inline-block;
+
+    border: 0.05rem solid $nearly_black;
+    &.transparent
+    {
+        background-color: transparent;
+        border-color:     transparent;
+    }
+
+    &.smaller { width:    5rem; }
+    &.small   { width:   10rem; }
+                width: 17.5rem;
+    &.large   { width:   25rem; }
+    &.larger  { width:   30rem; }
+            max-width:    80vw;
+               height:    auto;
+
+    background-color: white;
+}
+
+.caption
+{
+    text-align:  left;
     font-size: 1.4rem;
-  }
+
+    @include media-XS()
+    {
+        padding:
+        {
+            left:  1rem;
+            right: 1rem;
+        }
+    }
+}
+.caption > .title { font-weight:  bold; }
+.caption + *      { margin-top: 1.5rem; }
+
+.subfigure-group + .subfigure-group { margin-top: 1rem; }
+.subfigure-group > .subfigure
+{
+    display: inline-block;
+
+    line-height: 3rem;
+
+    & > .subtitle
+    {
+        text-align: center;
+        font-size:  1.4rem;
+    }
 }

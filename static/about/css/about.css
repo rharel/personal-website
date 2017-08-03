@@ -1,21 +1,17 @@
 #navigation-bar-buttons > .button-container > #navigation-button-about {
-  border-bottom: 0.5rem solid #316899; }
+  border-bottom-color: #316899; }
 
 #portrait-container {
   float: right;
-  width: 33%;
-  max-width: 256px; }
-  #portrait-container img {
-    width: 100%;
-    -webkit-border-radius: 50%;
-    -moz-border-radius: 50%;
-    -ms-border-radius: 50%;
-    border-radius: 50%; }
+  padding-left: 2rem;
+  padding-right: 2rem; }
   @media (max-width: 500px) {
     #portrait-container {
       float: none;
-      width: 100%;
-      max-width: none;
-      text-align: center; }
-      #portrait-container img {
-        width: 75%; } }
+      text-align: center; } }
+
+#portrait-container > img {
+  max-width: 15rem;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%; }

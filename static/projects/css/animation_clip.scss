@@ -1,62 +1,57 @@
-//
-// Playable animation clip
-//
-
-
 @import "../../global/css/common_colors";
-@import "../../global/css/common_mixins";
+@import "../../global/css/mixins/compatibility";
 
-.animation-clip {
-
-  display: inline-block;
-  position: relative;
+.animation-clip
+{
+    display:  inline-block;
+    position: relative;
+    line-height: 0;
 }
-.animation-clip > .overlay {
+.animation-clip > .overlay
+{
+    position: absolute;
+    left: 0;
+    top:  0;
 
-  position: absolute;
-  left: 0;
-  top: 0;
+    width:  100%;
+    height: 100%;
 
-  width: 100%;
-  height: 100%;
-
-  background-color: rgba(0, 0, 0, 0.3);
-  cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.3);
+    cursor: pointer;
 }
-.animation-clip > .overlay > .play-button {
+.animation-clip > .overlay > .play-button
+{
+    position: absolute;
+    left:   0;
+    right:  0;
+    top:    0;
+    bottom: 0;
 
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
+    margin: auto;
+    @include border-radius(50%);
 
-  margin: auto;
+    width:  5rem;
+    height: 5rem;
 
-  width: 50px;
-  height: 50px;
+    background-color: $blue_3;
 
-  background-color: $blue_3;
-  @include border-radius(50%);
-
-  box-shadow: 0.3rem 0.3rem 0.5rem black;
+    @include box-shadow(0.3rem 0.3rem 0.5rem black);
 }
-.play-button > .play-symbol {
+.play-button > .play-symbol
+{
+    position: absolute;
+    left:   0.6em;
+    right:  0;
+    top:    0;
+    bottom: 0;
 
-  $size: 18px;
+    margin: auto;
 
-  position: absolute;
-  left: 8px;
-  right: 0;
-  top: 0;
-  bottom: 0;
+    $size: 1.2em;
+    border-top:    0.66 * $size solid transparent;
+    border-left:          $size solid $cyan_1;
+    border-bottom: 0.66 * $size solid transparent;
 
-  margin: auto;
-
-  border-top: 0.66 * $size solid transparent;
-  border-left: $size solid $cyan_1;
-  border-bottom: 0.66 * $size solid transparent;
-
-  width: 0;
-  height: 0;
+    width:  0;
+    height: 0;
 }

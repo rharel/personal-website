@@ -2,17 +2,14 @@ a {
   color: #0066FF;
   text-decoration: none; }
   a:hover {
-    cursor: pointer;
     text-decoration: underline; }
-  a.seamless-link {
-    color: inherit; }
-  a.seamless-link:hover {
-    text-decoration: none; }
+
+img {
+  background-color: inherit; }
 
 .notice, .notice-info, .notice-error {
   -webkit-border-radius: 1rem;
   -moz-border-radius: 1rem;
-  -ms-border-radius: 1rem;
   border-radius: 1rem;
   padding: 1rem; }
 
@@ -21,5 +18,5 @@ a {
   color: #2B003F; }
 
 .notice-error {
-  background-color: #ffc0c3;
+  background-color: #FFC0C3;
   color: #450000; }

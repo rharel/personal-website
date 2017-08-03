@@ -91,8 +91,8 @@
     function _on_canvas_current_click(event) {
 
         var bounds = canvas_current.getBoundingClientRect();
-        var x = event.clientX - bounds.left;
-        var y = event.clientY - bounds.top;
+        var x = (event.clientX - bounds.left) * canvas_current.width  / canvas_current.clientWidth;
+        var y = (event.clientY - bounds.top)  * canvas_current.height / canvas_current.clientHeight;
 
         var cell = view_current.to_cell_coordinates(x, y);
         if (!world_current.is_out_of_bounds(cell.x, cell.y)) {

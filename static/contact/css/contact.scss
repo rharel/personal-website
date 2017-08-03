@@ -1,53 +1,45 @@
-//
-// Rules for /contact.
-//
-
-
 @import "../../global/css/common_colors";
-@import "../../global/css/common_mixins";
+@import "../../global/css/mixins/compatibility";
+@import "../../global/css/mixins/media";
 
-#navigation-bar-buttons > .button-container > #navigation-button-contact {
-
-  border-bottom: 0.5rem solid $blue_2;
+#navigation-bar-buttons > .button-container > #navigation-button-contact
+{
+    border-bottom-color: $blue_2;
 }
 
-.contact-options-container {
-
-  margin-top: 5rem;
-  text-align: center;
+.contact-options-container
+{
+    margin-top: 5rem;
+    text-align: center;
 }
-.contact-options-container > a {
+.contact-options-container > a
+{
+                          display: inline-block;
+    @include media-XS() { display:        block; }
 
-  display: inline-block;
-  color: $nearly_black;
+    color: $nearly_black;
 
-  & + a {
-
-    margin-left: 5rem;
-  }
-  img {
-
+    & + a
+    {
+        margin-left: 5rem;
+        @include media-XS()
+        {
+            margin:
+            {
+                left: 0;
+                top:  2rem;
+            }
+        }
+    }
+}
+.contact-options-container > a > img
+{
     display: block;
-
-    margin: {
-
-      left: auto;
-      right: auto;
-      bottom: 1rem;
+    margin:
+    {
+        left:   auto;
+        right:  auto;
+        bottom: 1rem;
     }
     width: 128px;
-  }
-  @include media-XS() {
-
-    display: block;
-
-    & + a {
-
-      margin: {
-
-        left: 0;
-        top: 2rem;
-      }
-    }
-  }
 }

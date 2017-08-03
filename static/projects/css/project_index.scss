@@ -1,41 +1,12 @@
-//
-// Project index page rules
-//
-
-
 @import 'code';
 @import 'figures';
 @import 'math';
 
-#navigation-bar-buttons > .button-container > #navigation-button-projects {
-
-  border-bottom: 0.5rem solid $blue_2;
+#navigation-bar-buttons > .button-container > #navigation-button-projects
+{
+    border-bottom-color: $blue_2;
 }
 
-h1 {
-
-  color: $blue_2;
-
-  &:first-child {
-
-    margin-top: 0;
-  }
-}
-h2 {
-
-  color: $blue_2;
-}
-h3 {
-
-  font-size: inherit;
-  color: $blue_2;
-}
-
-img {
-
-  background-color: white;
-}
-canvas {
-
-  display: block;
-}
+h1, h2, h3 { color: $blue_2;                  }
+h1         { &:first-child { margin-top: 0; } }
+h3         { font-size: inherit;              }
