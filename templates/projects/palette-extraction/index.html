@@ -1,0 +1,93 @@
+{% extends "projects/index_base.html" %}
+
+{% set cd = 'projects/pitch-detection/' %}
+
+{% from "macros/links.html" import wikilink, githublink, projectlink, project_page_link %}
+{% from "macros/figures.html" import caption %}
+{% from "macros/math.html" import include_mathjax %}
+
+{% block title %}Palette Extraction{% endblock %}
+{% block head %}
+
+    {{ super() }}
+
+    {{ include_mathjax() }}
+
+{% endblock %}
+{% block projectSummary %}
+
+    <p>
+        {{ lipsum(1) }}
+    </p>
+
+{% endblock %}
+{% block tableOfContents %}
+
+    <h2>Table of contents</h2>
+
+    <ul>
+        <li><a href="#section-showcase">Showcase</a></li>
+        <li>
+            <a href="#section-approach">Approach</a>
+            <ul>
+                <li><a href="#section-image-sampling">Sampling the image</a></li>
+                <li><a href="#section-color-clustering">Detecting color clusters</a></li>
+            </ul>
+        </li>
+        <li><a href="#section-source-code">Source code</a></li>
+        <li><a href="#section-see-also">See also</a></li>
+    </ul>
+
+{% endblock %}
+{% block content %}
+
+    {{ super() }}
+
+    <a id="section-showcase"></a>
+    <h2>Showcase</h2>
+
+    <p>
+        {{ lipsum(1) }}
+    </p>
+
+    <a id="section-approach"></a>
+    <h2>Approach</h2>
+
+    <p>
+        {{ lipsum(1) }}
+    </p>
+
+    <a id="section-image-sampling"></a>
+    <h3>Sampling the image</h3>
+
+    <p>
+        {{ lipsum(1) }}
+    </p>
+
+    <a id="section-color-clustering"></a>
+    <h3>Detecting color clusters</h3>
+
+    <p>
+        {{ lipsum(1) }}
+    </p>
+
+    <a id="section-source-code"></a>
+    <h2>Source code</h2>
+
+    <p>
+        You can view the source code on
+        {{ githublink('GitHub', 'rharel', 'js-palette-extraction') }}.
+    </p>
+
+    <a id="section-see-also"></a>
+    <h2>See also</h2>
+
+    <ul>
+        <li>
+            Related projects: {{ projectlink('k-Means Clustering', 'k-means-clustering') }} and
+            {{ projectlink('New Tab Tweaker', 'new-tab-tweaker') }}.
+        </li>
+    </ul>
+
+{% endblock %}
+{% block lastUpdateStamp %} August, 2017 {% endblock %}
