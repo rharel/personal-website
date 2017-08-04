@@ -11,6 +11,13 @@
          -o-box-shadow: $value;
             box-shadow: $value;
 }
+@mixin transition($value)
+{
+    -webkit-transition: $value;
+       -moz-transition: $value;
+         -o-transition: $value;
+            transition: $value;
+}
 @mixin user-select($value)
 {
 	-webkit-user-select: $value;

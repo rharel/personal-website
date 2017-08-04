@@ -3,6 +3,7 @@
 // triggered by a menu button (this menu button is only visible for small displays).
 
 @import 'common_colors';
+@import 'mixins/compatibility';
 @import 'mixins/media';
 
 $menu_button_size: 3.2rem;
@@ -69,7 +70,7 @@ $menu_button_size: 3.2rem;
     border-bottom:        0.5rem solid transparent;
     &:hover             { border-bottom-color: $blue_1; }
     @include media-XS() { border-bottom-color: $blue_1; }
-    transition:           border-bottom-color 0.25s;
+    @include transition(border-bottom-color 0.25s);
 
     padding:
     {

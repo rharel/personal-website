@@ -68,6 +68,9 @@ body {
 #navigation-bar-buttons > .button-container > a {
   display: inline-block;
   border-bottom: 0.5rem solid transparent;
+  -webkit-transition: border-bottom-color 0.25s;
+  -moz-transition: border-bottom-color 0.25s;
+  -o-transition: border-bottom-color 0.25s;
   transition: border-bottom-color 0.25s;
   padding-top: 1.5rem;
   padding-bottom: 0.5rem;
