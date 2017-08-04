@@ -1,20 +1,16 @@
-//
-// Page footer.
-//
-
-
 @import 'common_colors';
 
-#footer {
+#footer
+{
+    width: 100%;
+    padding:
+    {
+        top:    1rem;
+        bottom: 1rem;
+    }
 
-  width: 100%;
-  padding: {
+    font-size:  1.1rem;
+    text-align: center;
 
-    top: 1rem;
-    bottom: 1rem;
-  }
-
-  font-size: 1.1rem;
-  text-align: center;
-  color: $grey_4;
+    color: $grey_3;
 }

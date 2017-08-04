@@ -1,4 +1,4 @@
-{% macro image_collection(images, width = 300, do_link = True) -%}
+{% macro image_collection(images, class_list="", do_link = True) -%}
 
     {% for image in images %}
         {% if not do_link %}
@@ -8,14 +8,14 @@
             <a href="{{ url_for('static', filename=image['url']) }}"
                target="_blank"
                title="View">
-                <img src="{{ url_for('static', filename=image['thumbnail_url']) }}"
+                <img class="{{ class_list }}" src="{{ url_for('static', filename=image['thumbnail_url']) }}"
                      width="{{ width }}" />
             </a>
         {% else %}
             <a href="{{ url_for('static', filename=image['url']) }}"
                target="_blank"
                title="View">
-                <img src="{{ url_for('static', filename=image['url']) }}"
+                <img class="{{ class_list }}" src="{{ url_for('static', filename=image['url']) }}"
                      width="{{ width }}" />
             </a>
         {% endif %}
@@ -32,7 +32,7 @@
 
 {%- endmacro %}
 
-{% macro slideshow(id, paths) -%}
+{% macro slideshow(id, width, height, class_list, paths) -%}
 
 <div class="slideshow-container">
     <div class="slideshow-placemarker">
@@ -40,7 +40,7 @@
         /
         <span id="{{ id + '-total' }}" class="slideshow-slides-total">0</span>
     </div>
-    <img id="{{ id }}" src="">
+    <img id="{{ id }}" class="{{ class_list }}" src="" width="{{ width }}" height="{{ height }}">
     <div class="slideshow-controls">
         <a class="slideshow-control-button slideshow-control-previous"
            onclick="Slideshow.previous('{{ id }}');">

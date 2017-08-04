@@ -1,37 +1,23 @@
-//
-// Base template style.
-//
-
-
 @import 'common_colors';
-@import 'common_mixins';
+@import 'mixins/compatibility';
+@import 'mixins/media';
 
-html {
-
-  font-size: 10px;
-
-  @include media-M() {
-
-    font-size: 12.5px;
-  }
-  @include media-L() {
-
-    font-size: 15px;
-  }
-  @include media-XL() {
-
-    font-size: 20px;
-  }
+html
+{
+                          font-size:   10px;
+    @include media-M()  { font-size: 12.5px; }
+    @include media-L()  { font-size:   15px; }
+    @include media-XL() { font-size:   20px; }
 }
-body {
+body
+{
+    margin: 0;
 
-  margin: 0;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1.5rem;
 
-  font-family: 'Open Sans', sans-serif;
-  font-size: 1.5rem;
-
-  color: $nearly_black;
-  background-color: $nearly_white;
+    color:            $nearly_black;
+    background-color: $nearly_white;
 }
 
 @import 'navbar';

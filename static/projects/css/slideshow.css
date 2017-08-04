@@ -1,20 +1,13 @@
-.slideshow-container img {
-  width: 30rem; }
-  @media (max-width: 500px) {
-    .slideshow-container img {
-      width: 250px; } }
-
 .slideshow-control-button {
   border: 0.05rem solid #9F9F9F;
   -webkit-border-radius: 0.2rem;
   -moz-border-radius: 0.2rem;
-  -ms-border-radius: 0.2rem;
   border-radius: 0.2rem;
   padding-left: 0.5rem;
   padding-right: 0.5rem;
   font-size: 1.5rem;
+  color: #282828;
   background-color: #F0F0F0;
-  color: #3F3F3F;
   cursor: pointer;
   -webkit-user-select: none;
   -moz-user-select: none;

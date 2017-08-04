@@ -1,41 +1,29 @@
-//
-// Rules for /about
-//
-
-
-@import '../../global/css/common_mixins';
 @import '../../global/css/common_colors';
+@import '../../global/css/mixins/compatibility';
+@import '../../global/css/mixins/media';
 
-#navigation-bar-buttons > .button-container > #navigation-button-about {
-
-  border-bottom: 0.5rem solid $blue_2;
+#navigation-bar-buttons > .button-container > #navigation-button-about
+{
+    border-bottom-color: $blue_2;
 }
 
-#portrait-container {
-
-  float: right;
-
-  width: 33%;
-  max-width: 256px;
-
-  img {
-
-    width: 100%;
-
-    @include border-radius(50%);
-  }
-  @include media-XS() {
-
-    float: none;
-
-    width: 100%;
-    max-width: none;
-
-    text-align: center;
-
-    img {
-
-      width: 75%;
+#portrait-container
+{
+    float: right;
+    padding:
+    {
+        left:  2rem;
+        right: 2rem;
     }
-  }
+
+    @include media-XS()
+    {
+        float: none;
+        text-align: center;
+    }
+}
+#portrait-container > img
+{
+    max-width: 15rem;
+    @include border-radius(50%);
 }

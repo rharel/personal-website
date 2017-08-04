@@ -1,154 +1,127 @@
-//
-// Rules for /projects/
-//
-
-
 @import '../../global/css/common_colors';
-@import '../../global/css/common_mixins';
+@import '../../global/css/mixins/compatibility';
+@import '../../global/css/mixins/media';
 @import 'tags';
 
-#navigation-bar-buttons > .button-container > #navigation-button-projects {
-
-  border-bottom: 0.5rem solid $blue_2;
+#navigation-bar-buttons > .button-container > #navigation-button-projects
+{
+    border-bottom-color: $blue_2;
 }
 
-.project-info {
+.project-info
+{
+    @include display-flex();
 
-  display: flex;
-  flex-flow: row nowrap;
+                          @include flex-flow(row    nowrap);
+    @include media-XS() { @include flex-flow(column nowrap); }
 
-  border: 0.05rem solid $grey_3;
+    border: 0.05rem solid $grey_3;
+    background-color: white;
 
-  color: $nearly_black;
-  background-color: white;
+    $box_shadow_size: 0.5rem;
+              @include box-shadow($box_shadow_size $box_shadow_size $box_shadow_size $grey_1);
+    &:hover { @include box-shadow($box_shadow_size $box_shadow_size $box_shadow_size $grey_2); }
 
-  $box_shadow_size: 0.5rem;
-  box-shadow: $box_shadow_size $box_shadow_size $box_shadow_size $grey_1;
-
-  & + .project-info {
-
-    margin-top: 1rem;
-  }
-
-  &:hover {
-
-    box-shadow: $box_shadow_size $box_shadow_size $box_shadow_size $grey_2;
-    text-decoration: none;
-  }
-  @include media-XS() {
-
-    flex-flow: column nowrap;
-  }
+    & + .project-info { margin-top: 1rem; }
 }
-.project-info > .thumbnail {
 
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.project-info > .thumbnail
+{
+    @include display-flex();
+    @include justify-content(center);
+    @include align-items(center);
 
-  min-width: 10rem;
-  width: 10rem;
+    min-width: 10rem;
+        width: 10rem;
 
-  background-color: $blue_1;
+    background-color: $blue_1;
 
-  @include media-XS() {
-
-    justify-content: flex-end;
-    width: 100%;
-    height: 4rem;
-  }
-  img {
-
+    @include media-XS()
+    {
+        @include justify-content(flex-end);
+        width:  100%;
+        height: 4rem;
+    }
+}
+.project-info > .thumbnail > img
+{
     border: 0.05rem solid $nearly_black;
     width: 85%;
 
     background-color: white;
 
-    @include media-XS() {
-
-      margin-right: 0.5rem;
-      width: auto;
-      height: 3rem;
+    @include media-XS()
+    {
+        margin-right: 0.5rem;
+        width:  auto;
+        height: 3rem;
     }
-  }
 }
-.project-info > .details {
 
-  flex-grow: 1;
-
-  margin-left: 1.5rem;
-  margin-right: 1.5rem;
+.project-info > .details
+{
+    @include flex-grow(1);
+    margin:
+    {
+        left:  1.5rem;
+        right: 1.5rem;
+    }
 }
-.project-info > .details > .long {
-
-  @include media-XS() {
-
+.project-info > .details > .long
+{
+    @include media-XS() { display: none; }
+}
+.project-info > .details > .short
+{
     display: none;
-  }
+    @include media-XS() { display: block; }
 }
-.project-info > .details > .short {
-
-  display: none;
-
-  @include media-XS() {
-
-    display: block;
-  }
-}
-.project-info > .details > .title {
-
-  margin: {
-
-    top: 1.5rem;
-    bottom: 0.5rem;
-  }
-
-  font-size: 2.1rem;
-  font-weight: bold;
-}
-.project-info > .details > .tags {
-
-  margin-bottom: 0.5rem;
-
-  line-height: 1.5;
-}
-.project-info > .details > .summary {
-
-  margin: {
-
-    top: 1rem;
-    bottom: 1.5rem;
-  }
-}
-.project-info > .further-reading {
-
-  display: flex;
-  justify-content: center;
-  align-items: flex-end;
-
-  min-width: 5rem;
-  width: 5rem;
-  padding-bottom: 0.6rem;
-
-  font-size: 3.3rem;
-
-  background-color: $nearly_white;
-
-  &:hover {
-
-    background-color: $blue_1;
-  }
-  @include media-XS() {
-
-    justify-content: flex-end;
-    align-items: center;
-
-    width: 100%;
-    height: 3rem;
-
-    span {
-
-      margin-right: 1rem;
+.project-info > .details > .title
+{
+    margin:
+    {
+        top:    1.5rem;
+        bottom: 0.5rem;
     }
-  }
+    font-size: 2.1rem;
+    font-weight: bold;
+}
+.project-info > .details > .tags
+{
+    margin-bottom: 0.5rem;
+    line-height:   1.5;
+}
+.project-info > .details > .summary
+{
+    margin:
+    {
+        top:      1rem;
+        bottom: 1.5rem;
+    }
+}
+.project-info > .further-reading
+{
+    @include display-flex();
+    @include justify-content(center);
+    @include align-items(flex-end);
+
+    min-width: 5rem;
+        width: 5rem;
+
+    padding-bottom: 0.6rem;
+
+    font-size: 3.3rem;
+
+    &:hover { background-color: $blue_1; }
+
+    @include media-XS()
+    {
+        @include justify-content(flex-end);
+        @include align-items(center);
+
+        width:  100%;
+        height: 3rem;
+
+        & > span { margin-right: 1rem; }
+    }
 }

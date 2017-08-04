@@ -63,8 +63,8 @@
 
         function(context) {
 
-            var w = context.canvas.clientWidth;
-            var h = context.canvas.clientHeight;
+            var w = context.canvas.width;
+            var h = context.canvas.height;
             var curve = new Bezier.Curve(_arrange_square(0.5 * w, 0.5 * h, 0.25 * w));
             var view = new Bezier.CanvasView(curve, context);
 
@@ -82,8 +82,8 @@
         },
         function(context) {
 
-            var w = context.canvas.clientWidth;
-            var h = context.canvas.clientHeight;
+            var w = context.canvas.width;
+            var h = context.canvas.height;
             var curve = new Bezier.Curve(_arrange_star(
 
                 0.5 * w, 0.5 * h,
@@ -106,8 +106,8 @@
         },
         function(context) {
 
-            var w = context.canvas.clientWidth;
-            var h = context.canvas.clientHeight;
+            var w = context.canvas.width;
+            var h = context.canvas.height;
             var curve = new Bezier.Curve(_arrange_zigzag(
 
                 0.2 * w, 0.05 * h,
@@ -131,7 +131,6 @@
         }
     ];
     function _initialize() {
-
 
         var i, canvas, context;
         for (i = 0; i < 3; ++i) {

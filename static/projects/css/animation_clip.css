@@ -1,6 +1,7 @@
 .animation-clip {
   display: inline-block;
-  position: relative; }
+  position: relative;
+  line-height: 0; }
 
 .animation-clip > .overlay {
   position: absolute;
@@ -18,24 +19,26 @@
   top: 0;
   bottom: 0;
   margin: auto;
-  width: 50px;
-  height: 50px;
-  background-color: #0C2D4A;
   -webkit-border-radius: 50%;
   -moz-border-radius: 50%;
-  -ms-border-radius: 50%;
   border-radius: 50%;
+  width: 5rem;
+  height: 5rem;
+  background-color: #0C2D4A;
+  -webkit-box-shadow: 0.3rem 0.3rem 0.5rem black;
+  -moz-box-shadow: 0.3rem 0.3rem 0.5rem black;
+  -o-box-shadow: 0.3rem 0.3rem 0.5rem black;
   box-shadow: 0.3rem 0.3rem 0.5rem black; }
 
 .play-button > .play-symbol {
   position: absolute;
-  left: 8px;
+  left: 0.6em;
   right: 0;
   top: 0;
   bottom: 0;
   margin: auto;
-  border-top: 11.88px solid transparent;
-  border-left: 18px solid #45D1FF;
-  border-bottom: 11.88px solid transparent;
+  border-top: 0.792em solid transparent;
+  border-left: 1.2em solid #45D1FF;
+  border-bottom: 0.792em solid transparent;
   width: 0;
   height: 0; }

@@ -1,32 +1,17 @@
-//
-// Main content area.
-//
-
-
 @import 'common_colors';
-@import 'common_mixins';
+@import 'mixins/media';
 
-#content-container {
+#content
+{
+    margin:
+    {
+        left:  auto;
+        right: auto;
+        bottom: 10rem;
+    }
+    border-top:  0.5rem double $grey_2;
+    padding-top: 2.5rem;
 
-  margin-bottom: 10rem;
-}
-
-#content {
-
-  margin: {
-
-    left: auto;
-    right: auto;
-  }
-  border-top: 0.5rem double $grey_2;
-  padding-top: 2.5rem;
-
-  width: 67.5%;
-
-  text-align: left;
-
-  @include media-XS() {
-
-    width: 90%;
-  }
+                          width: 67.5%;
+    @include media-XS() { width: 90%; }
 }

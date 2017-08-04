@@ -1,45 +1,45 @@
-.tag {
+.tag, .tag-cpp, .tag-c-sharp, .tag-java, .tag-js,
+.tag-ts, .tag-opengl,
+.tag-webgl, .tag-python, .tag-rust, .tag-web-extensions, .tag-unity, .tag-ai, .tag-audio, .tag-cellular-automata, .tag-computational-geometry, .tag-computer-networks, .tag-data-analysis,
+.tag-signal-processing, .tag-graphics, .tag-physics, .tag-procedural-content-generation, .tag-ui {
   padding-left: 0.4rem;
   padding-right: 0.4rem;
-  border-right: 0.05rem solid #9F9F9F;
-  border-top: 0.05rem solid #9F9F9F;
-  border-bottom: 0.5rem solid #9F9F9F;
-  border-left: 0.05rem solid #9F9F9F;
+  border: 0.05rem solid #9F9F9F;
+  border-bottom-width: 0.5rem;
   -webkit-border-radius: 0.5rem;
   -moz-border-radius: 0.5rem;
-  -ms-border-radius: 0.5rem;
   border-radius: 0.5rem;
   font-size: 1rem;
-  white-space: nowrap;
-  color: #282828;
-  background-color: white; }
+  white-space: nowrap; }
 
 .tag-cpp {
-  border-bottom-color: #2f9ec6; }
+  border-bottom-color: #2F9EC6; }
 
 .tag-c-sharp {
-  border-bottom-color: #00b000; }
+  border-bottom-color: #00B000; }
 
 .tag-java {
   border-bottom-color: #DA4E36; }
 
-.tag-js, .tag-ts {
-  border-bottom-color: #f27300; }
+.tag-js,
+.tag-ts {
+  border-bottom-color: #F27300; }
 
-.tag-opengl, .tag-webgl {
+.tag-opengl,
+.tag-webgl {
   border-bottom-color: #CC4B4B; }
 
 .tag-python {
-  border-bottom-color: #66d46d; }
+  border-bottom-color: #66D46D; }
 
 .tag-rust {
   border-bottom-color: #e69f77; }
 
 .tag-web-extensions {
-  border-bottom-color: #31c6bf; }
+  border-bottom-color: #31C6BF; }
 
 .tag-unity {
-  border-bottom-color: #3c3c3c; }
+  border-bottom-color: #3C3C3C; }
 
 .tag-ai {
   border-bottom-color: #2D5B8F; }
@@ -48,71 +48,87 @@
   border-bottom-color: #800080; }
 
 .tag-cellular-automata {
-  border-bottom-color: #303c8f; }
+  border-bottom-color: #303C8F; }
 
 .tag-computational-geometry {
-  border-bottom-color: #598aff; }
+  border-bottom-color: #598AFF; }
 
 .tag-computer-networks {
-  border-bottom-color: #f22b00; }
+  border-bottom-color: #F22B00; }
 
-.tag-data-analysis, .tag-signal-processing {
-  border-bottom-color: #a761fb; }
+.tag-data-analysis,
+.tag-signal-processing {
+  border-bottom-color: #A761FB; }
 
 .tag-graphics {
-  border-bottom-color: #51abff; }
+  border-bottom-color: #51ABFF; }
 
 .tag-physics {
-  border-bottom-color: #19bf25; }
+  border-bottom-color: #19BF25; }
 
 .tag-procedural-content-generation {
-  border-bottom-color: #ec5d28; }
+  border-bottom-color: #EC5D28; }
 
 .tag-ui {
-  border-bottom-color: #ce3475; }
+  border-bottom-color: #CE3475; }
 
 #navigation-bar-buttons > .button-container > #navigation-button-projects {
-  border-bottom: 0.5rem solid #316899; }
+  border-bottom-color: #316899; }
 
 .project-info {
+  display: -webkit-flex;
+  display: -moz-flex;
   display: flex;
+  -webkit-flex-flow: row nowrap;
   flex-flow: row nowrap;
   border: 0.05rem solid #9F9F9F;
-  color: #282828;
   background-color: white;
+  -webkit-box-shadow: 0.5rem 0.5rem 0.5rem #F0F0F0;
+  -moz-box-shadow: 0.5rem 0.5rem 0.5rem #F0F0F0;
+  -o-box-shadow: 0.5rem 0.5rem 0.5rem #F0F0F0;
   box-shadow: 0.5rem 0.5rem 0.5rem #F0F0F0; }
-  .project-info + .project-info {
-    margin-top: 1rem; }
-  .project-info:hover {
-    box-shadow: 0.5rem 0.5rem 0.5rem #DBDBDB;
-    text-decoration: none; }
   @media (max-width: 500px) {
     .project-info {
+      -webkit-flex-flow: column nowrap;
       flex-flow: column nowrap; } }
+  .project-info:hover {
+    -webkit-box-shadow: 0.5rem 0.5rem 0.5rem #DBDBDB;
+    -moz-box-shadow: 0.5rem 0.5rem 0.5rem #DBDBDB;
+    -o-box-shadow: 0.5rem 0.5rem 0.5rem #DBDBDB;
+    box-shadow: 0.5rem 0.5rem 0.5rem #DBDBDB; }
+  .project-info + .project-info {
+    margin-top: 1rem; }
 
 .project-info > .thumbnail {
+  display: -webkit-flex;
+  display: -moz-flex;
   display: flex;
+  -webkit-justify-content: center;
   justify-content: center;
+  -webkit-align-items: center;
   align-items: center;
   min-width: 10rem;
   width: 10rem;
   background-color: #C2DFFF; }
   @media (max-width: 500px) {
     .project-info > .thumbnail {
+      -webkit-justify-content: flex-end;
       justify-content: flex-end;
       width: 100%;
       height: 4rem; } }
-  .project-info > .thumbnail img {
-    border: 0.05rem solid #282828;
-    width: 85%;
-    background-color: white; }
-    @media (max-width: 500px) {
-      .project-info > .thumbnail img {
-        margin-right: 0.5rem;
-        width: auto;
-        height: 3rem; } }
+
+.project-info > .thumbnail > img {
+  border: 0.05rem solid #282828;
+  width: 85%;
+  background-color: white; }
+  @media (max-width: 500px) {
+    .project-info > .thumbnail > img {
+      margin-right: 0.5rem;
+      width: auto;
+      height: 3rem; } }
 
 .project-info > .details {
+  -webkit-flex-grow: 1;
   flex-grow: 1;
   margin-left: 1.5rem;
   margin-right: 1.5rem; }
@@ -142,21 +158,26 @@
   margin-bottom: 1.5rem; }
 
 .project-info > .further-reading {
+  display: -webkit-flex;
+  display: -moz-flex;
   display: flex;
+  -webkit-justify-content: center;
   justify-content: center;
+  -webkit-align-items: flex-end;
   align-items: flex-end;
   min-width: 5rem;
   width: 5rem;
   padding-bottom: 0.6rem;
-  font-size: 3.3rem;
-  background-color: #FAFAFD; }
+  font-size: 3.3rem; }
   .project-info > .further-reading:hover {
     background-color: #C2DFFF; }
   @media (max-width: 500px) {
     .project-info > .further-reading {
+      -webkit-justify-content: flex-end;
       justify-content: flex-end;
+      -webkit-align-items: center;
       align-items: center;
       width: 100%;
       height: 3rem; }
-      .project-info > .further-reading span {
+      .project-info > .further-reading > span {
         margin-right: 1rem; } }

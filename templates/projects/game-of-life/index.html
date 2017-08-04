@@ -96,7 +96,7 @@
     <div class="figure">
 
         {{ caption('Figure 1', 'Five living cells (black) in a 5x5 grid.') }}
-        <img src="{{ url_for('static', filename=cd + 'img/glider_5x5.svg') }}"
+        <img class="small" src="{{ url_for('static', filename=cd + 'img/glider_5x5.svg') }}"
              width="150" height="150">
     </div>
 
@@ -122,13 +122,13 @@
 
         <div class="subfigure-group">
             <div class="subfigure">
-                <canvas id="fig2-canvas-current"
+                <canvas id="fig2-canvas-current" class="small"
                         width="150" height="150">
                 </canvas>
                 <div class="subtitle">Current</div>
             </div>
             <div class="subfigure">
-                <canvas id="fig2-canvas-next"
+                <canvas id="fig2-canvas-next" class="small"
                         width="150" height="150">
                 </canvas>
                 <div class="subtitle">Next</div>
@@ -232,7 +232,7 @@
                 'Guns emit spaceships.') }}
 
             <div class="subfigure">
-                {{ animated_canvas('fig3-gosper-glider-gun', 250, 145) }}
+                {{ animated_canvas('fig3-gosper-glider-gun', 250, 145, class_list='large') }}
                 <div class="subtitle">
                     {{ lifelink('Gosper Glider Gun', 'Gosper_glider_gun') }}
                 </div>
@@ -246,7 +246,7 @@
                  they move.') }}
 
             <div class="subfigure">
-                {{ animated_canvas('fig3-blinker-puffer-1', 239, 150) }}
+                {{ animated_canvas('fig3-blinker-puffer-1', 239, 150, class_list='large') }}
                 <div class="subtitle">
                     {{ lifelink('Blinker Puffer 1', 'Blinker_puffer_1') }}
                 </div>
@@ -259,7 +259,7 @@
                 'Methuselahs are patterns that take a long time to stabilize.') }}
 
             <div class="subfigure">
-                {{ animated_canvas('fig3-r-pentomino', 250, 157) }}
+                {{ animated_canvas('fig3-r-pentomino', 250, 157, class_list='large') }}
                 <div class="subtitle">
                     {{ lifelink('R-pentomino') }}
                 </div>

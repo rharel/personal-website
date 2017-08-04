@@ -8,8 +8,6 @@
 
         <title>{% block title %}{% endblock %} | Raoul Harel</title>
 
-        <link rel="icon"
-              href="{{ url_for('static', filename='root/favicon.ico') }}">
         <link rel="icon" type="image/png"
               href="{{ url_for('static', filename='root/favicon_32px.png') }}"
               sizes="32x32">
@@ -60,9 +58,7 @@
                 </div>
             </div>
         </div>
-        <div id="content-container">
-            <div id="content">{% block content %}{% endblock %}</div>
-        </div>
+        <div id="content">{% block content %}{% endblock %}</div>
         <div id="footer">
             This page was last updated in {%  block lastUpdateStamp %}{% endblock %}
         </div>

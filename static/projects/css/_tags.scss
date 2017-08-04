@@ -1,113 +1,45 @@
-//
-// Project tag collection.
-//
-
-
 @import "../../global/css/common_colors";
-@import "../../global/css/common_mixins";
+@import "../../global/css/mixins/compatibility";
 
-.tag {
+.tag
+{
+    padding:
+    {
+        left:  0.4rem;
+        right: 0.4rem;
+    }
+    border:                0.05rem solid $grey_3;
+    border-bottom-width:   0.5rem;
+    @include border-radius(0.5rem);
 
-  padding: {
-
-    left: 0.4rem;
-    right: 0.4rem;
-  }
-  border: {
-
-    right: 0.05rem solid $grey_3;
-    top: 0.05rem solid $grey_3;
-    bottom: 0.5rem solid $grey_3;
-    left: 0.05rem solid $grey_3;
-  }
-
-  @include border-radius(0.5rem);
-
-  font-size: 1rem;
-  white-space: nowrap;
-
-  color: $nearly_black;
-  background-color: white;
+    font-size: 1rem;
+    white-space: nowrap;
 }
 
 // Technologies
 
-.tag-cpp {
-
-  border-bottom-color: #2f9ec6;
-}
-.tag-c-sharp {
-
-  border-bottom-color: #00b000;
-}
-.tag-java {
-
-  border-bottom-color: #DA4E36;
-}
-.tag-js, .tag-ts {
-
-  border-bottom-color: #f27300;
-}
-.tag-opengl, .tag-webgl {
-
-  border-bottom-color: #CC4B4B;
-}
-.tag-python {
-
-  border-bottom-color: #66d46d;
-}
-.tag-rust {
-
-  border-bottom-color: #e69f77;
-}
-.tag-web-extensions {
-
-  border-bottom-color: #31c6bf;
-}
-.tag-unity {
-
-  border-bottom-color: #3c3c3c;
-}
+.tag-cpp            { @extend .tag; border-bottom-color: #2F9EC6; }
+.tag-c-sharp        { @extend .tag; border-bottom-color: #00B000; }
+.tag-java           { @extend .tag; border-bottom-color: #DA4E36; }
+.tag-js,
+.tag-ts             { @extend .tag; border-bottom-color: #F27300; }
+.tag-opengl,
+.tag-webgl          { @extend .tag; border-bottom-color: #CC4B4B; }
+.tag-python         { @extend .tag; border-bottom-color: #66D46D; }
+.tag-rust           { @extend .tag; border-bottom-color: #e69f77; }
+.tag-web-extensions { @extend .tag; border-bottom-color: #31C6BF; }
+.tag-unity          { @extend .tag; border-bottom-color: #3C3C3C; }
 
 // Topics
 
-.tag-ai {
-
-  border-bottom-color: #2D5B8F;
-}
-.tag-audio {
-
-  border-bottom-color: #800080;
-}
-.tag-cellular-automata {
-
-  border-bottom-color: #303c8f;
-}
-.tag-computational-geometry {
-
-  border-bottom-color: #598aff;
-}
-.tag-computer-networks {
-
-  border-bottom-color: #f22b00;
-}
-.tag-data-analysis, .tag-signal-processing {
-
-  border-bottom-color: #a761fb
-}
-.tag-graphics {
-
-  border-bottom-color: #51abff;
-}
-.tag-physics {
-
-  border-bottom-color: #19bf25;
-}
-.tag-procedural-content-generation {
-
-  border-bottom-color: #ec5d28;
-}
-.tag-ui {
-
-  border-bottom-color: #ce3475;
-}
+.tag-ai                            { @extend .tag; border-bottom-color: #2D5B8F; }
+.tag-audio                         { @extend .tag; border-bottom-color: #800080; }
+.tag-cellular-automata             { @extend .tag; border-bottom-color: #303C8F; }
+.tag-computational-geometry        { @extend .tag; border-bottom-color: #598AFF; }
+.tag-computer-networks             { @extend .tag; border-bottom-color: #F22B00; }
+.tag-data-analysis,
+.tag-signal-processing             { @extend .tag; border-bottom-color: #A761FB }
+.tag-graphics                      { @extend .tag; border-bottom-color: #51ABFF; }
+.tag-physics                       { @extend .tag; border-bottom-color: #19BF25; }
+.tag-procedural-content-generation { @extend .tag; border-bottom-color: #EC5D28; }
+.tag-ui                            { @extend .tag; border-bottom-color: #CE3475; }

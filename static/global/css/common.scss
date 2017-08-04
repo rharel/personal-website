@@ -1,48 +1,31 @@
-//
-// Common rules.
-//
-
-
 @import 'common_colors';
-@import 'common_mixins';
+@import 'mixins/compatibility';
 
-a {
+a
+{
+    color: $blue_4;
 
-  color: $blue_4;
-  text-decoration: none;
-
-  &:hover {
-
-    cursor: pointer;
-    text-decoration: underline;
-  }
-
-  &.seamless-link {
-
-    color: inherit;
-  }
-  &.seamless-link:hover {
-
-    text-decoration: none;
-  }
+              text-decoration: none;
+    &:hover { text-decoration: underline; }
 }
+img { background-color: inherit; }
 
-.notice {
-
-  @include border-radius(1rem);
-  padding: 1rem;
+.notice
+{
+    @include border-radius(1rem);
+    padding: 1rem;
 }
-.notice-info {
-
+.notice-info
+{
   @extend .notice;
 
   background-color: $purple_1;
-  color: $purple_2;
+  color:            $purple_2;
 }
-.notice-error {
-
+.notice-error
+{
   @extend .notice;
 
   background-color: $red_1;
-  color: $red_2;
+  color:            $red_2;
 }

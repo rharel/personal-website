@@ -6,7 +6,6 @@
   margin-bottom: 1.5rem;
   -webkit-border-radius: 1rem;
   -moz-border-radius: 1rem;
-  -ms-border-radius: 1rem;
   border-radius: 1rem;
   padding: 2rem;
   background-color: #C2DFFF;
@@ -14,19 +13,26 @@
   @media (max-width: 500px) {
     .figure {
       padding-left: 0.5rem;
-      padding-right: 0.5rem;
-      padding-top: 2rem;
-      padding-bottom: 2rem; } }
-  .figure img, .figure video, .figure canvas {
-    display: inline-block;
-    border: 0.05rem solid #3F3F3F; }
-    .figure img.transparent, .figure video.transparent, .figure canvas.transparent {
-      background-color: transparent;
-      border: 0.05rem solid transparent; }
-    @media (max-width: 500px) {
-      .figure img, .figure video, .figure canvas {
-        max-width: 250px;
-        height: auto; } }
+      padding-right: 0.5rem; } }
+
+.figure img, .figure video, .figure canvas {
+  display: inline-block;
+  border: 0.05rem solid #282828;
+  width: 17.5rem;
+  max-width: 90vw;
+  height: auto;
+  background-color: white; }
+  .figure img.transparent, .figure video.transparent, .figure canvas.transparent {
+    background-color: transparent;
+    border-color: transparent; }
+  .figure img.smaller, .figure video.smaller, .figure canvas.smaller {
+    width: 5rem; }
+  .figure img.small, .figure video.small, .figure canvas.small {
+    width: 10rem; }
+  .figure img.large, .figure video.large, .figure canvas.large {
+    width: 25rem; }
+  .figure img.larger, .figure video.larger, .figure canvas.larger {
+    width: 30rem; }
 
 .caption {
   text-align: left;
@@ -47,10 +53,7 @@
 
 .subfigure-group > .subfigure {
   display: inline-block;
-  margin-left: auto;
-  margin-right: auto; }
-  .subfigure-group > .subfigure + .subfigure {
-    margin-top: 1rem; }
+  line-height: 3rem; }
   .subfigure-group > .subfigure > .subtitle {
     text-align: center;
     font-size: 1.4rem; }
@@ -59,22 +62,13 @@
   overflow-x: auto; }
 
 #navigation-bar-buttons > .button-container > #navigation-button-projects {
-  border-bottom: 0.5rem solid #316899; }
+  border-bottom-color: #316899; }
 
-h1 {
+h1, h2, h3 {
   color: #316899; }
-  h1:first-child {
-    margin-top: 0; }
 
-h2 {
-  color: #316899; }
+h1:first-child {
+  margin-top: 0; }
 
 h3 {
-  font-size: inherit;
-  color: #316899; }
-
-img {
-  background-color: white; }
-
-canvas {
-  display: block; }
+  font-size: inherit; }

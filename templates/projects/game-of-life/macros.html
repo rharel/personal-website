@@ -5,14 +5,14 @@
     {% endif %}
 
     {% set url = 'http://www.conwaylife.com/wiki/' + article.replace(' ', '_') %}
-    <a href="{{ url  }}" target="_blank">{{ label }}</a>
+    <a href="{{ url }}" target="_blank">{{ label }}</a>
 
 {%- endmacro %}
 
-{% macro animated_canvas(id, width, height) %}
+{% macro animated_canvas(id, width, height, class_list="") %}
 
     <div class="animation-clip">
-        <canvas id="{{ id }}"
+        <canvas id="{{ id }}" class="{{ class_list }}"
                 width="{{ width }}" height="{{ height }}">
         </canvas>
         <div class="overlay" onclick="Gol.toggle_animation('{{ id }}')">
