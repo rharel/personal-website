@@ -3,6 +3,7 @@ from jinja2.exceptions import TemplateNotFound
 
 
 app = Flask(__name__)
+app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 604800
 
 
 @app.errorhandler(403)
