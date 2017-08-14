@@ -68,11 +68,13 @@
 {
     display: inline-block;
 
-    line-height: 3rem;
+    margin: 0.5rem;
+    line-height: 0;
 
     & > .subtitle
     {
         text-align: center;
         font-size:  1.4rem;
+        line-height:  3rem;
     }
 }
