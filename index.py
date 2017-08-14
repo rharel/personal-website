@@ -32,7 +32,7 @@ def root(filename):
 
 @app.route('/about')
 def about():
-    return render_template('about.html')
+    return render_template('about/about.html')
 
 @app.route('/projects/')
 def projects():
