@@ -2,9 +2,9 @@
 // On small displays, the navigation bar consists of several button in a column, whose visibility is
 // triggered by a menu button (this menu button is only visible for small displays).
 
-@import 'common_colors';
-@import 'mixins/compatibility';
-@import 'mixins/media';
+@import '../../../static/global/css/common_colors';
+@import '../../../static/global/css/mixins/compatibility';
+@import '../../../static/global/css/mixins/media';
 
 $menu_button_size: 3.2rem;
 

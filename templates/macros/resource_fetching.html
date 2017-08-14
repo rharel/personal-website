@@ -6,3 +6,17 @@
 </style>
 
 {%- endmacro %}
+{% macro inline_js(path) -%}
+
+<!-- inline of: {{ path }} -->
+<script>
+    {% include path %}
+</script>
+
+{%- endmacro %}
+{% macro async_css(path) -%}
+
+<link rel="preload" href="{{ path }}" as="style" onload="this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="{{ path }}"></noscript>
+
+{%- endmacro %}
