@@ -101,8 +101,8 @@
             this._context.fillRect(
 
                 0, 0,
-                this._context.canvas.clientWidth,
-                this._context.canvas.clientHeight
+                this._context.canvas.width,
+                this._context.canvas.height
             );
 
             this._context.restore();
