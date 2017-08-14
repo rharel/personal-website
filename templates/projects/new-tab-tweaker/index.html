@@ -1,7 +1,5 @@
 {% extends "projects/index_base.html" %}
 
-{% set cd = 'projects/new-tab-tweaker/' %}
-
 {% from "macros/figures.html" import image_collection %}
 {% from "macros/links.html" import githublink %}
 
@@ -49,6 +47,8 @@
 
 {% endblock %}
 {% block content %}
+
+    {% set cd = 'projects/new-tab-tweaker/' %}
 
     {{ super() }}
 

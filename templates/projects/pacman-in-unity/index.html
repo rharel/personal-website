@@ -1,7 +1,5 @@
 {% extends "projects/index_base.html" %}
 
-{% set cd = 'projects/pacman-in-unity/' %}
-
 {% from "macros/figures.html" import image_collection %}
 {% from "macros/links.html" import githublink, wikilink %}
 
@@ -47,6 +45,8 @@
 
 {% endblock %}
 {% block content %}
+
+    {% set cd = 'projects/pacman-in-unity/' %}
 
     {{ super() }}
 

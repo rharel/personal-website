@@ -1,7 +1,5 @@
 {% extends "projects/index_base.html" %}
 
-{% set cd = 'projects/diamond-square/' %}
-
 {% from "macros/figures.html" import caption %}
 {% from "macros/links.html" import wikilink, githublink %}
 {% from "macros/math.html" import include_mathjax %}
@@ -42,6 +40,8 @@
 
 {% endblock %}
 {% block content %}
+
+    {% set cd = 'projects/diamond-square/' %}
 
     {{ super() }}
 

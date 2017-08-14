@@ -1,7 +1,5 @@
 {% extends "projects/index_base.html" %}
 
-{% set cd = 'projects/pitch-detection/' %}
-
 {% from "macros/links.html" import wikilink, githublink, project_page_link %}
 {% from "macros/figures.html" import caption %}
 {% from "macros/math.html" import include_mathjax %}
@@ -9,6 +7,8 @@
 
 {% block title %}Pitch Detection{% endblock %}
 {% block head %}
+
+    {% set cd = 'projects/pitch-detection/' %}
 
     {{ super() }}
 

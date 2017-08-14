@@ -1,7 +1,5 @@
 {% extends "projects/index_base.html" %}
 
-{% set cd = 'projects/pong-ai/' %}
-
 {% from "macros/figures.html" import caption %}
 {% from "macros/links.html" import wikilink, githublink %}
 
@@ -43,6 +41,8 @@
 
 {% endblock %}
 {% block content %}
+
+    {% set cd = 'projects/pong-ai/' %}
 
     {{ super() }}
 

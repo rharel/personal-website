@@ -1,13 +1,13 @@
 {% extends "projects/index_base.html" %}
 
-{% set cd = 'projects/voronoi-on-the-gpu/' %}
-
 {% from "macros/figures.html" import caption %}
 {% from "macros/links.html" import wikilink, githublink %}
 {% from "macros/math.html" import include_mathjax %}
 
 {% block title %}Voronoi on the GPU{% endblock %}
 {% block head %}
+
+    {% set cd = 'projects/voronoi-on-the-gpu/' %}
 
     {{ super() }}
 
@@ -79,6 +79,8 @@
 
 {% endblock %}
 {% block content %}
+
+    {% set cd = 'projects/voronoi-on-the-gpu/' %}
 
     {{ super() }}
 

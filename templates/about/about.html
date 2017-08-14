@@ -1,11 +1,12 @@
 {% extends "base.html" %}
 
-{% set cd = 'about/' %}
 
 {% from "macros/resource_fetching.html" import inline_css %}
 
 {% block title %}About{% endblock %}
 {% block head %}
+
+    {% set cd = 'about/' %}
 
     {{ super() }}
 

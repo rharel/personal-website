@@ -1,7 +1,5 @@
 {% extends "projects/index_base.html" %}
 
-{% set cd = 'projects/k-means-clustering/' %}
-
 {% from "macros/figures.html" import caption, slideshow %}
 {% from "macros/links.html" import wikilink, githublink %}
 
@@ -49,6 +47,8 @@
 
 {% endblock %}
 {% block content %}
+
+    {% set cd = 'projects/k-means-clustering/' %}
 
     {{ super() }}
 

@@ -1,7 +1,5 @@
 {% extends "projects/index_base.html" %}
 
-{% set cd = 'projects/rigid-body-physics-in-2d/' %}
-
 {% from "macros/links.html" import githublink, wikilink %}
 {% from "macros/figures.html" import caption %}
 {% from "macros/math.html" import include_mathjax %}
@@ -9,6 +7,8 @@
 
 {% block title %}Rigid Body Physics in Two Dimensions{% endblock %}
 {% block head %}
+
+    {% set cd = 'projects/rigid-body-physics-in-2d/' %}
 
     {{ super() }}
 

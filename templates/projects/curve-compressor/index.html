@@ -1,6 +1,5 @@
 {% extends "projects/index_base.html" %}
 
-{% set cd = 'projects/curve-compressor/' %}
 
 {% from "macros/figures.html" import caption %}
 {% from "macros/links.html" import projectlink, wikilink, githublink %}
@@ -8,6 +7,8 @@
 
 {% block title %}Curve Compressor{% endblock %}
 {% block head %}
+
+    {% set cd = 'projects/curve-compressor/' %}
 
     {{ super() }}
 

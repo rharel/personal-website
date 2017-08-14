@@ -1,7 +1,5 @@
 {% extends "projects/index_base.html" %}
 
-{% set cd = 'projects/mandelbrot-set-exploration/' %}
-
 {% from "macros/figures.html" import caption, image_collection %}
 {% from "macros/links.html" import wikilink, youtubelink, githublink %}
 {% from "macros/math.html" import include_mathjax %}
@@ -44,6 +42,8 @@
 
 {% endblock %}
 {% block content %}
+
+    {% set cd = 'projects/mandelbrot-set-exploration/' %}
 
     {{ super() }}
 

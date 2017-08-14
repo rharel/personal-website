@@ -1,13 +1,13 @@
 {% extends "projects/index_base.html" %}
 
-{% set cd = 'projects/game-of-life/' %}
-
 {% from "macros/figures.html" import caption %}
 {% from "macros/links.html" import wikilink, youtubelink, githublink %}
 {% from "projects/game-of-life/macros.html" import lifelink, animated_canvas %}
 
 {% block title %}Game of Life{% endblock %}
 {% block head %}
+
+    {% set cd = 'projects/game-of-life/' %}
 
     {{ super() }}
 
@@ -78,6 +78,8 @@
 
 {% endblock %}
 {% block content %}
+
+    {% set cd = 'projects/game-of-life/' %}
 
     {{ super() }}
 

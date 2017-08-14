@@ -1,12 +1,12 @@
 {% extends "projects/index_base.html" %}
 
-{% set cd = 'projects/ray-tracer/' %}
-
 {% from "macros/figures.html" import caption, image_collection %}
 {% from "macros/links.html" import wikilink, githublink %}
 
 {% block title %}Ray Tracer{% endblock %}
 {% block head %}
+
+    {% set cd = 'projects/ray-tracer/' %}
 
     {{ super() }}
 
@@ -44,6 +44,8 @@
 
 {% endblock %}
 {% block content %}
+
+    {% set cd = 'projects/ray-tracer/' %}
 
     {{ super() }}
 
