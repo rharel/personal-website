@@ -1,8 +1,9 @@
 {% extends "projects/index_base.html" %}
 
-{% set cd = 'projects/pitch-detection/' %}
+{% set cd = 'projects/palette-extraction/' %}
 
-{% from "macros/links.html" import wikilink, githublink, projectlink, project_page_link %}
+{% from "macros/resource_fetching.html" import inline_css %}
+{% from "macros/links.html" import wikilink, githublink, projectlink %}
 {% from "macros/figures.html" import caption %}
 {% from "macros/math.html" import include_mathjax %}
 
@@ -11,13 +12,29 @@
 
     {{ super() }}
 
+    {{ inline_css(cd + 'css/showcase.css') }}
+
     {{ include_mathjax() }}
 
+    <script src="{{ url_for('static', filename='3rd/require/require.min.js') }}"
+            data-main="{{ url_for('static', filename=cd + 'js/showcase') }}"
+            async>
+    </script>
 {% endblock %}
 {% block projectSummary %}
 
     <p>
-        {{ lipsum(1) }}
+        While working on a {{ projectlink('different project', 'new-tab-tweaker') }}, I found myself
+        needing to choose an appropriate backdrop color for the display of each one of a collection
+        of wallpaper images. Naturally, it is desirable that the color chosen complements the palette of
+        the image itself: preferably being one of the more dominant colors present.
+    </p>
+    <p>
+        While manually choosing the color is doable for a collection with a few members, I was dealing
+        with one containing hundreds of images. For such quantities an automated procedure is needed.
+        Furthermore, the images involved are displayed as soon as they are loaded, which means the procedure
+        must also be considerably quick (even for high-resolution inputs). In this project we set out to
+        develop a solution satisfying these requirements.
     </p>
 
 {% endblock %}
@@ -46,31 +63,110 @@
     <a id="section-showcase"></a>
     <h2>Showcase</h2>
 
-    <p>
-        {{ lipsum(1) }}
-    </p>
+    <div class="figure">
+
+        {{ caption('Showcase',
+                   'Select an image from which to extract the top ten dominant colors.') }}
+
+        <div id="showcase">
+            <div id="showcase-input">
+                <input id="showcase-image-file"
+                       type="file" accept="image/jpeg, image/png">
+            </div>
+            <div class="subfigure-group">
+                <div class="subfigure">
+                    <img id="showcase-image" src="">
+                    <div class="subtitle">
+                        The selected image
+                    </div>
+                </div><div class="subfigure">
+                    <div id="showcase-palette"></div>
+                    <div class="subtitle">
+                        The extracted color palette
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <a id="section-approach"></a>
     <h2>Approach</h2>
 
     <p>
-        {{ lipsum(1) }}
+        Our approach consists of two main steps: (1) obtaining a representative color sampling of
+        the image, and (2) analyzing the sampled data to find dominant color clusters.
     </p>
 
     <a id="section-image-sampling"></a>
     <h3>Sampling the image</h3>
 
     <p>
-        {{ lipsum(1) }}
+        In a perfect world, we would use all the information available to us to construct our palette,
+        however as we are dealing with high-resolution images analyzing all of the pixels might take
+        longer than we would like. In those cases where the available computing power is not sufficient
+        to comply with our time demands, we take only a fraction of the available pixels to further analysis.
     </p>
+    <p>
+        There are several approaches to selecting our sample. A naive one would be to use a
+        uniform distribution across the whole image, but this method is unbalanced: often there will
+        be those regions that are sampled too often and those that are sampled not enough. To reduce
+        variance, we use {{ wikilink('jittered grid supersampling', 'supersampling#Jittered') }}: we overlay the image with a coarse grid, and
+        sample uniformly within each cell. This improves the balance of samples across different regions
+        (Figure 1).
+    </p>
+    <div class="figure">
+
+        {{ caption('Figure 1',
+                   'Sampling techniques.') }}
+
+        <div class="subfigure-group">
+            <div class="subfigure">
+                <img src="{{ url_for('static', filename=cd + 'img/uniform_sampling_100px.svg') }}"
+                     width="250" height="250">
+                <div class="subtitle">
+                    Plain uniform
+                </div>
+            </div><div class="subfigure">
+                <img src="{{ url_for('static', filename=cd + 'img/grid_supersampling_100px.svg') }}"
+                     width="250" height="250">
+                <div class="subtitle">
+                    Jittered grid
+                </div>
+            </div>
+        </div>
+    </div>
 
     <a id="section-color-clustering"></a>
     <h3>Detecting color clusters</h3>
 
     <p>
-        {{ lipsum(1) }}
+        To detect the dominant \(k\) colors \(C\) in our collection of samples \(S\), we use the
+        {{ wikilink('\(k\)-means algorithm', 'k-means clustering') }} to divide \(S\) into clusters,
+        and \(C\) would then contains the means of these clusters. The algorithm can be summarized
+        in the following four steps:
     </p>
-
+    <ol>
+        <li>
+            <b>Initialize</b> with a guess for the cluster means (our implementation just
+            picks a random subset of \(k\) members from \(S\)).
+        </li>
+        <li>
+            <b>Assign</b> each sample to the cluster whose mean it is closest to.
+        </li>
+        <li>
+            <b>Update</b> the means by taking the average of all samples assigned to each
+            cluster and computing the new mean value for each.
+        </li>
+        <li>
+            <b>Repeat</b> steps 2 and 3 until there is no more change in the cluster assignment.
+        </li>
+    </ol>
+    <p>
+        It is important to note that although the colors we obtain are initially represented in
+        {{ wikilink('RGB', 'RGB color model') }}-space, we perform the clustering on their respective
+        representation in {{ wikilink('HSL', 'HSL and HSV') }}-space. This, because distance
+        between colors in HSL corresponds better with their difference as it is perceived by us.
+    </p>
     <a id="section-source-code"></a>
     <h2>Source code</h2>
 
