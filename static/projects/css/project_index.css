@@ -53,10 +53,12 @@
 
 .subfigure-group > .subfigure {
   display: inline-block;
-  line-height: 3rem; }
+  margin: 0.5rem;
+  line-height: 0; }
   .subfigure-group > .subfigure > .subtitle {
     text-align: center;
-    font-size: 1.4rem; }
+    font-size: 1.4rem;
+    line-height: 3rem; }
 
 .math {
   overflow-x: auto; }
