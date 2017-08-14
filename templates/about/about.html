@@ -2,13 +2,14 @@
 
 {% set cd = 'about/' %}
 
+{% from "macros/resource_fetching.html" import inline_css %}
+
 {% block title %}About{% endblock %}
 {% block head %}
 
     {{ super() }}
 
-    <link rel="stylesheet" type="text/css"
-          href="{{ url_for('static', filename='about/css/about.css') }}">
+    {{ inline_css(cd + 'css/about.css') }}
 
 {% endblock %}
 {% block content %}
