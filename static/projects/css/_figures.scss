@@ -69,7 +69,6 @@
     display: inline-block;
 
     margin: 0.5rem;
-    line-height: 0;
 
     & > .subtitle
     {
@@ -77,4 +76,5 @@
         font-size:  1.4rem;
         line-height:  3rem;
     }
+    img, video, canvas { display: block; }
 }
