@@ -18,6 +18,7 @@
     {
         palette.forEach((color, index) =>
         {
+            color = color.map(channel => Math.round(channel));
             host.childNodes[index]
                 .style.backgroundColor = `rgb(${color[0]}, ${color[1]}, ${color[2]})`;
         });
