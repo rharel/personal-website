@@ -48,7 +48,7 @@ def show_project_page(project, page):
 
 @app.route('/contact')
 def contact():
-    return render_template('contact.html')
+    return render_template('contact/contact.html')
 
 
 def try_to_render_template(url):
