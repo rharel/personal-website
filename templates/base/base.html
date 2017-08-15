@@ -1,12 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        {% block head %}
-
-        {% from "macros/resource_fetching.html" import inline_css, inline_js, async_css %}
-
-        {% set cd = "base/" %}
-
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -22,15 +16,19 @@
               href="{{ url_for('static', filename='root/favicon_194px.png') }}"
               sizes="194x194">
 
-        {{ async_css('https://fonts.googleapis.com/css?family=Open+Sans') }}
+        {% from "macros/resource_fetching.html" import inline_css, inline_js, async_css %}
+        {% set cd = "base/" %}
 
-        {{ async_css(url_for('static', filename='global/css/common.css')) }}
         {{ inline_css(cd + 'css/base.css') }}
+
+        {{ async_css('https://fonts.googleapis.com/css?family=Open+Sans') }}
+        {{ async_css(url_for('static', filename='global/css/common.css')) }}
+
+        {% block head %}{% endblock %}
 
         {{ inline_js(cd + 'js/3rd/loadCSS/loadCSS.min.js') }}
         {{ inline_js(cd + 'js/3rd/loadCSS/cssrelpreload.min.js') }}
 
-        {% endblock %}  {# head #}
     </head>
     <body>
         <div id="navigation-bar">
