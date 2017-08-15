@@ -11,6 +11,10 @@
 
     {{ super() }}
 
+    {% from 'macros/resource_fetching.html' import async_css %}
+    {{ async_css(url_for('static', filename='projects/css/figures.css')) }}
+    {{ async_css(url_for('static', filename='projects/css/math.css')) }}
+
     <script type="text/javascript"
             src="{{ url_for('static', filename='3rd/three/three.min.js') }}"></script>
 

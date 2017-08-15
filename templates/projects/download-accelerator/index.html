@@ -8,6 +8,10 @@
 
     {{ super() }}
 
+    {% from 'macros/resource_fetching.html' import async_css %}
+    {{ async_css(url_for('static', filename='projects/css/figures.css')) }}
+    {{ async_css(url_for('static', filename='projects/css/math.css')) }}
+
     {{ include_mathjax() }}
 
 {% endblock %}

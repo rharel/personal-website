@@ -10,6 +10,9 @@
 
     {{ super() }}
 
+    {% from 'macros/resource_fetching.html' import async_css %}
+    {{ async_css(url_for('static', filename='projects/css/figures.css')) }}
+
     <link rel="stylesheet" type="text/css"
           href="{{ url_for('static', filename=cd + 'css/showcase.css') }}">
 

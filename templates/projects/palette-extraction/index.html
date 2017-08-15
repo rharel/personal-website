@@ -1,6 +1,5 @@
 {% extends "projects/base/index_base.html" %}
 
-{% from "macros/resource_fetching.html" import inline_css %}
 {% from "macros/links.html" import wikilink, githublink, projectlink %}
 {% from "macros/figures.html" import caption %}
 {% from "macros/math.html" import include_mathjax %}
@@ -11,6 +10,9 @@
     {% set cd = 'projects/palette-extraction/' %}
 
     {{ super() }}
+
+    {% from "macros/resource_fetching.html" import async_css, inline_css %}
+    {{ async_css(url_for('static', filename='projects/css/figures.css')) }}
 
     {{ inline_css(cd + 'css/showcase.css') }}
 

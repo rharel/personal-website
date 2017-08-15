@@ -1,6 +1,5 @@
-{% extends "base.html" %}
+{% extends "base/base.html" %}
 
-{% set cd = 'projects/pitch-detection/' %}
 
 {% from "macros/figures.html" import caption %}
 {% from "macros/links.html" import projectlink %}
@@ -10,8 +9,12 @@
 
     {{ super() }}
 
-    <link rel="stylesheet" type="text/css"
-          href="{{ url_for('static', filename='projects/css/project_index.css') }}">
+    {% set cd = 'projects/pitch-detection/' %}
+
+    {% from "macros/resource_fetching.html" import async_css, inline_css %}
+    {{ async_css(url_for('static', filename='projects/css/figures.css')) }}
+    {{ inline_css('projects/base/css/project_index.css') }}
+
     <link rel="stylesheet" type="text/css"
           href="{{ url_for('static', filename=cd + 'css/pitch_detection_display.css') }}">
     <link rel="stylesheet" type="text/css"

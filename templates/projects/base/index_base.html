@@ -2,11 +2,10 @@
 
 {% block head %}
 
-    {% from "macros/resource_fetching.html" import async_css %}
+    {% from "macros/resource_fetching.html" import inline_css %}
+    {% set cd = 'projects/base/' %}
 
-    {{ super() }}
-
-    {{ async_css(url_for('static', filename='projects/css/project_index.css')) }}
+    {{ inline_css(cd + 'css/project_index.css') }}
 
 {% endblock %}
 {% block content %}

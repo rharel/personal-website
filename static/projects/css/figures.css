@@ -1,6 +1,3 @@
-.long-code-snippet {
-  max-height: 35rem; }
-
 .figure {
   margin-top: 1.5rem;
   margin-bottom: 1.5rem;
@@ -60,18 +57,3 @@
     line-height: 3rem; }
   .subfigure-group > .subfigure img, .subfigure-group > .subfigure video, .subfigure-group > .subfigure canvas {
     display: block; }
-
-.math {
-  overflow-x: auto; }
-
-#navigation-bar-buttons > .button-container > #navigation-button-projects {
-  border-bottom-color: #316899; }
-
-h1, h2, h3 {
-  color: #316899; }
-
-h1:first-child {
-  margin-top: 0; }
-
-h3 {
-  font-size: inherit; }
