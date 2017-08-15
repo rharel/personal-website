@@ -1,10 +1,13 @@
 from flask import Flask, redirect, url_for, render_template
+from flask_htmlmin import HTMLMIN
 from jinja2.exceptions import TemplateNotFound
 
 
 app = Flask(__name__)
 app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 604800
+app.config['MINIFY_PAGE'] = True
 
+HTMLMIN(app)
 
 @app.errorhandler(403)
 def page_access_forbidden(error):
