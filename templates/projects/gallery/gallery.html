@@ -3,12 +3,13 @@
 {% block title %}Projects{% endblock %}
 {% block head %}
 
+    {% from "macros/resource_fetching.html" import inline_css %}
+
     {% set cd = 'projects/gallery/' %}
 
     {{ super() }}
 
-    <link rel="stylesheet" type="text/css"
-          href="{{ url_for('static', filename='projects/css/gallery.css') }}">
+    {{ inline_css(cd + 'css/gallery.css') }}
 
 {% endblock %}
 {% block content %}
