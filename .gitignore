@@ -19,3 +19,5 @@ Thumbs.db
 # Sass
 *.css.map
 
+# NPM
+node_modules/
