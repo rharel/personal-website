@@ -1,13 +1,10 @@
-{% extends "base.html" %}
-
-{% set cd = 'errors/' %}
-
-{% from "macros/resource_fetching.html" import inline_css %}
+{% extends "base/base.html" %}
 
 {% block title %}Oops!{% endblock %}
 {% block head %}
 
-    {{ super() }}
+    {% from "macros/resource_fetching.html" import inline_css %}
+    {% set cd = 'errors/' %}
 
     {{ inline_css(cd + 'css/error.css') }}
 
