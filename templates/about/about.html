@@ -1,9 +1,9 @@
-{% extends "base/base.html" %}
+{% extends 'base/base.html' %}
 
 {% block title %}About{% endblock %}
 {% block head %}
 
-    {% from "macros/resource_fetching.html" import inline_css %}
+    {% from 'macros/resource_fetching.html' import inline_css %}
     {% set cd = 'about/' %}
 
     {{ inline_css(cd + 'css/about.css') }}

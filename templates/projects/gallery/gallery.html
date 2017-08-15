@@ -1,9 +1,9 @@
-{% extends "base/base.html" %}
+{% extends 'base/base.html' %}
 
 {% block title %}Projects{% endblock %}
 {% block head %}
 
-    {% from "macros/resource_fetching.html" import inline_css %}
+    {% from 'macros/resource_fetching.html' import inline_css %}
     {% set cd = 'projects/gallery/' %}
 
     {{ inline_css(cd + 'css/gallery.css') }}
@@ -12,22 +12,22 @@
 {% block content %}
 
     <div>
-        {% include "projects/palette-extraction/info.html" %}
-        {% include "projects/rigid-body-physics-in-2d/info.html" %}
-        {% include "projects/pitch-detection/info.html" %}
-        {% include "projects/mandelbrot-set-exploration/info.html" %}
-        {% include "projects/steering-behaviors/info.html" %}
-        {% include "projects/pacman-in-unity/info.html" %}
-        {% include "projects/curve-compressor/info.html" %}
-        {% include "projects/diamond-square/info.html" %}
-        {% include "projects/game-of-life/info.html" %}
-        {% include "projects/pong-ai/info.html" %}
-        {% include "projects/voronoi-on-the-gpu/info.html" %}
-        {% include "projects/ray-tracer/info.html" %}
-        {% include "projects/higher-order-bezier/info.html" %}
-        {% include "projects/download-accelerator/info.html" %}
-        {% include "projects/new-tab-tweaker/info.html" %}
-        {% include "projects/k-means-clustering/info.html" %}
+        {% include 'projects/palette-extraction/info.html' %}
+        {% include 'projects/rigid-body-physics-in-2d/info.html' %}
+        {% include 'projects/pitch-detection/info.html' %}
+        {% include 'projects/mandelbrot-set-exploration/info.html' %}
+        {% include 'projects/steering-behaviors/info.html' %}
+        {% include 'projects/pacman-in-unity/info.html' %}
+        {% include 'projects/curve-compressor/info.html' %}
+        {% include 'projects/diamond-square/info.html' %}
+        {% include 'projects/game-of-life/info.html' %}
+        {% include 'projects/pong-ai/info.html' %}
+        {% include 'projects/voronoi-on-the-gpu/info.html' %}
+        {% include 'projects/ray-tracer/info.html' %}
+        {% include 'projects/higher-order-bezier/info.html' %}
+        {% include 'projects/download-accelerator/info.html' %}
+        {% include 'projects/new-tab-tweaker/info.html' %}
+        {% include 'projects/k-means-clustering/info.html' %}
     </div>
 
 {% endblock %}
