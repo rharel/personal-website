@@ -39,7 +39,7 @@ def about():
 
 @app.route('/projects/')
 def projects():
-    return render_template('projects/gallery.html')
+    return render_template('projects/gallery/gallery.html')
 
 @app.route('/projects/<project>')
 def show_project(project):
