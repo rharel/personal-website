@@ -1,5 +1,11 @@
 html {
-  font-size: 10px; }
+  font-size: 12.5px; }
+  @media (max-width: 500px) {
+    html {
+      font-size: 12.5px; } }
+  @media (min-width: 500px) and (max-width: 700px) {
+    html {
+      font-size: 12.5px; } }
   @media (min-width: 700px) and (max-width: 1300px) {
     html {
       font-size: 12.5px; } }

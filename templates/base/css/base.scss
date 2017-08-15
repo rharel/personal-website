@@ -4,7 +4,9 @@
 
 html
 {
-                          font-size:   10px;
+                          font-size: 12.5px;
+    @include media-XS() { font-size: 12.5px; }
+    @include media-S()  { font-size: 12.5px; }
     @include media-M()  { font-size: 12.5px; }
     @include media-L()  { font-size:   15px; }
     @include media-XL() { font-size:   20px; }
