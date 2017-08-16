@@ -10,14 +10,14 @@
 
     {% from 'macros/resource_fetching.html' import async_css %}
     {{ async_css(url_for('static', filename='projects/css/figures.css')) }}
+    {{ async_css(url_for('static', filename='projects/css/slideshows.css')) }}
 
     {% from 'macros/math.html' import include_mathjax %}
     {{ include_mathjax() }}
 
-    <link rel="stylesheet" type="text/css"
-          href="{{ url_for('static', filename='projects/css/slideshow.css') }}">
-    <script type="text/javascript"
-            src="{{ url_for('static', filename='projects/js/slideshow.js') }}"></script>
+    <script src="{{ url_for('static', filename='3rd/require/require.min.js') }}"
+            data-main="{{ url_for('static', filename='projects/k-means-clustering/js/figure_1') }}"
+            async></script>
 
 {% endblock %}
 {% block projectSummary %}
@@ -100,15 +100,7 @@
 
         <div class="subfigure-group">
             <div class="subfigure">
-                {{ slideshow('kmeans-demo', 256, 256, 'larger',
-                    url_for('static', filename=cd + 'img/demo_small1.png') + ';' +
-                    url_for('static', filename=cd + 'img/demo_small2.png') + ';' +
-                    url_for('static', filename=cd + 'img/demo_small3.png') + ';' +
-                    url_for('static', filename=cd + 'img/demo_small4.png') + ';' +
-                    url_for('static', filename=cd + 'img/demo_small5.png') + ';' +
-                    url_for('static', filename=cd + 'img/demo_small6.png') + ';' +
-                    url_for('static', filename=cd + 'img/demo_small7.png') + ';' +
-                    url_for('static', filename=cd + 'img/demo_small8.png')) }}
+                {{ slideshow('k-means-demo', 256, 256, 'larger') }}
             </div>
         </div>
     </div>

@@ -32,30 +32,31 @@
 
 {%- endmacro %}
 
-{% macro slideshow(id, width, height, class_list, paths) -%}
+{% macro slideshow(id, width, height, class_list) -%}
 
-<div class="slideshow-container">
-    <div class="slideshow-placemarker">
-        <span id="{{ id + '-index' }}" class="slideshow-slide-current">0</span>
+<div class="slideshow">
+    <div class="placemarker">
+        <span id="{{ id + '-active-slide-index' }}">0</span>
         /
-        <span id="{{ id + '-total' }}" class="slideshow-slides-total">0</span>
+        <span id="{{ id + '-slide-count' }}">0</span>
     </div>
-    <img id="{{ id }}" class="{{ class_list }}" src="" width="{{ width }}" height="{{ height }}">
-    <div class="slideshow-controls">
-        <a class="slideshow-control-button slideshow-control-previous"
-           onclick="Slideshow.previous('{{ id }}');">
+    <img id="{{ id + '-image' }}" class="{{ class_list }}"
+         src=""
+         width="{{ width }}" height="{{ height }}">
+    <div>
+        <a id="{{ id + '-show-previous' }}"
+           class="control-button show-previous">
 
             PREVIOUS
+            <!--&#171;-->
         </a>
-        <a class="slideshow-control-button slideshow-control-next"
-           onclick="Slideshow.next('{{ id }}');">
+        <a id="{{ id + '-show-next' }}"
+           class="control-button show-next">
 
             NEXT
+            <!--&#187;-->
         </a>
     </div>
-    <script>
-		Slideshow.register('{{ id }}', '{{ paths }}');
-    </script>
 </div>
 
 {%- endmacro %}

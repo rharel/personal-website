@@ -1,7 +1,7 @@
 @import '../../global/css/common_colors';
 @import '../../global/css/mixins/compatibility';
 
-.slideshow-control-button
+.slideshow .control-button
 {
     border:  0.05rem solid $grey_3;
     @include border-radius(0.2rem);
@@ -20,5 +20,5 @@
     
     @include user-select(none);
 }
-.slideshow-control-previous { float: left; }
-.slideshow-control-next     { float: right; }
+.slideshow .show-previous { float: left; }
+.slideshow .show-next     { float: right; }
