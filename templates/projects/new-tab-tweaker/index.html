@@ -1,7 +1,6 @@
-{% extends "projects/base/index_base.html" %}
+{% extends 'projects/base/index_base.html' %}
 
-{% from "macros/figures.html" import image_collection %}
-{% from "macros/links.html" import githublink %}
+{% from 'macros/links.html' import githublink %}
 
 {% block title %}New Tab Tweaker{% endblock %}
 {% block head %}
@@ -15,21 +14,21 @@
 {% block projectSummary %}
 
     <p>
-        Recently, I came to the ironic realization that I encounter Firefox's bland-and-boring
-        'New Tab' page far more often that I do the wonderful wallpaper I carefully chose to decorate
+        Recently, I came to the ironic realization that I spend far more time staring at blank New
+        Tab page than I do the beautiful wallpaper I carefully chose to decorate
         my Desktop with. So naturally, I headed over to Mozilla's
         <a href="https://addons.mozilla.org/en-US/firefox/" target="_blank">add-on repository</a>
-        in search of an add-on that would allow me to decorate the New Tab page with a customized background image.
+        in search of an add-on that would allow me to decorate the New Tab page with a customized
+        background color and wallpaper image.
     </p>
     <p>
-        Alas, existing add-ons were either bloated with additional functionality
-        that I didn't intend to use or based on
-        legacy technology that
+        Unfortunately, existing add-ons were either bloated with additional functionality
+        that I didn't need or were based on legacy technology that
         <a href="https://blog.mozilla.org/addons/2015/08/21/the-future-of-developing-firefox-add-ons/"
            target="_blank">
             will be phased out
         </a>
-        of Firefox in the very near future. So, I set out to develop my own add-on for the job, and took it as an
+        in the very near future. So, I set out to develop my own add-on for the job and took it as an
         opportunity to dive in and familiarize myself with up-and-coming
         <a href="https://developer.mozilla.org/en-US/Add-ons/WebExtensions/What_are_WebExtensions"
            target="_blank">
@@ -51,9 +50,9 @@
 {% endblock %}
 {% block content %}
 
-    {% set cd = 'projects/new-tab-tweaker/' %}
-
     {{ super() }}
+
+    {% set cd = 'projects/new-tab-tweaker/' %}
 
     <a id="section-features"></a>
     <h2>Features</h2>
@@ -67,17 +66,27 @@
     <h2>Screenshots</h2>
 
     <div class="figure">
-
-        {{  image_collection(
-            [
-                {"url": cd + 'img/screenshots/new_tab_custom_page_options.png'},
-                {"url": cd + 'img/screenshots/import_wallpaper_urls_dialog.png'},
-                {"url": cd + 'img/screenshots/new_tab_redirection_options.png'},
-                {"url": cd + 'img/screenshots/image_context_menu.png'},
-            ],
-            class_list='large',
-            do_link=True)
-        }}
+        <div class="subfigure-group">
+            {% set images = [
+                ['custom_page_options', 'Custom page options'],
+                ['import_wallpaper_urls_dialog', 'Importing wallpapers from Imgur'],
+                ['redirection_options', 'Redirecting a new tab to a specified URL'],
+                ['image_context_menu', 'Wallpaper specification through context menu']
+            ] %}
+            {% for file_name, subtitle in images %}
+                {% set url = cd + 'img/screenshots/' + file_name + '.png' %}
+                <div class="subfigure">
+                    <a href="{{ url_for('static', filename=url) }}"
+                       target="_blank"
+                       title="View">
+                        <img class="larger" src="{{ url_for('static', filename=url) }}"/>
+                    </a>
+                    <div class="subtitle">
+                        {{ subtitle }}
+                    </div>
+                </div>
+        {% endfor %}
+        </div>
     </div>
 
     <a id="section-source-code"></a>
@@ -102,4 +111,4 @@
     </ul>
 
 {% endblock %}
-{% block lastUpdateStamp %} May, 2017 {% endblock %}
+{% block lastUpdateStamp %} August, 2017 {% endblock %}
