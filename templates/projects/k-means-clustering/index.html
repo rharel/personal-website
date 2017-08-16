@@ -1,7 +1,7 @@
 {% extends 'projects/base/index_base.html' %}
 
 {% from 'macros/figures.html' import caption, slideshow %}
-{% from 'macros/links.html' import wikilink, githublink %}
+{% from 'macros/links.html' import wikilink, githublink, projectlink %}
 
 {% block title %}k-Means Clustering{% endblock %}
 {% block head %}
@@ -10,6 +10,9 @@
 
     {% from 'macros/resource_fetching.html' import async_css %}
     {{ async_css(url_for('static', filename='projects/css/figures.css')) }}
+
+    {% from 'macros/math.html' import include_mathjax %}
+    {{ include_mathjax() }}
 
     <link rel="stylesheet" type="text/css"
           href="{{ url_for('static', filename='projects/css/slideshow.css') }}">
@@ -20,19 +23,17 @@
 {% block projectSummary %}
 
     <p>
-        During my time working on a {{ wikilink('computer vision') }} related course, we were developing
-        an application capable of reconstructing three dimensional {{ wikilink('voxel') }} clouds of
-        people through video. At one point, we were interested in finding out to which person an
-        individual voxel belongs.
+        During my time working through a {{ wikilink('computer vision') }} related course, we were
+        developing an application capable of reconstructing three dimensional {{ wikilink('voxel') }}
+        clouds of people through analysis of video recordings. In addition to reconstruction of the
+        subjects' body shape, we were also interested in deriving to which person individual voxels
+        belong.
     </p>
     <p>
-        The solution was two-fold: First, make an educated initial guess of the assignment for
-        each voxel. Second, look at the initial configuration and reach a stable
-        {{ wikilink('clustering', 'cluster analysis') }} from there.
-    </p>
-    <p>
-        This project is about one very popular algorithm to achieve that final assignment,
-        the {{ wikilink('k-means clustering') }} algorithm.
+        Assuming that each subject is wearing clothes of roughly uniform color, the idea was to perform
+        {{ wikilink('clustering', 'cluster analysis') }} over voxel colors and in that way achieve a
+        reasonable classification of voxels onto persons. This project is about one such clustering technique:
+        the {{ wikilink('\(k\)-means', 'k-means clustering') }} algorithm.
     </p>
 
 {% endblock %}
@@ -42,7 +43,7 @@
 
     <ul>
         <li><a href="#section-about-clustering">About clustering</a></li>
-        <li><a href="#section-k-means">k-Means</a></li>
+        <li><a href="#section-k-means">\(k\)-Means</a></li>
         <li><a href="#section-implementation">Implementation</a></li>
         <li><a href="#section-source-code">Source code</a></li>
         <li><a href="#section-see-also">See also</a></li>
@@ -51,52 +52,50 @@
 {% endblock %}
 {% block content %}
 
-    {% set cd = 'projects/k-means-clustering/' %}
-
     {{ super() }}
+
+    {% set cd = 'projects/k-means-clustering/' %}
 
     <a id="section-about-clustering"></a>
     <h2>About clustering</h2>
 
     <p>
-        The ultimate objective of clustering methods is to divide a set of observations among a fixed
-        amount of categories. More formally, an <b>observation</b> is a {{ wikilink('feature vector') }}
-        in <span class="math">d</span> dimensions, and each observation from the set needs to be labeled
-        under one of <span class="math">k</span> labels.
+        The objective of clustering methods is to divide a set of observations \(X\) among a set
+        of categories \(C\). More formally, an observation \(\textbf{v} \in X\) is a
+        \(d\)-dimensional {{ wikilink('feature vector') }}, and we are looking to derive a mapping
+        \(X \rightarrow C\).
     </p>
 
     <a id="section-k-means"></a>
-    <h2>k-Means</h2>
+    <h2>\(k\)-Means</h2>
 
     <p>
-        The k-means algorithm is one of if not the most popular method of achieving such a labeling.
-        It is simple:
+        The \(k\)-means algorithm is one of if not the most popular method of achieving such a mapping.
+        It consists of four steps, summarized below:
     </p>
     <ol>
         <li>
-            <b>Initialize</b> with a guess of a mean feature vector for each cluster (category)
-            - this is your best guess as to what a typical observation of that category looks
-            like.
+            <b>Initialize</b> with a guess of a mean feature vector representing each cluster (category).
+            This is our best guess as to what a typical observation of that category looks like.
         </li>
         <li>
             <b>Assign</b> each observation to the cluster whose mean it is closest to.
         </li>
         <li>
-            <b>Update</b> the means by taking the average of all observations assigned to each
-            cluster and computing the new mean value for each.
+            <b>Update</b> the means by taking all observations assigned to each cluster and
+            computing the new mean value for each.
         </li>
         <li>
-            <b>Repeat</b> steps 2 and 3 until there is no more change in assignments.
+            <b>Repeat</b> steps 2 and 3 until there is no more change in the assignment.
         </li>
     </ol>
     <p>
-        You can see the algorithm progression in the example below:
+        Figure 1 depicts a progression of \(k\)-means on sample data:
     </p>
-
     <div class="figure">
 
         {{ caption('Figure 1',
-                   'Progression of k-means on some randomly generated data.
+                   'Progression of \(k\)-means on some randomly generated data.
                     The larger discs represent cluster means.') }}
 
         <div class="subfigure-group">
@@ -125,14 +124,15 @@
     <p>
         We also include several methods for guessing the initial means, as well as alternative distance-measures
         (although the {{ wikilink('Euclidean distance') }} is the most commonly used, sometimes
-        {{ wikilink('others', 'Manhattan distance') }} are preferred - depending on the application).
+        {{ wikilink('others', 'Manhattan distance') }} are preferred depending on the application).
     </p>
 
     <a id="section-source-code"></a>
     <h2>Source code</h2>
 
     <p>
-        You can view the source code and documentation on {{ githublink('GitHub', 'rharel', 'cpp-k-means-clustering') }}.
+        You can view the source code and documentation on
+        {{ githublink('GitHub', 'rharel', 'cpp-k-means-clustering') }}.
         The python scripts used to generate the plots on this page are under the
         {{ githublink('demo', 'rharel', 'cpp-k-means-clustering', 'master/demo/scripts') }} directory
         of the repository.
@@ -142,9 +142,10 @@
     <h2>See also</h2>
 
     <ul>
+        <li>Related project: {{ projectlink('Palette Extraction', 'palette-extraction') }}</li>
         <li>{{ wikilink('Cluster analysis') }} for more clustering methods.</li>
         <li>{{ wikilink('Statistical classification') }} for other data classification methods.</li>
     </ul>
 
 {% endblock %}
-{% block lastUpdateStamp %} June, 2016 {% endblock %}
+{% block lastUpdateStamp %} August, 2017 {% endblock %}
