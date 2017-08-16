@@ -16,7 +16,7 @@
               href="{{ url_for('static', filename='root/favicon_194px.png') }}"
               sizes="194x194">
 
-        {% from 'macros/resource_fetching.html' import inline_css, inline_js, async_css %}
+        {% from 'macros/resource_fetching.html' import async_css, inline_css, inline_js %}
         {% set cd = 'base/' %}
 
         {{ inline_css(cd + 'css/base.css') }}
