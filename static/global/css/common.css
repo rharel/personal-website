@@ -6,17 +6,3 @@ a {
 
 img {
   background-color: inherit; }
-
-.notice, .notice-info, .notice-error {
-  -webkit-border-radius: 1rem;
-  -moz-border-radius: 1rem;
-  border-radius: 1rem;
-  padding: 1rem; }
-
-.notice-info {
-  background-color: #E3D2FF;
-  color: #2B003F; }
-
-.notice-error {
-  background-color: #FFC0C3;
-  color: #450000; }

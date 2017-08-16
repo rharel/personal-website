@@ -1,5 +1,4 @@
 @import 'common_colors';
-@import 'mixins/compatibility';
 
 a
 {
@@ -9,23 +8,3 @@ a
     &:hover { text-decoration: underline; }
 }
 img { background-color: inherit; }
-
-.notice
-{
-    @include border-radius(1rem);
-    padding: 1rem;
-}
-.notice-info
-{
-  @extend .notice;
-
-  background-color: $purple_1;
-  color:            $purple_2;
-}
-.notice-error
-{
-  @extend .notice;
-
-  background-color: $red_1;
-  color:            $red_2;
-}
