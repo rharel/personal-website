@@ -54,3 +54,5 @@
   .subfigure-group > .subfigure > .subtitle {
     text-align: center;
     font-size: 1.4rem; }
+  .subfigure-group > .subfigure img, .subfigure-group > .subfigure video, .subfigure-group > .subfigure canvas {
+    display: block; }
