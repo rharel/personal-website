@@ -16,7 +16,7 @@
   display: inline-block;
   border: 0.05rem solid #282828;
   width: 17.5rem;
-  max-width: 90vw;
+  max-width: 80vw;
   height: auto;
   background-color: white; }
   .figure img.transparent, .figure video.transparent, .figure canvas.transparent {
@@ -53,7 +53,4 @@
   margin: 0.5rem; }
   .subfigure-group > .subfigure > .subtitle {
     text-align: center;
-    font-size: 1.4rem;
-    line-height: 3rem; }
-  .subfigure-group > .subfigure img, .subfigure-group > .subfigure video, .subfigure-group > .subfigure canvas {
-    display: block; }
+    font-size: 1.4rem; }
