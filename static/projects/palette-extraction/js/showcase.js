@@ -64,5 +64,12 @@
             "palette_extraction": "/static/projects/palette-extraction/js/palette_extraction.min"
         }
     });
-    require(["palette_extraction"], initialize);
+    define(["palette_extraction"], extract_palette =>
+    {
+        if (document.readyState === "complete") { initialize(extract_palette); }
+        else
+        {
+            window.addEventListener('load', () => initialize(extract_palette));
+        }
+    });
 })();
