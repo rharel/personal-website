@@ -12,8 +12,8 @@
 {
     @include display-flex();
 
-                          @include flex-flow(row    nowrap);
-    @include media-XS() { @include flex-flow(column nowrap); }
+                         @include flex-flow(row    nowrap);
+    @include media-S() { @include flex-flow(column nowrap); }
 
     border: 0.05rem solid $grey_3;
     background-color: white;
@@ -36,7 +36,7 @@
 
     background-color: $blue_1;
 
-    @include media-XS()
+    @include media-S()
     {
         @include justify-content(flex-end);
         width:  100%;
@@ -50,7 +50,7 @@
 
     background-color: white;
 
-    @include media-XS()
+    @include media-S()
     {
         margin-right: 0.5rem;
         width:  auto;
@@ -69,12 +69,12 @@
 }
 .project-info > .details > .long
 {
-    @include media-XS() { display: none; }
+    @include media-S() { display: none; }
 }
 .project-info > .details > .short
 {
     display: none;
-    @include media-XS() { display: block; }
+    @include media-S() { display: block; }
 }
 .project-info > .details > .title
 {
@@ -114,7 +114,7 @@
 
     &:hover { background-color: $blue_1; }
 
-    @include media-XS()
+    @include media-S()
     {
         @include justify-content(flex-end);
         @include align-items(center);

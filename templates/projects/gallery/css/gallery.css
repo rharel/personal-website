@@ -87,7 +87,7 @@
   -moz-box-shadow: 0.5rem 0.5rem 0.5rem #F0F0F0;
   -o-box-shadow: 0.5rem 0.5rem 0.5rem #F0F0F0;
   box-shadow: 0.5rem 0.5rem 0.5rem #F0F0F0; }
-  @media (max-width: 500px) {
+  @media (max-width: 700px) {
     .project-info {
       -webkit-flex-flow: column nowrap;
       flex-flow: column nowrap; } }
@@ -110,7 +110,7 @@
   min-width: 10rem;
   width: 10rem;
   background-color: #C2DFFF; }
-  @media (max-width: 500px) {
+  @media (max-width: 700px) {
     .project-info > .thumbnail {
       -webkit-justify-content: flex-end;
       justify-content: flex-end;
@@ -121,7 +121,7 @@
   border: 0.05rem solid #282828;
   width: 85%;
   background-color: white; }
-  @media (max-width: 500px) {
+  @media (max-width: 700px) {
     .project-info > .thumbnail > img {
       margin-right: 0.5rem;
       width: auto;
@@ -133,13 +133,13 @@
   margin-left: 1.5rem;
   margin-right: 1.5rem; }
 
-@media (max-width: 500px) {
+@media (max-width: 700px) {
   .project-info > .details > .long {
     display: none; } }
 
 .project-info > .details > .short {
   display: none; }
-  @media (max-width: 500px) {
+  @media (max-width: 700px) {
     .project-info > .details > .short {
       display: block; } }
 
@@ -171,7 +171,7 @@
   font-size: 3.3rem; }
   .project-info > .further-reading:hover {
     background-color: #C2DFFF; }
-  @media (max-width: 500px) {
+  @media (max-width: 700px) {
     .project-info > .further-reading {
       -webkit-justify-content: flex-end;
       justify-content: flex-end;
