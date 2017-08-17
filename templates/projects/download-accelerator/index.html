@@ -1,7 +1,6 @@
-{% extends "projects/base/index_base.html" %}
+{% extends 'projects/base/index_base.html' %}
 
-{% from "macros/links.html" import wikilink, githublink %}
-{% from "macros/math.html" import include_mathjax %}
+{% from 'macros/links.html' import wikilink, githublink %}
 
 {% block title %}Download Accelerator{% endblock %}
 {% block head %}
@@ -11,7 +10,8 @@
     {% from 'macros/resource_fetching.html' import async_css %}
     {{ async_css(url_for('static', filename='projects/css/figures.css')) }}
     {{ async_css(url_for('static', filename='projects/css/math.css')) }}
-
+    
+    {% from 'macros/math.html' import include_mathjax %}
     {{ include_mathjax() }}
 
 {% endblock %}
@@ -25,8 +25,8 @@
         the extent of my experience with systems programming was
         limited to just
         {{ wikilink('C', 'c (programming language)') }} / {{ wikilink('C++') }},
-        and I was glad to see that there is some effort underway to rectify these
-        their weak-points through a brand new language. However, it is only now
+        and I was glad to see that there is some effort underway to rectify their
+        weak-points through a brand new language. However, it is only now
         (May of 2017) that I have finally decided to buckle down and start investing
         some time in learning it.
     </p>
@@ -46,8 +46,8 @@
         time to a fraction of its original value.
     </p>
     <p>
-        I gave the application the
-        code name 'Squid Downloader', and drew this handsome logo to accompany it:
+        I gave the application the code name 'Squid Downloader', and drew this handsome logo to
+        accompany it:
     </p>
     <div class="figure">
 <pre>
