@@ -16,7 +16,7 @@
         right: 2rem;
     }
 
-    @include media-XS()
+    @include media-S()
     {
         float: none;
         text-align: center;
@@ -24,6 +24,7 @@
 }
 #portrait-container > img
 {
+    width: 40vw;
     max-width: 15rem;
     @include border-radius(50%);
 }
