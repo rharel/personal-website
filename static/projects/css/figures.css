@@ -16,7 +16,7 @@
   display: inline-block;
   border: 0.05rem solid #282828;
   width: 17.5rem;
-  max-width: 80vw;
+  max-width: 100%;
   height: auto;
   background-color: white; }
   .figure img.transparent, .figure video.transparent, .figure canvas.transparent {
