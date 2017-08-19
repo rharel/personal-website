@@ -1,4 +1,7 @@
-.slideshow .control-button {
+.slideshow {
+  display: inline-block; }
+
+.slideshow > .controls > .control-button {
   border: 0.05rem solid #9F9F9F;
   -webkit-border-radius: 0.2rem;
   -moz-border-radius: 0.2rem;
@@ -14,8 +17,8 @@
   -ms-user-select: none;
   user-select: none; }
 
-.slideshow .show-previous {
+.slideshow > .controls > .show-previous {
   float: left; }
 
-.slideshow .show-next {
+.slideshow > .controls > .show-next {
   float: right; }
