@@ -1,20 +1,17 @@
-{% extends "projects/base/index_base.html" %}
+{% extends 'projects/base/index_base.html' %}
 
-{% from "macros/figures.html" import caption, image_collection %}
-{% from "macros/links.html" import wikilink, githublink %}
+{% from 'macros/figures.html' import caption, image_collection %}
+{% from 'macros/links.html' import wikilink, githublink %}
 
 {% block title %}Ray Tracer{% endblock %}
 {% block head %}
 
-    {% set cd = 'projects/ray-tracer/' %}
-
     {{ super() }}
+
+    {% set cd = 'projects/ray-tracer/' %}
 
     {% from 'macros/resource_fetching.html' import async_css %}
     {{ async_css(url_for('static', filename='projects/css/figures.css')) }}
-
-    <link rel="stylesheet" type="text/css"
-          href="{{ url_for('static', filename=cd + 'css/showcase.css') }}">
 
 {% endblock %}
 {% block projectSummary %}
@@ -48,23 +45,31 @@
 {% endblock %}
 {% block content %}
 
-    {% set cd = 'projects/ray-tracer/' %}
-
     {{ super() }}
+
+    {% set cd = 'projects/ray-tracer/' %}
 
     <a id="section-showcase"></a>
     <h2>Showcase</h2>
 
     <div class="figure">
-        {{  image_collection(
-            [
-                {"url": cd + 'img/mirror_hemisphere_512px.png'},
-                {"url": cd + 'img/three_lambertian_spheres_day_512px.png'},
-                {"url": cd + 'img/three_lambertian_spheres_day_2_512px.png'}
-            ],
-            class_list='large',
-            do_link=True)
-        }}
+        <div class="subfigure-group">
+            {% set images = [
+                'mirror_hemisphere_512px',
+                'three_lambertian_spheres_day_512px',
+                'three_lambertian_spheres_day_2_512px'
+            ] %}
+            {% for file_name in images %}
+                {% set url = cd + 'img/' + file_name + '.png' %}
+                <div class="subfigure">
+                    <a href="{{ url_for('static', filename=url) }}"
+                       target="_blank"
+                       title="View">
+                        <img class="larger" src="{{ url_for('static', filename=url) }}"/>
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
     </div>
 
     <a id="section-ray-tracing-basics"></a>
@@ -102,6 +107,7 @@
                     to the observer\'s eye.') }}
 
         <img src="{{ url_for('static', filename=cd + 'img/ray_trace_schematic.svg') }}"
+             class="large"
              width="300" />
 
     </div>
