@@ -140,6 +140,12 @@
             artworks[i](context);
         }
     }
-
-    window.addEventListener('load', _initialize);
+    define(["bezier", "CanvasView"], function()
+    {
+        if (document.readyState === "complete") { _initialize(); }
+        else
+        {
+            window.addEventListener('load', _initialize);
+        }
+    });
 })();

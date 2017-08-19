@@ -1,47 +1,30 @@
-{% extends "projects/base/index_base.html" %}
+{% extends 'projects/base/index_base.html' %}
 
-{% from "macros/figures.html" import caption %}
-{% from "macros/links.html" import projectlink, wikilink, githublink %}
-{% from "macros/math.html" import include_mathjax %}
-{% from "projects/higher-order-bezier/macros.html" import animated_curve %}
+{% from 'macros/figures.html' import caption %}
+{% from 'macros/links.html' import projectlink, wikilink, githublink %}
+{% from 'projects/higher-order-bezier/macros.html' import animated_curve %}
 
 {% block title %}Higher-order Bezier{% endblock %}
 {% block head %}
 
-    {% set cd = 'projects/higher-order-bezier/' %}
-
     {{ super() }}
+
+    {% set cd = 'projects/higher-order-bezier/' %}
 
     {% from 'macros/resource_fetching.html' import async_css %}
     {{ async_css(url_for('static', filename='projects/css/figures.css')) }}
     {{ async_css(url_for('static', filename='projects/css/math.css')) }}
     {{ async_css(url_for('static', filename='projects/css/code.css')) }}
+    {{ async_css(url_for('static', filename='projects/css/animation_clip.css')) }}
+    {{ async_css(url_for('static', filename='3rd/prism/prism.css')) }}
 
-
-    <link rel="stylesheet" type="text/css"
-          href="{{ url_for('static', filename='3rd/prism/prism.css') }}">
-    <script type="text/javascript"
-            src="{{ url_for('static', filename='3rd/prism/prism.min.js') }}"></script>
-
+    {% from 'macros/math.html' import include_mathjax %}
     {{ include_mathjax() }}
 
-    <link rel="stylesheet" type="text/css"
-          href="{{ url_for('static', filename='projects/css/animation_clip.css') }}">
+    <script src="{{ url_for('static', filename='3rd/require/require.min.js') }}"
+            data-main="{{ url_for('static', filename=cd + 'js/figures') }}"
+            async></script>
 
-    <script type="text/javascript"
-            src="{{ url_for('static', filename=cd + 'js/bezier.js') }}"></script>
-    <script type="text/javascript"
-            src="{{ url_for('static', filename=cd + 'js/CanvasView.js') }}"></script>
-    <script type="text/javascript"
-            src="{{ url_for('static', filename=cd + 'js/Animation.js') }}"></script>
-    <script type="text/javascript"
-            src="{{ url_for('static', filename=cd + 'js/animation_control.js') }}"></script>
-    <script type="text/javascript"
-            src="{{ url_for('static', filename=cd + 'js/showcase.js') }}"></script>
-    <script type="text/javascript"
-            src="{{ url_for('static', filename=cd + 'js/figure_1.js') }}"></script>
-    <script type="text/javascript"
-            src="{{ url_for('static', filename=cd + 'js/figure_2.js') }}"></script>
 {% endblock %}
 {% block projectSummary %}
 

@@ -77,6 +77,12 @@
             }
         }
     }
-
-    window.addEventListener('load', _initialize);
+    define(["bezier", "CanvasView", "Animation", "animation_control"], function()
+    {
+        if (document.readyState === "complete") { _initialize(); }
+        else
+        {
+            window.addEventListener('load', _initialize);
+        }
+    });
 })();

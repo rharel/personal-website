@@ -110,9 +110,16 @@
         get duration() { return this._duration; },
         set duration(value) { this._duration = +value; }
     };
-
-    if (typeof window.Bezier !== 'undefined') {
-
+    function _initialize()
+    {
         window.Bezier.Animation = Animation;
     }
+    define(["bezier"], function()
+    {
+        if (document.readyState === "complete") { _initialize(); }
+        else
+        {
+            window.addEventListener('load', _initialize);
+        }
+    });
 })();

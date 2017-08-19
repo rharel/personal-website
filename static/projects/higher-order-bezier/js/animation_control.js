@@ -42,8 +42,18 @@
             reset_view(clip.view);
         }
     }
-
-    window.Bezier.register_animation = register_animation;
-    window.Bezier.reset_view = reset_view;
-    window.Bezier.toggle_animation = toggle_animation;
+    function _initialize()
+    {
+        window.Bezier.register_animation = register_animation;
+        window.Bezier.reset_view = reset_view;
+        window.Bezier.toggle_animation = toggle_animation;
+    }
+    define(["bezier"], function()
+    {
+        if (document.readyState === "complete") { _initialize(); }
+        else
+        {
+            window.addEventListener('load', _initialize);
+        }
+    });
 })();

@@ -8,53 +8,53 @@
 
 (function() {
 
-    var clips = {
-
-        'fig1-linear': {
-
-            points: [
-                {x: 0.2, y: 0.8},
-                {x: 0.8, y: 0.2}
-            ],
-            canvas: null,
-            curve: null,
-            view: null,
-            precision: 1,
-            colors: ['#FFAAAA', 'black'],
-            animation: new Bezier.Animation(20, 19, 0.05)
-        },
-        'fig1-quadratic': {
-
-            points: [
-                {x: 0.2, y: 0.8},
-                {x: 0.5, y: 0.2},
-                {x: 0.8, y: 0.8}
-            ],
-            canvas: null,
-            curve: null,
-            view: null,
-            precision: 0.1,
-            colors: ['#FFAAAA', '#50AA50', 'black'],
-            animation: new Bezier.Animation(20, 49, 0.02)
-        },
-        'fig1-cubic': {
-
-            points: [
-                {x: 0.2, y: 0.8},
-                {x: 0.4, y: 0.2},
-                {x: 0.6, y: 0.8},
-                {x: 0.8, y: 0.2}
-            ],
-            canvas: null,
-            curve: null,
-            view: null,
-            precision: 0.1,
-            colors: ['#FFAAAA', '#50AA50', '#8080FF', 'black'],
-            animation: new Bezier.Animation(20, 49, 0.02)
-        }
-    };
-    
     function _initialize() {
+
+        var clips = {
+
+            'fig1-linear': {
+
+                points: [
+                    {x: 0.2, y: 0.8},
+                    {x: 0.8, y: 0.2}
+                ],
+                canvas: null,
+                curve: null,
+                view: null,
+                precision: 1,
+                colors: ['#FFAAAA', 'black'],
+                animation: new Bezier.Animation(20, 19, 0.05)
+            },
+            'fig1-quadratic': {
+
+                points: [
+                    {x: 0.2, y: 0.8},
+                    {x: 0.5, y: 0.2},
+                    {x: 0.8, y: 0.8}
+                ],
+                canvas: null,
+                curve: null,
+                view: null,
+                precision: 0.1,
+                colors: ['#FFAAAA', '#50AA50', 'black'],
+                animation: new Bezier.Animation(20, 49, 0.02)
+            },
+            'fig1-cubic': {
+
+                points: [
+                    {x: 0.2, y: 0.8},
+                    {x: 0.4, y: 0.2},
+                    {x: 0.6, y: 0.8},
+                    {x: 0.8, y: 0.2}
+                ],
+                canvas: null,
+                curve: null,
+                view: null,
+                precision: 0.1,
+                colors: ['#FFAAAA', '#50AA50', '#8080FF', 'black'],
+                animation: new Bezier.Animation(20, 49, 0.02)
+            }
+        };
 
         var ids = ['fig1-linear', 'fig1-quadratic', 'fig1-cubic'];
         var elements = ids.map(function(id) {
@@ -88,6 +88,12 @@
             }
         }
     }
-
-    window.addEventListener('load', _initialize);
+    define(["bezier", "CanvasView", "Animation", "animation_control"], function()
+    {
+        if (document.readyState === "complete") { _initialize(); }
+        else
+        {
+            window.addEventListener('load', _initialize);
+        }
+    });
 })();

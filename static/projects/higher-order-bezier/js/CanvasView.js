@@ -181,9 +181,16 @@
             this._shell.t = +value;
         }
     };
-
-    if (typeof window !== 'undefined') {
-
+    function _initialize()
+    {
         window.Bezier.CanvasView = CanvasView;
     }
+    define(["bezier"], function()
+    {
+        if (document.readyState === "complete") { _initialize(); }
+        else
+        {
+            window.addEventListener('load', _initialize);
+        }
+    });
 })();
