@@ -69,11 +69,12 @@
     display: inline-block;
 
     margin: 0.5rem;
+    line-height: 0;
 
     & > .subtitle
     {
+        line-height: normal;
         text-align: center;
         font-size:  1.4rem;
     }
-    img, video, canvas { display: block; }
 }

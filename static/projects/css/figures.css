@@ -50,9 +50,9 @@
 
 .subfigure-group > .subfigure {
   display: inline-block;
-  margin: 0.5rem; }
+  margin: 0.5rem;
+  line-height: 0; }
   .subfigure-group > .subfigure > .subtitle {
+    line-height: normal;
     text-align: center;
     font-size: 1.4rem; }
-  .subfigure-group > .subfigure img, .subfigure-group > .subfigure video, .subfigure-group > .subfigure canvas {
-    display: block; }
