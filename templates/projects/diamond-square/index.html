@@ -1,18 +1,18 @@
-{% extends "projects/base/index_base.html" %}
+{% extends 'projects/base/index_base.html' %}
 
-{% from "macros/figures.html" import caption %}
-{% from "macros/links.html" import wikilink, githublink %}
-{% from "macros/math.html" import include_mathjax %}
+{% from 'macros/figures.html' import caption %}
+{% from 'macros/links.html' import wikilink, githublink %}
 
 {% block title %}Diamond-Square{% endblock %}
 {% block head %}
 
     {{ super() }}
 
-    {% from "macros/resource_fetching.html" import async_css %}
+    {% from 'macros/resource_fetching.html' import async_css %}
     {{ async_css(url_for('static', filename='projects/css/figures.css')) }}
     {{ async_css(url_for('static', filename='projects/css/math.css')) }}
 
+    {% from 'macros/math.html' import include_mathjax %}
     {{ include_mathjax() }}
 
 {% endblock %}
