@@ -1,15 +1,14 @@
-{% extends "projects/base/index_base.html" %}
+{% extends 'projects/base/index_base.html' %}
 
-{% from "macros/figures.html" import caption %}
-{% from "macros/links.html" import wikilink, githublink %}
-{% from "macros/math.html" import include_mathjax %}
+{% from 'macros/figures.html' import caption %}
+{% from 'macros/links.html' import wikilink, githublink %}
 
 {% block title %}Voronoi on the GPU{% endblock %}
 {% block head %}
 
-    {% set cd = 'projects/voronoi-on-the-gpu/' %}
-
     {{ super() }}
+
+    {% set cd = 'projects/voronoi-on-the-gpu/' %}
 
     {% from 'macros/resource_fetching.html' import async_css %}
     {{ async_css(url_for('static', filename='projects/css/figures.css')) }}
@@ -18,12 +17,13 @@
     <script type="text/javascript"
             src="{{ url_for('static', filename='3rd/three/three.min.js') }}"></script>
 
+    {% from 'macros/math.html' import include_mathjax %}
     {{ include_mathjax() }}
 
-    <script type="text/javascript"
-            src="{{ url_for('static', filename=cd + 'js/voronoi.min.js') }}"></script>
-    <script type="text/javascript"
-            src="{{ url_for('static', filename=cd + 'js/figure_1.js') }}"></script>
+    <script src="{{ url_for('static', filename='3rd/require/require.min.js') }}"
+            data-main="{{ url_for('static', filename=cd + 'js/figure_1') }}"
+            async>
+    </script>
 
 {% endblock %}
 {% block projectSummary %}

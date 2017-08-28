@@ -68,5 +68,17 @@
         canvas.addEventListener('click', _refresh);
     }
 
-    window.addEventListener('load', _initialize);
+    requirejs.config({
+        paths: {
+            "voronoi": "/static/projects/voronoi-on-the-gpu/js/voronoi.min"
+        }
+    });
+    define(["voronoi"], () =>
+    {
+        if (document.readyState === "complete") { _initialize(); }
+        else
+        {
+            window.addEventListener('load', () => _initialize());
+        }
+    });
 })();
