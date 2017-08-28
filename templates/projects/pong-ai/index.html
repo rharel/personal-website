@@ -45,9 +45,9 @@
 {% endblock %}
 {% block content %}
 
-    {% set cd = 'projects/pong-ai/' %}
-
     {{ super() }}
+
+    {% set cd = 'projects/pong-ai/' %}
 
     <a id="section-game-rules"></a>
     <h2>Game rules</h2>
@@ -132,7 +132,7 @@
                    'Human player (bottom) vs. a passive ball-tracking AI (top). The AI simply moves its
                     paddle towards the ball\'s position at all times.') }}
 
-        <video preload="auto" controls width="300">
+        <video class="large" preload="auto" controls width="300">
             <source src="https://i.imgur.com/IgDoiXm.mp4" type="video/mp4">
         </video>
     </div>
@@ -163,7 +163,7 @@
                    'Human player (bottom) vs. a future-predicting AI (top). The AI predicts the
                     position of the ball the next time it hits the goal and aims to be there first.') }}
 
-        <video preload="auto" controls width="300">
+        <video class="large" preload="auto" controls width="300">
             <source src="https://i.imgur.com/wmvKjiy.mp4" type="video/mp4">
         </video>
     </div>
@@ -200,7 +200,7 @@
                     such that the ball will bounce off its paddle as further away from the
                     opposing player as possible.') }}
 
-        <video preload="auto" controls width="300">
+        <video class="large" preload="auto" controls width="300">
             <source src="http://imgur.com/rIbl6kI.mp4" type="video/mp4">
         </video>
     </div>
