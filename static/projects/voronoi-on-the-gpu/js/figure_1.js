@@ -70,10 +70,11 @@
 
     requirejs.config({
         paths: {
+            "three": "/static/3rd/three/three.min",
             "voronoi": "/static/projects/voronoi-on-the-gpu/js/voronoi.min"
         }
     });
-    define(["voronoi"], () =>
+    define(["three", "voronoi"], () =>
     {
         if (document.readyState === "complete") { _initialize(); }
         else
