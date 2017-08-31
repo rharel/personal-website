@@ -49,9 +49,9 @@
 {% endblock %}
 {% block content %}
 
-    {% set cd = 'projects/pacman-in-unity/' %}
-
     {{ super() }}
+
+    {% set cd = 'projects/pacman-in-unity/' %}
 
     <a id="section-features"></a>
     <h2>Features</h2>
@@ -89,20 +89,26 @@
     <h2>Screenshots</h2>
 
     <div class="figure">
-        {{  image_collection(
-            [
-                {"url": cd + 'img/screenshots/large/main_menu.png',
-                "thumbnail_url": cd + 'img/screenshots/small/main_menu.jpg'},
-                {"url": cd + 'img/screenshots/large/game_in_progress.png',
-                "thumbnail_url": cd + 'img/screenshots/small/game_in_progress.jpg'},
-                {"url": cd + 'img/screenshots/large/level_clear_menu.png',
-                "thumbnail_url": cd + 'img/screenshots/small/level_clear_menu.jpg'},
-                {"url": cd + 'img/screenshots/large/pause_menu.png',
-                "thumbnail_url": cd + 'img/screenshots/small/pause_menu.jpg'}
-            ],
-            class_list='large',
-            do_link=True)
-        }}
+        {% set images = [
+            ['game_in_progress', 'A game in progress'],
+            ['level_clear_menu', 'Level-clear menu'],
+            ['main_menu', 'Main menu'],
+            ['pause_menu', 'Pause menu']
+        ] %}
+        {% for file_name, subtitle in images %}
+            {% set url_small = cd + 'img/screenshots/small/' + file_name + '.jpg' %}
+            {% set url_large = cd + 'img/screenshots/large/' + file_name + '.png' %}
+            <div class="subfigure">
+                <a href="{{ url_for('static', filename=url_large) }}"
+                   target="_blank"
+                   title="View">
+                    <img class="larger" src="{{ url_for('static', filename=url_small) }}"/>
+                </a>
+                <div class="subtitle">
+                    {{ subtitle }}
+                </div>
+            </div>
+        {% endfor %}
     </div>
 
     <a id="section-source-code"></a>
