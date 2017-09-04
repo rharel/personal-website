@@ -1,0 +1,124 @@
+html {
+  font-size: 10px; }
+  @media (max-width: 500px) {
+    html {
+      font-size: 10px; } }
+  @media (max-width: 700px) {
+    html {
+      font-size: 10px; } }
+  @media (min-width: 700px) and (max-width: 1300px) {
+    html {
+      font-size: 10px; } }
+  @media (min-width: 1300px) and (max-width: 1500px) {
+    html {
+      font-size: 15px; } }
+  @media (min-width: 1500px) {
+    html {
+      font-size: 20px; } }
+
+body {
+  margin: 0;
+  padding-bottom: 15rem;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 2.2rem;
+  color: #282828;
+  background-color: #FAFAFD; }
+
+header {
+  padding-left: 4rem;
+  padding-right: 4rem;
+  padding-top: 2rem; }
+  @media (max-width: 500px) {
+    header {
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+      padding-top: 2rem; } }
+
+#title-and-logo {
+  display: flex;
+  align-items: center; }
+  @media (max-width: 500px) {
+    #title-and-logo {
+      flex-direction: column; } }
+
+#title-and-logo > #title {
+  flex-grow: 1;
+  font-size: 5rem;
+  font-weight: bold;
+  color: #316899; }
+  @media (max-width: 500px) {
+    #title-and-logo > #title {
+      flex-grow: 0; } }
+  @media (max-width: 500px) {
+    #title-and-logo > #title {
+      font-size: 2.5rem; } }
+
+#title-and-logo > #title > span.line {
+  display: inline-block; }
+
+#title-and-logo > img {
+  width: 15rem; }
+  @media (max-width: 500px) {
+    #title-and-logo > img {
+      width: 10rem;
+      margin-top: 1rem; } }
+
+#preamble {
+  font-size: 1.5rem;
+  color: #3F3F3F;
+  text-align: right; }
+  @media (max-width: 500px) {
+    #preamble {
+      margin-top: 2rem;
+      text-align: left; } }
+
+body > p, body > div {
+  padding-left: 4rem;
+  padding-right: 4rem;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  background-color: #FFF062; }
+  @media (max-width: 500px) {
+    body > p, body > div {
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+      padding-top: 2rem;
+      padding-bottom: 2rem; } }
+
+#introduction, #access {
+  margin-bottom: 0;
+  background-color: #C2DFFF; }
+
+.section-title {
+  display: block;
+  font-size: 4rem; }
+
+.feature-image {
+  margin-left: 1rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  float: right;
+  width: 40%; }
+  @media (max-width: 500px) {
+    .feature-image {
+      margin: 0;
+      float: none;
+      width: 100%; } }
+
+a {
+  color: #0066FF;
+  text-decoration: none; }
+
+a:hover {
+  text-decoration: underline; }
+
+#access > .button img {
+  display: inline-block;
+  vertical-align: middle;
+  width: 5rem; }
+
+footer {
+  margin-top: 5rem;
+  font-size: 1.25rem;
+  color: #9F9F9F;
+  text-align: center; }

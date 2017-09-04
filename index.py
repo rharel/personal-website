@@ -49,6 +49,14 @@ def show_project(project):
 def show_project_page(project, page):
     return try_to_render_template('projects/%s/pages/%s.html' % (project, page))
 
+@app.route('/research/')
+def research():
+    return redirect(url_for('research_project', project='virtual-dialogue'))
+
+@app.route('/research/<project>')
+def research_project(project):
+    return try_to_render_template('research/%s/index.html' % project)
+
 @app.route('/contact')
 def contact():
     return render_template('contact/contact.html')

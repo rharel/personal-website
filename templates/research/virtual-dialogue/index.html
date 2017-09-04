@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        {% set cd = 'research/virtual-dialogue/' %}
+
+        <title>Towards multi-modal, multi-party virtual dialog systems</title>
+
+        <link rel="icon" type="image/png"
+              href="{{ url_for('static', filename=cd + 'img/uu_logo.svg') }}"
+              sizes="32x32">
+        <link rel="icon" type="image/png"
+              href="{{ url_for('static', filename=cd + 'img/uu_logo.svg') }}"
+              sizes="96x96">
+        <link rel="icon" type="image/png"
+              href="{{ url_for('static', filename=cd + 'img/uu_logo.svg') }}"
+              sizes="194x194">
+
+        {% from 'macros/resource_fetching.html' import async_css, inline_css, inline_js %}
+
+        {{ inline_css(cd + 'css/index.css') }}
+
+        {{ async_css('https://fonts.googleapis.com/css?family=Open+Sans') }}
+
+        {% block head %}{% endblock %}
+
+        {{ inline_js('base/js/3rd/loadCSS/loadCSS.min.js') }}
+        {{ inline_js('base/js/3rd/loadCSS/cssrelpreload.min.js') }}
+
+    </head>
+    <body>
+        <header>
+            <div id="title-and-logo">
+                <div id="title">
+                    <span class="line">Towards multi-modal, multi-party</span>
+                    <span class="line">virtual dialog systems</span>
+                </div>
+                <img src="{{ url_for('static', filename=cd + 'img/uu_logo.svg') }}"
+                     alt="Utrecht University Logo">
+            </div>
+            <div id="preamble">
+                <span class="line">Utrecht University, Faculty of Science</span><br>
+                <span class="line">Intelligent Systems Group / </span>
+                <span class="line">Division of Interaction Technology</span>
+            </div>
+        </header>
+        <p id="introduction">
+            Existing frameworks and tools for modeling virtual dialogue tend to be designed with dyadic
+            interactions in mind, and are often built to serve solely in task-oriented domains. However,
+            modeling realistic action and turn-taking in more general scenarios remains a challenge.
+            We propose a generic framework to aid in development of multi-modal, multi-party dialogue. It
+            contains mechanisms inspired by social practice theory for both action selection and timing &mdash;
+            including handling of interruption. As a proof-of-concept, we employ these ideas in a virtual
+            couples-therapy session, demonstrating their potential in modeling complex real-life situations.
+        </p>
+        <div>
+            <span class="section-title">Interruption-enabled agency</span>
+            <a href="{{ url_for('static', filename=cd + 'img/agency_model.svg') }}"
+               target="_blank" title="View">
+                <img class="feature-image"
+                     src="{{ url_for('static', filename=cd + 'img/agency_model.svg') }}">
+            </a>
+            <div class="feature">
+                <p>
+                    A common shortcoming of all prevalent turn-taking methods is the implicit assumption that a turn
+                    has instantaneous duration. Meaning that once an agent takes a turn, it proceeds to complete it
+                    with no regard to any new events that transpire during it. This is a major hurdle for dialogue
+                    in complex dynamic scenarios such as those often found in serious-games. Our agency model
+                    rectifies this.
+                </p>
+            </div>
+
+            <span class="section-title">Action selection/timing through social practices</span>
+            <p>
+                Social practice theory attempts to articulate the symbiotic relationship between the actions of social
+                beings and the systematic rules (be they explicit or implicit) that govern their societies. In
+                conversation, social practices dictate a great deal of our conduct, and the idea of incorporating them
+                in the development of agency systems brings with it some very appealing benefits: they are
+                intuitive to reason about, flexible when describing behavior, and easily reusable.
+            </p>
+            <p>
+                We use the concept of 'social expectations' as a gateway to describing practices in dialogue. We define
+                several types of expectations, and show how they can be arranged to elicit realistic behavior even
+                in complex scenarios &mdash; including both appropriate selection and timing of action.
+            </p>
+            <!--<a href="{{ url_for('static', filename=cd + 'img/demo_screenshot.png') }}" title="View">-->
+                <!--<img class="feature-image"-->
+                     <!--src="{{ url_for('static', filename=cd + 'img/demo_screenshot.png') }}">-->
+            <!--</a>-->
+
+            <span class="section-title">Managing communication</span>
+            <a href="{{ url_for('static', filename=cd + 'img/demo_screenshot.png') }}"
+               target="_blank" title="View">
+                <img class="feature-image"
+                     src="{{ url_for('static', filename=cd + 'img/demo_screenshot.png') }}">
+            </a>
+            <p>
+                Agents in the scene undergo a classic update cycle consisting of three elementary steps:
+                perception, deliberation, and action. The communication management system is responsible
+                for coordinating this cycle, so that events are perceived consistently across the population. It
+                collects the actions produced by agents in one iteration, and makes them available for perception
+                in the next. To accommodate for multi-modality, the actions collected are organized through
+                channels, with each channel carrying actions belonging to a single modality.
+            </p>
+        </div>
+        <div id="access">
+            <div class="button">
+                <a href="https://bitbucket.org/raoul_harel/gmt-thesis" target="_blank">
+                    <img src="{{ url_for('static', filename=cd + 'img/document.svg') }}">
+                    <span class="text">Browse source code & documentation</span>
+                </a>
+            </div>
+            <div class="button">
+                <a href="https://tinyurl.com/rharel-gmt-thesis-2017-demo" target="_blank">
+                    <img src="{{ url_for('static', filename=cd + 'img/download.svg') }}">
+                    <span class="text">Download the demo</span>
+                </a>
+            </div>
+        </div>
+        <footer>
+            This page was last updated in September, 2017
+        </footer>
+    </body>
+</html>
