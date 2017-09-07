@@ -74,6 +74,17 @@ body > p, body > div
 
     background-color: #FFF062;
 }
+#video
+{
+    background-color: inherit;
+    text-align: center;
+}
+#video > iframe
+{
+    max-width:  90vw;
+    max-height: 90vh;
+}
+
 #introduction, #access
 {
     margin-bottom: 0;

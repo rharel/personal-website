@@ -85,6 +85,14 @@ body > p, body > div {
       padding-top: 2rem;
       padding-bottom: 2rem; } }
 
+#video {
+  background-color: inherit;
+  text-align: center; }
+
+#video > iframe {
+  max-width: 90vw;
+  max-height: 90vh; }
+
 #introduction, #access {
   margin-bottom: 0;
   background-color: #C2DFFF; }
