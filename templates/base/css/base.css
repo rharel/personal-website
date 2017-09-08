@@ -67,6 +67,9 @@ body {
       display: block; } }
   #navigation-bar-buttons > .button-container + .button-container {
     margin-left: 4.8rem; }
+    @media (max-width: 700px) {
+      #navigation-bar-buttons > .button-container + .button-container {
+        margin-left: 5%; } }
     @media (max-width: 500px) {
       #navigation-bar-buttons > .button-container + .button-container {
         margin-left: 0; } }

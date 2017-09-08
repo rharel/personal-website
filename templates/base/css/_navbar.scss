@@ -60,7 +60,8 @@ $menu_button_size: 3.2rem;
     & + .button-container
     {
                               margin-left: 4.8rem;
-        @include media-XS() { margin-left: 0; }
+        @include media-S()  { margin-left: 5%; }
+        @include media-XS() { margin-left: 0;  }
     }
 }
 #navigation-bar-buttons > .button-container > a
