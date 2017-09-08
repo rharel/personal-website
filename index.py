@@ -3,11 +3,27 @@ from flask_htmlmin import HTMLMIN
 from jinja2.exceptions import TemplateNotFound
 
 
+##################
+# Initialization #
+##################
+
 app = Flask(__name__)
 app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 604800
 app.config['MINIFY_PAGE'] = True
 
 HTMLMIN(app)
+
+def try_to_render_template(url):
+    try:
+        return render_template(url)
+    except TemplateNotFound as error:
+        return page_not_found(error)
+    except Exception as other_exception:
+        raise other_exception
+
+##################
+# Error Handlers #
+##################
 
 @app.errorhandler(403)
 def page_access_forbidden(error):
@@ -21,6 +37,9 @@ def page_not_found(error):
 def internal_error(error):
     return render_template('errors/500.html'), 500
 
+###############
+# Main routes #
+###############
 
 @app.route('/')
 def index():
@@ -37,6 +56,14 @@ def root(filename):
 def about():
     return render_template('about/about.html')
 
+@app.route('/contact')
+def contact():
+    return render_template('contact/contact.html')
+
+############
+# Projects #
+############
+
 @app.route('/projects/')
 def projects():
     return render_template('projects/gallery/gallery.html')
@@ -49,6 +76,10 @@ def show_project(project):
 def show_project_page(project, page):
     return try_to_render_template('projects/%s/pages/%s.html' % (project, page))
 
+############
+# Research #
+############
+
 @app.route('/research/')
 def research():
     return redirect(url_for('research_project', project='virtual-dialogue'))
@@ -57,19 +88,9 @@ def research():
 def research_project(project):
     return try_to_render_template('research/%s/index.html' % project)
 
-@app.route('/contact')
-def contact():
-    return render_template('contact/contact.html')
-
-
-def try_to_render_template(url):
-    try:
-        return render_template(url)
-    except TemplateNotFound as error:
-        return page_not_found(error)
-    except Exception as other_exception:
-        raise other_exception
-
+#########
+# Debug #
+#########
 
 if __name__ == '__main__':
     app.run(debug=True)
