@@ -1,7 +1,8 @@
 .tag, .tag-cpp, .tag-c-sharp, .tag-java, .tag-js,
 .tag-ts, .tag-opengl,
-.tag-webgl, .tag-python, .tag-rust, .tag-web-extensions, .tag-unity, .tag-ai, .tag-audio, .tag-cellular-automata, .tag-computational-geometry, .tag-computer-networks, .tag-data-analysis,
-.tag-signal-processing, .tag-graphics, .tag-physics, .tag-procedural-content-generation, .tag-ui {
+.tag-webgl, .tag-python, .tag-rust, .tag-web-extensions, .tag-unity, .tag-ai,
+.tag-mas, .tag-audio, .tag-cellular-automata, .tag-computational-geometry, .tag-computer-networks, .tag-data-analysis,
+.tag-signal-processing, .tag-graphics, .tag-physics, .tag-pcg, .tag-ui {
   padding-left: 0.4rem;
   padding-right: 0.4rem;
   border: 0.05rem solid #9F9F9F;
@@ -41,7 +42,8 @@
 .tag-unity {
   border-bottom-color: #3C3C3C; }
 
-.tag-ai {
+.tag-ai,
+.tag-mas {
   border-bottom-color: #2D5B8F; }
 
 .tag-audio {
@@ -66,7 +68,7 @@
 .tag-physics {
   border-bottom-color: #19BF25; }
 
-.tag-procedural-content-generation {
+.tag-pcg {
   border-bottom-color: #EC5D28; }
 
 .tag-ui {

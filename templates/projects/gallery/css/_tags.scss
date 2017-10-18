@@ -32,14 +32,15 @@
 
 // Topics
 
-.tag-ai                            { @extend .tag; border-bottom-color: #2D5B8F; }
-.tag-audio                         { @extend .tag; border-bottom-color: #800080; }
-.tag-cellular-automata             { @extend .tag; border-bottom-color: #303C8F; }
-.tag-computational-geometry        { @extend .tag; border-bottom-color: #598AFF; }
-.tag-computer-networks             { @extend .tag; border-bottom-color: #F22B00; }
+.tag-ai,
+.tag-mas                    { @extend .tag; border-bottom-color: #2D5B8F; }
+.tag-audio                  { @extend .tag; border-bottom-color: #800080; }
+.tag-cellular-automata      { @extend .tag; border-bottom-color: #303C8F; }
+.tag-computational-geometry { @extend .tag; border-bottom-color: #598AFF; }
+.tag-computer-networks      { @extend .tag; border-bottom-color: #F22B00; }
 .tag-data-analysis,
-.tag-signal-processing             { @extend .tag; border-bottom-color: #A761FB }
-.tag-graphics                      { @extend .tag; border-bottom-color: #51ABFF; }
-.tag-physics                       { @extend .tag; border-bottom-color: #19BF25; }
-.tag-procedural-content-generation { @extend .tag; border-bottom-color: #EC5D28; }
-.tag-ui                            { @extend .tag; border-bottom-color: #CE3475; }
+.tag-signal-processing      { @extend .tag; border-bottom-color: #A761FB; }
+.tag-graphics               { @extend .tag; border-bottom-color: #51ABFF; }
+.tag-physics                { @extend .tag; border-bottom-color: #19BF25; }
+.tag-pcg                    { @extend .tag; border-bottom-color: #EC5D28; }
+.tag-ui                     { @extend .tag; border-bottom-color: #CE3475; }
