@@ -1,0 +1,33 @@
+{% extends "projects/base/info_base.html" %}
+
+{% from "macros/links.html" import wikilink %}
+
+{% block projectTitle %}Efficient Reformation{% endblock %}
+{% block projectBriefTitle %}Efficient Reformation{% endblock %}
+{% block projectURL %}/projects/efficient-reformation{% endblock %}
+{% block projectThumbnailURL %}
+
+    {{ url_for('static', filename='projects/efficient-reformation/img/rectangular_formation_128px.png') }}
+
+{% endblock %}
+{% block projectSummary %}
+
+    In this project we take the minimum-cost {{ wikilink('assignment problem') }}, and apply it to
+    the problem of efficient reformation, which reads: "What is the most efficient way for a unit of
+    vehicles to transition from one formation to another?" We solve it with our own implementation
+    of the {{ wikilink('Hungarian Algorithm', 'Hungarian algorithm') }} and build a demo showcasing the results.
+
+{% endblock %}
+{% block projectBriefSummary %}
+
+    In this project we take the minimum-cost {{ wikilink('assignment problem') }}, and apply it to
+    the problem of efficient reformation, which reads: "What is the most efficient way for a unit of
+    vehicles to transition from one formation to another?"
+
+{% endblock %}
+{% block projectTags %}
+
+    <span class="tag-cpp">C++</span>
+    <span class="tag-mas">Multi-agent Systems</span>
+
+{% endblock %}
