@@ -74,12 +74,15 @@
             "voronoi": "/static/projects/voronoi-on-the-gpu/js/voronoi.min"
         }
     });
-    define(["three", "voronoi"], () =>
+    define(["three"], () =>
     {
-        if (document.readyState === "complete") { _initialize(); }
-        else
+        require(["voronoi"], () =>
         {
-            window.addEventListener('load', () => _initialize());
-        }
+            if (document.readyState === "complete") { _initialize(); }
+            else
+            {
+                window.addEventListener('load', () => _initialize());
+            }
+        });
     });
 })();
