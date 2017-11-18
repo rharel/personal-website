@@ -120,12 +120,18 @@ a:hover
     text-decoration: underline;
 }
 
+#access > .button > a
+{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
 #access > .button img
 {
-    display: inline-block;
-    vertical-align: middle;
+    margin-right: 1rem;
     width: 5rem;
 }
+
 footer
 {
     margin-top: 5rem;
