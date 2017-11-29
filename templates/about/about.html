@@ -12,10 +12,13 @@
 {% block content %}
 
     <div id="portrait-container">
-        <img src="{{ url_for('static', filename='about/img/portrait_128px.png') }}"
-             srcset="{{ url_for('static', filename='about/img/portrait_128px.png') }} 128w,
-                     {{ url_for('static', filename='about/img/portrait_256px.png') }} 256w"
-             sizes="(max-width: 256px) 50vw, 20vw">
+        <a href="{{ url_for('static', filename='about/img/portrait_512px.png') }}" title="View">
+            <img src="{{ url_for('static', filename='about/img/portrait_128px.png') }}"
+                 srcset="{{ url_for('static', filename='about/img/portrait_128px.png') }} 128w,
+                         {{ url_for('static', filename='about/img/portrait_256px.png') }} 256w,
+                         {{ url_for('static', filename='about/img/portrait_512px.png') }} 512w"
+                 sizes="(max-width: 512px) 50vw, 20vw">
+        </a>
     </div>
 
     <p>
@@ -41,4 +44,4 @@
         Raoul
     </p>
 {% endblock %}
-{% block lastUpdateStamp %} October, 2017 {% endblock %}
+{% block lastUpdateStamp %} November, 2017 {% endblock %}
