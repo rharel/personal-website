@@ -21,7 +21,7 @@
     <url>
       <loc>http://www.rharel.com/projects/</loc>
       <priority>1.0</priority>
-      <lastmod>2017-10-20</lastmod>
+      <lastmod>2017-12-14</lastmod>
       <changefreq>weekly</changefreq>
     </url>
     <url>
@@ -107,6 +107,12 @@
     <url>
         <loc>http://www.rharel.com/projects/pitch-detection/showcase</loc>
         <lastmod>2017-06-04</lastmod>
+        <changefreq>monthly</changefreq>
+    </url>
+
+    <url>
+        <loc>http://www.rharel.com/projects/pixel-sorting</loc>
+        <lastmod>2017-12-14</lastmod>
         <changefreq>monthly</changefreq>
     </url>
 

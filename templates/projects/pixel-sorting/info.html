@@ -1,0 +1,28 @@
+{% extends "projects/base/info_base.html" %}
+
+{% block projectTitle %}Pixel sorting{% endblock %}
+{% block projectBriefTitle %}Pixel sorting{% endblock %}
+{% block projectURL %}/projects/pixel-sorting{% endblock %}
+{% block projectThumbnailURL %}
+
+    {{ url_for('static', filename='projects/pixel-sorting/img/compare_h_affect_rgb_256px.png') }}
+
+{% endblock %}
+{% block projectSummary %}
+
+    Pixel sorting is a family of image effects wherein pixels of an image are sorted by a specified
+    property along some dimension. Their sorted order is used to derive modifications to the image.
+
+{% endblock %}
+{% block projectBriefSummary %}
+
+    Pixel sorting is a family of image effects wherein pixels of an image are sorted by a specified
+    property along some dimension. Their sorted order is used to derive modifications to the image.
+
+{% endblock %}
+{% block projectTags %}
+
+    <span class="tag-rust">Rust</span>
+    <span class="tag-graphics">Graphics</span>
+
+{% endblock %}
