@@ -3,9 +3,14 @@
 {% block projectTitle %}Pixel sorting{% endblock %}
 {% block projectBriefTitle %}Pixel sorting{% endblock %}
 {% block projectURL %}/projects/pixel-sorting{% endblock %}
-{% block projectThumbnailURL %}
+{% block projectThumbnail %}
 
-    {{ url_for('static', filename='projects/pixel-sorting/img/compare_h_affect_rgb_256px.png') }}
+    {% set cd = 'projects/pixel-sorting/img/compare_h_affect_rgb_' %}
+    <img src="{{ url_for('static', filename=cd + '256px.png') }}"
+         srcset="{{ url_for('static', filename=cd + '38px.png') }}  38w,
+                 {{ url_for('static', filename=cd + '128px.png') }} 128w,
+                 {{ url_for('static', filename=cd + '256px.png') }} 256w"
+         sizes="(max-width: 512px) 5vw, 10vw">
 
 {% endblock %}
 {% block projectSummary %}

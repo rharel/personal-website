@@ -1,6 +1,10 @@
 <div class="project-info">
     <div class="thumbnail">
-        <img src="{% block projectThumbnailURL %}{% endblock %}">
+        {% if self.projectThumbnail() | trim %}
+            {% block projectThumbnail %}{% endblock %}
+        {% else %}
+            <img src="{% block projectThumbnailURL %}{% endblock %}">
+        {% endif %}
     </div>
     <div class="details">
         <div class="long title">
