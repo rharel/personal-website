@@ -56,7 +56,7 @@
         });
 
         image.crossOrigin = true;
-        image.src         = "https://i.imgur.com/eYtvdYlm.jpg";
+        image.src = "/static/projects/palette-extraction/img/showcase.png";
     }
 
     requirejs.config({
