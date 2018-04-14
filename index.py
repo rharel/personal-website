@@ -68,6 +68,7 @@ def about():
     return render_template("about/about.html")
 
 # Contact
+
 @app.route("/contact")
 def contact():
     return render_template("contact/contact.html")
