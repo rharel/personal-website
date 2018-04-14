@@ -51,6 +51,13 @@ if app.debug:
 # Main routes #
 ###############
 
+if not app.debug:
+    @app.before_request
+    def upgrade_to_https():
+        if not request.is_secure:
+            url = request.url.replace("http://", "https://", 1)
+            return redirect(url, code=301)
+
 # Root
 
 @app.route("/")
