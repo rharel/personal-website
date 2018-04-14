@@ -1,5 +1,5 @@
 from flask import Flask, redirect, url_for, render_template
-from flask_htmlmin import HTMLMIN
+from flask_htmlmin import HTMLMIN as initialize_htmlmin
 from jinja2.exceptions import TemplateNotFound
 
 
@@ -8,10 +8,15 @@ from jinja2.exceptions import TemplateNotFound
 ##################
 
 app = Flask(__name__)
-app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 604800
-app.config['MINIFY_PAGE'] = True
+app.config["DEBUG"] = __name__ == "__main__"
+app.config["MINIFY_PAGE"] = True
+app.config["SEND_FILE_MAX_AGE_DEFAULT"] = 604800
 
-HTMLMIN(app)
+initialize_htmlmin(app)
+
+#############
+# Utilities #
+#############
 
 def try_to_render_template(url):
     try:
@@ -27,70 +32,79 @@ def try_to_render_template(url):
 
 @app.errorhandler(403)
 def page_access_forbidden(error):
-    return render_template('errors/403.html'), 403
+    return render_template("errors/403.html"), 403
 
 @app.errorhandler(404)
 def page_not_found(error):
-    return render_template('errors/404.html'), 404
+    return render_template("errors/404.html"), 404
 
 @app.errorhandler(500)
 def internal_error(error):
-    return render_template('errors/500.html'), 500
+    return render_template("errors/500.html"), 500
+
+if app.debug:
+    @app.route("/error/<code>")
+    def debug_error(code):
+        return render_template("errors/{code}.html".format(code=code))
 
 ###############
 # Main routes #
 ###############
 
-@app.route('/')
+# Root
+
+@app.route("/")
 def index():
-    return redirect(url_for('about'))
+    return about()
 
-@app.route('/<filename>')
-def root(filename):
-    if filename.startswith("/"):
-        filename = filename[1:]
+@app.route("/favicon.ico")
+def favicon():
+    return redirect("static/common/image/favicon_16.ico")
 
-    return redirect(url_for('static', filename='root/' + filename))
+# About
 
-@app.route('/about')
+@app.route("/about")
 def about():
-    return render_template('about/about.html')
+    return render_template("about/about.html")
 
-@app.route('/contact')
+# Contact
+@app.route("/contact")
 def contact():
-    return render_template('contact/contact.html')
+    return render_template("contact/contact.html")
 
 ############
 # Projects #
 ############
 
-@app.route('/projects/')
+@app.route("/projects/")
 def projects():
-    return render_template('projects/gallery/gallery.html')
+    return render_template("projects/gallery/gallery.html")
 
-@app.route('/projects/<project>')
+@app.route("/projects/<project>")
 def show_project(project):
-    return try_to_render_template('projects/%s/index.html' % project)
+    return try_to_render_template("projects/{project}/index.html".format(project=project))
 
-@app.route('/projects/<project>/<page>')
+@app.route("/projects/<project>/<page>")
 def show_project_page(project, page):
-    return try_to_render_template('projects/%s/pages/%s.html' % (project, page))
+    return try_to_render_template("projects/{project}/pages/{page}.html".format(
+        project=project,
+        page=page
+    ))
 
 ############
 # Research #
 ############
 
-@app.route('/research/')
+@app.route("/research/")
 def research():
-    return redirect(url_for('research_project', project='virtual-dialogue'))
+    return redirect(url_for("research_project", project="virtual-dialogue"))
 
-@app.route('/research/<project>')
+@app.route("/research/<project>")
 def research_project(project):
-    return try_to_render_template('research/%s/index.html' % project)
+    return try_to_render_template("research/{project}/index.html".format(project=project))
 
-#########
-# Debug #
-#########
+#######
+# Run #
+#######
 
-if __name__ == '__main__':
-    app.run(debug=True)
+if app.debug: app.run()
