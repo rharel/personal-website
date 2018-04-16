@@ -1,0 +1,8 @@
+@mixin media-XS
+{
+	@media (max-width: 500px) { @content; }
+}
+@mixin media-S
+{
+	@media (max-width: 700px) { @content; }
+}

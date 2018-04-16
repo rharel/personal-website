@@ -1,16 +1,16 @@
-{% extends "projects/base/info_base.html" %}
+{% extends "projects/gallery/project_info.html" %}
 
 {% from "macros/links.html" import wikilink %}
 
-{% block projectTitle %}Higher-order Bezier{% endblock %}
-{% block projectBriefTitle %}Higher-order Bezier{% endblock %}
-{% block projectURL %}/projects/higher-order-bezier{% endblock %}
-{% block projectThumbnailURL %}
+{% block project_title %}Higher-order Bezier{% endblock %}
+{% block project_brief_title %}Higher-order Bezier{% endblock %}
+{% block project_url %}/projects/higher-order-bezier{% endblock %}
+{% block project_thumbnail_url %}
 
     {{ url_for('static', filename='projects/higher-order-bezier/img/c_curve.svg') }}
 
 {% endblock %}
-{% block projectSummary %}
+{% block project_summary %}
 
     {{ wikilink('Bezier curves') }} are everywhere. Their simple definition and flexibility makes
     them oftentimes quite useful for animation and other applications in computer graphics.
@@ -18,13 +18,13 @@
     generally too complex to be useful, they do make for beautiful art!
 
 {% endblock %}
-{% block projectBriefSummary %}
+{% block project_brief_summary %}
 
     Compute and render higher-order {{ wikilink('Bezier curves') }} to make
     beautiful {{ wikilink('string art') }}!
 
 {% endblock %}
-{% block projectTags %}
+{% block project_tags %}
 
     <span class="tag-js">Javascript</span>
     <span class="tag-graphics">Graphics</span>

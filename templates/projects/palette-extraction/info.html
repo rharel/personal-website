@@ -1,16 +1,16 @@
-{% extends "projects/base/info_base.html" %}
+{% extends "projects/gallery/project_info.html" %}
 
 {% from "macros/links.html" import wikilink %}
 
-{% block projectTitle %}Palette Extraction{% endblock %}
-{% block projectBriefTitle %}Palette Extraction{% endblock %}
-{% block projectURL %}/projects/palette-extraction{% endblock %}
-{% block projectThumbnailURL %}
+{% block project_title %}Palette Extraction{% endblock %}
+{% block project_brief_title %}Palette Extraction{% endblock %}
+{% block project_url %}/projects/palette-extraction{% endblock %}
+{% block project_thumbnail_url %}
 
     {{ url_for('static', filename='projects/palette-extraction/img/colored_squares_100px.svg') }}
 
 {% endblock %}
-{% block projectSummary %}
+{% block project_summary %}
 
     A striking image can often serve as good source of inspiration for new designs.
     However, there is no obvious method for capturing the coloring of a particular image in a
@@ -19,13 +19,13 @@
     {{ wikilink('data analysis') }} to come up with a solution.
 
 {% endblock %}
-{% block projectBriefSummary %}
+{% block project_brief_summary %}
 
     In this project we develop a simple, fast method for the detection of dominant colors and their rank
     in a given image.
 
 {% endblock %}
-{% block projectTags %}
+{% block project_tags %}
 
     <span class="tag-js">JavaScript</span>
     <span class="tag-graphics">Graphics</span>

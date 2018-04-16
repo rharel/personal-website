@@ -1,4 +1,4 @@
-{% extends 'projects/base/index_base.html' %}
+{% extends "projects/base/project_index.html" %}
 
 {% from 'macros/figures.html' import caption %}
 {% from 'macros/links.html' import wikilink, githublink %}
@@ -23,7 +23,7 @@
     </script>
 
 {% endblock %}
-{% block projectSummary %}
+{% block project_summary %}
     <p>
         <b>{{ wikilink('Voronoi diagrams', 'Voronoi diagram') }}</b> are a fundamental concept in
         {{ wikilink('computational geometry') }}, and have their place in countless applications.
@@ -46,7 +46,7 @@
         result in a Voronoi plot.
     </p>
 {% endblock %}
-{% block tableOfContents %}
+{% block table_of_contents %}
 
     <h2>Table of contents</h2>
 

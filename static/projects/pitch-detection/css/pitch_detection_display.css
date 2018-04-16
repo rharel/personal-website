@@ -1,22 +1,22 @@
 .pitch-detection-display {
+  line-height: 0;
   margin-left: auto;
   margin-right: auto;
-  width: 30rem;
   max-width: 80vw;
-  line-height: 0; }
+  width: 30em; }
 
 .pitch-detection-display > .text-display {
-  line-height: 1.5;
-  border: 0.05rem solid purple;
-  width: 100%;
+  background-color: purple;
+  border: 0.05em solid purple;
   color: white;
-  background-color: purple; }
+  line-height: 1.5;
+  width: 100%; }
   .pitch-detection-display > .text-display > .current-note {
-    min-height: 5rem;
-    font-size: 3rem; }
+    font-size: 3em;
+    min-height: 1.5em; }
   .pitch-detection-display > .text-display > .log {
-    min-height: 3rem;
-    padding-left: 1rem;
-    padding-right: 1rem;
-    padding-bottom: 0.5rem;
+    min-height: 3em;
+    padding-left: 1em;
+    padding-right: 1em;
+    padding-bottom: 0.5em;
     text-align: left; }

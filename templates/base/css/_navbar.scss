@@ -2,83 +2,86 @@
 // On small displays, the navigation bar consists of several button in a column, whose visibility is
 // triggered by a menu button (this menu button is only visible for small displays).
 
-@import '../../../static/global/css/common_colors';
-@import '../../../static/global/css/mixins/compatibility';
-@import '../../../static/global/css/mixins/media';
+@import "../../common/css/animation";
+@import "../../common/css/color_palette";
+@import "../../common/css/compatibility";
+@import "../../common/css/layout";
+@import "../../common/css/media";
 
-$menu_button_size: 3.2rem;
+$menu_button_size: 1.8em;
 
 #navigation-bar
 {
     margin:
     {
+        bottom: 1.5em;
         left:   auto;
         right:  auto;
-        top:    1.6rem;
-        bottom: 1.6rem;
+        top:    2em;
     }
-    width: 80%;
-
-    text-align: center;
-
-    @include media-XS()
+    @include media-S()
     {
-        min-height: $menu_button_size;  // Otherwise the (floating) button overlaps lower elements.
-        text-align: left;
+        margin-top: 1em;
+        width: $content-width;
     }
+    @include media-XS() { width: $content-width-xs; }
 }
 
 #menu-button-input { display: none; }
 #menu-button-label
 {
-                          display: none;
-    @include media-XS() { display: block; }
-
-    float:  right;
     cursor: pointer;
+    display: none;
+    width: $menu_button_size;
+
+    @include media-S()
+    {
+        display: block;
+        margin-left: auto;
+    }
 }
 #menu-button-label > img
 {
-    width:  $menu_button_size;
     height: $menu_button_size;
+    width:  $menu_button_size;
 }
 
 #navigation-bar-buttons
 {
-                          display: block;
-    @include media-XS() { display: none; }   // The buttons are hidden when the menu is closed.
+    text-align: center;
+    white-space: nowrap;
+    @include media-S() { display: none; }
 }
 #menu-button-input:checked + #menu-button-label + #navigation-bar-buttons
 {
-    @include media-XS() { display: block; }  // The buttons are visible when the menu is open.
+    @include media-S() { display: block; }
 }
-#navigation-bar-buttons > .button-container
+#navigation-bar-buttons > a
 {
-                          display: inline-block;
-    @include media-XS() { display: block; }
+    border-bottom: 0.33em solid transparent;
+    @include transition(border-bottom-color $medium_transition_duration);
+    &:hover { border-bottom-color: $blue_1; }
 
-    & + .button-container
-    {
-                              margin-left: 4.8rem;
-        @include media-S()  { margin-left: 5%; }
-        @include media-XS() { margin-left: 0;  }
-    }
-}
-#navigation-bar-buttons > .button-container > a
-{
-    display: inline-block;
-
-    border-bottom:        0.5rem solid transparent;
-    &:hover             { border-bottom-color: $blue_1; }
-    @include media-XS() { border-bottom-color: $blue_1; }
-    @include transition(border-bottom-color 0.25s);
-
-    padding:
-    {
-        top:    1.5rem;
-        bottom: 0.5rem;
-    }
-
-    color: inherit;
+    color: $text_color;
+    padding-bottom: 0.25em;
     text-decoration: none;
+
+    @include media-S()
+    {
+        border-bottom-color: $blue_1;
+        display: block;
+    }
+}
+#navigation-bar-buttons > a + a
+{
+    margin-left: 3em;
+
+    @include media-S()
+    {
+        margin:
+        {
+            left: 0;
+            top:  0.5em;
+        }
+    }
 }

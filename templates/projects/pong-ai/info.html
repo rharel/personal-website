@@ -1,16 +1,16 @@
-{% extends "projects/base/info_base.html" %}
+{% extends "projects/gallery/project_info.html" %}
 
 {% from "macros/links.html" import wikilink %}
 
-{% block projectTitle %}Artificial Intelligence for Pong{% endblock %}
-{% block projectBriefTitle %}AI for Pong{% endblock %}
-{% block projectURL %}/projects/pong-ai{% endblock %}
-{% block projectThumbnailURL %}
+{% block project_title %}Artificial Intelligence for Pong{% endblock %}
+{% block project_brief_title %}AI for Pong{% endblock %}
+{% block project_url %}/projects/pong-ai{% endblock %}
+{% block project_thumbnail_url %}
 
      {{ url_for('static', filename='projects/pong-ai/img/game_in_progress.svg') }}
 
 {% endblock %}
-{% block projectSummary %}
+{% block project_summary %}
 
     {{ wikilink('Pong') }} is a classic arcade videogame from the 70's. At the time of this
     project's making, it has been a long while since I've done work related to either Java or
@@ -18,13 +18,13 @@
     with an old classic such as Pong proved to be the refresher course I needed.
 
 {% endblock %}
-{% block projectBriefSummary %}
+{% block project_brief_summary %}
 
     Developing a sufficiently-challenging artificial intelligence for {{ wikilink('Pong') }},
     the classic arcade videogame from the 70's.
 
 {% endblock %}
-{% block projectTags %}
+{% block project_tags %}
 
     <span class="tag-java">Java</span>
     <span class="tag-ai">Artificial Intelligence</span>

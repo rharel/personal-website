@@ -1,16 +1,16 @@
-{% extends "projects/base/info_base.html" %}
+{% extends "projects/gallery/project_info.html" %}
 
 {% from "macros/links.html" import wikilink %}
 
-{% block projectTitle %}Download Accelerator{% endblock %}
-{% block projectBriefTitle %}Download Accelerator{% endblock %}
-{% block projectURL %}/projects/download-accelerator{% endblock %}
-{% block projectThumbnailURL %}
+{% block project_title %}Download Accelerator{% endblock %}
+{% block project_brief_title %}Download Accelerator{% endblock %}
+{% block project_url %}/projects/download-accelerator{% endblock %}
+{% block project_thumbnail_url %}
 
     {{ url_for('static', filename='projects/download-accelerator/img/download_icon_20px.svg') }}
 
 {% endblock %}
-{% block projectSummary %}
+{% block project_summary %}
 
     A command-line-based application that is able to provide accelerated download of
     content by fetching and processing different portions of it concurrently.
@@ -18,7 +18,7 @@
     in the up-and-coming systems language {{ wikilink('Rust', 'rust (programming language)') }}.
 
 {% endblock %}
-{% block projectBriefSummary %}
+{% block project_brief_summary %}
 
     A command-line-based application that is able to provide accelerated download of
     content by fetching and processing different portions of it concurrently.
@@ -26,7 +26,7 @@
     in the up-and-coming systems language {{ wikilink('Rust', 'rust (programming language)') }}.
 
 {% endblock %}
-{% block projectTags %}
+{% block project_tags %}
 
     <span class="tag-rust">Rust</span>
     <span class="tag-computer-networks">Computer Networks</span>

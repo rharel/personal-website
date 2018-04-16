@@ -1,17 +1,18 @@
-@import '../../../static/global/css/common_colors';
-@import '../../../static/global/css/mixins/media';
+@import "../../common/css/color_palette";
+@import "../../common/css/layout";
+@import "../../common/css/media";
 
 #content
 {
+    border-top: 0.33em double $grey_2;
     margin:
     {
-        left:  auto;
-        right: auto;
-        bottom: 10rem;
+        bottom: 5em;
+        left:   auto;
+        right:  auto;
     }
-    border-top:  0.5rem double $grey_2;
-    padding-top: 2.5rem;
+    padding-top: 2em;
+    width: $content-width;
 
-                          width: 67.5%;
-    @include media-XS() { width: 90%; }
+    @include media-XS() { width: $content-width-xs; }
 }

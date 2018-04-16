@@ -1,4 +1,4 @@
-{% extends 'projects/base/index_base.html' %}
+{% extends "projects/base/project_index.html" %}
 
 {% from 'macros/figures.html' import caption %}
 {% from 'macros/links.html' import projectlink, wikilink, githublink %}
@@ -26,7 +26,7 @@
             async></script>
 
 {% endblock %}
-{% block projectSummary %}
+{% block project_summary %}
 
     <p>
         <b>{{ wikilink('Bezier curves', 'Bezier curve') }}</b> see widespread use across a multitude of applications
@@ -42,7 +42,7 @@
     </p>
 
 {% endblock %}
-{% block tableOfContents %}
+{% block table_of_contents %}
 
     <h2>Table of contents</h2>
 

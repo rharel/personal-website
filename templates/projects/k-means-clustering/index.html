@@ -1,4 +1,4 @@
-{% extends 'projects/base/index_base.html' %}
+{% extends "projects/base/project_index.html" %}
 
 {% from 'macros/figures.html' import caption, slideshow %}
 {% from 'macros/links.html' import wikilink, githublink, projectlink %}
@@ -20,7 +20,7 @@
             async></script>
 
 {% endblock %}
-{% block projectSummary %}
+{% block project_summary %}
 
     <p>
         During my time working through a {{ wikilink('computer vision') }} related course, we were
@@ -37,7 +37,7 @@
     </p>
 
 {% endblock %}
-{% block tableOfContents %}
+{% block table_of_contents %}
 
     <h2>Table of contents</h2>
 

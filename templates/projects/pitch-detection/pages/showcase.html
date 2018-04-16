@@ -14,7 +14,7 @@
     {% from "macros/resource_fetching.html" import async_css, inline_css %}
     {{ async_css(url_for('static', filename='projects/css/figures.css')) }}
     {{ async_css(url_for('static', filename='global/css/notices.css')) }}
-    {{ inline_css('projects/base/css/project_index.css') }}
+    {{ inline_css('projects/base/project_index.css') }}
 
     <link rel="stylesheet" type="text/css"
           href="{{ url_for('static', filename=cd + 'css/pitch_detection_display.css') }}">

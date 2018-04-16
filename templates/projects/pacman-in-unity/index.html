@@ -1,4 +1,4 @@
-{% extends "projects/base/index_base.html" %}
+{% extends "projects/base/project_index.html" %}
 
 {% from "macros/figures.html" import image_collection %}
 {% from "macros/links.html" import githublink, wikilink %}
@@ -12,7 +12,7 @@
     {{ async_css(url_for('static', filename='projects/css/figures.css')) }}
 
 {% endblock %}
-{% block projectSummary %}
+{% block project_summary %}
 
     <p>
         {{ wikilink('Unity', 'unity (game engine)') }} is a game engine that has
@@ -35,7 +35,7 @@
     </p>
 
 {% endblock %}
-{% block tableOfContents %}
+{% block table_of_contents %}
 
     <h2>Table of contents</h2>
 

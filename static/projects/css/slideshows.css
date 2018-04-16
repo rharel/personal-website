@@ -3,8 +3,8 @@
 
 .slideshow > .controls > .control-button {
   border: 0.05rem solid #9F9F9F;
-  -webkit-border-radius: 0.2rem;
   -moz-border-radius: 0.2rem;
+  -webkit-border-radius: 0.2rem;
   border-radius: 0.2rem;
   padding-left: 0.5rem;
   padding-right: 0.5rem;
@@ -12,9 +12,9 @@
   color: #282828;
   background-color: #F0F0F0;
   cursor: pointer;
-  -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
+  -webkit-user-select: none;
   user-select: none; }
 
 .slideshow > .controls > .show-previous {

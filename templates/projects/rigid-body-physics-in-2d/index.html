@@ -1,4 +1,4 @@
-{% extends "projects/base/index_base.html" %}
+{% extends "projects/base/project_index.html" %}
 
 {% from "macros/links.html" import githublink, wikilink %}
 {% from "macros/figures.html" import caption %}
@@ -42,7 +42,7 @@
     </script>
 
 {% endblock %}
-{% block projectSummary %}
+{% block project_summary %}
 
     <p>
         In this project we build a simple physically-based real-time simulation for
@@ -57,7 +57,7 @@
         {{ wikilink('spatial partitioning') }} techniques.
     </p>
 {% endblock %}
-{% block tableOfContents %}
+{% block table_of_contents %}
 
     <h2>Table of contents</h2>
 

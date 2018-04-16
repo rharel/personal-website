@@ -1,26 +1,22 @@
-{% extends 'base/base.html' %}
+{% extends "base/base.html" %}
 
 {% block title %}About{% endblock %}
 {% block head %}
 
-    {% from 'macros/resource_fetching.html' import inline_css %}
-    {% set cd = 'about/' %}
-
-    {{ inline_css(cd + 'css/about.css') }}
+    {% from "macros/resource_fetching.html" import inline_css %}
+    {{ inline_css("about/about.css") }}
 
 {% endblock %}
 {% block content %}
-
     <div id="portrait-container">
-        <a href="{{ url_for('static', filename='about/img/portrait_512px.png') }}" title="View">
-            <img src="{{ url_for('static', filename='about/img/portrait_128px.png') }}"
-                 srcset="{{ url_for('static', filename='about/img/portrait_128px.png') }} 128w,
-                         {{ url_for('static', filename='about/img/portrait_256px.png') }} 256w,
-                         {{ url_for('static', filename='about/img/portrait_512px.png') }} 512w"
+        <a href="/static/about/image/portrait_512.png" title="View">
+            <img src="/static/about/image/portrait_128.png"
+                 srcset="/static/about/image/portrait_128.png 128w,
+                         /static/about/image/portrait_256.png 256w,
+                         /static/about/image/portrait_512.png 512w"
                  sizes="(max-width: 512px) 50vw, 20vw">
         </a>
     </div>
-
     <p>
         I'm a computer scientist with interests overlapping fields such as psychology,
         sociology, artificial intelligence, and human-machine interactions.

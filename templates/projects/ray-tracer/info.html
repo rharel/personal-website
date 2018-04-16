@@ -1,16 +1,16 @@
-{% extends "projects/base/info_base.html" %}
+{% extends "projects/gallery/project_info.html" %}
 
 {% from "macros/links.html" import wikilink %}
 
-{% block projectTitle %}Ray Tracer{% endblock %}
-{% block projectBriefTitle %}Ray Tracer{% endblock %}
-{% block projectURL %}/projects/ray-tracer{% endblock %}
-{% block projectThumbnailURL %}
+{% block project_title %}Ray Tracer{% endblock %}
+{% block project_brief_title %}Ray Tracer{% endblock %}
+{% block project_url %}/projects/ray-tracer{% endblock %}
+{% block project_thumbnail_url %}
 
     {{ url_for('static', filename='projects/ray-tracer/img/mirror_hemisphere_100px.png') }}
 
 {% endblock %}
-{% block projectSummary %}
+{% block project_summary %}
 
     {{ wikilink('Ray tracing') }} is an
     {{ wikilink('image-synthesis', 'Rendering_(computer_graphics)') }} method.
@@ -18,14 +18,14 @@
     finally reach the eye. It is computationally expensive but yields highly-realistic images.
 
 {% endblock %}
-{% block projectBriefSummary %}
+{% block project_brief_summary %}
 
     My pet {{ wikilink('ray tracer', 'Ray tracing') }}. Ray tracing is used as an
     {{ wikilink('image-synthesis', 'Rendering_(computer_graphics)') }} method that
     is computationally expensive but yields highly-realistic images.
 
 {% endblock %}
-{% block projectTags %}
+{% block project_tags %}
 
     <span class="tag-cpp">C++</span>
     <span class="tag-graphics">Graphics</span>

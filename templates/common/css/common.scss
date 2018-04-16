@@ -1,0 +1,74 @@
+@import "color_palette";
+@import "compatibility";
+@import "layout";
+@import "media";
+
+a, a:active, a:visited
+{
+    color: $link_color;
+    cursor: pointer;
+    text-decoration: none;
+}
+a:hover { text-decoration: underline; }
+
+body, body * { @include box-sizing(border-box); }
+body
+{
+    background-color: $background_color;
+    color: $text_color;
+    font-family: "Open Sans", sans-serif;
+    margin: 0;
+    width: 100%;
+}
+body > footer
+{
+    color: $note_color;
+    font-size: 0.75em;
+    padding:
+    {
+        bottom: 1em;
+        top:    1em;
+    }
+    text-align: center;
+}
+
+html { font-size: 18.75px; }
+
+img
+{
+    background-color: inherit;
+    display: block;
+}
+
+ol, ul { margin: 0; }
+
+p, ol, ul
+{
+    margin:
+    {
+        bottom: 1em;
+        top:    1em;
+    }
+}
+p + p,
+p + ol,
+p + ul,
+ol + p,
+ul + p
+{ margin-top: 0; }
+
+.notice
+{
+    @include border-radius(1em);
+    padding: 1em;
+}
+.notice.info
+{
+  background-color: $info_background_color;
+  color: $info_text_color;
+}
+.notice.error
+{
+  background-color: $error_background_color;
+  color: $error_text_color;
+}

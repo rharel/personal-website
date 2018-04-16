@@ -1,0 +1,33 @@
+<div class="project-info">
+    <div class="thumbnail">
+        {% if self.project_thumbnail() | trim %}
+            {% block project_thumbnail %}{% endblock %}
+        {% else %}
+            <img src="{% block project_thumbnail_url %}{% endblock %}"
+                 width="100" height="100">
+        {% endif %}
+    </div>
+    <div class="details">
+        <div class="long title">
+            {% block project_title %}{% endblock %}
+        </div>
+        <div class="short title">
+            {% block project_brief_title %}{% endblock %}
+        </div>
+        <div class="tags">
+            {% block project_tags %}{% endblock %}
+        </div>
+        <p class="long summary">
+            {% block project_summary %}{% endblock %}
+        </p>
+        <p class="short summary">
+            {% block project_brief_summary %}{% endblock %}
+        </p>
+    </div>
+    <a class="further-reading"
+       href="{% block project_url %}{% endblock %}"
+       title="Read more">
+
+        <span class="icon">&#187;</span>
+    </a>
+</div>

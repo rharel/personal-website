@@ -1,16 +1,16 @@
-{% extends "projects/base/info_base.html" %}
+{% extends "projects/gallery/project_info.html" %}
 
 {% from "macros/links.html" import wikilink %}
 
-{% block projectTitle %}Efficient Reformation{% endblock %}
-{% block projectBriefTitle %}Efficient Reformation{% endblock %}
-{% block projectURL %}/projects/efficient-reformation{% endblock %}
-{% block projectThumbnailURL %}
+{% block project_title %}Efficient Reformation{% endblock %}
+{% block project_brief_title %}Efficient Reformation{% endblock %}
+{% block project_url %}/projects/efficient-reformation{% endblock %}
+{% block project_thumbnail_url %}
 
     {{ url_for('static', filename='projects/efficient-reformation/img/rectangular_formation_128px.png') }}
 
 {% endblock %}
-{% block projectSummary %}
+{% block project_summary %}
 
     In this project we take the minimum-cost {{ wikilink('assignment problem') }}, and apply it to
     the problem of efficient reformation, which reads: "What is the most efficient way for a unit of
@@ -18,14 +18,14 @@
     of the {{ wikilink('Hungarian Algorithm', 'Hungarian algorithm') }} and build a demo showcasing the results.
 
 {% endblock %}
-{% block projectBriefSummary %}
+{% block project_brief_summary %}
 
     In this project we take the minimum-cost {{ wikilink('assignment problem') }}, and apply it to
     the problem of efficient reformation, which reads: "What is the most efficient way for a unit of
     vehicles to transition from one formation to another?"
 
 {% endblock %}
-{% block projectTags %}
+{% block project_tags %}
 
     <span class="tag-cpp">C++</span>
     <span class="tag-mas">Multi-agent Systems</span>

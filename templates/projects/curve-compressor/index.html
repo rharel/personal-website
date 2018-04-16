@@ -1,4 +1,4 @@
-{% extends "projects/base/index_base.html" %}
+{% extends "projects/base/project_index.html" %}
 
 
 {% from "macros/figures.html" import caption %}
@@ -31,7 +31,7 @@
             src="{{ url_for('static', filename=cd + 'js/figure_2.js') }}"></script>
 
 {% endblock %}
-{% block projectSummary %}
+{% block project_summary %}
 
     <p>
         Generally, the rendering of {{ wikilink('curves', 'curve') }} is done in two steps:
@@ -50,7 +50,7 @@
     </p>
 
 {% endblock %}
-{% block tableOfContents %}
+{% block table_of_contents %}
 
     <h2>Table of contents</h2>
 

@@ -1,0 +1,49 @@
+@import "../common/css/color_palette";
+@import "../common/css/compatibility";
+@import "../common/css/media";
+
+#navigation-bar-buttons > #navigation-button-contact
+{
+    border-bottom-color: $blue_2;
+}
+
+#contact-options
+{
+    margin:
+    {
+        left:  auto;
+        right: auto;
+        top:   5em;
+    }
+    text-align: center;
+
+    @include media-S() { margin-top: 0; }
+}
+#contact-options > a
+{
+    display: inline-block;
+    color: $text_color;
+    text-align: center;
+}
+#contact-options > a + a
+{
+    margin-left: 7.5%;
+    @include media-S()
+    {
+        margin:
+        {
+            left: 0;
+            top:  0.5em;
+        }
+    }
+}
+#contact-options > a > img
+{
+    height: 128px;
+    @include media-S()
+    {
+        display: inline-block;
+        height: auto;
+        width: 128px;
+    }
+}

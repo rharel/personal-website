@@ -1,18 +1,17 @@
-@import "../../../../static/global/css/common_colors";
-@import "../../../../static/global/css/mixins/compatibility";
+@import "../../../common/css/color_palette";
+@import "../../../common/css/compatibility";
 
 .tag
 {
+    border: 0.05em solid $grey_3;
+    border-bottom-width: 0.5em;
+    @include border-radius(0.5em);
+    font-size: 0.7em;
     padding:
     {
-        left:  0.4rem;
-        right: 0.4rem;
+        left:  0.4em;
+        right: 0.4em;
     }
-    border:                0.05rem solid $grey_3;
-    border-bottom-width:   0.5rem;
-    @include border-radius(0.5rem);
-
-    font-size: 1rem;
     white-space: nowrap;
 }
 

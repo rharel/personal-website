@@ -1,44 +1,52 @@
 .animation-clip {
   display: inline-block;
-  position: relative;
-  line-height: 0; }
+  line-height: 0;
+  position: relative; }
 
 .animation-clip > .overlay {
+  background-color: rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  display: -moz-flex;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+  -webkit-align-items: center;
+  align-items: center;
+  -webkit-justify-content: center;
+  justify-content: center;
   position: absolute;
   left: 0;
   top: 0;
-  width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.3);
-  cursor: pointer; }
+  width: 100%; }
 
 .animation-clip > .overlay > .play-button {
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  margin: auto;
-  -webkit-border-radius: 50%;
-  -moz-border-radius: 50%;
-  border-radius: 50%;
-  width: 5rem;
-  height: 5rem;
   background-color: #0C2D4A;
-  -webkit-box-shadow: 0.3rem 0.3rem 0.5rem black;
-  -moz-box-shadow: 0.3rem 0.3rem 0.5rem black;
-  -o-box-shadow: 0.3rem 0.3rem 0.5rem black;
-  box-shadow: 0.3rem 0.3rem 0.5rem black; }
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+  -o-box-shadow: 0.3em 0.3em 0.5em black;
+  -moz-box-shadow: 0.3em 0.3em 0.5em black;
+  -webkit-box-shadow: 0.3em 0.3em 0.5em black;
+  box-shadow: 0.3em 0.3em 0.5em black;
+  display: -moz-flex;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+  -webkit-align-items: center;
+  align-items: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  height: 5em;
+  margin: auto;
+  width: 5em; }
 
 .play-button > .play-symbol {
-  position: absolute;
-  left: 0.6em;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  margin: auto;
-  border-top: 0.792em solid transparent;
-  border-left: 1.2em solid #45D1FF;
   border-bottom: 0.792em solid transparent;
-  width: 0;
-  height: 0; }
+  border-left: 1.2em solid #45D1FF;
+  border-top: 0.792em solid transparent;
+  height: 0;
+  margin-left: 0.6em;
+  width: 0; }

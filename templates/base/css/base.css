@@ -1,111 +1,73 @@
-html {
-  font-size: 12.5px; }
-  @media (max-width: 500px) {
-    html {
-      font-size: 12.5px; } }
-  @media (max-width: 700px) {
-    html {
-      font-size: 12.5px; } }
-  @media (min-width: 700px) and (max-width: 1300px) {
-    html {
-      font-size: 12.5px; } }
-  @media (min-width: 1300px) and (max-width: 1500px) {
-    html {
-      font-size: 15px; } }
-  @media (min-width: 1500px) {
-    html {
-      font-size: 20px; } }
-
-body {
-  margin: 0;
-  font-family: 'Open Sans', sans-serif;
-  font-size: 1.5rem;
-  color: #282828;
-  background-color: #FAFAFD; }
-
 #navigation-bar {
+  margin-bottom: 1.5em;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 1.6rem;
-  margin-bottom: 1.6rem;
-  width: 80%;
-  text-align: center; }
+  margin-top: 2em; }
+  @media (max-width: 700px) {
+    #navigation-bar {
+      margin-top: 1em;
+      width: 67.5%; } }
   @media (max-width: 500px) {
     #navigation-bar {
-      min-height: 3.2rem;
-      text-align: left; } }
+      width: 90%; } }
 
 #menu-button-input {
   display: none; }
 
 #menu-button-label {
+  cursor: pointer;
   display: none;
-  float: right;
-  cursor: pointer; }
-  @media (max-width: 500px) {
+  width: 1.8em; }
+  @media (max-width: 700px) {
     #menu-button-label {
-      display: block; } }
+      display: block;
+      margin-left: auto; } }
 
 #menu-button-label > img {
-  width: 3.2rem;
-  height: 3.2rem; }
+  height: 1.8em;
+  width: 1.8em; }
 
 #navigation-bar-buttons {
-  display: block; }
-  @media (max-width: 500px) {
+  text-align: center;
+  white-space: nowrap; }
+  @media (max-width: 700px) {
     #navigation-bar-buttons {
       display: none; } }
 
-@media (max-width: 500px) {
+@media (max-width: 700px) {
   #menu-button-input:checked + #menu-button-label + #navigation-bar-buttons {
     display: block; } }
 
-#navigation-bar-buttons > .button-container {
-  display: inline-block; }
-  @media (max-width: 500px) {
-    #navigation-bar-buttons > .button-container {
-      display: block; } }
-  #navigation-bar-buttons > .button-container + .button-container {
-    margin-left: 4.8rem; }
-    @media (max-width: 700px) {
-      #navigation-bar-buttons > .button-container + .button-container {
-        margin-left: 5%; } }
-    @media (max-width: 500px) {
-      #navigation-bar-buttons > .button-container + .button-container {
-        margin-left: 0; } }
-
-#navigation-bar-buttons > .button-container > a {
-  display: inline-block;
-  border-bottom: 0.5rem solid transparent;
-  -webkit-transition: border-bottom-color 0.25s;
+#navigation-bar-buttons > a {
+  border-bottom: 0.33em solid transparent;
   -moz-transition: border-bottom-color 0.25s;
   -o-transition: border-bottom-color 0.25s;
+  -webkit-transition: border-bottom-color 0.25s;
   transition: border-bottom-color 0.25s;
-  padding-top: 1.5rem;
-  padding-bottom: 0.5rem;
-  color: inherit;
+  color: #282828;
+  padding-bottom: 0.25em;
   text-decoration: none; }
-  #navigation-bar-buttons > .button-container > a:hover {
+  #navigation-bar-buttons > a:hover {
     border-bottom-color: #C2DFFF; }
-  @media (max-width: 500px) {
-    #navigation-bar-buttons > .button-container > a {
-      border-bottom-color: #C2DFFF; } }
+  @media (max-width: 700px) {
+    #navigation-bar-buttons > a {
+      border-bottom-color: #C2DFFF;
+      display: block; } }
+
+#navigation-bar-buttons > a + a {
+  margin-left: 3em; }
+  @media (max-width: 700px) {
+    #navigation-bar-buttons > a + a {
+      margin-left: 0;
+      margin-top: 0.5em; } }
 
 #content {
+  border-top: 0.33em double #DBDBDB;
+  margin-bottom: 5em;
   margin-left: auto;
   margin-right: auto;
-  margin-bottom: 10rem;
-  border-top: 0.5rem double #DBDBDB;
-  padding-top: 2.5rem;
+  padding-top: 2em;
   width: 67.5%; }
   @media (max-width: 500px) {
     #content {
       width: 90%; } }
-
-#footer {
-  width: 100%;
-  padding-top: 1rem;
-  padding-bottom: 1rem;
-  font-size: 1.1rem;
-  text-align: center;
-  color: #9F9F9F; }

@@ -1,14 +1,14 @@
-{% extends "projects/base/info_base.html" %}
+{% extends "projects/gallery/project_info.html" %}
 
-{% block projectTitle %}Reynolds' Steering Behaviors{% endblock %}
-{% block projectBriefTitle %}Steering Behaviors{% endblock %}
-{% block projectURL %}/projects/steering-behaviors{% endblock %}
-{% block projectThumbnailURL %}
+{% block project_title %}Reynolds' Steering Behaviors{% endblock %}
+{% block project_brief_title %}Steering Behaviors{% endblock %}
+{% block project_url %}/projects/steering-behaviors{% endblock %}
+{% block project_thumbnail_url %}
 
     {{ url_for('static', filename='projects/steering-behaviors/img/two_agents.svg') }}
 
 {% endblock %}
-{% block projectSummary %}
+{% block project_summary %}
 
     In
     <a href="http://www.red3d.com/cwr/papers/1999/gdc99steer.pdf"
@@ -20,7 +20,7 @@
     with one another produces an interesting collection of navigation methods.
 
 {% endblock %}
-{% block projectBriefSummary %}
+{% block project_brief_summary %}
 
     In
     <a href="http://www.red3d.com/cwr/papers/1999/gdc99steer.pdf"
@@ -32,7 +32,7 @@
     and extended to produce interesting results.
 
 {% endblock %}
-{% block projectTags %}
+{% block project_tags %}
 
     <span class="tag-js">JavaScript</span>
     <span class="tag-ai">Artificial Intelligence</span>

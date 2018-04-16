@@ -18,44 +18,38 @@
 
         {% from "macros/resource_fetching.html" import async_css, inline_css, inline_js %}
 
+        {{ inline_css("common/css/common.css") }}
         {{ inline_css("base/css/base.css") }}
         {{ async_css("https://fonts.googleapis.com/css?family=Open+Sans") }}
-        {{ async_css("/static/global/css/common.css") }}
 
         {% block head %}{% endblock %}
 
-        {{ inline_js("base/js/loadCSS.min.js") }}
-        {{ inline_js("base/js/cssrelpreload.min.js") }}
+        {{ inline_js("common/js/loadCSS.min.js") }}
+        {{ inline_js("common/js/cssrelpreload.min.js") }}
     </head>
     <body>
-        <div id="navigation-bar">
-            <input type="checkbox" id="menu-button-input"/>
-            <label id="menu-button-label" for="menu-button-input" title="Menu">
-                <img src="/static/common/image/menu_icon.svg" width="100" height="100">
-            </label>
-            <div id="navigation-bar-buttons">
-                <div class="button-container">
+        {% block navigation_bar %}
+            <div id="navigation-bar">
+                <input type="checkbox" id="menu-button-input"/>
+                <label id="menu-button-label" for="menu-button-input" title="Menu">
+                    <img src="/static/common/image/menu_icon.svg" width="100" height="100">
+                </label>
+                <div id="navigation-bar-buttons">
                     <a id="navigation-button-about"
                        href="/about">
 
                         ABOUT
                     </a>
-                </div>
-                <div class="button-container">
                     <a id="navigation-button-projects"
                        href="/projects/">
 
                         PROJECTS
                     </a>
-                </div>
-                <div class="button-container">
                     <a id="navigation-button-research"
                        href="/research/virtual-dialogue">
 
                         RESEARCH
                     </a>
-                </div>
-                <div class="button-container">
                     <a id="navigation-button-contact"
                        href="/contact">
 
@@ -63,10 +57,10 @@
                     </a>
                 </div>
             </div>
-        </div>
+        {% endblock %}
         <div id="content">{% block content %}{% endblock %}</div>
-        <div id="footer">
+        <footer>
             This page was last updated in {% block last_update %}{% endblock %}
-        </div>
+        </footer>
     </body>
 </html>

@@ -1,4 +1,4 @@
-{% extends "projects/base/index_base.html" %}
+{% extends "projects/base/project_index.html" %}
 
 {% from "macros/figures.html" import caption, image_collection %}
 {% from "macros/links.html" import wikilink, youtubelink, githublink %}
@@ -16,7 +16,7 @@
     {{ include_mathjax() }}
 
 {% endblock %}
-{% block projectSummary %}
+{% block project_summary %}
 
     <p>
         As an avid fan of {{ wikilink('abstract art') }}, {{ wikilink('fractals', 'fractal') }} make for an
@@ -31,7 +31,7 @@
     </p>
 
 {% endblock %}
-{% block tableOfContents %}
+{% block table_of_contents %}
 
     <h2>Table of contents</h2>
 

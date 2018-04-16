@@ -1,0 +1,31 @@
+#navigation-bar-buttons > #navigation-button-contact {
+  border-bottom-color: #316899; }
+
+#contact-options {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 5em;
+  text-align: center; }
+  @media (max-width: 700px) {
+    #contact-options {
+      margin-top: 0; } }
+
+#contact-options > a {
+  display: inline-block;
+  color: #282828;
+  text-align: center; }
+
+#contact-options > a + a {
+  margin-left: 7.5%; }
+  @media (max-width: 700px) {
+    #contact-options > a + a {
+      margin-left: 0;
+      margin-top: 0.5em; } }
+
+#contact-options > a > img {
+  height: 128px; }
+  @media (max-width: 700px) {
+    #contact-options > a > img {
+      display: inline-block;
+      height: auto;
+      width: 128px; } }

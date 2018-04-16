@@ -1,0 +1,10 @@
+@import "../../common/css/color_palette";
+
+#navigation-bar-buttons > #navigation-button-projects
+{
+    border-bottom-color: $blue_2;
+}
+
+h1, h2, h3 { color: $blue_2; }
+h1:first-child { margin-top: 0; }
+h3 { font-size: inherit; }

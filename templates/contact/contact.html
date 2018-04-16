@@ -1,29 +1,28 @@
-{% extends 'base/base.html' %}
+{% extends "base/base.html" %}
 
 {% block title %}Contact{% endblock %}
 {% block head %}
 
-    {% from 'macros/resource_fetching.html' import inline_css %}
-    {% set cd = 'contact/' %}
-
-    {{ inline_css(cd + 'css/contact.css') }}
+    {% from "macros/resource_fetching.html" import inline_css %}
+    {{ inline_css("contact/contact.css") }}
 
 {% endblock %}
 {% block content %}
-
-    <div class="contact-options-container">
+    <div id="contact-options">
         <a href="mailto:admin@rharel.com" target="_blank">
-            <img src="{{ url_for('static', filename='contact/img/envelope.svg') }}"
-                 width="128">
-            Email
+            <img src="/static/contact/image/envelope.svg"
+                 width="120" height="120">
+            <div class="label">Email</div>
         </a>
         <a href="https://www.linkedin.com/in/raoul-harel" target="_blank">
-            <img src="{{ url_for('static', filename='contact/img/linkedin_128px.png') }}">
-            Linkedin
+            <img src="/static/contact/image/linkedin_140x128.png"
+                 width="140" height="128">
+            <div class="label">Linkedin</div>
         </a>
         <a href="https://www.github.com/rharel/" target="_blank">
-            <img src="{{ url_for('static', filename='contact/img/github_128px.png') }}">
-            Github
+            <img src="/static/contact/image/github_120.png"
+                 width="120" height="120">
+            <div class="label">Github</div>
         </a>
     </div>
 {% endblock %}

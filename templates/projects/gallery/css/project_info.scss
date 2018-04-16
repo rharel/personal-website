@@ -1,0 +1,108 @@
+@import "../../../common/css/color_palette";
+@import "../../../common/css/compatibility";
+@import "../../../common/css/layout";
+@import "../../../common/css/media";
+@import "tags";
+
+#navigation-bar-buttons > #navigation-button-projects
+{
+    border-bottom-color: $blue_2;
+}
+
+.project-info
+{
+    background-color: white;
+    border: 0.05em solid $grey_3;
+
+    $box_shadow_size: 0.5em;
+    @include box-shadow($box_shadow_size $box_shadow_size $box_shadow_size $grey_1);
+    &:hover { @include box-shadow($box_shadow_size $box_shadow_size $box_shadow_size $grey_2); }
+
+    @include display-flex();
+    @include flex-flow(row nowrap);
+
+    @include media-S() { @include flex-flow(column nowrap); }
+}
+.project-info + .project-info { margin-top: 1em; }
+.project-info > .thumbnail
+{
+    background-color: $blue_1;
+    @include flex(row, center, center);
+    min-width: 7em;
+    width: 7em;
+
+    @include media-S()
+    {
+        height: 2.5em;
+        @include justify-content(flex-end);
+        width: 100%;
+    }
+}
+.project-info > .thumbnail > img
+{
+    background-color: white;
+    border: 0.05em solid $nearly_black;
+    width: 85%;
+
+    @include media-S()
+    {
+        height: 80%;
+        margin-right: 0.5em;
+        width: auto;
+    }
+}
+.project-info > .details
+{
+    @include flex-grow(1);
+    margin:
+    {
+        left:  1em;
+        right: 1em;
+    }
+}
+.project-info > .details > .long
+{
+    @include media-S() { display: none; }
+}
+.project-info > .details > .short
+{
+    display: none;
+    @include media-S() { display: block; }
+}
+.project-info > .details > .title
+{
+    margin:
+    {
+        bottom: 0.5em;
+        top:    1em;
+    }
+    font-size: 1.25em;
+    font-weight: bold;
+}
+.project-info > .details > .tags { display: block; }
+.project-info > .details > .summary
+{
+    margin:
+    {
+        bottom: 1em;
+        top:    0.5em;
+    }
+}
+.project-info > .further-reading
+{
+    @include flex(row, flex-end, center);
+    font-size: 2.25em;
+    min-width: 1.5em;
+    width: 1.5em;
+
+    &:hover { background-color: $blue_1; }
+
+    @include media-S()
+    {
+        @include align-items(center);
+        @include justify-content(flex-end);
+        height: 1.1em;
+        width: 100%;
+        & > .icon { margin-right: 0.25em; }
+    }
+}

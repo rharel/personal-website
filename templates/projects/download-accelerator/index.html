@@ -1,4 +1,4 @@
-{% extends 'projects/base/index_base.html' %}
+{% extends "projects/base/project_index.html" %}
 
 {% from 'macros/links.html' import wikilink, githublink %}
 
@@ -15,7 +15,7 @@
     {{ include_mathjax() }}
 
 {% endblock %}
-{% block projectSummary %}
+{% block project_summary %}
 
     <p>
         {{ wikilink('Rust', 'rust (programming language)') }} is an up-and-coming
@@ -66,7 +66,7 @@
     </div>
 
 {% endblock %}
-{% block tableOfContents %}
+{% block table_of_contents %}
 
     <h2>Table of contents</h2>
 

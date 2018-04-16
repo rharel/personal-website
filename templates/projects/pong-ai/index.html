@@ -1,4 +1,4 @@
-{% extends 'projects/base/index_base.html' %}
+{% extends "projects/base/project_index.html" %}
 
 {% from 'macros/figures.html' import caption %}
 {% from 'macros/links.html' import wikilink, githublink %}
@@ -12,7 +12,7 @@
     {{ async_css(url_for('static', filename='projects/css/figures.css')) }}
 
 {% endblock %}
-{% block projectSummary %}
+{% block project_summary %}
 
     <p>
         <b>{{ wikilink('Pong') }}</b> was the first sports-based arcade videogame. Basically, it is
@@ -25,7 +25,7 @@
     </p>
 
 {% endblock %}
-{% block tableOfContents %}
+{% block table_of_contents %}
 
     <h2>Table of contents</h2>
     <ul>

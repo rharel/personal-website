@@ -1,16 +1,16 @@
-{% extends "projects/base/info_base.html" %}
+{% extends "projects/gallery/project_info.html" %}
 
 {% from "macros/links.html" import wikilink %}
 
-{% block projectTitle %}Pacman in Unity{% endblock %}
-{% block projectBriefTitle %}Pacman in Unity{% endblock %}
-{% block projectURL %}/projects/pacman-in-unity{% endblock %}
-{% block projectThumbnailURL %}
+{% block project_title %}Pacman in Unity{% endblock %}
+{% block project_brief_title %}Pacman in Unity{% endblock %}
+{% block project_url %}/projects/pacman-in-unity{% endblock %}
+{% block project_thumbnail_url %}
 
     {{ url_for('static', filename='projects/pacman-in-unity/img/pink_ghost_96px.png') }}
 
 {% endblock %}
-{% block projectSummary %}
+{% block project_summary %}
 
     This project was intended to be a self-exercise for me to get familiar with
     {{ wikilink('Unity', 'unity (game engine)') }}. It is a simple implementation
@@ -18,7 +18,7 @@
     project proved to be an excellent learning experience.
 
 {% endblock %}
-{% block projectBriefSummary %}
+{% block project_brief_summary %}
 
     This project was intended to be a self-exercise for me to get familiar with
     {{ wikilink('Unity', 'unity (game engine)') }}. It is a simple implementation
@@ -26,7 +26,7 @@
     project proved to be an excellent learning experience.
 
 {% endblock %}
-{% block projectTags %}
+{% block project_tags %}
 
     <span class="tag-c-sharp">C#</span>
     <span class="tag-unity">Unity</span>

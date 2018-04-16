@@ -1,16 +1,16 @@
-{% extends "projects/base/info_base.html" %}
+{% extends "projects/gallery/project_info.html" %}
 
 {% from "macros/links.html" import wikilink %}
 
-{% block projectTitle %}Voronoi on the GPU{% endblock %}
-{% block projectBriefTitle %}Voronoi on the GPU{% endblock %}
-{% block projectURL %}/projects/voronoi-on-the-gpu{% endblock %}
-{% block projectThumbnailURL %}
+{% block project_title %}Voronoi on the GPU{% endblock %}
+{% block project_brief_title %}Voronoi on the GPU{% endblock %}
+{% block project_url %}/projects/voronoi-on-the-gpu{% endblock %}
+{% block project_thumbnail_url %}
 
     {{ url_for('static', filename='projects/voronoi-on-the-gpu/img/triangular_diagram.svg') }}
 
 {% endblock %}
-{% block projectSummary %}
+{% block project_summary %}
 
     {{ wikilink('Voronoi diagrams') }} partition space into cells.
     They are a fundamental concept in computational geometry, with broad applications spanning multiple disciplines.
@@ -18,13 +18,13 @@
     Exploiting graphics hardware to convert a three-dimensional scene into a two-dimensional diagram.
 
 {% endblock %}
-{% block projectBriefSummary %}
+{% block project_brief_summary %}
 
     Exploiting graphics hardware to convert a three-dimensional scene into a
     two-dimensional {{ wikilink('Voronoi diagram') }}.
 
 {% endblock %}
-{% block projectTags %}
+{% block project_tags %}
 
     <span class="tag-js">Javascript</span>
     <span class="tag-webgl">WebGL</span>

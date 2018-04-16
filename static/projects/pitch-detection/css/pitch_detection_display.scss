@@ -1,38 +1,35 @@
 .pitch-detection-display
 {
+    line-height: 0;
     margin:
     {
         left:  auto;
         right: auto;
     }
-        width: 30rem;
     max-width: 80vw;
-
-    line-height: 0;
+    width: 30em;
 }
 .pitch-detection-display > .text-display
 {
-    line-height: 1.5;
-
-    border: 0.05rem solid purple;
-    width:  100%;
-
-    color:             white;
     background-color: purple;
+    border: 0.05em solid purple;
+    color: white;
+    line-height: 1.5;
+    width: 100%;
 
     & > .current-note
     {
-        min-height: 5rem;
-        font-size:  3rem;
+        font-size: 3em;
+        min-height: 1.5em;
     }
     & > .log
     {
-        min-height: 3rem;
+        min-height: 3em;
         padding:
         {
-            left:   1rem;
-            right:  1rem;
-            bottom: 0.5rem;
+            left:   1em;
+            right:  1em;
+            bottom: 0.5em;
         }
         text-align: left;
     }

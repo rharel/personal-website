@@ -1,16 +1,16 @@
-{% extends "projects/base/info_base.html" %}
+{% extends "projects/gallery/project_info.html" %}
 
 {% from "macros/links.html" import wikilink %}
 
-{% block projectTitle %}Pitch Detection{% endblock %}
-{% block projectBriefTitle %}Pitch Detection{% endblock %}
-{% block projectURL %}/projects/pitch-detection{% endblock %}
-{% block projectThumbnailURL %}
+{% block project_title %}Pitch Detection{% endblock %}
+{% block project_brief_title %}Pitch Detection{% endblock %}
+{% block project_url %}/projects/pitch-detection{% endblock %}
+{% block project_thumbnail_url %}
 
     {{ url_for('static', filename='projects/pitch-detection/img/soundwave_icon_640px.svg') }}
 
 {% endblock %}
-{% block projectSummary %}
+{% block project_summary %}
 
     In this project we develop a simple signal processing method for
     {{ wikilink('pitch', 'Pitch (music)') }} detection, and then use it to derive musical notes from whistling in
@@ -18,14 +18,14 @@
     begin work on another related project which also has to do with audio signal processing.
 
 {% endblock %}
-{% block projectBriefSummary %}
+{% block project_brief_summary %}
 
     In this project we develop a simple signal processing method for
     pitch detection, and then use it to derive musical notes from whistling in
     real time.
 
 {% endblock %}
-{% block projectTags %}
+{% block project_tags %}
 
     <span class="tag-js">JavaScript</span>
     <span class="tag-audio">Audio</span>

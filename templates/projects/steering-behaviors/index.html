@@ -1,4 +1,4 @@
-{% extends "projects/base/index_base.html" %}
+{% extends "projects/base/project_index.html" %}
 
 {% from "macros/figures.html" import caption %}
 {% from "macros/links.html" import githublink, wikilink %}
@@ -34,7 +34,7 @@
             src="{{ url_for('static', filename=cd + 'js/animation_control.js') }}"></script>
 
 {% endblock %}
-{% block projectSummary %}
+{% block project_summary %}
 
     <p>
         If you happen to have even a slight interest in {{ wikilink('motion planning') }}
@@ -59,7 +59,7 @@
     </div>
 
 {% endblock %}
-{% block tableOfContents %}
+{% block table_of_contents %}
 
     <h2>Table of contents</h2>
 

@@ -1,80 +1,69 @@
-@import '../../global/css/common_colors';
-@import '../../global/css/mixins/compatibility';
-@import '../../global/css/mixins/media';
+@import "../../../templates/common/css/color_palette";
+@import "../../../templates/common/css/compatibility";
+@import "../../../templates/common/css/media";
 
 .figure
 {
+    background-color: $blue_1;
+    @include border-radius(1em);
+    font-size: 0.8em;
     margin:
     {
-        top:    1.5rem;
-        bottom: 1.5rem;
+        top:    1.5em;
+        bottom: 1.5em;
     }
+    padding: 2em;
+    text-align: center;
 
-    @include border-radius(1rem);
-
-    padding: 2rem;
     @include media-XS()
     {
         padding:
         {
-            left:  0.5rem;
-            right: 0.5rem;
+            left:  0.5em;
+            right: 0.5em;
         }
     }
-    background-color: $blue_1;
-    text-align: center;
 }
 .figure img, .figure video, .figure canvas
 {
+    background-color: white;
+    border: 0.05em solid $nearly_black;
     display: inline-block;
+    height: auto;
+    max-width: 100%;
+    width: 17.5em;
 
-    border: 0.05rem solid $nearly_black;
     &.transparent
     {
         background-color: transparent;
-        border-color:     transparent;
+        border-color: transparent;
     }
-
-    &.smaller { width:    5rem; }
-    &.small   { width:   10rem; }
-                width: 17.5rem;
-    &.large   { width:   25rem; }
-    &.larger  { width:   30rem; }
-            max-width:    100%;
-               height:    auto;
-
-    background-color: white;
+    &.smaller { width: 5em; }
+    &.small   { width: 10em; }
+    &.large   { width: 25em; }
+    &.larger  { width: 30em; }
 }
 
 .caption
 {
-    text-align:  left;
-    font-size: 1.4rem;
+    text-align: left;
+    width: 100%;
 
     @include media-XS()
     {
         padding:
         {
-            left:  1rem;
-            right: 1rem;
+            left:  1em;
+            right: 1em;
         }
     }
 }
 .caption > .title { font-weight:  bold; }
-.caption + *      { margin-top: 1.5rem; }
+.caption + * { margin-top: 1.5em; }
 
-.subfigure-group + .subfigure-group { margin-top: 1rem; }
+.subfigure-group + .subfigure-group { margin-top: 1em; }
 .subfigure-group > .subfigure
 {
     display: inline-block;
-
-    margin: 0.5rem;
-    line-height: 0;
-
-    & > .subtitle
-    {
-        line-height: normal;
-        text-align: center;
-        font-size:  1.4rem;
-    }
+    margin: 0.5em;
 }

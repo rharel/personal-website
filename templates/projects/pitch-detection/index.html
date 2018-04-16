@@ -1,4 +1,4 @@
-{% extends "projects/base/index_base.html" %}
+{% extends "projects/base/project_index.html" %}
 
 {% from "macros/links.html" import wikilink, githublink, project_page_link %}
 {% from "macros/figures.html" import caption %}
@@ -30,7 +30,7 @@
     <script src="{{ url_for('static', filename=cd + 'js/figures.js') }}"></script>
 
 {% endblock %}
-{% block projectSummary %}
+{% block project_summary %}
 
     <p>
         It has been a while since the last time I found myself working on a project
@@ -49,7 +49,7 @@
         musical notes from captured whistling audio in real time.
     </p>
 {% endblock %}
-{% block tableOfContents %}
+{% block table_of_contents %}
 
     <h2>Table of contents</h2>
 
