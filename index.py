@@ -66,7 +66,7 @@ def index():
 
 @app.route("/favicon.ico")
 def favicon():
-    return redirect("static/common/image/favicon_32.ico")
+    return redirect("static/root/favicon_32.ico")
 
 # About
 
