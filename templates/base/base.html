@@ -16,19 +16,16 @@
         <link rel="icon" type="image/png"
               href="/root/favicon_194.png" sizes="194x194">
 
-        {% from 'macros/resource_fetching.html' import async_css, inline_css, inline_js %}
-        {% set cd = 'base/' %}
+        {% from "macros/resource_fetching.html" import async_css, inline_css, inline_js %}
 
-        {{ inline_css(cd + 'css/base.css') }}
-
-        {{ async_css('https://fonts.googleapis.com/css?family=Open+Sans') }}
-        {{ async_css(url_for('static', filename='global/css/common.css')) }}
+        {{ inline_css("base/css/base.css") }}
+        {{ async_css("https://fonts.googleapis.com/css?family=Open+Sans") }}
+        {{ async_css("/static/global/css/common.css") }}
 
         {% block head %}{% endblock %}
 
-        {{ inline_js(cd + 'js/3rd/loadCSS/loadCSS.min.js') }}
-        {{ inline_js(cd + 'js/3rd/loadCSS/cssrelpreload.min.js') }}
-
+        {{ inline_js("base/js/loadCSS.min.js") }}
+        {{ inline_js("base/js/cssrelpreload.min.js") }}
     </head>
     <body>
         <div id="navigation-bar">
