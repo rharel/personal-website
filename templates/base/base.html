@@ -4,7 +4,10 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>{% block title %}{% endblock %} | Raoul Harel</title>
+        <title>
+            {% block title %}{% endblock %}
+            {% block title_suffix %} | Raoul Harel{% endblock %}
+        </title>
 
         <link rel="icon" type="image/png"
               href="/root/favicon_32.png" sizes="32x32">
