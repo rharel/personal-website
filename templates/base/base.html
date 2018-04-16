@@ -7,14 +7,11 @@
         <title>{% block title %}{% endblock %} | Raoul Harel</title>
 
         <link rel="icon" type="image/png"
-              href="{{ url_for('static', filename='root/favicon_32px.png') }}"
-              sizes="32x32">
+              href="/root/favicon_32.png" sizes="32x32">
         <link rel="icon" type="image/png"
-              href="{{ url_for('static', filename='root/favicon_96px.png') }}"
-              sizes="96x96">
+              href="/root/favicon_96.png" sizes="96x96">
         <link rel="icon" type="image/png"
-              href="{{ url_for('static', filename='root/favicon_194px.png') }}"
-              sizes="194x194">
+              href="/root/favicon_194.png" sizes="194x194">
 
         {% from 'macros/resource_fetching.html' import async_css, inline_css, inline_js %}
         {% set cd = 'base/' %}
