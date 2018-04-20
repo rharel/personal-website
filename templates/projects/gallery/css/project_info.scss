@@ -42,6 +42,7 @@
 {
     background-color: white;
     border: 0.05em solid $nearly_black;
+    height: auto;
     width: 85%;
 
     @include media-S()
