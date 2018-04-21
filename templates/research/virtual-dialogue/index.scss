@@ -27,6 +27,11 @@
         }
     }
 }
+#content > div, #content > p
+{
+    font-size: 1.2em;
+    padding: 1em 1.5em;
+}
 
 #title-and-logo
 {
@@ -43,7 +48,7 @@
     @include media-XS()
     {
         @include flex-grow(0);
-        font-size: 2.5em;
+        font-size: 1.5em;
     }
 }
 #title > span.line { display: inline-block; }
@@ -55,7 +60,7 @@
     @include media-XS()
     {
         margin-top: 1em;
-        width: 10em;
+        width: 5em;
     }
 }
 #preamble
@@ -74,6 +79,7 @@
 #video
 {
     background-color: inherit;
+    padding: 0;
     text-align: center;
 }
 #video > iframe
@@ -82,11 +88,6 @@
     max-width: 90vw;
 }
 
-#content > div, #content > p
-{
-    font-size: 1.2em;
-    padding: 1em 1.5em;
-}
 #introduction, #access
 {
     background-color: $blue_1;
