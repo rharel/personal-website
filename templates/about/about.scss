@@ -15,15 +15,16 @@
         right: 1em;
         left: 1em;
     }
-    @include media-S()
-    {
-        float: none;
-        text-align: center;
-    }
+    @include media-S() { float: none; }
 }
 #portrait-container img
 {
     @include border-radius(50%);
+    margin:
+    {
+        left:  auto;
+        right: auto;
+    }
     max-width: 10em;
     width: 40vw;
 }
