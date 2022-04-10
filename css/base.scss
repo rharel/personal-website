@@ -1,0 +1,14 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body,
+button,
+p {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}

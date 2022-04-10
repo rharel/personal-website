@@ -1,2 +1,4 @@
+.parcel-cache/
+distribution/
 node_modules/
 templates_compiled/
