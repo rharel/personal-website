@@ -1,2 +1,1 @@
-
-This repository hosts the source code for my personal website, currently accessible through <a href="http://www.rharel.com">rharel.com</a>.
+Source for <a href="https://www.rharel.com">www.rharel.com</a>
