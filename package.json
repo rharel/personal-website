@@ -2,8 +2,13 @@
   "name": "www.rharel.com",
   "version": "1.0.0",
   "description": "Source www.rharel.com",
-  "scripts": {},
+  "scripts": {
+    "build": "eleventy --input=templates --output=templates_compiled"
+  },
   "keywords": [],
   "author": "Raoul Harel",
-  "license": "All rights reserved"
+  "license": "All rights reserved",
+  "devDependencies": {
+    "@11ty/eleventy": "1.0.0"
+  }
 }
