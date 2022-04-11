@@ -7,6 +7,7 @@
 :root {
   --main-content-width: min(70ch, 100vw);
   --secondary-text-color: #777;
+  --theme-color: #2b5797;
 }
 
 html,
@@ -38,15 +39,11 @@ footer {
   text-align: center;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+h1 {
   font-weight: normal;
 }
 
 a {
   text-decoration: none;
+  color: var(--theme-color);
 }
