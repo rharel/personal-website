@@ -1,9 +1,17 @@
+.bio {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 1rem;
+}
+
 .contact-info {
   display: flex;
   flex-direction: column;
   font-style: normal;
 
   .name {
+    margin-top: 0;
+    margin-bottom: 1rem;
     font-size: 2rem;
   }
 
@@ -18,4 +26,13 @@
     width: var(--size);
     height: var(--size);
   }
+}
+
+.portrait {
+  --size: 128px;
+  width: var(--size);
+  height: var(--size);
+  object-fit: cover;
+  object-position: 92% 0;
+  border-radius: 50%;
 }
