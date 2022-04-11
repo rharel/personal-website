@@ -1,0 +1,21 @@
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  font-style: normal;
+
+  .name {
+    font-size: 2rem;
+  }
+
+  .title {
+    font-size: 1.2rem;
+    color: var(--secondary-text-color);
+  }
+
+  svg {
+    --size: 1.2rem;
+    vertical-align: middle;
+    width: var(--size);
+    height: var(--size);
+  }
+}
