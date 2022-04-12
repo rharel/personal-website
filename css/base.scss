@@ -49,4 +49,9 @@ h1 {
 a {
   text-decoration: none;
   color: var(--theme-color);
+
+  &:hover,
+  &:active {
+    text-decoration: underline;
+  }
 }
