@@ -29,5 +29,8 @@
   </head>
   <body>
     {% block body %}{% endblock %}
+    <footer>
+      This page was last modified on {% block date_last_modified %}{% endblock %}
+    </footer>
   </body>
 </html>

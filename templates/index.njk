@@ -41,7 +41,8 @@ date: Last Modified
         height="343">
     </section>
   </main>
-  <footer>
-    This page was last modified on {{ page.date.toISOString().slice(0, 10) }}
-  </footer>
+{% endblock %}
+
+{% block date_last_modified %}
+  {{ page.date.toISOString().slice(0, 10) }}
 {% endblock %}
