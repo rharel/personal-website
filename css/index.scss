@@ -1,7 +1,8 @@
 .bio {
   display: flex;
   justify-content: space-between;
-  padding-top: 1rem;
+  margin-top: 1rem;
+  margin-bottom: 3rem;
 }
 
 .contact-info {
@@ -25,6 +26,7 @@
     vertical-align: middle;
     width: var(--size);
     height: var(--size);
+    margin-right: 0.2rem;
   }
 }
 
