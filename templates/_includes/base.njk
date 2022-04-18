@@ -30,7 +30,7 @@
   <body>
     {% block body %}{% endblock %}
     <footer>
-      This page was last modified on {% block date_last_modified %}{% endblock %}
+      This page was last modified on {{ page.date.toISOString().slice(0, 10) }}
     </footer>
   </body>
 </html>
