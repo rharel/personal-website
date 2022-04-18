@@ -5,6 +5,8 @@
 }
 
 :root {
+  --main-header-size: 2rem;
+  --main-header-margin-bottom: 3rem;
   --main-content-width: min(70ch, 100vw);
   --secondary-text-color: rgb(104, 104, 104);
   --theme-color: #2b5797;
@@ -27,6 +29,7 @@ body {
   font-size: 12pt;
   background-color: #fbfbfb;
   color: #262626;
+  margin-top: 1rem;
 }
 
 main,
