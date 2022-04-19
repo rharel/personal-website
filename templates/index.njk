@@ -1,5 +1,11 @@
 ---
 date: Last Modified
+projects:
+  -
+    title: Rigid Body Physics
+    image_source: /projects/rigid-body-physics/particles.webp?width=128&height=128
+    image_alt: Particles in a box
+    url: /rigid-body-physics
 ---
 
 {% extends "base.njk" %}
@@ -37,6 +43,19 @@ date: Last Modified
         alt="Portrait"
         width="512"
         height="343">
+    </section>
+    <section class="featured-projects">
+      {% for project in projects %}
+        <a class="project" href="{{ project.url }}">
+          <img
+            class="thumbnail"
+            src="{{ project.image_source }}"
+            alt="{{ project.image_alt }}"
+            width="128"
+            height="128">
+          <h1 class="title">{{ project.title }}</h1>
+        </a>
+      {% endfor %}
     </section>
   </main>
 {% endblock %}
