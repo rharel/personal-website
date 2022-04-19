@@ -16,6 +16,9 @@
   "devDependencies": {
     "@11ty/eleventy": "1.0.0",
     "@parcel/transformer-sass": "2.4.1",
+    "@typescript-eslint/eslint-plugin": "5.20.0",
+    "@typescript-eslint/parser": "5.20.0",
+    "eslint": "8.13.0",
     "parcel": "2.4.1",
     "parcel-resolver-ignore": "2.0.0",
     "sharp": "^0.29.3"
@@ -27,7 +30,10 @@
         "browsers": "> 0.5%, last 2 versions, not dead"
       },
       "sourceMap": false,
-      "source": "./templates_compiled/index.html",
+      "source": [
+        "./templates_compiled/index.html",
+        "./templates_compiled/rigid-body-physics/index.html"
+      ],
       "distDir": "./distribution"
     }
   },
