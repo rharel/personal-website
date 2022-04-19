@@ -1,0 +1,17 @@
+{% extends "base.njk" %}
+
+{% block head %}
+  <link rel="stylesheet" href="/css/project.scss">
+{% endblock %}
+
+{% block body %}
+  <nav class="breadcrumbs">
+    <a class="ancestor" href="/">@rharel</a>
+    <span class="leaf">
+      {% block page_title %}{% endblock %}
+    </span>
+  </nav>
+  <main>
+    {% block project_contents %}{% endblock %}
+  </main>
+{% endblock %}

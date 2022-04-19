@@ -1,0 +1,20 @@
+{% extends "project.njk" %}
+
+{% block page_title %}Rigid Body Physics{% endblock %}
+
+{% block head %}
+  {{ super() }}
+  <link rel="stylesheet" href="/projects/rigid-body-physics/demo.scss">
+  <script src="/projects/rigid-body-physics/demo.ts" type="module"></script>
+{% endblock %}
+
+{% block project_contents %}
+  <div class="demo">
+    <canvas class="demo-canvas" width="512" height="512">
+      Your browser does not support the canvas element. It is required to view this project demo.
+    </canvas>
+  </div>
+  <p>
+    This is a simulation of rigid disc-shaped particles including collision detection and resolution. The collisions are <a href="https://en.wikipedia.org/wiki/Elastic_collision">inelastic</a> and so the particles' kinetic energy diminishes over time. We use a <a href="https://en.wikipedia.org/wiki/Quadtree">quadtree</a> to spatially partition the space so that the simulation can be scaled up to thousands of particle and maintain real time frame rates.
+  </p>
+{% endblock %}
