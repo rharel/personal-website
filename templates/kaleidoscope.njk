@@ -1,0 +1,27 @@
+{% extends "project.njk" %}
+
+{% block page_title %}Kaleidoscope{% endblock %}
+
+{% block head %}
+  {{ super() }}
+  <link rel="stylesheet" href="/projects/kaleidoscope/demo.scss">
+{% endblock %}
+
+{% block project_contents %}
+  <div class="demo">
+    <a href="/projects/kaleidoscope/kaleidoscope-rendering.png?as=webp">
+      <img
+        class="demo-image"
+        src="/projects/kaleidoscope/kaleidoscope-rendering.png?as=webp&width=512"
+        srcset="/projects/kaleidoscope/kaleidoscope-rendering.png?as=webp 2x"
+        alt="Artificially rendered kaleidoscopic reflections"
+        width="512"
+        height="512">
+    </a>
+  </div>
+  <p>
+    This is a raytraced rendering of <a href="https://en.wikipedia.org/wiki/Kaleidoscope">kaleidoscopic</a> reflections. There is also <a href="https://youtu.be/G01cX1ixKV4">an animated version.</a>
+    <a href="http://www.waynesthisandthat.com/kaleidoscopes2.htm">Wayne Schmidt's kaleidoscope page</a> proved very useful in its highlighting of interesting observations and experiments regarding the different mirror alignments and structures. We used <a href="https://developer.nvidia.com/cuda-toolkit">CUDA</a> to perform the color tracing of each pixel in parallel on the GPU.
+  <a href="https://github.com/rharel/cuda-kaleidoscope">Source code here.</a>
+  </p>
+{% endblock %}

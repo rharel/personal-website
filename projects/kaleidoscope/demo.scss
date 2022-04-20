@@ -1,0 +1,10 @@
+.demo {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+
+  img {
+    width: min(100%, 512px);
+    height: auto;
+  }
+}

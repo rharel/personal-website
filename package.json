@@ -32,7 +32,8 @@
       "sourceMap": false,
       "source": [
         "./templates_compiled/index.html",
-        "./templates_compiled/rigid-body-physics/index.html"
+        "./templates_compiled/rigid-body-physics/index.html",
+        "./templates_compiled/kaleidoscope/index.html"
       ],
       "distDir": "./distribution"
     }
