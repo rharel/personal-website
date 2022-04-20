@@ -71,42 +71,52 @@ function setup() {
     throw new Error("cannot get rendering context");
   }
 
-  const controls = render_world_animation(world, context, entity_styles, () => {
-    let total_velocity = 0;
-    world.for_each_entity((entity_id, entity) => {
-      let update_required = false;
-      if (entity.position.x < entity.radius) {
-        entity.position.x = entity.radius;
-        entity.velocity.x *= -1;
-        update_required = true;
+  const clear_color = window.matchMedia("(prefers-color-scheme: dark)").matches
+    ? "black"
+    : "white";
+
+  const controls = render_world_animation(
+    world,
+    context,
+    clear_color,
+    entity_styles,
+    () => {
+      let total_velocity = 0;
+      world.for_each_entity((entity_id, entity) => {
+        let update_required = false;
+        if (entity.position.x < entity.radius) {
+          entity.position.x = entity.radius;
+          entity.velocity.x *= -1;
+          update_required = true;
+        }
+        if (entity.position.x > world.options.size - entity.radius) {
+          entity.position.x = world.options.size - entity.radius;
+          entity.velocity.x *= -1;
+          update_required = true;
+        }
+        if (entity.position.y < entity.radius) {
+          entity.position.y = entity.radius;
+          entity.velocity.y *= -1;
+          update_required = true;
+        }
+        if (entity.position.y > world.options.size - entity.radius) {
+          entity.position.y = world.options.size - entity.radius;
+          entity.velocity.y *= -1;
+          update_required = true;
+        }
+        if (update_required) {
+          world.update(entity_id, {
+            position: entity.position,
+            velocity: entity.velocity,
+          });
+        }
+        total_velocity += entity.velocity.x + entity.velocity.y;
+      });
+      if (total_velocity === 0) {
+        controls.pause();
       }
-      if (entity.position.x > world.options.size - entity.radius) {
-        entity.position.x = world.options.size - entity.radius;
-        entity.velocity.x *= -1;
-        update_required = true;
-      }
-      if (entity.position.y < entity.radius) {
-        entity.position.y = entity.radius;
-        entity.velocity.y *= -1;
-        update_required = true;
-      }
-      if (entity.position.y > world.options.size - entity.radius) {
-        entity.position.y = world.options.size - entity.radius;
-        entity.velocity.y *= -1;
-        update_required = true;
-      }
-      if (update_required) {
-        world.update(entity_id, {
-          position: entity.position,
-          velocity: entity.velocity,
-        });
-      }
-      total_velocity += entity.velocity.x + entity.velocity.y;
-    });
-    if (total_velocity === 0) {
-      controls.pause();
     }
-  });
+  );
 }
 
 window.addEventListener("DOMContentLoaded", setup);

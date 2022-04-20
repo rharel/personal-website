@@ -12,12 +12,13 @@ export type AnimationControls = {
 function render_world_frame(
   world: World,
   context: CanvasRenderingContext2D,
+  clear_color: string,
   entity_styles: EntityStyles
 ) {
   context.save();
 
   // Clear canvas.
-  context.fillStyle = "white";
+  context.fillStyle = clear_color;
   context.fillRect(0, 0, context.canvas.width, context.canvas.height);
 
   // Flip vertical axis.
@@ -52,6 +53,7 @@ function render_world_frame(
 export function render_world_animation(
   world: World,
   context: CanvasRenderingContext2D,
+  clear_color: string,
   entity_styles: EntityStyles,
   frame_callback?: () => void
 ): AnimationControls {
@@ -67,6 +69,7 @@ export function render_world_animation(
     render_world_frame(
       world,
       context as CanvasRenderingContext2D,
+      clear_color,
       entity_styles
     );
     if (frame_callback) {
