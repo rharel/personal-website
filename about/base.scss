@@ -8,8 +8,17 @@
   --main-header-size: 2rem;
   --main-header-margin-bottom: 3rem;
   --main-content-width: min(70ch, 100vw);
-  --secondary-text-color: rgb(104, 104, 104);
+  --secondary-text-color: #686868;
   --theme-color: #2b5797;
+  background-color: #fbfbfb;
+  color: #262626;
+
+  @media (prefers-color-scheme: dark) {
+    --secondary-text-color: #a69f93;
+    --theme-color: #7dadda;
+    background-color: #1a1c1e;
+    color: #e8e6e3;
+  }
 }
 
 html,
@@ -27,8 +36,6 @@ body {
   align-items: center;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   font-size: 12pt;
-  background-color: #fbfbfb;
-  color: #262626;
   margin-top: 1rem;
 }
 
