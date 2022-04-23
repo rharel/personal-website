@@ -35,7 +35,8 @@
       "source": [
         "./templates_compiled/index.html",
         "./templates_compiled/rigid-body-physics/index.html",
-        "./templates_compiled/kaleidoscope/index.html"
+        "./templates_compiled/kaleidoscope/index.html",
+        "./templates_compiled/procedural-world-maps/index.html"
       ],
       "distDir": "./distribution"
     }

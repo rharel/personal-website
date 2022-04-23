@@ -1,0 +1,9 @@
+.demo {
+  --gap-size: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  row-gap: var(--gap-size);
+  column-gap: var(--gap-size);
+  margin-bottom: var(--gap-size);
+}

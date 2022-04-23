@@ -1,0 +1,53 @@
+{% extends "project.njk" %}
+
+{% block page_title %}Procedural World Maps{% endblock %}
+
+{% block head %}
+  {{ super() }}
+  <link rel="stylesheet" href="/projects/procedural-world-maps/demo.scss">
+{% endblock %}
+
+{% block project_contents %}
+  <div class="demo">
+    {% for i in range(1, 10) %}
+      <a href="/projects/procedural-world-maps/world-{{ i }}.png?as=webp" aria-label="View larger image">
+        <img
+          src="/projects/procedural-world-maps/world-{{ i }}.png?as=webp&width=170"
+          srcset="/projects/procedural-world-maps/world-{{ i }}.png?as=webp 2x"
+          alt="Randomly generated world map #{{ i }}"
+          width="170"
+          height="170">
+      </a>
+    {% endfor %}
+  </div>
+  <p>
+    This is a collection of procedurally generated world bird's-eye-view maps. The generation process is a pseudo random physically based process following these steps:
+  </p>
+  <ol>
+    <li>
+      Generate terrain elevation using <a href="https://en.wikipedia.org/wiki/Diamond-square_algorithm">the diamond-square method</a>
+    </li>
+    <li>
+      Divide terrain into <a href="https://en.wikipedia.org/wiki/Voronoi_diagram">voronoi</a> cells where each is associated with its own ground material (rock, sand, etc.)
+    </li>
+    <li>
+      Compute temperature based on local altitude and latitude
+    </li>
+    <li>
+      Place oceans where altitude is lower than zero
+    </li>
+    <li>
+      Place ice where temperature is suitable for snowfall or where the oceans may freeze
+    </li>
+    <li>
+      Compute precipitation based on local temperature, distance from the ocean, and climate zones
+    </li>
+    <li>
+      Run rivers from local altitude maxima towards the ocean
+    </li>
+  </ol>
+  <p>
+    <a href="https://github.com/rharel/cuda-worldgen">Source code here.</a>
+  </p>
+</p>
+{% endblock %}
