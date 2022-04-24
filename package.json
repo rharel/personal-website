@@ -3,12 +3,12 @@
   "version": "1.0.0",
   "description": "Source of www.rharel.com",
   "scripts": {
-    "clean": "rm -rf templates_compiled && rm -rf distribution",
+    "clean": "rm -rf templates_compiled/* && rm -rf production/*",
     "watch:eleventy": "eleventy --input=templates --output=templates_compiled --watch",
-    "serve:parcel": "parcel serve --no-cache --dist-dir distribution",
+    "serve:parcel": "parcel serve --no-cache --dist-dir production",
     "build:eleventy": "eleventy --input=templates --output=templates_compiled",
-    "build:parcel": "parcel build --no-cache --dist-dir distribution",
-    "build:webroot": "cp webroot/* distribution"
+    "build:parcel": "parcel build --no-cache --dist-dir production",
+    "build:webroot": "cp webroot/* production"
   },
   "keywords": [],
   "author": "Raoul Harel <admin@rharel.com>",
@@ -38,7 +38,7 @@
         "./templates_compiled/kaleidoscope/index.html",
         "./templates_compiled/procedural-world-maps/index.html"
       ],
-      "distDir": "./distribution"
+      "distDir": "./production"
     }
   },
   "parcelIgnore": [

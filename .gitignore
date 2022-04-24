@@ -1,4 +1,4 @@
 .parcel-cache/
-distribution/
+production/
 node_modules/
 templates_compiled/
