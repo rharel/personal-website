@@ -13,7 +13,7 @@ projects:
     url: /kaleidoscope
   -
     title: Procedural World Maps
-    image_source: /projects/procedural-world-maps/world-1.png?as=webp&width=128&height=128
+    image_source: /projects/procedural-world-maps/world-1.png?as=webp&width=128
     image_alt: Map of a randomly generated world
     url: /procedural-world-maps
   -
@@ -54,17 +54,17 @@ projects:
       </address>
       <img
         class="portrait"
-        src="/about/portrait.jpg?as=webp"
+        src="/about/portrait.jpg?as=webp&height=128"
         alt="Portrait"
-        width="512"
-        height="343">
+        width="128"
+        height="128">
     </section>
     <section class="featured-projects">
       {% for project in projects %}
         <a class="project" href="{{ project.url }}">
           <img
             class="thumbnail"
-            src="{{ project.image_source }}"
+            src="{{ project.image_source | safe }}"
             alt="{{ project.image_alt }}"
             width="128"
             height="128">
