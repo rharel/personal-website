@@ -3,12 +3,8 @@
   "version": "1.0.0",
   "description": "Source of www.rharel.com",
   "scripts": {
-    "clean": "rm -rf templates_compiled/* && rm -rf production/*",
     "watch:eleventy": "eleventy --input=templates --output=templates_compiled --watch",
-    "serve:parcel": "parcel serve --no-cache --dist-dir production",
-    "build:eleventy": "eleventy --input=templates --output=templates_compiled",
-    "build:parcel": "parcel build --no-cache --dist-dir production",
-    "build:webroot": "cp webroot/* production"
+    "serve:parcel": "parcel serve --no-cache --dist-dir production"
   },
   "keywords": [],
   "author": "Raoul Harel <admin@rharel.com>",
