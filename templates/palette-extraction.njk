@@ -1,0 +1,28 @@
+{% extends "project.njk" %}
+
+{% block page_title %}Palette Extraction{% endblock %}
+
+{% block head %}
+  {{ super() }}
+  <link rel="stylesheet" href="/projects/palette-extraction/demo.scss">
+  <script src="/projects/palette-extraction/demo.ts" type="module"></script>
+{% endblock %}
+
+{% block project_contents %}
+  <div class="demo">
+    <noscript>
+      JavaScript is required to view this project demo.
+    </noscript>
+    <input id="demo-image" name="demo-image" type="file" accept="image/jpeg, image/png">
+    <label class="button" for="demo-image" role="button" tabindex="0">Select Image</label>
+    <div class="demo-palette-colors">
+      {% for i in range(10) %}
+        <div class="demo-palette-color" role="img" aria-label="Blank colored square"></div>
+      {% endfor %}
+    </div>
+  </div>
+  <p>
+    Select an image to extract a color palette from. This is done using <a href="https://en.wikipedia.org/wiki/Stratified_sampling">stratified sampling</a> of the pixels, then converting the samples from RGB into the more human friendly HSL space, and finally finding dominant mean colors using <a href="https://en.wikipedia.org/wiki/K-means_clustering">k-means clustering</a>.
+    <a href="https://github.com/rharel/js-palette-extraction">Source code here.</a>
+  </p>
+{% endblock %}

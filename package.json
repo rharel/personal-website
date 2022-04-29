@@ -27,12 +27,12 @@
       "engines": {
         "browsers": "> 0.5%, last 2 versions, not dead"
       },
-      "sourceMap": false,
       "source": [
         "./templates_compiled/index.html",
-        "./templates_compiled/rigid-body-physics/index.html",
         "./templates_compiled/kaleidoscope/index.html",
-        "./templates_compiled/procedural-world-maps/index.html"
+        "./templates_compiled/palette-extraction/index.html",
+        "./templates_compiled/procedural-world-maps/index.html",
+        "./templates_compiled/rigid-body-physics/index.html"
       ],
       "distDir": "./production"
     }

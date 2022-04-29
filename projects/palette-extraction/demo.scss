@@ -1,0 +1,33 @@
+.demo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  input[name="demo-image"] {
+    display: none;
+  }
+
+  .demo-palette-colors {
+    --gap-size: 1rem;
+
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    row-gap: var(--gap-size);
+    column-gap: var(--gap-size);
+    margin: var(--gap-size) 0;
+    width: 100%;
+
+    .demo-palette-color {
+      display: inline-block;
+      width: calc((100% - 4 * var(--gap-size)) / 5); // Two rows of five blocks.
+      aspect-ratio: 1;
+      background-color: #d3d3d3;
+      transition: background-color 1s;
+
+      @media (prefers-color-scheme: dark) {
+        background-color: #313537;
+      }
+    }
+  }
+}
