@@ -1,0 +1,2 @@
+.demo{justify-content:center;margin-bottom:1rem;display:flex}.demo .demo-canvas{width:min(100%,512px);height:auto;border:1px solid var(--theme-color);text-align:center;align-items:center;display:flex}@media (prefers-color-scheme:dark){.demo .demo-canvas{filter:invert()}}
+/*# sourceMappingURL=index.324472b5.css.map */
