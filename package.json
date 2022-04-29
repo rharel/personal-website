@@ -29,6 +29,7 @@
       },
       "source": [
         "./templates_compiled/index.html",
+        "./templates_compiled/game-of-life/index.html",
         "./templates_compiled/kaleidoscope/index.html",
         "./templates_compiled/palette-extraction/index.html",
         "./templates_compiled/procedural-world-maps/index.html",

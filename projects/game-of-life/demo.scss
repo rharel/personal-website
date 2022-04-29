@@ -1,0 +1,18 @@
+.demo {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+
+  .demo-canvas {
+    display: flex;
+    align-items: center;
+    width: min(100%, 512px);
+    height: auto;
+    border: 1px solid var(--theme-color);
+    text-align: center;
+
+    @media (prefers-color-scheme: dark) {
+      filter: invert(100%);
+    }
+  }
+}
