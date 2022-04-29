@@ -83,12 +83,7 @@ function animate(
 }
 
 function setup() {
-  const canvas_elements = document.getElementsByClassName("demo-canvas");
-  if (canvas_elements.length !== 1) {
-    throw new Error(`expected 1 demo canvas, found ${canvas_elements.length}`);
-  }
-
-  const canvas = canvas_elements.item(0);
+  const canvas = document.getElementById("demo-canvas");
   if (!(canvas instanceof HTMLCanvasElement)) {
     throw new Error(`expected canvas element, found ${typeof canvas}`);
   }
