@@ -46,6 +46,9 @@ function setup() {
   file_input.addEventListener("change", () =>
     on_selected_image_change(file_input)
   );
+  document
+    .getElementById("demo-select-image-button")
+    ?.addEventListener("click", () => file_input.click());
 }
 
 window.addEventListener("DOMContentLoaded", setup);
