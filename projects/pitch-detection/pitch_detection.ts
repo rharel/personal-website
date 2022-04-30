@@ -105,10 +105,7 @@ export async function detect_from_device(
         : detected_note_index % 12;
 
     const detected_pitch = PITCH_CLASSES[detected_note_index_normalized];
-    const detected_note =
-      detected_pitch[0] +
-      detected_octave.toString() +
-      (detected_pitch.length === 2 ? detected_pitch[1] : "");
+    const detected_note = detected_pitch + detected_octave.toString();
 
     if (detected_note_history.length >= history_buffer_size) {
       const popped_note = detected_note_history.splice(0, 1)[0];
