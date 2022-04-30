@@ -1,0 +1,23 @@
+{% extends "project.njk" %}
+
+{% block page_title %}Pitch Detection{% endblock %}
+
+{% block head %}
+  {{ super() }}
+  <link rel="stylesheet" href="/projects/pitch-detection/demo.scss">
+  <script src="/projects/pitch-detection/demo.ts" type="module"></script>
+{% endblock %}
+
+{% block project_contents %}
+  <div class="demo">
+    <noscript>
+      JavaScript is required to view this project demo.
+    </noscript>
+    <span id="demo-detected-note">A4</span>
+    <span id="demo-detected-frequency">440Hz</span>
+  </div>
+  <p>
+    If you allow this page access to your microphone, hum or whistle a tune. The detected frequency and note will be displayed above.
+    <a href="https://github.com/rharel/personal-website/blob/master/projects/pitch-detection/pitch_detection.ts">Source code here.</a>
+  </p>
+{% endblock %}

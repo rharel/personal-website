@@ -32,6 +32,7 @@
         "./templates_compiled/game-of-life/index.html",
         "./templates_compiled/kaleidoscope/index.html",
         "./templates_compiled/palette-extraction/index.html",
+        "./templates_compiled/pitch-detection/index.html",
         "./templates_compiled/procedural-world-maps/index.html",
         "./templates_compiled/rigid-body-physics/index.html"
       ],
