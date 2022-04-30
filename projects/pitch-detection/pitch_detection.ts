@@ -67,7 +67,7 @@ export async function detect_from_device(
 
   const frequency_bin_intensities = new Uint8Array(frequency_bin_count);
   const detected_note_history: string[] = [];
-  const detected_note_counts: { [index in string]: number } = {};
+  const detected_note_counts: { [index: string]: number } = {};
 
   function process_samples() {
     requestAnimationFrame(process_samples);
