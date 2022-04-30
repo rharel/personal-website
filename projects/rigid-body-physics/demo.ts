@@ -71,14 +71,10 @@ function setup() {
     throw new Error("cannot get rendering context");
   }
 
-  const clear_color = window.matchMedia("(prefers-color-scheme: dark)").matches
-    ? "black"
-    : "white";
-
   const controls = render_world_animation(
     world,
     context,
-    clear_color,
+    "white",
     entity_styles,
     () => {
       let total_velocity = 0;
