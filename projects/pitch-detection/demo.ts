@@ -8,7 +8,7 @@ function setup() {
     throw new Error("missing demo element");
   }
 
-  detect_from_device(255 * 0.5, 60, (frequency, note) => {
+  detect_from_device(125, 12, (frequency, note) => {
     detected_frequency.textContent = `${Math.round(frequency)}Hz`;
     detected_note.textContent = note;
   });
