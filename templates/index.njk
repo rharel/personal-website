@@ -4,21 +4,25 @@ projects:
   -
     title: Kaleidoscope
     image_source: /projects/kaleidoscope/kaleidoscope-rendering.png?as=webp&width=128
+    image_source_fallback: /projects/kaleidoscope/kaleidoscope-rendering.png?width=128
     image_alt: Kaleidoscopic reflections
     url: /kaleidoscope/
   -
     title: Procedural World Maps
     image_source: /projects/procedural-world-maps/world-1.png?as=webp&width=128
+    image_source_fallback: /projects/procedural-world-maps/world-1.png?width=128
     image_alt: Map of a randomly generated world
     url: /procedural-world-maps/
   -
     title: Generative Tarot Art
     image_source: /projects/generative-tarot-art/tarot-card-art.webp?width=128
+    image_source_fallback: /projects/generative-tarot-art/tarot-card-art.webp?as=png&width=128
     image_alt: Tarot card art
     url: https://www.faceyourtarot.com/
   -
     title: Rigid Body Physics
     image_source: /projects/rigid-body-physics/particles.webp?width=128
+    image_source_fallback: /projects/rigid-body-physics/particles.webp?as=png&width=128
     image_alt: Particles in a box
     url: /rigid-body-physics/
   -
@@ -72,22 +76,37 @@ projects:
           </svg>@raoul-harel
         </a>
       </address>
-      <img
-        class="portrait"
-        src="/about/portrait.jpg?as=webp&height=128"
-        alt="Portrait"
-        width="128"
-        height="128">
+      <picture>
+        <source srcset="/about/portrait.jpg?as=webp&height=128" type="image/webp">
+        <img
+          class="portrait"
+          src="/about/portrait.jpg?height=128"
+          alt="Portrait"
+          width="128"
+          height="128">
+      </picture>
     </section>
     <section class="featured-projects">
       {% for project in projects %}
         <a class="project" href="{{ project.url }}">
-          <img
-            class="thumbnail"
-            src="{{ project.image_source | safe }}"
-            alt="{{ project.image_alt }}"
-            width="128"
-            height="128">
+          {% if project.image_source_fallback %}
+            <picture>
+              <source srcset="{{ project.image_source | safe }}" type="image/webp">
+              <img
+                class="thumbnail"
+                src="{{ project.image_source_fallback | safe }}"
+                alt="{{ project.image_alt }}"
+                width="128"
+                height="128">
+            </picture>
+          {% else %}
+             <img
+              class="thumbnail"
+              src="{{ project.image_source | safe }}"
+              alt="{{ project.image_alt }}"
+              width="128"
+              height="128">
+          {% endif %}
           <h1 class="title">{{ project.title }}</h1>
         </a>
       {% endfor %}
