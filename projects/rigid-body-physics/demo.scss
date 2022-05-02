@@ -9,6 +9,7 @@
     width: min(100%, 512px);
     height: auto;
     text-align: center;
+    border: 1px solid black;
 
     @media (prefers-color-scheme: dark) {
       filter: invert(100%);
