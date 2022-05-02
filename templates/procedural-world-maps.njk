@@ -10,14 +10,14 @@
 {% block project_contents %}
   <div class="demo">
     {% for i in range(1, 10) %}
-      <a href="/projects/procedural-world-maps/world-{{ i }}.png" aria-label="View larger image">
+      <a href="/projects/procedural-world-maps/world-{{ i }}.png?as=jpeg" aria-label="View larger image">
         <picture>
           <source srcset="/projects/procedural-world-maps/world-{{ i }}.png?as=webp&width=170 1x, /projects/procedural-world-maps/world-{{ i }}.png?as=webp 2x" type="image/webp">
 
-          <source srcset="/projects/procedural-world-maps/world-{{ i }}.png?width=170 1x, /projects/procedural-world-maps/world-{{ i }}.png 2x" type="image/png">
+          <source srcset="/projects/procedural-world-maps/world-{{ i }}.png?as=jpeg&width=170 1x, /projects/procedural-world-maps/world-{{ i }}.png?as=jpeg 2x" type="image/png">
 
           <img
-            src="/projects/procedural-world-maps/world-{{ i }}.png?width=170"
+            src="/projects/procedural-world-maps/world-{{ i }}.png?as=jpeg&width=170"
             alt="Randomly generated world map #{{ i }}"
             width="170"
             height="170">
