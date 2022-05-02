@@ -1,0 +1,21 @@
+{% extends "project.njk" %}
+
+{% block page_title %}Pong{% endblock %}
+
+{% block head %}
+  {{ super() }}
+  <link rel="stylesheet" href="/projects/pong/demo.scss">
+  <script src="/projects/pong/demo.ts" type="module"></script>
+{% endblock %}
+
+{% block project_contents %}
+  <div class="demo">
+    <canvas id="demo-canvas" width="512" height="512" aria-label="Interactive game of Pong">
+      Either your browser does not support the canvas element, or you have JavaScript disabled. Both are required to view this project demo.
+    </canvas>
+  </div>
+  <span id="debug"></span>
+  <p>
+    Enjoy a quick game of pong. The more points you score the higher the difficulty. <a href="">Source code here.</a>
+  </p>
+{% endblock %}
