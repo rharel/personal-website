@@ -1,0 +1,48 @@
+{% extends "project.njk" %}
+
+{% block page_title %}Multi-Party Dialogue{% endblock %}
+
+{% block head %}
+  {{ super() }}
+  <link rel="stylesheet" href="/projects/multi-party-dialogue/figures.scss">
+{% endblock %}
+
+{% block project_contents %}
+  <div class="figure">
+    <a href="/projects/multi-party-dialogue/agency-model.svg" aria-label="View larger image">
+      <img
+          class="demo-image"
+          src="data-url:/projects/multi-party-dialogue/agency-model.svg"
+          alt="Multi party dialogue agency model diagram"
+          width="512"
+          height="512">
+    </a>
+  </div>
+  <p>
+    Existing frameworks and tools for modeling virtual dialogue tend to be designed with dyadic interactions in mind, and are often built to serve solely in task-oriented domains. However, modeling realistic action and turn-taking in more general scenarios remains a challenge. We propose a generic framework to aid in development of multi-modal, multi-party dialogue. It contains mechanisms inspired by social practice theory for both action selection and timing &mdash; including handling of interruption. As a proof-of-concept, we employ these ideas in a virtual couples-therapy session, demonstrating their potential in modeling complex real-life situations.
+  </p>
+  <p>
+    A common shortcoming of all prevalent turn-taking methods is the implicit assumption that a turn has instantaneous duration. Meaning that once an agent takes a turn, it proceeds to complete it with no regard to any new events that transpire during it. This is a major hurdle for dialogue in complex dynamic scenarios such as those often found in serious-games. Our agency model rectifies this.
+  </p>
+  <p>
+    Social practice theory attempts to articulate the symbiotic relationship between the actions of social beings and the systematic rules (be they explicit or implicit) that govern their societies. In conversation, social practices dictate a great deal of our conduct, and the idea of incorporating them in the development of agency systems brings with it some very appealing benefits: they are intuitive to reason about, flexible when describing behavior, and easily reusable.
+  </p>
+  <p>
+    We use the concept of 'social expectations' as a gateway to describing practices in dialogue. We define several types of expectations, and show how they can be arranged to elicit realistic behavior even in complex scenarios &mdash; including both appropriate selection and timing of action.
+  </p>
+  <p>
+    Agents in the scene undergo a classic update cycle consisting of three elementary steps: perception, deliberation, and action. The communication management system is responsible for coordinating this cycle, so that events are perceived consistently across the population. It collects the actions produced by agents in one iteration, and makes them available for perception in the next. To accommodate for multi-modality, the actions collected are organized through channels, with each channel carrying actions belonging to a single modality.
+  </p>
+  <ul>
+    <li>
+      <a href"/projects/multi-party-dialogue/towards-a-generic-framework-for-multi-party-dialogue-with-virtual-humans.pdf">
+        Read the paper
+      </a>
+    </li>
+    <li>
+      <a href="https://github.com/rharel/m3pd-example-couples-therapy/wiki#the-m3pd-framework">
+        Browse source code and documentation
+      </a>
+    </li>
+  </ul>
+{% endblock %}
