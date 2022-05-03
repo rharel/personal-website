@@ -3,5 +3,7 @@
         "eleventy",
         "rharel",
         "webroot"
-    ]
+    ],
+    "liveServer.settings.useLocalIp": true,
+    "liveServer.settings.root": "/production/"
 }
