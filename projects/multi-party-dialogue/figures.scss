@@ -6,5 +6,9 @@
   img {
     width: min(100%, 512px);
     height: auto;
+
+    @media (prefers-color-scheme: dark) {
+      filter: invert(100%);
+    }
   }
 }
