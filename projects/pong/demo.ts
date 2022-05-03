@@ -78,7 +78,18 @@ function setup() {
   let last_frame_time_ms: number | null = null;
 
   canvas.addEventListener("mousemove", (event) => {
+    event.preventDefault();
     game_state.player_paddle_x = -1 + (event.offsetX / canvas.clientWidth) * 2;
+  });
+  canvas.addEventListener("touchmove", (event) => {
+    const touch = event.touches.item(0);
+    if (touch === null) {
+      return;
+    }
+    event.preventDefault();
+    const canvas_rect = canvas.getBoundingClientRect();
+    game_state.player_paddle_x =
+      -1 + ((touch.clientX - canvas_rect.left) / canvas.clientWidth) * 2;
   });
 
   const advance_game = () => {
