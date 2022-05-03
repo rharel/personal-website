@@ -95,7 +95,7 @@ function setup() {
         game_options.ball_initial_speed < 3
       ) {
         game_options.ball_initial_speed += 0.2;
-        game_options.ai_movement_speed += 0.1;
+        game_options.ai_movement_speed += 0.2;
       }
       game_state = new_game_state(game_options);
       last_frame_time_ms = null;

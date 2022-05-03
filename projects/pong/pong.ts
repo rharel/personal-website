@@ -278,5 +278,5 @@ function ai_paddle_velocity(
   const target_x = intercept_x - center_offset;
   const target_dx = target_x - ai_paddle_x;
 
-  return clamp(target_dx, -max_velocity, max_velocity);
+  return max_velocity * target_dx;
 }
