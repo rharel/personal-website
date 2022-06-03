@@ -48,7 +48,7 @@
       Fill up vallies to form lakes. Some lakes may be discarded if their depth is less than a given threshold. Separately, also save the dataset where no lakes were discarded, this "water level" dataset is relevant to the generation of rivers because for every point in it there exists a downhill path to the ocean.
     </li>
     <li>
-      t each point, spawn a precipitation-based amount of water and track its downhill path to the ocean using the water level dataset from the previous step. For each point, keep track of the total amount of water passing through it from all streams, let's call that the river's "intensity". Points with an intensity greater than a given threshold are marked as rivers.
+      At each point, spawn a precipitation-based amount of water and track its downhill path to the ocean using the water level dataset from the previous step. For each point, keep track of the total amount of water passing through it from all streams, let's call that the river's "intensity". Points with an intensity greater than a given threshold are marked as rivers.
     </li>
     <li>
       Erode elevation next to rivers proportional to the river's intensity at that point. This results in rivers that start off narrow at the source and gradually widen.
