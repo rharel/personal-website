@@ -1,0 +1,12 @@
+.demo {
+  display: flex;
+  flex-direction: column;
+  row-gap: 1rem;
+  justify-content: center;
+  margin-bottom: 1rem;
+
+  img {
+    width: min(100%, 512px);
+    height: auto;
+  }
+}

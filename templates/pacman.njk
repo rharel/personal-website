@@ -1,0 +1,57 @@
+{% extends "project.njk" %}
+
+{% block page_title %}Pacman{% endblock %}
+
+{% block head %}
+  {{ super() }}
+  <link rel="stylesheet" href="/projects/pacman/demo.scss">
+{% endblock %}
+
+{% block project_contents %}
+  <div class="demo">
+    {% for image_file_name in ['main-menu.png', 'gameplay.png'] %}
+      <a href="/projects/pacman/{{ image_file_name }}" aria-label="View larger image">
+        <picture>
+          <source srcset="/projects/pacman/{{ image_file_name }}?as=webp&width=512 1x, /projects/pacman/{{ image_file_name }}?as=webp 2x" type="image/webp">
+
+          <source srcset="/projects/pacman/{{ image_file_name }}?width=512 1x, /projects/pacman/{{ image_file_name }} 2x" type="image/png">
+
+          <img
+          class="demo-image"
+          src="/projects/pacman/{{ image_file_name }}?width=512"
+          alt="Main menu"
+          width="512"
+          height="288">
+        </picture>
+      </a>
+    {% endfor %}
+  </div>
+  <p>
+    This is a simple pacman implementation in Unity. Suitable for educational purposes as well as beginners to learn the basics of Unity. Includes:
+  </p>
+  <ul>
+    <li>GUI</li>
+    <ul>
+      <li>Main, pause, and endgame menus</li>
+      <li>GUI-elements animations</li>
+      <li>Scene transition animations</li>
+      <li>Dynamic HUD</li>
+    </ul>
+    <li>Gameplay</li>
+    <ul>
+      <li>Pseudo-random ghost movement</li>
+      <li>Smart keyboard input</li>
+      <li>Collectible coins and powerups</li>
+      <li>Character and item animations</li>
+      <li>Score manager</li>
+    </ul>
+    <li>Design</li>
+    <ul>
+      <li>Easy maze design with waypoints and editor extensions</li>
+      <li>Waypoints used to dynamically spawn maze game objects at level start</li>
+    </ul>
+</ul>
+<p>
+  <a href="https://github.com/rharel/unity-pacman">Source code here.</a>
+</p>
+{% endblock %}
