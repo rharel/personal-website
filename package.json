@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "description": "Source of www.rharel.com",
   "scripts": {
-    "watch:eleventy": "eleventy --input=templates --output=templates_compiled --watch",
-    "serve:parcel": "parcel serve --no-cache --dist-dir production"
+    "watch-and-compile": "eleventy --input=templates --output=templates_compiled --watch",
+    "serve": "parcel serve --no-cache --dist-dir production"
   },
   "keywords": [],
   "author": "Raoul Harel <admin@rharel.com>",
