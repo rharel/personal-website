@@ -1,0 +1,21 @@
+{% extends "project.njk" %}
+
+{% block page_title %}Fluid Simulation{% endblock %}
+
+{% block head %}
+  {{ super() }}
+  <link rel="stylesheet" href="/projects/fluid-simulation/demo.scss">
+  <script src="/projects/fluid-simulation/demo.ts" type="module"></script>
+{% endblock %}
+
+{% block project_contents %}
+  <div class="demo">
+    <canvas id="demo-canvas" width="512" height="512" aria-label="Showcase featuring fluid simulation.">
+      Either your browser does not support the canvas element, or you have JavaScript disabled. Both are required to view this project demo.
+    </canvas>
+    <span id="fps"></span>
+  </div>
+  <p>
+  This is an implementation of two dimensional fluid simulation in WebGL based on the <a href="http://graphics.cs.cmu.edu/nsp/course/15-464/Fall09/papers/StamFluidforGames.pdf">Real-Time Fluid Dynamics paper by Jos Stam</a>. Move the cursor around to disturb the fluid or press to inject density at a given point. <a href="https://github.com/rharel/personal-website/blob/master/projects/fluid-simulation/demo.ts">Source code here.</a>
+  </p>
+{% endblock %}

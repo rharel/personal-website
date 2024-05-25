@@ -12,6 +12,7 @@
   "devDependencies": {
     "@11ty/eleventy": "1.0.0",
     "@parcel/optimizer-data-url": "^2.4.1",
+    "@parcel/transformer-glsl": "^2.4.1",
     "@parcel/transformer-inline-string": "^2.4.1",
     "@parcel/transformer-sass": "2.4.1",
     "@typescript-eslint/eslint-plugin": "5.20.0",
@@ -29,6 +30,7 @@
       },
       "source": [
         "./templates_compiled/index.html",
+        "./templates_compiled/fluid-simulation/index.html",
         "./templates_compiled/game-of-life/index.html",
         "./templates_compiled/kaleidoscope/index.html",
         "./templates_compiled/multi-party-dialogue/index.html",
